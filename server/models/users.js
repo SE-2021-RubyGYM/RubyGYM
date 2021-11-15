@@ -13,19 +13,47 @@ const Users = new Schema({
         minLength: 6,
 		unique: true
 	},
+    phone:{
+        type: String,
+        required: true,
+        minLength: 6,
+        match: [/0\d{5,10}$/, 'Please fill a valid phone number']
+    },
 	password: {
 		type: String,
 		required: true
 	},
-    age: {
-        type: Number, 
-        min: 18, 
-        max:65
+    birthDay:{
+        type: Date
     },
-    gender: Boolean,
-    trainer: {
+    gender: {
+		type: String,
+        enum : ['Male', 'Female'],
+        default: 'Male'
+	},
+    coach: {
         type:Schema.Types.ObjectId,
-        ref: 'Trainers'
+        ref: 'Coachs'
+    },
+    referralCode:{
+        type: String,
+		required: true,
+		unique: true
+    },
+    assessment:{
+        type: String,
+        minLength: 3,
+        maxLength: 255
+    },
+    height:{
+        type: Number,
+        min: 10, 
+        max:365
+    },
+    weight:{
+        type: Number,
+        min: 5, 
+        max:365
     },
     paymentDay:{
         type: Date, 

@@ -1,18 +1,36 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const Trainers = new Schema({
+const Coachs = new Schema({
     name: {
         type: String, 
         minLength: 2, 
         maxLength:127
     },
-    age: {
-        type: Number, 
-        min: 18, 
-        max:65
+    birthDay:{
+        type: Date
     },
-    gender: Boolean,
+    username: {
+		type: String,
+		required: true,
+        minLength: 6,
+		unique: true
+	},
+    password: {
+		type: String,
+		required: true
+	},
+    phone:{
+        type: String,
+        required: true,
+        minLength: 6,
+        match: [/0\d{5,10}$/, 'Please fill a valid phone number']
+    },
+    gender: {
+		type: String,
+        enum : ['Male', 'Female'],
+        default: 'Male'
+	},
     bio: {
         type: String, 
         minLength: 16, 
@@ -36,4 +54,4 @@ const Trainers = new Schema({
     },
 });
 
-module.exports = mongoose.model('Trainers', Trainers);
+module.exports = mongoose.model('Coachs', Coachs);
