@@ -7,6 +7,12 @@ const advSchema = new Schema({
     type: String,
     required: [true, "Thiếu thông tin người tạo quảng cáo"],
   },
+  title: {
+    type: String
+  },
+  time: {
+    type: String,
+  },
   picture: {
     type: String,
   },
