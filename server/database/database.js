@@ -10,6 +10,7 @@ const connectDB = async () => {
 				useNewUrlParser: true,
 				useUnifiedTopology: true
 			}
+			// "mongodb://localhost:27017/rubyGym"
 		)
 
 		console.log('MongoDB connected')

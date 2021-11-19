@@ -1,9 +1,23 @@
 const router = require('express').Router()
-const {verifyAdmin,verifyCoach} = require('../controllers/auth')
+const {verifyAdmin} = require('../controllers/admins')
+const {verifyCoach} = require('../controllers/coachs')
 const {createUser,getUsers,getUserById,updateUserById,deleteUserById,
     changePassword,changeUserAssessment,changeUserInfos,getUsersByCoach,
-    getMyInfos} = require('../controllers/users')
+    getMyInfos,verify,login} = require('../controllers/users')
 const verifyToken = require('../middlewares/authentication')
+
+
+
+// @route GET api/users/auth
+// @desc Check if user is logged in
+// @access Public
+router.get('/auth', verifyToken, async(req, res) => {await verify(req, res)})
+
+
+// @route POST api/users/login
+// @desc Login user
+// @access Public
+router.post('/login',async(req, res) => {await login(req, res)})
 
 
 // @route POST api/users
