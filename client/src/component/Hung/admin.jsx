@@ -1,7 +1,7 @@
 import './style.css'
 import axios from 'axios';
-
 import { useState } from 'react';
+import Header from './header.jsx'
 
 function Admin() {
   const [userName,setUserName] = useState('')
@@ -22,9 +22,22 @@ function Admin() {
     });
   }
 
+  const [state, setState] = useState('block')
+
+  const closeLoginPanel = () => {
+    setState((state) => {
+      if (state == 'block'){
+        return 'none'
+      }
+      else {
+        return 'block'
+      }
+    })
+  }
   return (                                  
     <div id="html">
-      <div class="login-panel" >
+      <Header />
+      <div class="login-panel" style={{display: state}} >
         <h2>Admin</h2>
         <br/>
         <input type="text" placeholder="Enter user" onChange={(e)=>setUserName(e.target.value)} />
@@ -36,9 +49,12 @@ function Admin() {
             </label>
         </div>
         <br />
-        <button onClick={()=>fLogin()}>
+        <button className="submit-login" onClick={()=>fLogin()}>
           Log in
-        </button>        
+        </button>  
+        <button className="close-panel" onClick={closeLoginPanel} > 
+          Đóng 
+        </button>      
       </div>
 
     </div>           

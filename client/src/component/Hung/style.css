@@ -57,7 +57,9 @@
     margin-top: 20px;
     list-style: none;
     display: none;
-    color:rgb(255, 0, 0)
+    color:rgb(255, 0, 0);
+    position: relative;
+    z-index: 5;
 }
 .login-menu .login-user button{
     width: 100%;
@@ -142,7 +144,6 @@
 .login-panel{
     width: 24vw;
     height: 350px;
-    /* background-color: rgb(46, 40, 40); */
     background-color: red;
     background-image: linear-gradient(rgb(151, 10, 17), black); 
 
@@ -152,6 +153,8 @@
     margin-left: 35vw;
     margin-top: 69px;
     padding: 50px;
+    position: fixed;
+    z-index: 5;
     
     
 }
@@ -196,19 +199,33 @@
     top: -1px;
 
 }
-.login-panel button{
+.login-panel .submit-login{
     width: 22vw;
     height: 40px;
     border: none;
     border-radius: 20px;
     background-color: #ff3366;
+    background-image: linear-gradient(#ff3366, black); 
+
     color: rgb(255, 255, 255);
     font-size: 18px;
-    margin-top: 5vw;
+    margin-top: 35px;
     margin-left: 6% ;
 }
 
+.login-panel .close-panel{
+    width: 16vw;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 18% ;
+    background-image: linear-gradient(rgb(151, 10, 17), black); 
 
+    
+}
 
 #event{
     width: 100vw;
@@ -217,10 +234,56 @@
     display: flex;
 }
 
-#event .event-content{
+#event .event-cover{
     width: 92%;
     height: 90% ;
     background-color: rgb(255, 255, 255);
-    border: rgb(218, 209, 208) solid 1px;
+    
     margin: auto;
+
+    
+}
+.event-cover .event-content{
+    width: 60%;
+    height: 100%;
+    border-right: rgb(232, 232, 233) solid 3px;
+    padding-left: 50px;
+    padding-top: 40px;
+    padding-right: 50px;
+}
+
+.event-header .home-page{
+    /* background-color: rgb(68, 233, 68); */
+    width: 100px;
+    float: left;
+    font-size: 20px;  
+}
+.event-header .event{
+    /* background-color: rgb(68, 233, 68); */
+    width: 160px;
+    float: left;
+    font-size: 20px;  
+}
+
+.event-header .arrow{
+    width: 20px;
+    /* background-color: rgb(218, 71, 198); */
+    float: left;
+    font-size: 23px;
+    color:rgb(150, 135, 135);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+hr{
+    border-top: 1px solid rgb(232, 232, 233);
+    margin-top: 35px;   
+}
+.event-logo{
+    background-color: rgb(235, 75, 75);
+    width : 200px;
+    height: 30px;
+    margin-top: 50px;
+    padding-top: 15px;
+    text-align: center;
+    color: white
 }

@@ -17,6 +17,17 @@ function Header() {
     })
   }
 
+  const closeLoginPanel = () => {
+    setState((state) => {
+      if (state == 'block'){
+        return 'none'
+      }
+      else {
+        return 'block'
+      }
+    })
+  }
+
   return (                                  
     
     <div id="html">
@@ -46,7 +57,7 @@ function Header() {
               <button onClick={showLoginPanel} >User</button>
             </li>
             <li className="login-user">
-              <a href="/admin" >
+              <a href="/admin/home" >
                 <button  >Admin</button>
               </a>
             </li>
@@ -70,9 +81,12 @@ function Header() {
             </label>
         </div>
         <br />
-        <button>
+        <button className="submit-login">
           Log in
-        </button>        
+        </button>
+        <button className="close-panel" onClick={closeLoginPanel} > 
+          Đóng 
+        </button>          
       </div>
       
     </div>           
