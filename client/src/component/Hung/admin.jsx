@@ -17,8 +17,11 @@ function Admin() {
       }
     }).then(res=>{
       if(res.status==200){
-        window.open('')
+        console.log(res.data.result)
+        localStorage.setItem("accessToken",res.data.result)
       }
+    }).catch(err => {
+      alert("Tài khoản hoặc mật khẩu không chính xác!")
     });
   }
 
