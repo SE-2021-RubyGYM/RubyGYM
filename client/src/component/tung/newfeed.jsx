@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import axios from 'axios';
 
+import Footer from './footer';
 
 // const article =[
 //    {
@@ -91,6 +92,7 @@ export default function NewFeed(){
             
             
         </div>
+         <div className="page_bottom"></div>
     </div> 
     </div> 
             
@@ -100,4 +102,6 @@ export default function NewFeed(){
             
 
     )
+    
 }
+

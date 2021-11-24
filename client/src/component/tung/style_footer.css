@@ -22,21 +22,23 @@
   } 
   #contain_logo {
   
-    width:100vw;
+    width:100%;
     justify-content: center;
     display:flex;
     height: auto;
     justify-content: center; 
+    margin-top: 10px;
   }
   #centuryon {
     
   width: 220px;  
-  height: 91px;
+  height: 80px;
   vertical-align: middle;
+  margin-top: 5px;
     
   }
   #rubygym {
-     margin-top: 20px;
+     margin-top: 15px;
      vertical-align: middle;
      width: 185px;
      height: 60px;
