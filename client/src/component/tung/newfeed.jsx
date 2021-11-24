@@ -1,7 +1,9 @@
 import './style_newfeed.css';
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 import axios from 'axios';
+
 
 // const article =[
 //    {
@@ -38,15 +40,27 @@ export default function NewFeed(){
         })
     }
     getData()
-
+    
     return (
     <div className="container_newfeed">
-    <div className="newfeed">
-         <div className="header_newfeed">
+        <div className="page_top"></div>
+        <div className="newfeed">
+            <div className="page-link">
+                <ol className="links">
+                    <li class="link-item">
+                        <Link to ="/user/home">Trang chủ</Link>
+                    </li>
+                    <li class="link-item">
+                        <Link to ="/user/blog">Tin tức &amp; Sự kiện</Link>
+                    </li>
+                        
+                </ol>
+                </div>
+            <div className="header_newfeed">
              {
-                  <h1 className="header_title">
+                <h1 className="header_title">
                       
-                      BÀI VIẾT MỚI NHẤT</h1>
+                    BÀI VIẾT MỚI NHẤT</h1>
              }
         </div>
         <div className="content_newfeed">

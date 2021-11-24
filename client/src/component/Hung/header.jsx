@@ -1,6 +1,6 @@
 import './style.css'
 import { useState } from 'react';
-
+import { Link } from "react-router-dom";
 
 function Header() {
 
@@ -33,9 +33,9 @@ function Header() {
         </div>
 
         <div className = "nav-menu">
-          <a href= "" >
-            Tin tức - dịch vụ
-          </a>
+          <Link to= "/user/blog">
+            Tin tức - sự kiện
+          </Link>
         </div>
 
         
