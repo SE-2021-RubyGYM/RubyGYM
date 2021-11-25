@@ -287,3 +287,8 @@ hr{
     text-align: center;
     color: white
 }
+
+.event-content .new-content img{
+    width: 100%;
+    
+}

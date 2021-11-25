@@ -5,11 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-
+import Event from './component/Hung/event.jsx'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <Event />
   </React.StrictMode>,
   document.getElementById('root')
 );
