@@ -50,13 +50,14 @@ exports.createAdv = async (req, res) => {
     //     .json({ success: false, message: 'Unauthorized',result: null  })
     // }
     try{
-        const {creator, title, time, picture, content} = req.body;
+        const {creator, title,view,time,picture, content} = req.body;
         const adv = new Adv({
             creator,
             title,
+            view,
             time,
             picture,
-            content 
+            content, 
         })
         await adv.save();
         res.json({
@@ -116,9 +117,9 @@ exports.updateAdvById = async (req, res) => {
     //     .json({ success: false, message: 'Unauthorized',result: null  })
     // }
     const id = req.params.id;
-    const {creator, title, time, picture, content} = req.body;
+    const {creator, title,view, time, picture, content} = req.body;
     try{
-        const adv = await Adv.findByIdAndUpdate(id, {creator,title, time, picture, content}).exec();
+        const adv = await Adv.findByIdAndUpdate(id, {creator,title, view, time, picture, content}).exec();
         if(!adv){
             return res
             .status(404)

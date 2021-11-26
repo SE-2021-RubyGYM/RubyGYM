@@ -23,13 +23,17 @@ router.post('/login',async(req, res) => {await login(req, res)})
 // @route POST api/users
 // @desc Create new user
 // @access Private
-router.post('/',verifyToken,verifyAdmin,async(req, res) => {await createUser(req, res)})
+router.post('/',async(req, res) => {await createUser(req, res)})
 
+// router.post('/',verifyToken,verifyAdmin,async(req, res) => {await createUser(req, res)})
 
 // @route GET api/users
 // @desc Get all users
 // @access Private
-router.get('/',verifyToken,verifyAdmin,async(req, res) => {await getUsers(req, res)})
+router.get('/',async(req, res) => {await getUsers(req, res)})
+
+
+// router.get('/',verifyToken,verifyAdmin,async(req, res) => {await getUsers(req, res)})
 
 // @route GET api/users/:id
 // @desc Get user by id

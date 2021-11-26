@@ -16,6 +16,11 @@ app.use('/api/users',users)
 app.use('/api/admins',admins)
 app.use('/api/adv',adv)
 
+
+app.use(express.urlencoded({ extended: false }))
+
+
+
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))

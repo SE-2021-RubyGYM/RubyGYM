@@ -22,11 +22,11 @@ module.exports = {
 
     // create new user if all infos valid, only done by Admins or Sales
     createUser: async(req,res)=> {
-        if(!req.position || (req.position != "Administrator" && req.position != "Sales manager")) {
-            return res
-            .status(401)
-            .json({ success: false, message: 'Unauthorized',result: null  })
-        }
+        // if(!req.position || (req.position != "Administrator" && req.position != "Sales manager")) {
+        //     return res
+        //     .status(401)
+        //     .json({ success: false, message: 'Unauthorized',result: null  })
+        // }
         const {username, password, name, gender,paymentDay,phone,birthDay} = req.body
     
         if (!username || !password || !name || !phone){
@@ -122,18 +122,18 @@ module.exports = {
 
     // get all users, only done by Admins or Sales or HR
     getUsers: async(req,res) => {
-        if(!req.position || (req.position != "Administrator" && req.position != "Sales manager" && req.position != "HR")) {
-            return res
-            .status(401)
-            .json({ success: false, message: 'Unauthorized',result: null  })
-        }
+        // if(!req.position || (req.position != "Administrator" && req.position != "Sales manager" && req.position != "HR")) {
+        //     return res
+        //     .status(401)
+        //     .json({ success: false, message: 'Unauthorized',result: null  })
+        // }
         try{
             let users;
             if(req.query.name) {
                 let regex = new RegExp(req.query.name,"i");
-                users = await User.find({ name: regex },'-password');
+                users = await User.find({ name: regex },'-gender -password -referralCode -paymentDay -createAt -updateAt -__v -coach');
             }
-            else users = await User.find(null,'-password');
+            else users = await User.find(null,'-gender -password -referralCode -paymentDay -createAt -updateAt -__v -coach');
             return res
             .json({ success: true, message: 'API OK',result: users  })
             
