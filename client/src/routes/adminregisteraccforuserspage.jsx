@@ -1,26 +1,57 @@
-
-import { Layout, Menu , Breadcrumb} from 'antd/lib';
-
-
-
-import React from 'react';
 import './adminregisteraccforuser.css'
+import React from 'react';
 import { useState } from 'react';
+//import from antd
+import { Layout, Menu , Breadcrumb, Table} from 'antd/lib';
 import { DatePicker } from 'antd';
-import {LogoutOutlined} from '@ant-design/icons';
-  
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import {LogoutOutlined, MenuFoldOutlined } from '@ant-design/icons';
+
+//import from FontAwesome
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
+import { faHome, faList,faBell , faUserFriends} from "@fortawesome/free-solid-svg-icons";
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
-import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
+
+
+
+import SubMenu from 'antd/lib/menu/SubMenu';
 
 const { Header, Content, Sider } = Layout;
+const dataSource = [
+  {
+    key: '1',
+    name: 'Mike',
+    age: 32,
+    address: '10 Downing Street',
+  },
+  {
+    key: '2',
+    name: 'John',
+    age: 42,
+    address: '10 Downing Street',
+  },
+];
 
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address',
+  },
+];
 export default function AdminRegisterAccForUserPage(){
 return(
-    <>
+    
     <Layout>
       <Sider>
         <div className="logo">
@@ -37,39 +68,54 @@ return(
               <p class= "user-noti"><FontAwesomeIcon icon={faBell} />Thông báo</p>
           </div>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-          <Menu.Item key="1" >
-             <FontAwesomeIcon icon={faHome} />  Trang chủ 
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['home']}>
+          <Menu.Item key="home" icon ={<FontAwesomeIcon icon={faHome} />}>
+              Trang chủ
           </Menu.Item>
-
-          <Menu.Item key="2" >
-              <FontAwesomeIcon icon={faUserFriends} />  Quản lý người dùng
-          </Menu.Item>
-
-          <Menu.Item key="3" >
-             <FontAwesomeIcon icon={faNewspaper} />  Quản lý bài viết
-          </Menu.Item>
+          <SubMenu key ="sub1" icon={<FontAwesomeIcon icon={faUserFriends} />} title="Quản lý người dùng ">
+             <Menu.Item  key ="1" >
+             <FontAwesomeIcon icon={faList} />  Danh sách người dùng  
+             </Menu.Item>
+                  
+              
+          </SubMenu >
+          <SubMenu key ="sub2" icon={<FontAwesomeIcon icon={faNewspaper} />} title="Quản lý bài viết ">
+             <Menu.Item  key ="2" >
+             <FontAwesomeIcon icon={faList} />  Danh sách bài viết
+             </Menu.Item>
+                  
+              
+          </SubMenu >
 
           <Menu.Item key="4" >
-             <LogoutOutlined />  Đăng xuất
+             <LogoutOutlined    />  Đăng xuất
           </Menu.Item>
         </Menu>
         
           
       </Sider>
+      
       <Layout>
         <Header>
+          <MenuFoldOutlined />
           <div class = "user-image_in_header">
               <img src = "https://dxclan.com:5000/upload/avatars/user.png"></img>
           </div>
+          <div className="globe"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Globe_icon.svg" alt="" /></div>
         </Header>
+        <div className="breadcrumb">
         <Breadcrumb>
-            <Breadcrumb.Item>Trang chủ</Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <a href="registeraccforuser">Trang chủ</a>
+            </Breadcrumb.Item>
             <Breadcrumb.Item>
               <a href="">Quản lý người dùng</a>
             </Breadcrumb.Item>
-            
-      </Breadcrumb>,
+            <Breadcrumb.Item>
+              <a href="">Danh sách người dùng</a>
+            </Breadcrumb.Item>
+        </Breadcrumb>
+        </div>
         <Content
             className="site-layout-background"
             style={{
@@ -79,12 +125,13 @@ return(
             }}
           >
               <DatePicker />
+              <Table dataSource={dataSource} columns={columns} />;
                 
-            Content
+            
         </Content>
         
       </Layout>
     </Layout>
-  </>
+  
 )
 }
