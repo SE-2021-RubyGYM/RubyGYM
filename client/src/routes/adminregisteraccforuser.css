@@ -1,5 +1,9 @@
 @import '~antd/dist/antd.css';
-
+.ant-layout-header{
+  padding-right: 0px;
+  background-color: white;
+  
+}
 .logo img {
   width: 231px;
   height: 64px;
@@ -10,21 +14,29 @@
    
   border-bottom: 0.2px solid rgb(75, 84, 92);
   display: flex;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   
 }
 .user-image{
-     width: 30%;
-     height: 100% ;
-     display: flex;
-     margin-left: 5px;
+  width: 30%;
+  height: 100% ;
+  display: flex;
+  margin-left: 5px;
      
      
   
 }
 .user-image img{
       width: 100%;
+}
+.user-image_in_header img{
+    margin-top: 15px;
+    height: 30px;
+    float: right;
+    margin-right: 20px;
+    vertical-align: middle;
+    
 }
 .user-info{
   

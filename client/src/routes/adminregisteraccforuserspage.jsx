@@ -1,14 +1,21 @@
-import { Layout, Menu } from 'antd/lib';
+
+import { Layout, Menu , Breadcrumb} from 'antd/lib';
+
+
+
 import React from 'react';
 import './adminregisteraccforuser.css'
 import { useState } from 'react';
 import { DatePicker } from 'antd';
+import {LogoutOutlined} from '@ant-design/icons';
   
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
+
 const { Header, Content, Sider } = Layout;
 
 export default function AdminRegisterAccForUserPage(){
@@ -32,26 +39,41 @@ return(
         </div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
           <Menu.Item key="1" >
-             <FontAwesomeIcon icon={faHome} /> Trang chủ 
+             <FontAwesomeIcon icon={faHome} />  Trang chủ 
           </Menu.Item>
 
           <Menu.Item key="2" >
-              <FontAwesomeIcon icon={faUserFriends} /> Quản lý người dùng
+              <FontAwesomeIcon icon={faUserFriends} />  Quản lý người dùng
           </Menu.Item>
 
           <Menu.Item key="3" >
-             <FontAwesomeIcon icon={faNewspaper} /> Quản lý bài viết
+             <FontAwesomeIcon icon={faNewspaper} />  Quản lý bài viết
+          </Menu.Item>
+
+          <Menu.Item key="4" >
+             <LogoutOutlined />  Đăng xuất
           </Menu.Item>
         </Menu>
         
           
       </Sider>
       <Layout>
-        <Header>ALO</Header>
+        <Header>
+          <div class = "user-image_in_header">
+              <img src = "https://dxclan.com:5000/upload/avatars/user.png"></img>
+          </div>
+        </Header>
+        <Breadcrumb>
+            <Breadcrumb.Item>Trang chủ</Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <a href="">Quản lý người dùng</a>
+            </Breadcrumb.Item>
+            
+      </Breadcrumb>,
         <Content
             className="site-layout-background"
             style={{
-              margin: '24px 16px',
+              margin: '25px 100px',
               padding: 24,
               minHeight: '100vh',
             }}
