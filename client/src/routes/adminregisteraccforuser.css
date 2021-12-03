@@ -4,6 +4,20 @@
   background-color: white;
   
 }
+.breadcrumb{
+  margin-left: 100px;
+  margin-top: 20px;
+}
+.globe {
+  float: right;
+  display: block;
+  margin-right: 20px;
+  height: 64px;
+
+}
+.globe img{
+  height: 40%;
+}
 .logo img {
   width: 231px;
   height: 64px;
@@ -31,12 +45,16 @@
       width: 100%;
 }
 .user-image_in_header img{
-    margin-top: 15px;
     height: 30px;
-    float: right;
-    margin-right: 20px;
     vertical-align: middle;
     
+    
+    
+}
+.user-image_in_header{
+  float: right;
+  margin-right: 20px;
+  justify-content: end;
 }
 .user-info{
   
