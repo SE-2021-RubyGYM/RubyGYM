@@ -4,6 +4,9 @@
   background-color: white;
   
 }
+.ant-layout-sider{
+  height: 1000px;
+}
 .breadcrumb{
   margin-left: 100px;
   margin-top: 20px;
@@ -56,10 +59,7 @@
   margin-right: 20px;
   justify-content: end;
 }
-.user-info{
-  
 
-}
 .user-name{
   color: #fff;
   display: flex;
