@@ -4,7 +4,6 @@ import axios from "axios"
 
 import { useEffect } from "react"
 
-import AdminHomeHeader from "../../dat/adminhomeheader/adminhomeheader"
 
 export default function AdminBlogList(){
     const iconsShow=[
@@ -64,8 +63,8 @@ export default function AdminBlogList(){
         
 
     return(
-        <div className="admin-blog-list">
-            <AdminHomeHeader/>
+        <div className="admin-blog-list" style={{marginLeft:"200px"}}>
+            
             <div className="admin-blog-list-container">
                 <div className="title">
                     <div>Danh sách bài viết</div>

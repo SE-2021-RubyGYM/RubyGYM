@@ -34,23 +34,23 @@ return(
         </div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['home']}>
           <Menu.Item key="home" icon ={<FontAwesomeIcon icon={faHome} />}>
-              Trang chủ
+              <a href="dashboard"> Trang chủ </a>
           </Menu.Item>
           <SubMenu key ="sub1" icon={<FontAwesomeIcon icon={faUserFriends} />} title="Quản lý người dùng ">
-             <Menu.Item  key ="1" >
-             <FontAwesomeIcon icon={faList} />  Danh sách người dùng  
+             <Menu.Item  key ="1" style={{paddingLeft:"24px"}} >
+             <a href="adduser"><FontAwesomeIcon icon={faList} />  Danh sách người dùng </a> 
              </Menu.Item>
                   
               
           </SubMenu >
           <SubMenu key ="sub2" icon={<FontAwesomeIcon icon={faNewspaper} />} title="Quản lý bài viết ">
-             <Menu.Item  key ="2" >
-              <a href="addblog">  <FontAwesomeIcon icon={faList} />  Danh sách bài viết </a>
+             <Menu.Item  key ="2" style={{paddingLeft:"24px"}} >
+              <a href="bloglist">  <FontAwesomeIcon icon={faList} />  Danh sách bài viết </a>
              </Menu.Item>     
           </SubMenu >
 
           <Menu.Item key="4" >
-           < FontAwesomeIcon icon={faSignOutAlt}   />     Đăng xuất
+           < FontAwesomeIcon icon={faSignOutAlt} />     Đăng xuất
           </Menu.Item>
         </Menu>
       </Sider>
