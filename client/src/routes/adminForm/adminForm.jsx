@@ -8,7 +8,7 @@ import AdminSideBar from "./adminSideBar";
 import AdminBreadCrumb from "./adminBreadCrumb";
 import AdminContent from "./adminContent";
 
-import Context from "./SetContent";
+
 export default function AdminForm(){
 return(
     <Layout>

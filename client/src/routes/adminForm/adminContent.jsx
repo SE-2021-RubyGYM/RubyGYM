@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import {useContext} from 'react';
 //import from antd
-import { Layout, DatePicker} from 'antd/lib';
+import { Layout} from 'antd/lib';
 
 const {Content} =  Layout;
 

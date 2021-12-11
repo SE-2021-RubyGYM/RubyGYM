@@ -1,12 +1,7 @@
 import { Content } from "antd/lib/layout/layout";
+import { createContext } from "react";
 import AddBlog from "../component/dat/addBlog";
-import AdminForm from "./adminForm/adminForm";
-import Context from "./adminForm/SetContent";
-export default function AdminAddBlog(){
-    return(
-        <>
-            <AddBlog/>
-        </>
 
-    )
+export default function AdminAddBlog(){
+    <AddBlog/>
 }

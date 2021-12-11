@@ -1,22 +1,19 @@
 import AdminBlogList from "../component/trang/admin/adminBlogList";
 
-
 import { useState } from "react";
 import { useEffect } from "react";
-import { useContext,createContext } from "react";
+import { useContext, createContext } from "react";
 import AddBlog from "../component/dat/addBlog";
 
 import { UserContext } from "../component/context/firstcontext";
 import AdminForm from "./adminForm/adminForm";
 
+export default function AdminBlogListPage() {
+  const [margin, setMargin] = useState("250px");
 
-
-export default function AdminBlogListPage(){
-    const [margin,setMargin]=useState('250px')
-    
-    return(
-        <div>
-            {/* <UserContext.Provider value={{margin,setMargin}}>
+  return (
+    <div>
+      {/* <UserContext.Provider value={{margin,setMargin}}>
                 <div style={{position:'fixed',zIndex:'1000'}}>
                     <AdminLeftSidebar/>
                 </div>
@@ -25,9 +22,8 @@ export default function AdminBlogListPage(){
                 </div>
             </UserContext.Provider> */}
 
-            <AdminForm/>
-            <AdminBlogList/>
-        </div>
-    )
+      <AdminForm />
+      <AdminBlogList />
+    </div>
+  );
 }
-

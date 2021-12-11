@@ -190,8 +190,8 @@ export default function AddBlog(props){
     
     return(
        <div>
-            <AdminHomeHeader/>
-            <div className="addBlog" style={style.addBlog}>
+            
+            <div className="addBlog" style={{marginLeft:"200px"}}>
             <div className="addBlogTitle" style={style.textCenter}>
                 <div>{language.blogPageTitle}</div>
             </div>

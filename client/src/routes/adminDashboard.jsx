@@ -7,10 +7,14 @@
 // import AdminSideBar from "./adminForm/adminSideBar";
 // import AdminBreadCrumb from "./adminForm/adminBreadCrumb";
 // import AdminContent from "./adminForm/adminContent";
-import AdminForm from "./adminForm/adminForm"
+import AdminForm from "./adminForm/adminForm";
+import AdminDefaultTable from "../component/dat/admindefaulttable/admindefaulttable";
 
-export default function AdminDashboard(){
-return(
-    <AdminForm/>
-)
+export default function AdminDashboard() {
+  return (
+    <>
+      <AdminForm />
+      {/* <AdminDefaultTable/> */}
+    </>
+  );
 }
