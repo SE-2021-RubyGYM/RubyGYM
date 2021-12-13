@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import axios from "axios";
+import { Input, Button } from "antd";
 
 export default function AdminEditUserForm(props) {
   const [dataForm, setDataForm] = useState(props.data);
@@ -20,7 +21,7 @@ export default function AdminEditUserForm(props) {
       <div>
         <div>{title}</div>
         <div>
-          <input
+          <Input style={{width:'20%'}}
             type="text"
             onChange={(e) => handleInputFieldOnChange(e.target.value, index)}
           />
@@ -53,8 +54,8 @@ export default function AdminEditUserForm(props) {
 
   const buttonField = (title) => {
     return (
-      <div>
-        <button onClick={() => handleSubmit()}>{title}</button>
+      <div style={{marginTop:'20px'}}>
+        <Button onClick={() => handleSubmit()}>{title}</Button>
       </div>
     );
   };

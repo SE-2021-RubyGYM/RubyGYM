@@ -7,6 +7,7 @@
 //
 //
 import { Link } from "react-router-dom"
+import { Table } from "antd"
 export default function AdminDefaultTable(props){
     const fdataexploretable=(element,index)=>{
         
@@ -55,6 +56,9 @@ export default function AdminDefaultTable(props){
                     })
                 }
             </table>
+            <Table>
+                
+            </Table>
         </div>
     )
 }

@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/admin/dashboard" element={<AdminDashBoard />} />
           <Route exact path="/admin/addblog" element={<Adminaddblogpage />} />
           <Route exact path="/user/blog" element={<NewFeeds />} />
-          <Route exact path="/admin/bloglist" element={<AdminBlogListPage />} />
+          <Route exact path="/admin/bloglist" element={<AdminBlogListPage content={<AdminBlogList/>} />} />
           <Route
             exact
             path="/admin/registeraccforuser"

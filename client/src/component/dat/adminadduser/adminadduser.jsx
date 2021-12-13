@@ -88,7 +88,7 @@ export default function AdminAddUser() {
     //     value:''
     // },
     {
-      title: "submit",
+      title: "Submit",
       titleE: "weight",
       type: "buttonField",
       value: "",
