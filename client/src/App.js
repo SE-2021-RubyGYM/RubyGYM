@@ -4,6 +4,7 @@ import AdminLogin from "./routes/adminLogin";
 import UserPage from "./routes/userPage";
 import NewFeeds from "./routes/newFeeds";
 import AdminBlogListPage from "./routes/adminBlogListPage";
+import AdminBlogList from "./component/trang/admin/adminBlogList";
 import Adminaddblogpage from "./routes/adminaddblogpage";
 import AdminDashBoard from "./routes/adminDashboard";
 import AdminAddUserPage from "./routes/adminadduserpage";
@@ -20,7 +21,11 @@ function App() {
           <Route exact path="/admin/addblog" element={<Adminaddblogpage />} />
           <Route exact path="/user/blog" element={<NewFeeds />} />
           <Route exact path="/admin/bloglist" element={<AdminBlogListPage />} />
-          <Route exact path="/admin/registeraccforuser" element={<AdminRegisterAccForUsersPage/>}/>
+          <Route
+            exact
+            path="/admin/registeraccforuser"
+            element={<AdminRegisterAccForUsersPage />}
+          />
           <Route exact path="/admin/adduser" element={<AdminAddUserPage />} />
         </Routes>
       </Router>

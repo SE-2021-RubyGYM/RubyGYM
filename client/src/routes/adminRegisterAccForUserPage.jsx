@@ -5,7 +5,7 @@ export default function AdminRegisterAccForUsersPage() {
   return (
     <>
       <AdminForm />
-      <AdminRegisterAccForUsers />
+      <AdminRegisterAccForUsers />  
     </>
   );
 }

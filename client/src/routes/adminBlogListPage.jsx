@@ -8,7 +8,7 @@ import AddBlog from "../component/dat/addBlog";
 import { UserContext } from "../component/context/firstcontext";
 import AdminForm from "./adminForm/adminForm";
 
-export default function AdminBlogListPage() {
+export default function AdminBlogListPage(props) {
   const [margin, setMargin] = useState("250px");
 
   return (
@@ -21,9 +21,9 @@ export default function AdminBlogListPage() {
                     <AdminBlogList/>
                 </div>
             </UserContext.Provider> */}
-
       <AdminForm />
-      <AdminBlogList />
+      {/* <AdminBlogList /> */}
+      {props.content}
     </div>
   );
 }
