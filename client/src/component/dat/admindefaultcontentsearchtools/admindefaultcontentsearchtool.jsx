@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Input, Button } from "antd";
+import "antd/dist/antd.css";
+import Ribbon from "antd/lib/badge/Ribbon";
 //read me
 /// props.name1 is name of the searchtools
 /// props.name2 is name of what u wanna add ex: them user, them bai viet ...
@@ -21,20 +23,7 @@ export default function AdminDefaultContentSearchTool(props) {
   };
   return (
     <div style={{ width: "100%", paddingLeft: "10px", paddingTop: "20px" }}>
-      <div style={{ display: "inline-block" }}>
-        <div
-          style={{
-            fontFamily: "'Source Sans Pro', sans-serif",
-            fontWeight: "500",
-            fontSize: "18px",
-            boxSizing: "border-box",
-            display: "inline-block",
-            marginRight: "5px",
-            marginBottom: "10px",
-          }}
-        >
-          {props.name1}
-        </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         {/* <input
           style={{
             fontFamily: "'Source Sans Pro', sans-serif",
@@ -47,13 +36,24 @@ export default function AdminDefaultContentSearchTool(props) {
         /> */}
 
         <Search
+          style={{ float: "left", width: "30%" }}
           type="text"
           placeholder={props.name1}
           onSearch={onSearch}
           enterButton
-          onMouseEnter={() => onHoverButton(0)}
-          onMouseLeave={() => onHoverButton(0)}
         />
+        <div style={{ float: "right", width: "190px" }}>
+          <Button
+            type="primary"
+            onClick={() => {
+              window.open(props.name3, "_self");
+            }}
+            onMouseEnter={() => onHoverButton(1)}
+            onMouseLeave={() => onHoverButton(1)}
+          >
+            {props.name2}
+          </Button>
+        </div>
       </div>
       {/* <div style={{ display: "inline-block", marginLeft: "10px" }}>
         <button
@@ -74,46 +74,7 @@ export default function AdminDefaultContentSearchTool(props) {
           Tìm kiếm
         </button>
       </div> */}
-      <div
-        style={{
-          float: "right",
-          width: "200px",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <div style={{ marginLeft: "20px" }}>
-          {/* <button
-            style={{
-              backgroundColor: hover[1],
-              color: "rgb(255, 232, 232)",
-              textAlign: "center",
-              paddingLeft: "5px",
-              paddingRight: "5px",
-              height: "30px",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-            }}
-            onClick={() => {
-              window.open(props.name3, "_self");
-            }}
-            onMouseEnter={() => onHoverButton(1)}
-            onMouseLeave={() => onHoverButton(1)}
-          >
-            {props.name2}
-          </button> */}
-          <Button
-            type="primary"
-            onClick={() => {
-              window.open(props.name3, "_self");
-            }}
-            onMouseEnter={() => onHoverButton(1)}
-            onMouseLeave={() => onHoverButton(1)}
-          >
-            {props.name2}
-          </Button>
-        </div>
+      <div style={{}}>
         <div
           style={{
             paddingRight: "20px",

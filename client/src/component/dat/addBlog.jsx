@@ -9,6 +9,7 @@ import jsxToString from 'jsx-to-string';
 import { UserContext } from "../../routes/adminaddblogpage";
 
 import AdminHomeHeader from './adminhomeheader/adminhomeheader'
+import { Button } from "antd";
 
 // api https://localhost:5000/api/adv
 export default function AddBlog(props){
@@ -91,16 +92,25 @@ export default function AddBlog(props){
         setTextValue(newtextValue);
     }
     const createElement=(element)=>{
-        const parentElement=
-            <div className='adminEdit'>
-                <div className='adminEditTools'>
-                    <button>Xoa</button>
-                    <button>Chinh sua</button>
-                    <button>Chen tren</button>
-                    <button>Chen duoi</button>
-                </div>
-                {element}
-            </div>;
+        const parentElement = (
+          <div className="adminEdit">
+            <div className="adminEditTools">
+              <Button  style={{ marginLeft: "10px" }}>
+                Xoa
+              </Button>
+              <Button  style={{ marginLeft: "10px" }}>
+                Chinh sua
+              </Button>
+              <Button  style={{ marginLeft: "10px" }}>
+                Chen tren
+              </Button>
+              <Button  style={{ marginLeft: "10px" }}>
+                Chen duoi
+              </Button>
+            </div>
+            {element}
+          </div>
+        );
         return parentElement;
     }
     const handleOnChange=(e,editor)=>{
@@ -188,52 +198,101 @@ export default function AddBlog(props){
         }
     }
     
-    return(
-       <div>
-            
-            <div className="addBlog" style={{marginLeft:"200px"}}>
-            <div className="addBlogTitle" style={style.textCenter}>
-                <div>{language.blogPageTitle}</div>
-            </div>
-    
-            <div>
-                <div className="addBlogHeader">
-                    <div className='addBlogHeaderTitle' style={{fontFamily:'sans-serif'}} >Preview</div>
-                    <div className="addBlogHeaderContent">
-                    {
-                        textValue
-                    }
-                    </div>
-                    <div className='addButton' onClick={()=>{addnewElementWithIndex(createElement(<div style={{backgroundColor:'rgba(187, 187, 187, 0.541)'}}>...</div>),textValue.length); setShow('block')}}>+</div>
-                </div>
-            </div>
+    return (
+      <div>
+        <div className="addBlog" style={{ marginLeft: "200px" }}>
+          <div className="addBlogTitle" style={style.textCenter}>
+            <div>{language.blogPageTitle}</div>
+          </div>
 
-           <div style={{display:show}}>
-                {toolsShow}
-                <div style={style.toolsAdd}>
-                    <div style={{display:'flex',justifyContent:'left',}}>
-                        <div className='iconTool' style={style.iconTools} onClick={()=>changeEditor('textEditor')}>
-                            <img src={imgLink.textIcon} style={style.defaultImgIcon} alt="" />
-                        </div>
-                        <div className='iconTool' style={style.iconTools} onClick={()=>changeEditor('imgEditor')}>
-                            <img src={imgLink.imgIcon} style={style.defaultImgIcon} alt="" />
-                        </div>
-                        <button style={{width:'30px'}} onClick={()=>{setShow('none')}}>
-                            Ok!
-                        </button>
-                    </div>
-                    <div>
-                        <button className='iconTool' style={{margin:'0px 10px 0px 10px'}}>
-                            Thêm
-                        </button>
-                    </div>
-                </div>
+          <div>
+            <div className="addBlogHeader">
+              <div
+                className="addBlogHeaderTitle"
+                style={{ fontFamily: "sans-serif" }}
+              >
+                Preview
+              </div>
+              <div className="addBlogHeaderContent">{textValue}</div>
+              {/* <div
+                className="addButton"
+                onClick={() => {
+                  addnewElementWithIndex(
+                    createElement(<div>...</div>),
+                    textValue.length
+                  );
+                  setShow("block");
+                }}
+              >
+                +
+              </div> */}
+              <Button
+                type="primary"
+                size="large"
+                shape="circle"
+                className="addButton"
+                onClick={() => {
+                  addnewElementWithIndex(
+                    createElement(<div>...</div>),
+                    textValue.length
+                  );
+                  setShow("block");
+                }}
+              >
+                +
+              </Button>
             </div>
-            <button onClick={()=>fAddBlog(getTextFromHtml())}>Apply</button>
+          </div>
+
+          <div style={{ display: show }}>
+            {toolsShow}
+            <div style={style.toolsAdd}>
+              <div style={{ display: "flex", justifyContent: "left" }}>
+                <div
+                  className="iconTool"
+                  style={style.iconTools}
+                  onClick={() => changeEditor("textEditor")}
+                >
+                  <img
+                    src={imgLink.textIcon}
+                    style={style.defaultImgIcon}
+                    alt=""
+                  />
+                </div>
+                <div
+                  className="iconTool"
+                  style={style.iconTools}
+                  onClick={() => changeEditor("imgEditor")}
+                >
+                  <img
+                    src={imgLink.imgIcon}
+                    style={style.defaultImgIcon}
+                    alt=""
+                  />
+                </div>
+                <Button
+                  style={{}}
+                  onClick={() => {
+                    setShow("none");
+                  }}
+                >
+                  Ok!
+                </Button>
+              </div>
+              <div>
+                <Button
+                  className="iconTool"
+                  style={{ margin: "0px 10px 0px 10px" }}
+                >
+                  Thêm
+                </Button>
+              </div>
+            </div>
+          </div>
+          <Button onClick={() => fAddBlog(getTextFromHtml())}>Apply</Button>
         </div>
-       </div>
-        
-    )
+      </div>
+    );
 }
 
 

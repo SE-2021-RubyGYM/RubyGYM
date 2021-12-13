@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./adminblogliststyle.css";
+import "antd/dist/antd.css";
 import axios from "axios";
 
 import { useEffect } from "react";
-import { Table, Input } from "antd";
+import { Table, Input , Search, Button} from "antd";
 
 export default function AdminBlogList() {
+  const { Search } = Input;
   const iconsShow = [
     "https://cdn-icons.flaticon.com/png/128/2767/premium/2767194.png?token=exp=1637688275~hmac=4335cc16c7685e973322366bc82fcb2f",
     "https://cdn-icons.flaticon.com/png/128/2767/premium/2767146.png?token=exp=1637688275~hmac=b9bf96fbbc6c8fb7c91ac32db7c174a3",
@@ -63,22 +65,29 @@ export default function AdminBlogList() {
         </div>
         <div className="container">
           <div className="search-tools">
-            <div className="blogcode">
+            <Search  
+            style={{width:'30%'}}
+            type="text"
+            placeholder="Mã bài viết"
+
+            ></Search>
+            {/* <div className="blogcode">
               <div>Mã bài viết</div>
               <input type="text" placeholder="Mã bài viết" />
             </div>
             <div className="search-button">
               <button>Tìm kiếm</button>
-            </div>
+            </div> */}
             <div style={{ float: "right", width: "190px" }}>
               <div className="addblog">
-                <button
+                <Button
+                  type="primary"
                   onClick={() => {
                     window.open("http://localhost:3000/admin/addblog", "_self");
                   }}
                 >
                   Thêm bài viết
-                </button>
+                </Button>
               </div>
               <div className="setting">
                 <img

@@ -1,3 +1,4 @@
+@import "antd/dist/antd.css";
 .blogList table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -82,21 +83,12 @@
 
 
 .addButton{
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: rgb(132, 200, 255);
+  
   float: right;
-  text-align: center;
-  font-size: 30px;
+  margin-right: 10px;
 }
 
-.addButton:hover{
-  cursor: pointer;
-  background-color: rgb(95, 164, 255);
-  /* background-color: rgba(187, 187, 187, 0.541); */
 
-}
 
 
 

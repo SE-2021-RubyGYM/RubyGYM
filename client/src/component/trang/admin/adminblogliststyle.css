@@ -1,211 +1,188 @@
-.admin-blog-list{
-    font-family: 'Source Sans Pro', sans-serif;
-    overflow: auto;
-    height: 100vh;
-    position: relative;
-    background-color: #f4f6f9;
+.admin-blog-list {
+  font-family: "Source Sans Pro", sans-serif;
+  overflow: auto;
+  height: 100vh;
+  position: relative;
+  background-color: #f4f6f9;
 }
 .admin-blog-list * {
-  
 }
-.admin-blog-list a{
-    color: rgb(182, 0, 0);
+.admin-blog-list a {
+  color: rgb(182, 0, 0);
 }
-.admin-blog-list img{
-    height: 100%;
-    object-fit: contain;
-}
-
-.admin-blog-list .admin-blog-list-header{
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid rgba(212, 212, 212, 0.377);
-    background-color: white;
-}
-.admin-blog-list .admin-blog-list-header .show-navigation{
-    height: 40px;
-    background-color: red;
-}
-.admin-blog-list .admin-blog-list-header .show-navigation img{
-    object-fit: contain;
-    height: 100%;
-}
-.admin-blog-list .admin-blog-list-header .admin-blog-list-tool{
-    /* height: 40px; */
+.admin-blog-list img {
+  height: 100%;
+  object-fit: contain;
 }
 
-.admin-blog-list .admin-blog-list-header .admin-blog-list-tool .icon-notification
-{
-    height: 40px;
-    display: inline-flex;
+.admin-blog-list .admin-blog-list-header {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(212, 212, 212, 0.377);
+  background-color: white;
 }
-.admin-blog-list .admin-blog-list-header .admin-blog-list-tool .icon-notification img{
-    height: 100%;
-    object-fit: contain;
+.admin-blog-list .admin-blog-list-header .show-navigation {
+  height: 40px;
+  background-color: red;
+}
+.admin-blog-list .admin-blog-list-header .show-navigation img {
+  object-fit: contain;
+  height: 100%;
+}
+.admin-blog-list .admin-blog-list-header .admin-blog-list-tool {
+  /* height: 40px; */
 }
 
-.admin-blog-list .admin-blog-list-header .admin-blog-list-tool .admin-profiler{
-    border-radius: 50%;
-    height: 40px;
-    display: inline-flex;
-    margin-left: 20px;
-    margin-right: 10px;
+.admin-blog-list
+  .admin-blog-list-header
+  .admin-blog-list-tool
+  .icon-notification {
+  height: 40px;
+  display: inline-flex;
 }
-.admin-blog-list .admin-blog-list-header .admin-blog-list-tool .admin-profiler img{
-    height: 100%;
-    object-fit:contain;
-    border-radius: 50%;
+.admin-blog-list
+  .admin-blog-list-header
+  .admin-blog-list-tool
+  .icon-notification
+  img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.admin-blog-list .admin-blog-list-header .admin-blog-list-tool .admin-profiler {
+  border-radius: 50%;
+  height: 40px;
+  display: inline-flex;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.admin-blog-list
+  .admin-blog-list-header
+  .admin-blog-list-tool
+  .admin-profiler
+  img {
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .admin-blog-list table {
-    border-collapse: collapse;
-    width: 100%;
-    border: 10px 0px 0px 0px;
+  border-collapse: collapse;
+  width: 100%;
+  border: 10px 0px 0px 0px;
 }
 
-.admin-blog-list th, td {
-    text-align: left;
-    padding: 8px;
-    /* border-left:1px solid black; */
+.admin-blog-list th,
+td {
+  text-align: left;
+  padding: 8px;
+  /* border-left:1px solid black; */
 }
 
-.admin-blog-list tr:nth-child(even){background-color: #f2f2f2}
+.admin-blog-list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 .admin-blog-list th {
-    background-color: #dadada;
-    color: rgb(44, 44, 44);
-    border-right: 1px solid rgb(202, 202, 202);
+  background-color: #dadada;
+  color: rgb(44, 44, 44);
+  border-right: 1px solid rgb(202, 202, 202);
 }
 
-.admin-blog-list .admin-blog-list-container{
-    background-color: #f4f6f9;
-    /* height: 100vh; */
-    /* overflow-x: hidden; */
-    position: absolute;
-    width: 100%
+.admin-blog-list .admin-blog-list-container {
+  background-color: #f4f6f9;
+  /* height: 100vh; */
+  /* overflow-x: hidden; */
+  position: absolute;
+  width: 100%;
 }
 
-.admin-blog-list .admin-blog-list-container .container{
-    background-color: #ffffff;
-    margin-left: 30px;
-    margin-right: 20px;
-    border-radius: 8px 15px 15px 10px;
-    padding-bottom: 40px;
-    border: 2px solid rgba(216, 216, 216, 0.37);
+.admin-blog-list .admin-blog-list-container .container {
+  background-color: #ffffff;
+  margin-left: 30px;
+  margin-right: 20px;
+  border-radius: 8px 15px 15px 10px;
+  padding-bottom: 40px;
+  border: 2px solid rgba(216, 216, 216, 0.37);
 }
 
-.admin-blog-list .admin-blog-list-container .search-tools{
-    width: 100%;
-    padding-left: 10px;
-    padding-top: 20px;
+.admin-blog-list .admin-blog-list-container .search-tools {
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 
 .admin-blog-list .admin-blog-list-container .title {
-    margin-left: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 24px;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
-.admin-blog-list .admin-blog-list-container .title div{
-    font-family: 'Source Sans Pro', sans-serif;
-}
-    
-
-.admin-blog-list .admin-blog-list-container .search-tools div{
-    display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 10px;
+.admin-blog-list .admin-blog-list-container .title div {
+  font-family: "Source Sans Pro", sans-serif;
 }
 
-.admin-blog-list .admin-blog-list-container .blogList{
-    padding: 0 10px 0 10px;
-    border-radius: 3px 3px 3px 3px;
-
-}
-.admin-blog-list .admin-blog-list-container .blogList table{
-    border-radius: 3px 3px 3px 3px;
+.admin-blog-list .admin-blog-list-container .search-tools div {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 10px;
 }
 
-
-.admin-blog-list .admin-blog-list-container button{
-    background-color: rgb(68, 180, 46);
-    color: rgb(255, 232, 232);
-    text-align: center;
-    width: 80px;
-    height: 30px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    
+.admin-blog-list .admin-blog-list-container .blogList {
+  padding: 0 10px 0 10px;
+  border-radius: 3px 3px 3px 3px;
 }
-.admin-blog-list .admin-blog-list-container button:hover{
-    background-color: rgba(63, 121, 52, 0.89);
+.admin-blog-list .admin-blog-list-container .blogList table {
+  border-radius: 3px 3px 3px 3px;
 }
 
-.admin-blog-list .admin-blog-list-container .addblog{
-    /* position: absolute; */
-    /* right: 0; */
-    /* right: 50px; */
-}   
-
-.admin-blog-list .admin-blog-list-container .addblog button{
-    background-color: rgb(68, 180, 46);
-    color: rgb(255, 232, 232);
-    text-align: center;
-    width: 120px;
-    height: 32px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
+.admin-blog-list .admin-blog-list-container .addblog {
+  /* position: absolute; */
+  /* right: 0; */
+  /* right: 50px; */
 }
 
-.admin-blog-list .admin-blog-list-container .addblog button:hover{
-    background-color: rgba(63, 121, 52, 0.89);
+.admin-blog-list .admin-blog-list-container .search-tools .blogcode div {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  box-sizing: border-box;
 }
 
-
-
-.admin-blog-list .admin-blog-list-container .search-tools .blogcode div{
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight:500;
-    font-size: 18px;
-    box-sizing: border-box;
+.admin-blog-list .admin-blog-list-container .search-tools .blogcode input {
+  font-family: "Source Sans Pro", sans-serif;
+  border-radius: 5px;
+  border: 2px solid rgb(175, 175, 175);
+  padding-left: 5px;
 }
 
-.admin-blog-list .admin-blog-list-container .search-tools .blogcode input{
-    font-family: 'Source Sans Pro', sans-serif;
-    border-radius: 5px;
-    border: 2px solid rgb(175, 175, 175);
-    padding-left: 5px;
+.admin-blog-list
+  .admin-blog-list-container
+  .search-tools
+  .blogcode
+  input:focus {
+  border: 2px solid rgb(219, 219, 219);
+  background-color: rgba(231, 231, 231, 0.616);
+  outline: none;
+  outline: 1px solid rgba(197, 197, 197, 0.596);
 }
 
-
-.admin-blog-list .admin-blog-list-container .search-tools .blogcode input:focus{
-    border: 2px solid rgb(219, 219, 219);
-    background-color: rgba(231, 231, 231, 0.616);
-    outline: none;
-    outline: 1px solid rgba(197, 197, 197, 0.596);
+.admin-blog-list .admin-blog-list-container .setting {
+  /* margin-right: 30px; */
+  padding-right: 20px;
+  float: right;
+  /* right: 10px; */
+  margin-top: 4px;
+  border-radius: 50%;
 }
+.admin-blog-list .admin-blog-list-container .setting:hover img {
+  border: 1px solid rgb(173, 173, 173);
 
-.admin-blog-list .admin-blog-list-container .setting{
-    /* margin-right: 30px; */
-    padding-right: 20px;
-    float: right;
-    /* right: 10px; */
-    margin-top: 4px;
-    border-radius: 50%;
+  background-color: rgba(197, 197, 197, 0.514);
 }
-.admin-blog-list .admin-blog-list-container .setting:hover img{
-    border: 1px solid rgb(173, 173, 173);
-
-    background-color: rgba(197, 197, 197, 0.514);
+.admin-blog-list .admin-blog-list-container .setting img {
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
 }
-.admin-blog-list .admin-blog-list-container .setting img{
-    height: 22px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
