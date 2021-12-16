@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Input, Button } from "antd";
+import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import Ribbon from "antd/lib/badge/Ribbon";
 //read me
@@ -7,7 +8,7 @@ import Ribbon from "antd/lib/badge/Ribbon";
 /// props.name2 is name of what u wanna add ex: them user, them bai viet ...
 /// props.name3 is name of url to function props.name2
 ///
-export default function AdminDefaultContentSearchTool(props) {
+export default function  AdminDefaultContentSearchTool(props) {
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
   const onhoverBackGroundColor = "rgb(68, 180, 46)";
@@ -43,16 +44,18 @@ export default function AdminDefaultContentSearchTool(props) {
           enterButton
         />
         <div style={{ float: "right", width: "190px" }}>
-          <Button
-            type="primary"
-            onClick={() => {
-              window.open(props.name3, "_self");
-            }}
-            onMouseEnter={() => onHoverButton(1)}
-            onMouseLeave={() => onHoverButton(1)}
-          >
-            {props.name2}
-          </Button>
+          <Link to = "/admin/adduser">
+            <Button
+              type="primary"
+              onClick={() => {
+                // window.open(props.name3, "_self");
+              }}
+              onMouseEnter={() => onHoverButton(1)}
+              onMouseLeave={() => onHoverButton(1)}
+            >
+              {props.name2}
+            </Button>
+          </Link>
         </div>
       </div>
       {/* <div style={{ display: "inline-block", marginLeft: "10px" }}>

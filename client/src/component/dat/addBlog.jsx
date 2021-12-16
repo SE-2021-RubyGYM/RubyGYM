@@ -5,6 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 import './style.css'
 import axios from "axios";
 import jsxToString from 'jsx-to-string';
+import AdminTitleHeaderContainer from "./admintitleheadercontainer/admintitleheadercontainer";
 
 import { UserContext } from "../../routes/adminaddblogpage";
 
@@ -201,10 +202,11 @@ export default function AddBlog(props){
     return (
       <div>
         <div className="addBlog" style={{ marginLeft: "200px" }}>
-          <div className="addBlogTitle" style={style.textCenter}>
+          {/* <div className="addBlogTitle" style={style.textCenter}>
             <div>{language.blogPageTitle}</div>
-          </div>
-
+          </div> */}
+          
+          <AdminTitleHeaderContainer title="Thêm bài viết" />
           <div>
             <div className="addBlogHeader">
               <div

@@ -14,7 +14,7 @@ export default function AdminDashboard() {
   return (
     <>
       <AdminForm />
-      {/* <AdminDefaultTable /> */}
+     
     </>
   );
 }

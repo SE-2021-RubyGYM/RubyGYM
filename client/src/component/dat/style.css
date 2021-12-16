@@ -85,7 +85,7 @@
 .addButton{
   
   float: right;
-  margin-right: 10px;
+  margin-right: 10 px;
 }
 
 
@@ -193,9 +193,7 @@
   height: 100%;
 }
 
-.admin-blog-list-header .admin-blog-list-tool{
-  /* height: 40px; */
-}
+
 
 .admin-blog-list-header .admin-blog-list-tool .icon-notification
 {

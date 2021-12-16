@@ -4,7 +4,7 @@
   background-color: white;
 }
 .ant-layout-sider {
-  height: 1000px;
+  height: fit-content;
 }
 .breadcrumb {
   margin-left: 100px;

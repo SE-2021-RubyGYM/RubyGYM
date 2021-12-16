@@ -1,4 +1,4 @@
-import AdminHomeHeader from "../adminhomeheader/adminhomeheader";
+
 
 import { AdminContainerStyle } from "../admincontainer/admincontainerstyle";
 import AdminTitleHeaderContainer from "../admintitleheadercontainer/admintitleheadercontainer";
@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 
 export default function AdminRegisterAccForUsers() {
   const tableheader = [
-    "id",
+    "ID",
     "Tên",
     "Tài khoản",
     "Số điện thoai",

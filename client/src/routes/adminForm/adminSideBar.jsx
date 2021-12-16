@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faNewspaper } from "@fortawesome/free-regular-svg-icons";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faFileUpload } from "@fortawesome/free-solid-svg-icons";
 import SubMenu from "antd/lib/menu/SubMenu";
 import { Link } from "react-router-dom";
 
@@ -21,9 +22,12 @@ const { Sider } = Layout;
 
 export default function AdminSideBar() {
   return (
-    <div className="sidebar" style={{ position: "absolute", top: "0px" }}>
+    <div
+      className="sidebar"
+      style={{ position: "absolute", top: "0px", height: "100%" }}
+    >
       <Layout>
-        <Sider>
+        <Sider style={{ position: "absolute", top: "0px", height: "100%" }}>
           <div className="logo">
             <img
               src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
@@ -74,14 +78,20 @@ export default function AdminSideBar() {
             >
               <Menu.Item key="blog-list" style={{ paddingLeft: "24px" }}>
                 <Link to="/admin/bloglist">
-                  {" "}
-                  <FontAwesomeIcon icon={faList} /> Danh sách bài viết{" "}
+                  <FontAwesomeIcon icon={faList} /> Danh sách bài viết
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="addblog" style={{ paddingLeft: "24px" }}>
+                <Link to="/admin/addblog">
+                  <FontAwesomeIcon icon={faFileUpload} /> Thêm bài viết
                 </Link>
               </Menu.Item>
             </SubMenu>
 
             <Menu.Item key="sign-out">
-              <FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất
+              <Link to="/admin/home">
+                <FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất
+              </Link> 
             </Menu.Item>
           </Menu>
         </Sider>
