@@ -18,7 +18,7 @@ function Admin() {
     }).then(res=>{
       if(res.status==200){
         localStorage.setItem("accessToken",res.data.result)
-        window.open('http://localhost:3000/admin/registeraccforuser','_selft')
+        window.open('http://localhost:3000/admin/dashboard','_selft')
       }
     }).catch(err => {
       alert("Tài khoản hoặc mật khẩu không chính xác!")

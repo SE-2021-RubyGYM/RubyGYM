@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import axios from 'axios';
 
-import Footer from './footer';
+
 
 // const article =[
 //    {
