@@ -4,24 +4,27 @@
   background-color: white;
 }
 .ant-layout-sider {
-  height: fit-content;
+  max-width: 500px;
+  min-width: 500px;
 }
+
 .breadcrumb {
   margin-left: 100px;
   margin-top: 20px;
 }
 .globe {
   float: right;
-  display: block;
+  display: flexbox;
   margin-right: 20px;
   height: 64px;
 }
 .globe img {
   height: 40%;
 }
-.logo img {
+.logo {
   width: 231px;
   height: 64px;
+  margin-left: 160px;
 }
 
 .userPanel {
@@ -47,6 +50,7 @@
   float: right;
   margin-right: 20px;
   justify-content: end;
+  display: flexbox;
 }
 
 .user-name {

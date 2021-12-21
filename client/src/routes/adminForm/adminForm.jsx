@@ -10,10 +10,10 @@ import AdminContent from "./adminContent";
 
 export default function AdminForm() {
   return (
-    <Layout>
+    <>
       <AdminHeader />
       <AdminBreadCrumb />
       <AdminSideBar />
-    </Layout>
+    </>
   );
 }

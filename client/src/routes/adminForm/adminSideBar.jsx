@@ -22,18 +22,23 @@ const { Sider } = Layout;
 
 export default function AdminSideBar() {
   return (
-    <div
-      className="sidebar"
-      style={{ position: "absolute", top: "0px", height: "100%" }}
-    >
+    <div className="sidebar" style={{ position: "absolute", top: "0px" }}>
       <Layout>
-        <Sider style={{ position: "absolute", top: "0px", height: "100%" }}>
-          <div className="logo">
+        <Sider
+          width={"210px"}
+          style={{
+            overflow: "auto",
+            height: "100vh",
+            position: "fixed",
+            left: 0,
+          }}
+        >
+          {/* <div className="logo">
             <img
               src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
               alt=""
             />
-          </div>
+          </div> */}
 
           <div className="userPanel">
             <div class="user-image">
@@ -91,7 +96,7 @@ export default function AdminSideBar() {
             <Menu.Item key="sign-out">
               <Link to="/admin/home">
                 <FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất
-              </Link> 
+              </Link>
             </Menu.Item>
           </Menu>
         </Sider>
