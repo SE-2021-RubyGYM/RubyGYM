@@ -9,6 +9,8 @@ import Adminaddblogpage from "./routes/adminaddblogpage";
 import AdminDashBoard from "./routes/adminDashboard";
 import AdminAddUserPage from "./routes/adminadduserpage";
 import AdminRegisterAccForUsersPage from "./routes/adminRegisterAccForUserPage";
+import CoachForm from "./routes/coachForm/coachForm";
+
 import UserProfilePage from "./routes/userProfilePage";
 
 function App() {
@@ -37,6 +39,7 @@ function App() {
             path="/admin/userprofile/:id"
             element={<UserProfilePage />}
           />
+          <Route exact path="coach/dashboard" element={<CoachForm />}></Route>
         </Routes>
       </Router>
     </div>

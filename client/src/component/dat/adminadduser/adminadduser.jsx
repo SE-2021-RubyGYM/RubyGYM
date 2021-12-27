@@ -96,7 +96,7 @@ export default function AdminAddUser() {
   ];
 
   return (
-    <div style={{ AdminDefaultRightContainerStyle, marginLeft: "200px" }}>
+    <div style={{ AdminDefaultRightContainerStyle, marginLeft: "210px" }}>
       <div style={AdminContainerStyle}>
         <AdminTitleHeaderContainer title="Thêm tài khoản cho user" />
         <div style={AdminContainerContentStyle}>

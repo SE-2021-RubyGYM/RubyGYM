@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 
 const { Sider } = Layout;
 
-export default function AdminSideBar() {
+export default function CoachSideBar() {
   return (
     <div className="sidebar" style={{ position: "absolute", top: "0px" }}>
       <Layout>

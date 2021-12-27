@@ -1,47 +1,45 @@
 @import "antd/dist/antd.css";
 .blogList table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
-  
-  .blogList td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  .blogList tr:nth-child(even) {
-    background-color: #dddddd;
-    background-color: rgb(226, 226, 226);
-  }
-  .customAlign{
-    border-radius: 4px;
-  }
 
-  .customAlign:hover{
-    background-color: rgb(240, 240, 240);
-  }
+.blogList td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
+.blogList tr:nth-child(even) {
+  background-color: #dddddd;
+  background-color: rgb(226, 226, 226);
+}
+.customAlign {
+  border-radius: 4px;
+}
 
-  .addBlog .iconTool{
-    border-radius: 5px 5px 5px 5px;
-  }
+.customAlign:hover {
+  background-color: rgb(240, 240, 240);
+}
 
-  .addBlog .iconTool:hover{
-    background-color: rgb(255, 85, 85);
+.addBlog .iconTool {
+  border-radius: 5px 5px 5px 5px;
+}
 
-  }
+.addBlog .iconTool:hover {
+  background-color: rgb(255, 85, 85);
+}
 
-
-.addBlogHeader{
+.addBlogHeader {
   border-radius: 10px;
   margin: 0 0px 10px 0px;
   border: 3px solid rgba(112, 132, 243, 0.144);
   padding-bottom: 50px;
 }
 
-.addBlogHeader .addBlogHeaderTitle{
+.addBlogHeader .addBlogHeaderTitle {
   text-align: center;
   /* font-family: 'Source Sans Pro', sans-serif; */
   width: 40%;
@@ -49,11 +47,10 @@
   border-bottom: 2px solid black;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  margin-top: 10px  ;
+  margin-top: 10px;
 }
 
-
-.addBlogHeader .addBlogHeaderContent{
+.addBlogHeader .addBlogHeaderContent {
   border-left: 2px solid rgba(189, 189, 189, 0.288);
   border-right: 2px solid rgba(192, 192, 192, 0.26);
   border-radius: 4px;
@@ -62,84 +59,73 @@
   text-align: justify;
 }
 
-.adminEdit{
+.adminEdit {
   position: relative;
 }
-.adminEdit:hover{
+.adminEdit:hover {
   background-color: rgba(168, 168, 168, 0.301);
 }
 
-
-.adminEdit .adminEditTools{
+.adminEdit .adminEditTools {
   display: none;
   position: absolute;
-  right:0;
-  top:-20px;
+  right: 0;
+  top: -20px;
 }
 
-.adminEdit:hover .adminEditTools{
+.adminEdit:hover .adminEditTools {
   display: block;
 }
 
-
-.addButton{
-  
+.addButton {
   float: right;
   margin-right: 10 px;
 }
 
-
-
-
-
-
 /* --------------------------- */
-.slider .slide img{
+.slider .slide img {
   height: auto;
   width: 100vw;
 }
 
-.slider{
+.slider {
   display: block;
   max-width: 100vw;
-  
 }
 
-.slider .slide{
+.slider .slide {
   max-width: 100vw;
   position: relative;
 }
 
-.slider .slide .content{
+.slider .slide .content {
   display: flex;
   overflow: hidden;
   transition: 1s;
 }
 
-
-.slider .but{
+.slider .but {
   position: absolute;
   justify-content: space-between;
   display: flex;
-  width: 100vw;    
+  width: 100vw;
   top: 50%;
 }
 
-.slider .but .pre{
+.slider .but .pre {
   display: flex;
   width: 50px;
   height: 36px;
-  background-color:rgba(255, 0, 0, 0.425);
+  background-color: rgba(255, 0, 0, 0.425);
   border-radius: 10px 10px 10px 10px;
-  
 }
 
-.slider .but img{
+.slider .but img {
   width: 100%;
   object-fit: cover;
 }
 
-.slider .but .next{
+.slider .but .next {
   width: 50px;
   height: 36px;
   background-color: rgba(255, 0, 0, 0.329);
@@ -147,36 +133,32 @@
   /* position: absolute; */
   transform: scaleX(-1);
   border-radius: 10px 10px 10px 10px;
-
 }
 
-
-.slider .but *:hover{
+.slider .but *:hover {
   background-color: rgba(255, 0, 0, 0.616);
 }
 
-.slider .but *:active{
+.slider .but *:active {
   background-color: rgb(255, 61, 61);
   background-color: rgba(255, 255, 255, 0.678);
 }
 
-.slider img{
+.slider img {
   -webkit-user-drag: none;
--khtml-user-drag: none;
--moz-user-drag: none;
--o-user-drag: none;
-/* user-drag: none; */
-
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  /* user-drag: none; */
 }
 
-@media screen and (max-width:800px){
-  .slider .slide .but{
-      display: none;
+@media screen and (max-width: 800px) {
+  .slider .slide .but {
+    display: none;
   }
 }
 
-
-.admin-blog-list-header{
+.admin-blog-list-header {
   padding-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -184,29 +166,26 @@
   background-color: white;
 }
 
-.admin-blog-list-header .show-navigation{
+.admin-blog-list-header .show-navigation {
   height: 40px;
   background-color: red;
 }
- .admin-blog-list-header .show-navigation img{
+.admin-blog-list-header .show-navigation img {
   object-fit: contain;
   height: 100%;
 }
 
-
-
-.admin-blog-list-header .admin-blog-list-tool .icon-notification
-{
-    height: 40px;
-    display: inline-flex;
+.admin-blog-list-header .admin-blog-list-tool .icon-notification {
+  height: 40px;
+  display: inline-flex;
 }
 
-.admin-blog-list-header .admin-blog-list-tool .icon-notification img{
+.admin-blog-list-header .admin-blog-list-tool .icon-notification img {
   height: 100%;
   object-fit: contain;
 }
 
-.admin-blog-list-header .admin-blog-list-tool .admin-profiler{
+.admin-blog-list-header .admin-blog-list-tool .admin-profiler {
   border-radius: 50%;
   height: 40px;
   display: inline-flex;
@@ -214,8 +193,8 @@
   margin-right: 10px;
 }
 
-.admin-blog-list-header .admin-blog-list-tool .admin-profiler img{
+.admin-blog-list-header .admin-blog-list-tool .admin-profiler img {
   height: 100%;
-  object-fit:contain;
+  object-fit: contain;
   border-radius: 50%;
 }

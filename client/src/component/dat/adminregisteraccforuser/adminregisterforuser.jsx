@@ -1,5 +1,3 @@
-
-
 import { AdminContainerStyle } from "../admincontainer/admincontainerstyle";
 import AdminTitleHeaderContainer from "../admintitleheadercontainer/admintitleheadercontainer";
 import { AdminContainerContentStyle } from "../admincontainercontent/admincontainercontent";
@@ -44,7 +42,7 @@ export default function AdminRegisterAccForUsers() {
     <div
       style={{
         AdminDefaultRightContainerStyle,
-        paddingLeft: "200px",
+        paddingLeft: "210px",
         width: "100%",
       }}
     >

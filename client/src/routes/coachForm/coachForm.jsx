@@ -4,16 +4,16 @@ import { useState } from "react";
 import { Layout } from "antd/lib";
 
 import AdminHeader from "./adminHeader";
-import AdminSideBar from "./adminSideBar";
+import CoachSideBar from "./coachSideBar";
 import AdminBreadCrumb from "./adminBreadCrumb";
 import AdminContent from "./adminContent";
 
-export default function AdminForm() {
+export default function CoachForm() {
   return (
     <Layout>
       <AdminHeader />
       {/* <AdminBreadCrumb /> */}
-      <AdminSideBar />  
+      <CoachSideBar />
     </Layout>
   );
 }

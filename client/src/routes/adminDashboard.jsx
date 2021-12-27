@@ -9,12 +9,13 @@
 // import AdminContent from "./adminForm/adminContent";
 import AdminForm from "./adminForm/adminForm";
 import AdminDefaultTable from "../component/dat/admindefaulttable/admindefaulttable";
+import Layout from "antd/lib/layout/layout";
 
 export default function AdminDashboard() {
   return (
-    <>
+    <Layout>
       <AdminForm />
      
-    </>
+    </Layout>
   );
 }
