@@ -22,7 +22,10 @@ const { Sider } = Layout;
 
 export default function AdminSideBar() {
   return (
-    <div className="sidebar" style={{ position: "absolute", top: "0px" }}>
+    <div
+      className="sidebar"
+      style={{ position: "absolute", top: "0px", display: "block" }}
+    >
       <Layout>
         <Sider
           display={"block"}

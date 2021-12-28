@@ -59,40 +59,25 @@ export default function CoachSideBar() {
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["home"]}>
             <Menu.Item key="home" icon={<FontAwesomeIcon icon={faHome} />}>
-              <Link to="/admin/dashboard"> Trang chủ </Link>
+              <Link to="/coach/dashboard"> Trang chủ </Link>
             </Menu.Item>
             <SubMenu
               key="user-manager"
               icon={<FontAwesomeIcon icon={faUserFriends} />}
-              title="Quản lý người dùng "
+              title="Quản lý người tập "
             >
               <Menu.Item key="user-list" style={{ paddingLeft: "24px" }}>
-                <Link to="/admin/registeraccforuser">
-                  <FontAwesomeIcon icon={faList} /> Danh sách người dùng{" "}
-                </Link>
+                {/* <Link to="/admin/registeraccforuser"> */}
+                <FontAwesomeIcon icon={faList} /> Danh sách người tập
+                {/* </Link> */}
               </Menu.Item>
               <Menu.Item key="adduser" style={{ paddingLeft: "24px" }}>
-                <Link to="/admin/adduser">
-                  <UserAddOutlined /> Thêm người dùng{" "}
+                <Link to="/coach/calendar">
+                  <UserAddOutlined /> Lịch tập
                 </Link>
               </Menu.Item>
             </SubMenu>
-            <SubMenu
-              key="blog-manager"
-              icon={<FontAwesomeIcon icon={faNewspaper} />}
-              title="Quản lý bài viết "
-            >
-              <Menu.Item key="blog-list" style={{ paddingLeft: "24px" }}>
-                <Link to="/admin/bloglist">
-                  <FontAwesomeIcon icon={faList} /> Danh sách bài viết
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="addblog" style={{ paddingLeft: "24px" }}>
-                <Link to="/admin/addblog">
-                  <FontAwesomeIcon icon={faFileUpload} /> Thêm bài viết
-                </Link>
-              </Menu.Item>
-            </SubMenu>
+            {/*   */}
 
             <Menu.Item key="sign-out">
               <Link to="/admin/home">
