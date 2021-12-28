@@ -5,6 +5,7 @@ const cors = require('cors')
 const users = require('./routes/users')
 const adv = require('./routes/adv')
 const admins = require('./routes/admins')
+const coachs = require('./routes/coachs')
 
 connectDB()
 
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use(cors())
 app.use('/api/users',users)
 app.use('/api/admins',admins)
+app.use('/api/coachs',coachs)
 app.use('/api/adv',adv)
 
 
