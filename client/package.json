@@ -12,6 +12,7 @@
     "antd": "^4.17.2",
     "axios": "^0.24.0",
     "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
     "gh-pages": "^3.2.3",
     "jsx-to-string": "^1.4.0",
     "node-modules": "^1.0.1",

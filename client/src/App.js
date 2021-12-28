@@ -10,6 +10,7 @@ import AdminDashBoard from "./routes/adminDashboard";
 import AdminAddUserPage from "./routes/adminadduserpage";
 import AdminRegisterAccForUsersPage from "./routes/adminRegisterAccForUserPage";
 import UserProfilePage from "./routes/userProfilePage";
+import AdvProfilePage from "./routes/advProfilePage";
 
 function App() {
   return (
@@ -26,6 +27,12 @@ function App() {
             path="/admin/bloglist"
             element={<AdminBlogListPage content={<AdminBlogList />} />}
           />
+          <Route
+            exact
+            path="/admin/bloglist/:id"
+            element={<AdvProfilePage />}
+          />          
+
           <Route
             exact
             path="/admin/registeraccforuser"
