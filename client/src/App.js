@@ -11,6 +11,9 @@ import AdminAddUserPage from "./routes/adminadduserpage";
 import AdminRegisterAccForUsersPage from "./routes/adminRegisterAccForUserPage";
 import UserProfilePage from "./routes/userProfilePage";
 import AdvProfilePage from "./routes/advProfilePage";
+import UserBlogDetail from "./routes/userBlogDetail";
+import CoachForm from "./routes/coachForm/coachForm";
+
 
 function App() {
   return (
@@ -22,6 +25,7 @@ function App() {
           <Route exact path="/admin/dashboard" element={<AdminDashBoard />} />
           <Route exact path="/admin/addblog" element={<Adminaddblogpage />} />
           <Route exact path="/user/blog" element={<NewFeeds />} />
+          <Route exact path="/user/blog/:id" element={<UserBlogDetail />} />
           <Route
             exact
             path="/admin/bloglist"
@@ -31,7 +35,7 @@ function App() {
             exact
             path="/admin/bloglist/:id"
             element={<AdvProfilePage />}
-          />          
+          />
 
           <Route
             exact
@@ -44,6 +48,7 @@ function App() {
             path="/admin/userprofile/:id"
             element={<UserProfilePage />}
           />
+          <Route exact path="coach/dashboard" element={<CoachForm />}></Route>
         </Routes>
       </Router>
     </div>
