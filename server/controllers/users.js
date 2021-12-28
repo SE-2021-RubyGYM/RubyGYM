@@ -240,14 +240,15 @@ module.exports = {
 
   // delete an user's account by his/her id , only done by Admins or Sales
   deleteUserById: async (req, res) => {
-    if (
-      !req.position ||
-      (req.position != "Administrator" && req.position != "Sales manager")
-    ) {
-      return res
-        .status(401)
-        .json({ success: false, message: "Unauthorized", result: null });
-    }
+    // if (
+    //   !req.position ||
+    //   (req.position != "Administrator" && req.position != "Sales manager")
+    // ) {
+    //   return res
+    //     .status(401)
+    //     .json({ success: false, message: "Unauthorized", result: null });
+    // }
+
     const id = req.params.id;
     try {
       const user = await User.findByIdAndDelete(id);

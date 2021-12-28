@@ -36,7 +36,15 @@ export default function AdminBlogList() {
   useEffect(() => {
     fgetBlogData();
   }, []);
+  
+  const handleFindUser= () => {
+    
 
+
+
+
+
+  };
   const [blogListInfo, setBlogListInfo] = useState([
     {
       _id: 1234,
@@ -71,6 +79,7 @@ export default function AdminBlogList() {
               type="text"
               placeholder="Mã bài viết"
               enterButton
+              onClick={() => handleFindUser()}
             ></Search>
             {/* <div className="blogcode">
               <div>Mã bài viết</div>
