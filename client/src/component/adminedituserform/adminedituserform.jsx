@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { Input, Button } from "antd";
 
@@ -21,7 +21,8 @@ export default function AdminEditUserForm(props) {
       <div>
         <div>{title}</div>
         <div>
-          <Input style={{width:'20%'}}
+          <Input
+            style={{ width: "20%" }}
             type="text"
             onChange={(e) => handleInputFieldOnChange(e.target.value, index)}
           />
@@ -54,8 +55,10 @@ export default function AdminEditUserForm(props) {
 
   const buttonField = (title) => {
     return (
-      <div style={{marginTop:'20px'}}>
-        <Button onClick={() => handleSubmit()}>{title}</Button>
+      <div style={{ marginTop: "20px" }}>
+        <Link to="/admin/registeraccforuser">
+          <Button onClick={() => handleSubmit()}>{title}</Button>
+        </Link>
       </div>
     );
   };

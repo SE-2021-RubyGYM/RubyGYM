@@ -8,7 +8,7 @@ import Ribbon from "antd/lib/badge/Ribbon";
 /// props.name2 is name of what u wanna add ex: them user, them bai viet ...
 /// props.name3 is name of url to function props.name2
 ///
-export default function  AdminDefaultContentSearchTool(props) {
+export default function AdminDefaultContentSearchTool(props) {
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
   const onhoverBackGroundColor = "rgb(68, 180, 46)";
@@ -44,7 +44,7 @@ export default function  AdminDefaultContentSearchTool(props) {
           enterButton
         />
         <div style={{ float: "right", width: "190px" }}>
-          <Link to = "/admin/adduser">
+          <Link to={"/admin/" + props.name3}>
             <Button
               type="primary"
               onClick={() => {

@@ -25,7 +25,7 @@ export default function AdminSideBar() {
     <div
       className="sidebar"
       style={{
-        position: "absolute",
+        // position: "absolute",
         top: "0px",
         height: "100%",
         width: "210px",
@@ -80,6 +80,22 @@ export default function AdminSideBar() {
               <Menu.Item key="adduser" style={{ paddingLeft: "24px" }}>
                 <Link to="/admin/adduser">
                   <UserAddOutlined /> Thêm người dùng{" "}
+                </Link>
+              </Menu.Item>
+            </SubMenu>
+            <SubMenu
+              key="coach-manager"
+              icon={<FontAwesomeIcon icon={faUserFriends} />}
+              title="Quản lý hlv "
+            >
+              <Menu.Item key="coach-list" style={{ paddingLeft: "24px" }}>
+                <Link to="/admin/registeraccforcoach">
+                  <FontAwesomeIcon icon={faList} /> Danh sách hlv{" "}
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="addcoach" style={{ paddingLeft: "24px" }}>
+                <Link to="">
+                  <UserAddOutlined /> Thêm hlv{" "}
                 </Link>
               </Menu.Item>
             </SubMenu>

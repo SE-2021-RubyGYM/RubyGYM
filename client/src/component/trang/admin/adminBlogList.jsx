@@ -59,7 +59,7 @@ export default function AdminBlogList() {
   ]);
 
   return (
-    <div className="admin-blog-list" style={{ marginLeft: "200px" }}>
+    <div className="admin-blog-list" style={{ marginLeft: "210px" }}>
       <div className="admin-blog-list-container">
         <div className="title">
           <div>Danh sách bài viết</div>
@@ -113,13 +113,16 @@ export default function AdminBlogList() {
                     <td>{element.creator}</td>
                     <td>{element.__v}</td>
                     <td>
-                      <a
+                      {/* <a
                         href={
                           "http://localhost:3000/admin/bloglist/" + element._id
                         }
                       >
                         Xem chi tiết
-                      </a>
+                      </a> */}
+                      <Link to={"/admin/bloglist/" + element["_id"]}>
+                        Xem chi tiết
+                      </Link>
                     </td>
                   </tr>
                 );

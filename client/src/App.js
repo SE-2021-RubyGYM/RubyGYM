@@ -12,7 +12,7 @@ import AdminRegisterAccForUsersPage from "./routes/adminRegisterAccForUserPage";
 import UserProfilePage from "./routes/userProfilePage";
 import AdvProfilePage from "./routes/advProfilePage";
 import UserBlogDetail from "./routes/userBlogDetail";
-import CoachForm from "./routes/coachForm/coachForm";
+
 import SchedulePage from "./routes/schedulePage";
 import CoachDashBoard from "./routes/coachDashboard";
 
@@ -43,12 +43,23 @@ function App() {
             path="/admin/registeraccforuser"
             element={<AdminRegisterAccForUsersPage />}
           />
+
           <Route exact path="/admin/adduser" element={<AdminAddUserPage />} />
+          {/* <Route
+            exact
+            path="/admin/addcoach"
+            element={<CoachListPage />}
+          ></Route> */}
           <Route
             exact
             path="/admin/userprofile/:id"
             element={<UserProfilePage />}
           />
+          {/* <Route
+            exact
+            path="/admin/coachprofile/:id"
+            element={<CoachProfilePage />}
+          /> */}
           <Route
             exact
             path="coach/dashboard"

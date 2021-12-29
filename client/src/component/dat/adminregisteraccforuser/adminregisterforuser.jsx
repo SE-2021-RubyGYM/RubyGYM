@@ -1,5 +1,3 @@
-
-
 import { AdminContainerStyle } from "../admincontainer/admincontainerstyle";
 import AdminTitleHeaderContainer from "../admintitleheadercontainer/admintitleheadercontainer";
 import { AdminContainerContentStyle } from "../admincontainercontent/admincontainercontent";
@@ -17,6 +15,7 @@ export default function AdminRegisterAccForUsers() {
     "Tài khoản",
     "Số điện thoai",
     "Ngày sinh",
+    "ID HLV",
     "...",
   ];
   const [data, setData] = useState([
@@ -54,7 +53,7 @@ export default function AdminRegisterAccForUsers() {
           <AdminDefaultContentSearchTool
             name1="Tên người dùng"
             name2="Thêm người dùng"
-            name3="http://localhost:3000/admin/adduser"
+            name3="adduser"
           />
         </div>
         <div style={{ paddingLeft: "30px" }}>
