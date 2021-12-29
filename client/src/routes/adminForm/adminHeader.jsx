@@ -13,7 +13,7 @@ const onSearch = (value) => console.log(value);
 export default function AdminHeader() {
   return (
     <>
-      <Header className="header">
+      <Header className="header" style={{ paddingLeft: "0px" }}>
         <img
           className="logo"
           src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"

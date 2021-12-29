@@ -22,7 +22,10 @@ const { Sider } = Layout;
 
 export default function AdminSideBar() {
   return (
-    <div className="sidebar" style={{ top: "0px", display: "block" }}>
+    <div
+      className="sidebar"
+      style={{ positon: "absolute", top: "0px", display: "block" }}
+    >
       <Layout>
         <Sider
           display={"block"}
@@ -30,8 +33,6 @@ export default function AdminSideBar() {
           style={{
             overflow: "auto",
             height: "100vh",
-            position: "fixed",
-            left: 0,
           }}
         >
           {/* <div className="logo">

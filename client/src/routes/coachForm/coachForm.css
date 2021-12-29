@@ -1,4 +1,4 @@
-@import "~antd/dist/antd.css";
+/* @import "~antd/dist/antd.css";
 .ant-layout-header {
   padding-right: 0px;
   background-color: white;
@@ -22,9 +22,8 @@
   height: 40%;
 }
 .header .logo {
-  width: 231px;
+  width: 241px;
   height: 64px;
-  margin-left: 160px;
 }
 
 .userPanel {
@@ -115,4 +114,4 @@
 }
 [data-theme="dark"] .site-layout-sub-header-background {
   background: #141414;
-}
+} */
