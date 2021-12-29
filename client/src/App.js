@@ -15,6 +15,7 @@ import UserBlogDetail from "./routes/userBlogDetail";
 
 import SchedulePage from "./routes/schedulePage";
 import CoachDashBoard from "./routes/coachDashboard";
+import UserDashBoard from "./routes/userForm/UserDashBoard";
 
 function App() {
   return (
@@ -66,6 +67,14 @@ function App() {
             element={<CoachDashBoard />}
           ></Route>
           <Route exact path="coach/schedule" element={<SchedulePage />}></Route>
+
+          {/* user */}
+
+          <Route
+            exact
+            path="user/dashboard"
+            element={<UserDashBoard />}
+          ></Route>
         </Routes>
       </Router>
     </div>
