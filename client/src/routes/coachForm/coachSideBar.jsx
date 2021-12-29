@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 //import from antd
 import { Layout, Menu } from "antd/lib";
-import { UserAddOutlined } from "@ant-design/icons/lib/icons";
+import { UserAddOutlined, CalendarOutlined } from "@ant-design/icons/lib/icons";
 //import from FontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -20,26 +20,33 @@ import { Link } from "react-router-dom";
 
 const { Sider } = Layout;
 
-export default function CoachSideBar() {
+export default function AdminSideBar() {
   return (
-    <div className="sidebar" style={{ position: "absolute", top: "0px" }}>
+    <div
+      className="sidebar"
+      style={{
+        top: "0px",
+        height: "100%",
+        width: "210px",
+        display: "block",
+      }}
+    >
       <Layout>
         <Sider
-          display={"block"}
           width={"210px"}
           style={{
-            overflow: "auto",
-            height: "100vh",
             position: "fixed",
-            left: 0,
+            top: "0px",
+            height: "100%",
+            display: "block",
           }}
         >
-          {/* <div className="logo">
+          <div className="logo">
             <img
               src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
               alt=""
             />
-          </div> */}
+          </div>
 
           <div className="userPanel">
             <div class="user-image">
@@ -57,9 +64,9 @@ export default function CoachSideBar() {
               </p>
             </div>
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["home"]}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={[""]}>
             <Menu.Item key="home" icon={<FontAwesomeIcon icon={faHome} />}>
-              <Link to="/coach/dashboard"> Trang chủ </Link>
+              <Link to="/admin/dashboard"> Trang chủ </Link>
             </Menu.Item>
             <SubMenu
               key="user-manager"
@@ -67,17 +74,32 @@ export default function CoachSideBar() {
               title="Quản lý người tập "
             >
               <Menu.Item key="user-list" style={{ paddingLeft: "24px" }}>
-                {/* <Link to="/admin/registeraccforuser"> */}
-                <FontAwesomeIcon icon={faList} /> Danh sách người tập
-                {/* </Link> */}
+                <Link to="">
+                  <FontAwesomeIcon icon={faList} /> Danh sách người tập{" "}
+                </Link>
               </Menu.Item>
               <Menu.Item key="adduser" style={{ paddingLeft: "24px" }}>
-                <Link to="/coach/calendar">
-                  <UserAddOutlined /> Lịch tập
+                <Link to="/coach/schedule">
+                  <CalendarOutlined /> Lịch tập{" "}
                 </Link>
               </Menu.Item>
             </SubMenu>
-            {/*   */}
+            {/* <SubMenu
+              key="blog-manager"
+              icon={<FontAwesomeIcon icon={faNewspaper} />}
+              title="Quản lý bài viết "
+            >
+              <Menu.Item key="blog-list" style={{ paddingLeft: "24px" }}>
+                <Link to="/admin/bloglist">
+                  <FontAwesomeIcon icon={faList} /> Danh sách bài viết
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="addblog" style={{ paddingLeft: "24px" }}>
+                <Link to="/admin/addblog">
+                  <FontAwesomeIcon icon={faFileUpload} /> Thêm bài viết
+                </Link>
+              </Menu.Item>
+            </SubMenu> */}
 
             <Menu.Item key="sign-out">
               <Link to="/admin/home">

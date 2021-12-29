@@ -1,12 +1,14 @@
-import { AdminContainerStyle } from "../component/dat/admincontainer/admincontainerstyle";
-import AdminTitleHeaderContainer from "../component/dat/admintitleheadercontainer/admintitleheadercontainer";
-import { AdminContainerContentStyle } from "../component/dat/admincontainercontent/admincontainercontent";
-import { AdminDefaultRightContainerStyle } from "../component/dat/admindefaultrightcontainer/admindefaultrightcontainer";
-import AdminDefaultContentSearchTool from "../component/dat/admindefaultcontentsearchtools/admindefaultcontentsearchtool";
-import AdminDefaultTable from "../component/dat/admindefaulttable/admindefaulttable";
+// import { AdminContainerStyle } from "../component/dat/admincontainer/admincontainerstyle";
+// import AdminTitleHeaderContainer from "../component/dat/admintitleheadercontainer/admintitleheadercontainer";
+// import { AdminContainerContentStyle } from "../component/dat/admincontainercontent/admincontainercontent";
+// import { AdminDefaultRightContainerStyle } from "../component/dat/admindefaultrightcontainer/admindefaultrightcontainer";
+// import AdminDefaultContentSearchTool from "../component/dat/admindefaultcontentsearchtools/admindefaultcontentsearchtool";
+// import AdminDefaultTable from "../component/dat/admindefaulttable/admindefaulttable";
+import { Link } from "react-router-dom";
+import { useCallback } from "react";
 import AdminForm from "./adminForm/adminForm";
 import React from "react";
-
+import { Button, Table } from "antd";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -47,6 +49,68 @@ export default function UserProfilePage() {
     getData();
   }, []);
 
+  //deleteUser
+  const handleDeleteUser = useCallback(() => {
+    const url = "http://localhost:5000/api/users/" + id;
+
+    axios({
+      method: "DELETE",
+      url: url,
+    })
+      .then((res) => {
+        alert("Xoa thanh cong");
+      })
+      .catch((e) => {
+        alert("Khong the xoa");
+      });
+  });
+  const dataSource = [
+    {
+      key: "1",
+      name: data.name,
+      username: data.username,
+      phone: data.phone,
+      birthday: data.birthDay,
+      // birthday: data.birthDay.toLocaleDateString("pt-PT"),
+      gender: data.gender,
+      id: data._id,
+    },
+    ,
+  ];
+
+  const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
+    },
+    {
+      title: "Phone",
+      dataIndex: "phone",
+      key: "phone",
+    },
+    {
+      title: "Birthday",
+      dataIndex: "birthday",
+      key: "birthday",
+    },
+    {
+      title: "Gender",
+      dataIndex: "gender",
+      key: "gender",
+    },
+  ];
+
   return (
     // <>
 
@@ -75,13 +139,17 @@ export default function UserProfilePage() {
     // </div>
     <>
       <AdminForm />
-      <div style={{ marginLeft: "300px" }}>
-        <h1>{data.id}</h1>
-        <h1>{data.name}</h1>
-        <h1>{data.username}</h1>
-        <h1>{data.phone}</h1>
-        <h1>{data.birthday}</h1>
-        <h1>{data.gender}</h1>;
+      <div style={{ marginLeft: "220px" }}>
+        <div>
+          <h1>Thông tin người dùng</h1>{" "}
+        </div>
+        <Table dataSource={dataSource} columns={columns} />
+
+        <div>
+          <Link to="/admin/registeraccforuser">
+            <Button onClick={() => handleDeleteUser()}>Xoá người dùng</Button>
+          </Link>
+        </div>
       </div>
     </>
   );

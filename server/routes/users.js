@@ -67,10 +67,12 @@ router.put("/:id", verifyToken, verifyAdmin, async (req, res) => {
 // @route DELETE api/users/:id
 // @desc Delete user by id
 // @access Private
-router.delete("/:id", verifyToken, verifyAdmin, async (req, res) => {
+// router.delete("/:id", verifyToken, verifyAdmin, async (req, res) => {
+//   await deleteUserById(req, res);
+// });
+router.delete("/:id", async (req, res) => {
   await deleteUserById(req, res);
 });
-
 // @route PUT api/users/:id/change_password
 // @desc Change password of an user by id
 // @access Private

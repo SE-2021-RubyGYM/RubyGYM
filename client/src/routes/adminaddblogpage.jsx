@@ -15,7 +15,7 @@ export default function Adminaddblogpage() {
                 </div> */}
       {/* <div style={{marginLeft:margin,transition:'0.5s'}}> */}
 
-      <AddBlog />
+      <AddBlog style={{ marginLeft: "210px" }} />
 
       {/* </div> */}
     </>

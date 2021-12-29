@@ -24,10 +24,22 @@ export default function AdminSideBar() {
   return (
     <div
       className="sidebar"
-      style={{ position: "absolute", top: "0px", height: "100%" }}
+      style={{
+        position: "absolute",
+        top: "0px",
+        height: "100%",
+        width: "210px",
+      }}
     >
       <Layout>
-        <Sider style={{ position: "absolute", top: "0px", height: "100%" }}>
+        <Sider
+          width={"210px"}
+          style={{
+            position: "absolute",
+            top: "0px",
+            height: "100%",
+          }}
+        >
           <div className="logo">
             <img
               src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
@@ -91,7 +103,7 @@ export default function AdminSideBar() {
             <Menu.Item key="sign-out">
               <Link to="/admin/home">
                 <FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất
-              </Link> 
+              </Link>
             </Menu.Item>
           </Menu>
         </Sider>

@@ -12,7 +12,7 @@ export default function AdminForm() {
   return (
     <Layout>
       <AdminHeader />
-      <AdminBreadCrumb />
+      {/* <AdminBreadCrumb /> */}
       <AdminSideBar />
     </Layout>
   );

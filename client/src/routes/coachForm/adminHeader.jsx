@@ -13,15 +13,9 @@ const onSearch = (value) => console.log(value);
 export default function AdminHeader() {
   return (
     <>
-      <Header className="header">
-        <img
-          className="logo"
-          src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
-          alt=""
-        />
-
+      <Header className="header" style={{ paddingLeft: "0px" }}>
         <Search
-          style={{ width: "30%", verticalAlign: "middle", marginLeft: "40%" }}
+          style={{ width: "30%", verticalAlign: "middle", marginLeft: "60%" }}
           placeholder="Tìm kiếm"
           onSearch={onSearch}
           enterButton
@@ -31,7 +25,7 @@ export default function AdminHeader() {
           style={{
             fontSize: "30px",
             verticalAlign: "middle",
-            marginLeft: "1%",
+            marginLeft: "2%",
           }}
         />
 
@@ -39,7 +33,6 @@ export default function AdminHeader() {
           <img src="https://dxclan.com:5000/upload/avatars/user.png"></img>
         </div>
         <div className="globe">
-          {" "}
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Globe_icon.svg"
             alt=""

@@ -13,7 +13,8 @@ import UserProfilePage from "./routes/userProfilePage";
 import AdvProfilePage from "./routes/advProfilePage";
 import UserBlogDetail from "./routes/userBlogDetail";
 import CoachForm from "./routes/coachForm/coachForm";
-
+import SchedulePage from "./routes/schedulePage";
+import CoachDashBoard from "./routes/coachDashboard";
 
 function App() {
   return (
@@ -48,7 +49,12 @@ function App() {
             path="/admin/userprofile/:id"
             element={<UserProfilePage />}
           />
-          <Route exact path="coach/dashboard" element={<CoachForm />}></Route>
+          <Route
+            exact
+            path="coach/dashboard"
+            element={<CoachDashBoard />}
+          ></Route>
+          <Route exact path="coach/schedule" element={<SchedulePage />}></Route>
         </Routes>
       </Router>
     </div>

@@ -1,10 +1,50 @@
 import './style.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-import {Link} from 'react-router-dom'
 
 function Header() {
+  // define login for user
+  const [userName,setUserName] = useState('')
+  const [password,setPassword] = useState('')
+  const [loggedIn, setLoggedIn] = useState(false)
+  useEffect(()=>{
+    if(localStorage.getItem("accessToken") !== null){
+      axios({
+        method: 'get',
+        url: 'http://localhost:5000/api/users/6190c6fbb62fa29cba2b1322/my_info',
+        headers:{
+          'authorization' : "Bearer "+ localStorage.getItem("accessToken")
+        }
+      }).then(res=>{
+        if(res.status==200){
+          setLoggedIn(true);
+          console.log(res.data.result.name)
+        }
+      }).catch(err => {
+        console.log("failed author")
+      });
+    }
+  }, []);
+  const fLogin=async ()=>{ 
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/api/users/login',
+      data: {
+        username:userName ,
+        password: password,
+      }
+    }).then(res=>{
+      if(res.status==200){
+        localStorage.setItem("accessToken",res.data.result)
+        window.open('http://localhost:3000/user/home','_selft')
+      }
+    }).catch(err => {
+      alert("Tài khoản hoặc mật khẩu không chính xác!")
+    });
+  }
 
+  // show login panel
   const [state, setState] = useState('none')
 
   const showLoginPanel = () => {
@@ -49,22 +89,29 @@ function Header() {
             Tin tức & sự kiện
           </a>
         </div>
-
         
-        <div className = "nav-menu-login" onClick={()=>{
+        {
+          localStorage.getItem("accessToken") !==null ? (<div className = "nav-menu-login" onClick={()=>{
+          localStorage.removeItem("accessToken")
+          
+        }}>
+          <a href="/user/home" >
+            Đăng xuất
+          </a> 
+        </div>) : (<div className = "nav-menu-login" onClick={()=>{
           showLoginPanel()
         }}>
-          Đăng nhập
-        </div>
+          <button>Đăng nhập</button>
+        </div>)
+        }
 
       </div>
-      
       {/* Panel Login */}
       <div class="login-panel" style={{display: state}}>
         <h2>Ruby Gym</h2>
         <br />
-        <input type="text" placeholder="Enter user" />
-        <input type="password" placeholder="Enter password" />
+        <input type="text" placeholder="Enter user" onChange={(e)=>setUserName(e.target.value)}  />
+        <input type="password" placeholder="Enter password" onChange={(e)=>setPassword(e.target.value)} />
         <div className="check">
           <label >    
             <input  type="checkbox"/>
@@ -72,7 +119,7 @@ function Header() {
             </label>
         </div>
         <br />
-        <button className="submit-login">
+        <button className="submit-login" onClick={()=>fLogin()}>
           Log in
         </button>
         <button className="close-panel" onClick={closeLoginPanel} > 
