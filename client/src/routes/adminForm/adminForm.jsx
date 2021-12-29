@@ -8,11 +8,12 @@ import AdminSideBar from "./adminSideBar";
 import AdminBreadCrumb from "./adminBreadCrumb";
 import AdminContent from "./adminContent";
 
-export default function AdminForm() {
+export default function AdminForm(props) {
   return (
     <Layout>
       <AdminHeader />
       {/* <AdminBreadCrumb /> */}
+      <div style={{ marginLeft: "210px" }}>{props.children}</div>
       <AdminSideBar />
     </Layout>
   );

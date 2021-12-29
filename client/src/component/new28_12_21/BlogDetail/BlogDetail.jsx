@@ -134,7 +134,7 @@ const BlogDetail = (props) => {
   });
 
   return (
-    <div className="add-blog" style={{ marginLeft: "210px" }}>
+    <div className="add-blog">
       <div
         style={{
           width: "100%",
@@ -174,7 +174,7 @@ const BlogDetail = (props) => {
           >
             {/* <Link to="admin/bloglist"> */}
             <Button onClickedFunction={() => handleDeleteBlog()}>
-              Xoá bài viết
+              <Link to="/admin/bloglist">Xoá bài viết</Link>
             </Button>
             {/* </Link> */}
           </div>

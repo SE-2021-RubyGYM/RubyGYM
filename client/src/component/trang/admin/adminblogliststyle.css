@@ -7,7 +7,7 @@
 }
 
 .admin-blog-list a {
-  color: rgb(182, 0, 0);
+  color: #1890ff;
 }
 .admin-blog-list img {
   height: 100%;
@@ -29,7 +29,6 @@
   object-fit: contain;
   height: 100%;
 }
-
 
 .admin-blog-list
   .admin-blog-list-header
@@ -133,7 +132,6 @@ td {
 .admin-blog-list .admin-blog-list-container .blogList table {
   border-radius: 3px 3px 3px 3px;
 }
-
 
 .admin-blog-list .admin-blog-list-container .search-tools .blogcode div {
   font-family: "Source Sans Pro", sans-serif;

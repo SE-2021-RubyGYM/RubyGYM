@@ -9,15 +9,11 @@ import AddBlog from "../component/new28_12_21/AddBlog/AddBlog";
 export default function Adminaddblogpage() {
   return (
     <>
-      <AdminForm />
-      {/* <div style={{position:'fixed',zIndex:'1000'}}>
-                    <AdminLeftSidebar/>
-                </div> */}
-      {/* <div style={{marginLeft:margin,transition:'0.5s'}}> */}
+      
 
-      <AddBlog style={{ marginLeft: "210px" }} />
+      <AddBlog />
 
-      {/* </div> */}
+     
     </>
   );
 }

@@ -25,7 +25,6 @@ export default function AdminSideBar() {
     <div
       className="sidebar"
       style={{
-        // position: "absolute",
         top: "0px",
         height: "100%",
         width: "210px",
@@ -63,8 +62,12 @@ export default function AdminSideBar() {
               </p>
             </div>
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={[""]}>
-            <Menu.Item key="home" icon={<FontAwesomeIcon icon={faHome} />}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={["home"]}>
+            <Menu.Item
+              className="menu-item-for-sidebar"
+              key="home"
+              icon={<FontAwesomeIcon icon={faHome} />}
+            >
               <Link to="/admin/dashboard"> Trang chủ </Link>
             </Menu.Item>
             <SubMenu
@@ -72,12 +75,20 @@ export default function AdminSideBar() {
               icon={<FontAwesomeIcon icon={faUserFriends} />}
               title="Quản lý người dùng "
             >
-              <Menu.Item key="user-list" style={{ paddingLeft: "24px" }}>
+              <Menu.Item
+                className="menu-item-for-sidebar"
+                key="user-list"
+                style={{ paddingLeft: "24px" }}
+              >
                 <Link to="/admin/registeraccforuser">
                   <FontAwesomeIcon icon={faList} /> Danh sách người dùng{" "}
                 </Link>
               </Menu.Item>
-              <Menu.Item key="adduser" style={{ paddingLeft: "24px" }}>
+              <Menu.Item
+                className="menu-item-for-sidebar"
+                key="adduser"
+                style={{ paddingLeft: "24px" }}
+              >
                 <Link to="/admin/adduser">
                   <UserAddOutlined /> Thêm người dùng{" "}
                 </Link>
@@ -88,12 +99,20 @@ export default function AdminSideBar() {
               icon={<FontAwesomeIcon icon={faUserFriends} />}
               title="Quản lý hlv "
             >
-              <Menu.Item key="coach-list" style={{ paddingLeft: "24px" }}>
+              <Menu.Item
+                className="menu-item-for-sidebar"
+                key="coach-list"
+                style={{ paddingLeft: "24px" }}
+              >
                 <Link to="/admin/registeraccforcoach">
                   <FontAwesomeIcon icon={faList} /> Danh sách hlv{" "}
                 </Link>
               </Menu.Item>
-              <Menu.Item key="addcoach" style={{ paddingLeft: "24px" }}>
+              <Menu.Item
+                className="menu-item-for-sidebar"
+                key="addcoach"
+                style={{ paddingLeft: "24px" }}
+              >
                 <Link to="">
                   <UserAddOutlined /> Thêm hlv{" "}
                 </Link>
@@ -104,19 +123,27 @@ export default function AdminSideBar() {
               icon={<FontAwesomeIcon icon={faNewspaper} />}
               title="Quản lý bài viết "
             >
-              <Menu.Item key="blog-list" style={{ paddingLeft: "24px" }}>
+              <Menu.Item
+                className="menu-item-for-sidebar"
+                key="blog-list"
+                style={{ paddingLeft: "24px" }}
+              >
                 <Link to="/admin/bloglist">
                   <FontAwesomeIcon icon={faList} /> Danh sách bài viết
                 </Link>
               </Menu.Item>
-              <Menu.Item key="addblog" style={{ paddingLeft: "24px" }}>
+              <Menu.Item
+                className="menu-item-for-sidebar"
+                key="addblog"
+                style={{ paddingLeft: "24px" }}
+              >
                 <Link to="/admin/addblog">
                   <FontAwesomeIcon icon={faFileUpload} /> Thêm bài viết
                 </Link>
               </Menu.Item>
             </SubMenu>
 
-            <Menu.Item key="sign-out">
+            <Menu.Item className="menu-item-for-sidebar" key="sign-out">
               <Link to="/admin/home">
                 <FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất
               </Link>

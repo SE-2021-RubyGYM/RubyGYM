@@ -112,3 +112,7 @@
 [data-theme="dark"] .site-layout-sub-header-background {
   background: #141414;
 }
+
+.menu-item-for-sidebar :hover {
+  background-color: #1890ff;
+}

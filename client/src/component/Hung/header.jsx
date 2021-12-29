@@ -40,7 +40,6 @@ function Header() {
         if (res.status == 200) {
           localStorage.setItem("accessToken", res.data.result);
           window.open("http://localhost:3000/user/dashboard", "_selft");
-          
         }
       })
       .catch((err) => {
@@ -76,7 +75,7 @@ function Header() {
       {/* Phần header  */}
       <div id="header">
         <div className="logo-page">
-          <a href="/">
+          <a href="/user/home">
             <img
               src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
               className="logo"

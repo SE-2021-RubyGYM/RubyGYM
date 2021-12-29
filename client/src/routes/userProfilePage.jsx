@@ -138,8 +138,7 @@ export default function UserProfilePage() {
     //   </div>
     // </div>
     <>
-      <AdminForm />
-      <div style={{ marginLeft: "220px" }}>
+      <div>
         <div>
           <h1>Thông tin người dùng</h1>{" "}
         </div>

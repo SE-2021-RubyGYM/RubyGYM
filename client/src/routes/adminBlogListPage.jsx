@@ -13,15 +13,6 @@ export default function AdminBlogListPage(props) {
 
   return (
     <div>
-      {/* <UserContext.Provider value={{margin,setMargin}}>
-                <div style={{position:'fixed',zIndex:'1000'}}>
-                    <AdminLeftSidebar/>
-                </div>
-                <div style={{marginLeft:margin,transition:'0.5s'}}>
-                    <AdminBlogList/>
-                </div>
-            </UserContext.Provider> */}
-      <AdminForm />
       {/* <AdminBlogList /> */}
       {props.content}
     </div>

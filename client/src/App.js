@@ -12,7 +12,7 @@ import AdminRegisterAccForUsersPage from "./routes/adminRegisterAccForUserPage";
 import UserProfilePage from "./routes/userProfilePage";
 import AdvProfilePage from "./routes/advProfilePage";
 import UserBlogDetail from "./routes/userBlogDetail";
-
+import AdminForm from "./routes/adminForm/adminForm";
 import SchedulePage from "./routes/schedulePage";
 import CoachDashBoard from "./routes/coachDashboard";
 import UserDashBoard from "./routes/userForm/UserDashBoard";
@@ -25,42 +25,75 @@ function App() {
           <Route exact path="/user/home" element={<UserPage />} />
           <Route exact path="/admin/home" element={<AdminLogin />} />
           <Route exact path="/admin/dashboard" element={<AdminDashBoard />} />
-          <Route exact path="/admin/addblog" element={<Adminaddblogpage />} />
+          <Route
+            exact
+            path="/admin/addblog"
+            element={
+              <AdminForm>
+                {" "}
+                <Adminaddblogpage />{" "}
+              </AdminForm>
+            }
+          />
           <Route exact path="/user/blog" element={<NewFeeds />} />
           <Route exact path="/user/blog/:id" element={<UserBlogDetail />} />
           <Route
             exact
             path="/admin/bloglist"
-            element={<AdminBlogListPage content={<AdminBlogList />} />}
+            // element={<AdminBlogListPage content={<AdminBlogList />} />}
+            element={
+              <AdminForm>
+                {" "}
+                <AdminBlogList />{" "}
+              </AdminForm>
+            }
           />
           <Route
             exact
             path="/admin/bloglist/:id"
-            element={<AdvProfilePage />}
+            element={
+              <AdminForm>
+                {" "}
+                <AdvProfilePage />{" "}
+              </AdminForm>
+            }
           />
 
           <Route
             exact
             path="/admin/registeraccforuser"
-            element={<AdminRegisterAccForUsersPage />}
+            // element={<AdminRegisterAccForUsersPage />}
+            element={
+              <AdminForm>
+                {" "}
+                <AdminRegisterAccForUsersPage />{" "}
+              </AdminForm>
+            }
           />
 
-          <Route exact path="/admin/adduser" element={<AdminAddUserPage />} />
-          {/* <Route
+          <Route
             exact
-            path="/admin/addcoach"
-            element={<CoachListPage />}
-          ></Route> */}
+            path="/admin/adduser"
+            element={
+              <AdminForm>
+                {" "}
+                <AdminAddUserPage />{" "}
+              </AdminForm>
+            }
+          />
+
           <Route
             exact
             path="/admin/userprofile/:id"
-            element={<UserProfilePage />}
+            // element={<UserProfilePage />}
+            element={
+              <AdminForm>
+                {" "}
+                <UserProfilePage />{" "}
+              </AdminForm>
+            }
           />
-          {/* <Route
-            exact
-            path="/admin/coachprofile/:id"
-            element={<CoachProfilePage />}
-          /> */}
+
           <Route
             exact
             path="coach/dashboard"

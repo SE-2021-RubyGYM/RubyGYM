@@ -66,7 +66,7 @@ export default function AdminSideBar() {
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={[""]}>
             <Menu.Item key="home" icon={<FontAwesomeIcon icon={faHome} />}>
-              <Link to="/admin/dashboard"> Trang chủ </Link>
+              <Link to="/coach/dashboard"> Trang chủ </Link>
             </Menu.Item>
             <SubMenu
               key="user-manager"

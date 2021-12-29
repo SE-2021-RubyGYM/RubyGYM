@@ -59,7 +59,7 @@ export default function AdminBlogList() {
   ]);
 
   return (
-    <div className="admin-blog-list" style={{ marginLeft: "210px" }}>
+    <div className="admin-blog-list">
       <div className="admin-blog-list-container">
         <div className="title">
           <div>Danh sách bài viết</div>

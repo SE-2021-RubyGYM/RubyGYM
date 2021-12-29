@@ -4,8 +4,7 @@ import AdminRegisterAccForUsers from "../component/dat/adminregisteraccforuser/a
 export default function AdminRegisterAccForUsersPage() {
   return (
     <>
-      <AdminForm />
-      <AdminRegisterAccForUsers />  
+      <AdminRegisterAccForUsers />
     </>
   );
 }

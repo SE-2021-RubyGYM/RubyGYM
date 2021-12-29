@@ -76,7 +76,6 @@ export default function AdvProfilePage() {
     //   </div>
     // </div>
     <>
-      <AdminForm />
       {/* <div style={{ marginLeft: "300px" }}>
         <h1>{data.id}</h1>
         <h1>{data.title}</h1>
@@ -86,8 +85,7 @@ export default function AdvProfilePage() {
         <h1>{data.picture}</h1>;
       </div> */}
 
-        <BlogDetail id={id}/>
-
+      <BlogDetail id={id} />
     </>
   );
 }

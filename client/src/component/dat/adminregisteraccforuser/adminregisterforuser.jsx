@@ -43,7 +43,7 @@ export default function AdminRegisterAccForUsers() {
     <div
       style={{
         AdminDefaultRightContainerStyle,
-        paddingLeft: "200px",
+
         width: "100%",
       }}
     >

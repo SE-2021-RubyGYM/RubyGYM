@@ -119,8 +119,197 @@ export default function UserDashBoard() {
   };
 
   return (
-    <div className="all">
-      <div className="main-header">
+    //   <div className="all">
+    //     <div className="main-header">
+    //       <nav>
+    //         <a href="">
+    //           <img
+    //             src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.15752-9/263489534_309213704448605_1612519373928604894_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_ohc=yeLsfkFPxUAAX8Uc9UK&_nc_ht=scontent-hkg4-1.xx&oh=b6a3ffd7443c499cb878dfe144ba3699&oe=61D7BC9A"
+    //             className="logo"
+    //           />
+    //         </a>
+
+    //         <div className="top-navbar">
+    //           <div className="navbar-custom-menu">
+    //             <a className="navbar-icon home-page"> TRANG CHỦ </a>
+    //             <div
+    //               className="navbar-icon news"
+    //               onClick={() => click_ttsk(true)}
+    //             >
+    //               {" "}
+    //               TIN TỨC & SỰ KIỆN
+    //               <hr className="white-line" id="hr_play3" />{" "}
+    //             </div>
+
+    //             <div
+    //               className="navbar-icon user-info"
+    //               onClick={() => click_user_info(true)}
+    //             >
+    //               {" "}
+    //               THÔNG TIN KHÁCH HÀNG
+    //               <hr className="white-line" id="hr_play1" />{" "}
+    //             </div>
+
+    //             <div
+    //               className="navbar-icon user-schedule"
+    //               onClick={() => click_schedule(true)}
+    //             >
+    //               {" "}
+    //               LỊCH TẬP
+    //               <hr className="white-line" id="hr_play2" />
+    //             </div>
+
+    //             <div
+    //               className=" log-out-button"
+    //               onClick={() => click_log_out(true)}
+    //             >
+    //               <button className="button">
+    //                 <img
+    //                   className="img-button"
+    //                   src="https://scontent.fhan5-2.fna.fbcdn.net/v/t1.15752-9/270316520_345976443619938_656043017235543212_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_ohc=-8wJ6Hu9NAIAX_OZ9Kk&_nc_ht=scontent.fhan5-2.fna&oh=03_AVJSWW68RWAvw4KVRkU_LQY8Dvo9M6t3SkVeXVQ1rYGpCg&oe=61F2871C"
+    //                 />{" "}
+    //               </button>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </nav>
+    //     </div>
+
+    //     <div className="container" id="log_out_play">
+    //       <div className="container2">
+    //         <h1 className="login">Bạn muốn đăng xuất?</h1>
+
+    //         <div className="kaka">
+    //           <button className="btn">
+    //             <Link
+    //               to="/user/home"
+    //               onClick={() => {
+    //                 localStorage.removeItem("accessToken");
+    //               }}
+    //             >
+    //               YES{" "}
+    //             </Link>
+    //           </button>
+
+    //           <button className="btn" onClick={() => click_log_out_no(true)}>
+    //             NO
+    //           </button>
+    //         </div>
+    //       </div>
+    //     </div>
+
+    //     {user_ruby.map((element, index) => {
+    //       return (
+    //         <div className="content-chinh">
+    //           <div className="main-content" id="main_content_play">
+    //             <div className="content-header">
+    //               <div className="title">
+    //                 <h2> Thông tin cá nhân của {element.name} </h2>
+    //               </div>
+
+    //               <div className="explain-title">
+    //                 <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
+    //               </div>
+    //               <hr className="red-line" />
+    //             </div>
+
+    //             <div className="content">
+    //               <div className="box">
+    //                 <div className="box-body">
+    //                   <div className="user_image">
+    //                     <img
+    //                       src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
+    //                       className="image-user"
+    //                     />
+    //                   </div>
+
+    //                   <div className="box-user-infor">
+    //                     <div className="user-name">Họ và tên: {element.name}</div>
+    //                     <div className="user-name">
+    //                       Số điện thoại: {element.phone_number}
+    //                     </div>
+    //                     <div className="user-name">Giới tính: {element.sex}</div>
+    //                     <div className="user-name">Ngày sinh: {element.dob}</div>
+    //                     <div className="user-name">Email: {element.mail}</div>
+    //                     <div className="user-name">
+    //                       {" "}
+    //                       Thành viên hạng: {element.rank}
+    //                     </div>
+    //                     <div className="user-name">
+    //                       Thời gian đăng kí: {element.start}
+    //                     </div>
+    //                     <div className="user-name">
+    //                       Hạn đăng kí: {element.finish}
+    //                     </div>
+    //                   </div>
+    //                 </div>
+    //               </div>
+
+    //               <div className="text-center">
+    //                 <button className="button"> Chỉnh sửa thông tin </button>
+    //               </div>
+    //             </div>
+    //           </div>
+
+    //           <div className="main-content-ttsk" id="content_ttsk_play">
+    //             <p> Ghép phần ttsk vào đây nha </p>
+    //           </div>
+
+    //           <div className="main-content-schedule" id="content_schedule_play">
+    //             <div className="content-header">
+    //               <div className="title">
+    //                 <h2> Lịch tập của {element.name} </h2>
+    //               </div>
+
+    //               <div className="explain-title">
+    //                 <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
+    //               </div>
+
+    //               <hr className="red-line" />
+    //             </div>
+
+    //             <div className="content">
+    //               <div className="box">
+    //                 <div className="box-body">
+    //                   <table border="1" className="table-content">
+    //                     <thread>
+    //                       <tr>
+    //                         <th className="column"> Mã khách hàng </th>
+    //                         <th className="column"> Buổi </th>
+    //                         <th className="column"> Thứ </th>
+    //                         <th className="column"> Thời gian </th>
+    //                         <th className="column"> Môn tập </th>
+    //                         <th className="column"> Huấn luyện viên </th>
+    //                       </tr>
+    //                       <tr>
+    //                         <th className="co">{element.ID_user} </th>
+    //                         <th className="co"> 1</th>
+    //                         <th className="co"> 5</th>
+    //                         <th className="co"> 8:00 - 10:00 </th>
+    //                         <th className="co"> Yoga </th>
+    //                         <th className="co"> Bùi Thị Phương </th>
+    //                       </tr>
+    //                       <tr>
+    //                         <th className="co"> {element.ID_user} </th>
+    //                         <th className="co"> 2</th>
+    //                         <th className="co"> 7</th>
+    //                         <th className="co"> 15:00 - 17:00 </th>
+    //                         <th className="co"> Yoga </th>
+    //                         <th className="co"> Bùi Thị Phương </th>
+    //                       </tr>
+    //                     </thread>
+    //                   </table>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       );
+    //     })}
+    //   </div>
+    // );
+    <div className="body_user_ui">
+      <div className="main-header_user">
         <nav>
           <a href="">
             <img
@@ -160,10 +349,10 @@ export default function UserDashBoard() {
               </div>
 
               <div
-                className=" log-out-button"
+                className=" log-out-button_user"
                 onClick={() => click_log_out(true)}
               >
-                <button className="button">
+                <button className="button1_user">
                   <img
                     className="img-button"
                     src="https://scontent.fhan5-2.fna.fbcdn.net/v/t1.15752-9/270316520_345976443619938_656043017235543212_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_ohc=-8wJ6Hu9NAIAX_OZ9Kk&_nc_ht=scontent.fhan5-2.fna&oh=03_AVJSWW68RWAvw4KVRkU_LQY8Dvo9M6t3SkVeXVQ1rYGpCg&oe=61F2871C"
@@ -175,12 +364,12 @@ export default function UserDashBoard() {
         </nav>
       </div>
 
-      <div className="container" id="log_out_play">
+      <div className="container_box_user" id="log_out_play">
         <div className="container2">
-          <h1 className="login">Bạn muốn đăng xuất?</h1>
+          <h1 className="login-user">Bạn muốn đăng xuất?</h1>
 
           <div className="kaka">
-            <button className="btn">
+            <button className="btn-user">
               <Link
                 to="/user/home"
                 onClick={() => {
@@ -190,8 +379,7 @@ export default function UserDashBoard() {
                 YES{" "}
               </Link>
             </button>
-
-            <button className="btn" onClick={() => click_log_out_no(true)}>
+            <button className="btn-user" onClick={() => click_log_out_no(true)}>
               NO
             </button>
           </div>
@@ -200,9 +388,9 @@ export default function UserDashBoard() {
 
       {user_ruby.map((element, index) => {
         return (
-          <div className="content-chinh">
-            <div className="main-content" id="main_content_play">
-              <div className="content-header">
+          <div className="content-chinh-user">
+            <div className="main-content1-user" id="main_content_play">
+              <div className="content-header-user">
                 <div className="title">
                   <h2> Thông tin cá nhân của {element.name} </h2>
                 </div>
@@ -213,9 +401,9 @@ export default function UserDashBoard() {
                 <hr className="red-line" />
               </div>
 
-              <div className="content">
-                <div className="box">
-                  <div className="box-body">
+              <div className="content-user">
+                <div className="box-user">
+                  <div className="box-body-user">
                     <div className="user_image">
                       <img
                         src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
@@ -245,8 +433,11 @@ export default function UserDashBoard() {
                   </div>
                 </div>
 
-                <div className="text-center">
-                  <button className="button"> Chỉnh sửa thông tin </button>
+                <div className="change-infor-user">
+                  <button className="button-change">
+                    {" "}
+                    Chỉnh sửa thông tin{" "}
+                  </button>
                 </div>
               </div>
             </div>
@@ -256,7 +447,7 @@ export default function UserDashBoard() {
             </div>
 
             <div className="main-content-schedule" id="content_schedule_play">
-              <div className="content-header">
+              <div className="content-header-user">
                 <div className="title">
                   <h2> Lịch tập của {element.name} </h2>
                 </div>
@@ -268,10 +459,10 @@ export default function UserDashBoard() {
                 <hr className="red-line" />
               </div>
 
-              <div className="content">
-                <div className="box">
-                  <div className="box-body">
-                    <table border="1" className="table-content">
+              <div className="content-user">
+                <div className="box-user">
+                  <div className="box-body-user">
+                    <table border="1" className="table-content-user">
                       <thread>
                         <tr>
                           <th className="column"> Mã khách hàng </th>
