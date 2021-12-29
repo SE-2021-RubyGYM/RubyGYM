@@ -15,7 +15,7 @@ export default function AdminHeader() {
     <>
       <Header className="header" style={{ paddingLeft: "0px" }}>
         <img
-          className="logo"
+          className="ruby-logo"
           src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
           alt=""
         />
