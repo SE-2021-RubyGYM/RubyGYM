@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AdminLogin from "./routes/adminLogin";
 import UserPage from "./routes/userPage";
 import NewFeeds from "./routes/newFeeds";
-import AdminBlogListPage from "./routes/adminBlogListPage";
+
 import AdminBlogList from "./component/trang/admin/adminBlogList";
 import Adminaddblogpage from "./routes/adminaddblogpage";
 import AdminDashBoard from "./routes/adminDashboard";
@@ -15,14 +15,14 @@ import UserBlogDetail from "./routes/userBlogDetail";
 import AdminForm from "./routes/adminForm/adminForm";
 import SchedulePage from "./routes/schedulePage";
 import CoachDashBoard from "./routes/coachDashboard";
+import CoachForm from "./routes/coachForm/coachForm";
 import UserDashBoard from "./routes/userForm/UserDashBoard";
-
+import AdminRegisterAccForCoach from "./routes/adminRegisterAccForCoach";
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/user/home" element={<UserPage />} />
           <Route exact path="/admin/home" element={<AdminLogin />} />
           <Route exact path="/admin/dashboard" element={<AdminDashBoard />} />
           <Route
@@ -35,8 +35,7 @@ function App() {
               </AdminForm>
             }
           />
-          <Route exact path="/user/blog" element={<NewFeeds />} />
-          <Route exact path="/user/blog/:id" element={<UserBlogDetail />} />
+
           <Route
             exact
             path="/admin/bloglist"
@@ -96,18 +95,34 @@ function App() {
 
           <Route
             exact
+            path="/admin/registeraccforcoach"
+            // element={<AdminRegisterAccForUsersPage />}
+            element={
+              <AdminForm>
+                {" "}
+                <AdminRegisterAccForCoach />{" "}
+              </AdminForm>
+            }
+          />
+          {/* coach */}
+
+          <Route
+            exact
             path="coach/dashboard"
             element={<CoachDashBoard />}
           ></Route>
           <Route exact path="coach/schedule" element={<SchedulePage />}></Route>
 
           {/* user */}
-
+          <Route exact path="/user/home" element={<UserPage />} />
           <Route
             exact
             path="user/dashboard"
             element={<UserDashBoard />}
           ></Route>
+
+          <Route exact path="/user/blog" element={<NewFeeds />} />
+          <Route exact path="/user/blog/:id" element={<UserBlogDetail />} />
         </Routes>
       </Router>
     </div>

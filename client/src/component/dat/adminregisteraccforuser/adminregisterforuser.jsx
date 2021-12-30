@@ -9,6 +9,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function AdminRegisterAccForUsers() {
+  const major = "userprofile/";
   const tableheader = [
     "ID",
     "Tên",
@@ -57,7 +58,11 @@ export default function AdminRegisterAccForUsers() {
           />
         </div>
         <div style={{ paddingLeft: "30px" }}>
-          <AdminDefaultTable headertable={tableheader} datatable={data} />
+          <AdminDefaultTable
+            headertable={tableheader}
+            datatable={data}
+            function={major}
+          />
         </div>
       </div>
     </div>

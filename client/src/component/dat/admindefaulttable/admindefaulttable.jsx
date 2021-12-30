@@ -37,8 +37,10 @@ export default function AdminDefaultTable(props) {
                 return <td>{element[key]}</td>;
               })}
               <td>
-                {/* <Link to={"/admin/userprofile" + element["_id"]}> */}
-                <Link to={"/admin/userprofile/" + element["_id"]}>
+                {/* <Link to={"/admin/userprofile/" + element["_id"]}>
+                  Xem chi tiet
+                </Link> */}
+                <Link to={"/admin/" + props.function + element["_id"]}>
                   Xem chi tiet
                 </Link>
               </td>
