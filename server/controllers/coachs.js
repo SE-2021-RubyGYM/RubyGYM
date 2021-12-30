@@ -14,13 +14,11 @@ module.exports = {
       next();
     } catch (error) {
       console.log(error);
-      return res
-        .status(500)
-        .json({
-          success: false,
-          message: "Internal server error",
-          result: null,
-        });
+      return res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        result: null,
+      });
     }
   },
   // create new coach if all infos valid, only done by Admins or Sales
@@ -30,7 +28,7 @@ module.exports = {
     //     .status(401)
     //     .json({ success: false, message: 'Unauthorized',result: null  })
     // }
-    const { username, password, name, gender, paymentDay, phone, birthDay } =
+    const { username, password, name, gender, phone, birthDay, major } =
       req.body;
 
     if (!username || !password || !name || !phone) {
@@ -55,10 +53,10 @@ module.exports = {
 
       // All good
       const hashedPassword = await argon2.hash(password);
-      const referralCode = referralCodes.generate({
-        prefix: "GT-",
-        postfix: "-" + new Date().getFullYear().toString(),
-      })[0];
+      // const referralCode = referralCodes.generate({
+      //   prefix: "GT-",
+      //   postfix: "-" + new Date().getFullYear().toString(),
+      // })[0];
 
       const newCoach = new Coach({
         username,
@@ -66,9 +64,10 @@ module.exports = {
         name,
         gender,
         birthDay,
-        paymentDay,
-        referralCode,
+        // paymentDay,
+        // referralCode,
         phone,
+        major,
       });
       let err = newCoach.validateSync();
       if (err) {
@@ -88,7 +87,7 @@ module.exports = {
       }
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      return res.status(510).json({
         success: false,
         message: "Internal server error",
         result: null,

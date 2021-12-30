@@ -19,6 +19,7 @@ import CoachForm from "./routes/coachForm/coachForm";
 import UserDashBoard from "./routes/userForm/UserDashBoard";
 import AdminRegisterAccForCoach from "./routes/adminRegisterAccForCoach";
 import CoachProfilePage from "./routes/coachProfilePage";
+import AdminAddCoach from "./component/dat/adminaddcoach";
 function App() {
   return (
     <div className="App">
@@ -78,6 +79,16 @@ function App() {
               <AdminForm>
                 {" "}
                 <AdminAddUserPage />{" "}
+              </AdminForm>
+            }
+          />
+          <Route
+            exact
+            path="/admin/addcoach"
+            element={
+              <AdminForm>
+                {" "}
+                <AdminAddCoach />{" "}
               </AdminForm>
             }
           />

@@ -163,13 +163,13 @@ module.exports = {
       if (req.query.name) {
         let regex = new RegExp(req.query.name, "i");
         users = await User.find(
-          { name: regex },
-          "-gender -password -referralCode -paymentDay -createAt -updateAt -__v -coach"
+          { name: regex }
+          // "-gender -password -referralCode -paymentDay -createAt -updateAt -__v -coach"
         );
       } else
         users = await User.find(
-          null,
-          "-gender -password -referralCode -paymentDay -createAt -updateAt -__v -coach"
+          null
+          // "-gender -password -referralCode -paymentDay -createAt -updateAt -__v -coach"
         );
       return res.json({ success: true, message: "API OK", result: users });
     } catch (error) {

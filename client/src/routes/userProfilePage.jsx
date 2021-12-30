@@ -74,6 +74,10 @@ export default function UserProfilePage() {
       // birthday: data.birthDay.toLocaleDateString("pt-PT"),
       gender: data.gender,
       id: data._id,
+      coach_ID: data.coach,
+      goal: data.aim,
+      height: data.height,
+      weight: data.weight,
     },
     ,
   ];
@@ -109,6 +113,26 @@ export default function UserProfilePage() {
       dataIndex: "gender",
       key: "gender",
     },
+    {
+      title: "Coach_ID",
+      dataIndex: "coach_ID",
+      key: "coach_ID",
+    },
+    {
+      title: "Goal",
+      dataIndex: "goal",
+      key: "goal",
+    },
+    {
+      title: "Height",
+      dataIndex: "height",
+      key: "height",
+    },
+    {
+      title: "Weight",
+      dataIndex: "weight",
+      key: "weight",
+    },
   ];
 
   return (
@@ -137,6 +161,7 @@ export default function UserProfilePage() {
     //     </div>
     //   </div>
     // </div>
+
     <>
       <div>
         <div>

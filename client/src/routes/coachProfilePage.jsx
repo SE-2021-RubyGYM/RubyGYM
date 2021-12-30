@@ -25,11 +25,11 @@ export default function CoachProfilePage() {
   ];
 
   const [data, setData] = useState([
-    // {
-    //   _id: 0,
-    //   name: "dat",
-    //   birthDay: "",
-    // },
+    {
+      _id: 0,
+      name: "dat",
+      birthDay: "",
+    },
   ]);
   const getData = () => {
     axios({
@@ -74,6 +74,7 @@ export default function CoachProfilePage() {
       // birthday: data.birthDay.toLocaleDateString("pt-PT"),
       gender: data.gender,
       id: data._id,
+      major: data.major,
     },
     ,
   ];
@@ -108,6 +109,11 @@ export default function CoachProfilePage() {
       title: "Gender",
       dataIndex: "gender",
       key: "gender",
+    },
+    {
+      title: "Major",
+      dataIndex: "major",
+      key: "major",
     },
   ];
 

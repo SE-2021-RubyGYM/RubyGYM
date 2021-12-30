@@ -14,6 +14,11 @@ export default function AdminHeader() {
   return (
     <>
       <Header className="header" style={{ paddingLeft: "0px" }}>
+        {/* <img
+          style={{ marginLeft: "210px" }}
+          src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
+          alt=""
+        /> */}
         <Search
           style={{ width: "30%", verticalAlign: "middle", marginLeft: "60%" }}
           placeholder="Tìm kiếm"

@@ -25,9 +25,12 @@ export default function AdminSideBar() {
     <div
       className="sidebar"
       style={{
-        top: "0px",
-        height: "100%",
+        // height: "100%",
         width: "210px",
+        overflow: "auto",
+        height: "100vh",
+        position: "fixed",
+        left: 0,
       }}
     >
       <Layout>
@@ -40,10 +43,10 @@ export default function AdminSideBar() {
           }}
         >
           <div className="logo">
-            <img
+            {/* <img
               src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
               alt=""
-            />
+            /> */}
           </div>
 
           <div className="userPanel">
@@ -113,7 +116,7 @@ export default function AdminSideBar() {
                 key="addcoach"
                 style={{ paddingLeft: "24px" }}
               >
-                <Link to="">
+                <Link to="/admin/addcoach">
                   <UserAddOutlined /> Thêm hlv{" "}
                 </Link>
               </Menu.Item>

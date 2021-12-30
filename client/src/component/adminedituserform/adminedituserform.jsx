@@ -46,11 +46,14 @@ export default function AdminEditUserForm(props) {
         // coach:getValueByTitleE('coach'),
       },
     })
-      .then((res) => {})
+      .then((res) => {
+        alert("Thêm thành công");
+      })
       .catch((res) => {
+        alert("Thêm không thành công");
         console.log(res);
       });
-    alert(getValueByTitleE("name"));
+    // alert(getValueByTitleE("name"));
   };
 
   const buttonField = (title) => {

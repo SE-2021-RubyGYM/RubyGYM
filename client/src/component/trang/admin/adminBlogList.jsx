@@ -86,10 +86,10 @@ export default function AdminBlogList() {
                 </Link>
               </div>
               <div className="setting">
-                <img
+                {/* <img
                   src="https://cdn-icons.flaticon.com/png/128/2040/premium/2040504.png?token=exp=1637698397~hmac=a27326feb11e6978bb38a61d1a6e80e9"
                   alt=""
-                />
+                /> */}
               </div>
             </div>
           </div>

@@ -13,11 +13,10 @@ export default function AdminRegisterAccForUsers() {
   const tableheader = [
     "ID",
     "Tên",
-    "Tài khoản",
     "Số điện thoai",
     "Ngày sinh",
     "ID HLV",
-    "...",
+    "Payment Day",
   ];
   const [data, setData] = useState([
     {
@@ -32,7 +31,26 @@ export default function AdminRegisterAccForUsers() {
       url: "http://localhost:5000/api/users/",
     }).then((res) => {
       if (res.status == 200) {
-        setData(res.data.result);
+        const tmp = res.data.result;
+        const out = [];
+        tmp.forEach(myFunction);
+        function myFunction(element) {
+          const output = {
+            _id: element._id,
+            name: element.name,
+            phone: element.phone,
+            birthDay: element.birthDay,
+            coach: element.coach,
+            paymentDay: element.paymentDay,
+          };
+          out.push(output);
+        }
+
+        setData(out);
+
+        console.log(tmp);
+        console.log("loideptrai");
+        console.log(out);
       }
     });
   };
