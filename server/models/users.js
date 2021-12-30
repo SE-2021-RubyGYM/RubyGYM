@@ -44,6 +44,7 @@ const Users = new Schema({
     type: String,
     minLength: 3,
     maxLength: 255,
+    default: "Trống",
   },
   height: {
     type: String,
@@ -56,16 +57,19 @@ const Users = new Schema({
     max: 365,
   },
   paymentDay: {
-    type: Date,
+    type: String,
     // default: Date.now
   },
   createAt: {
     type: String,
-    default: Date.now
+    // default: Date.now
   },
   updateAt: {
     type: String,
-    default: Date.now
+    // default: Date.now
+  },
+  aim: {
+    type: String,
   },
 });
 
