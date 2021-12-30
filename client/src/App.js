@@ -18,6 +18,7 @@ import CoachDashBoard from "./routes/coachDashboard";
 import CoachForm from "./routes/coachForm/coachForm";
 import UserDashBoard from "./routes/userForm/UserDashBoard";
 import AdminRegisterAccForCoach from "./routes/adminRegisterAccForCoach";
+import CoachProfilePage from "./routes/coachProfilePage";
 function App() {
   return (
     <div className="App">
@@ -89,6 +90,17 @@ function App() {
               <AdminForm>
                 {" "}
                 <UserProfilePage />{" "}
+              </AdminForm>
+            }
+          />
+          <Route
+            exact
+            path="/admin/coachprofile/:id"
+            // element={<UserProfilePage />}
+            element={
+              <AdminForm>
+                {" "}
+                <CoachProfilePage />{" "}
               </AdminForm>
             }
           />

@@ -66,7 +66,10 @@ router.put("/:id", verifyToken, verifyAdmin, async (req, res) => {
 // @route DELETE api/coachs/:id
 // @desc Delete coach by id
 // @access Private
-router.delete("/:id", verifyToken, verifyAdmin, async (req, res) => {
+// router.delete("/:id", verifyToken, verifyAdmin, async (req, res) => {
+//   await deleteCoachById(req, res);
+// });
+router.delete("/:id", async (req, res) => {
   await deleteCoachById(req, res);
 });
 

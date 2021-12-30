@@ -1,20 +1,28 @@
-const Coach = require('../models/coachs')
-const argon2 = require('argon2')
-const jwt = require('jsonwebtoken')
+const Coach = require("../models/coachs");
+const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
-    verifyCoach: async (req, res, next) => {
-        try {
-            const coach = await Coach.findById(req.userId).select('-password')
-            if (!coach)
-                return res.status(401).json({ success: false, message: 'Unauthorized',result: null  })
-            req.position = "Coach"
-            next()
-        } catch (error) {
-            console.log(error)
-            return res.status(500).json({ success: false, message: 'Internal server error',result: null })
-        }
-    },
+  verifyCoach: async (req, res, next) => {
+    try {
+      const coach = await Coach.findById(req.userId).select("-password");
+      if (!coach)
+        return res
+          .status(401)
+          .json({ success: false, message: "Unauthorized", result: null });
+      req.position = "Coach";
+      next();
+    } catch (error) {
+      console.log(error);
+      return res
+        .status(500)
+        .json({
+          success: false,
+          message: "Internal server error",
+          result: null,
+        });
+    }
+  },
   // create new coach if all infos valid, only done by Admins or Sales
   createCoach: async (req, res) => {
     // if(!req.position || (req.position != "Administrator" && req.position != "Sales manager")) {
@@ -230,14 +238,14 @@ module.exports = {
 
   // delete an coach's account by his/her id , only done by Admins or Sales
   deleteCoachById: async (req, res) => {
-    if (
-      !req.position ||
-      (req.position != "Administrator" && req.position != "Sales manager")
-    ) {
-      return res
-        .status(401)
-        .json({ success: false, message: "Unauthorized", result: null });
-    }
+    // if (
+    //   !req.position ||
+    //   (req.position != "Administrator" && req.position != "Sales manager")
+    // ) {
+    //   return res
+    //     .status(401)
+    //     .json({ success: false, message: "Unauthorized", result: null });
+    // }
     const id = req.params.id;
     try {
       const coach = await Coach.findByIdAndDelete(id);
@@ -302,7 +310,6 @@ module.exports = {
     }
   },
 
-
   // update an coach's informations by his/her id , only done by his/her-self
   changeCoachInfos: async (req, res) => {
     if (!req.position || req.position != "Coach") {
@@ -335,7 +342,6 @@ module.exports = {
       });
     }
   },
-
 
   // get my informations
   getMyInfos: async (req, res) => {
