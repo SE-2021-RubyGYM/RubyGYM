@@ -28,23 +28,41 @@ function Header() {
     }
   }, []);
   const fLogin = async () => {
-    axios({
-      method: "post",
-      url: "http://localhost:5000/api/users/login",
-      data: {
-        username: userName,
-        password: password,
-      },
-    })
-      .then((res) => {
-        if (res.status == 200) {
-          localStorage.setItem("accessToken", res.data.result);
-          window.open("http://localhost:3000/user/dashboard", "_selft");
-        }
-      })
-      .catch((err) => {
-        alert("Tài khoản hoặc mật khẩu không chính xác!");
-      });
+    document.getElementsByClassName("check").checked
+      ? axios({
+          method: "post",
+          url: "http://localhost:5000/api/users/login",
+          data: {
+            username: userName,
+            password: password,
+          },
+        })
+          .then((res) => {
+            if (res.status == 200) {
+              localStorage.setItem("accessToken", res.data.result);
+              window.open("http://localhost:3000/user/dashboard", "_selft");
+            }
+          })
+          .catch((err) => {
+            alert("Tài khoản hoặc mật khẩu không chính xác!");
+          })
+      : axios({
+          method: "post",
+          url: "http://localhost:5000/api/coachs/login",
+          data: {
+            username: userName,
+            password: password,
+          },
+        })
+          .then((res) => {
+            if (res.status == 200) {
+              localStorage.setItem("accessToken", res.data.result);
+              window.open("http://localhost:3000/coach/dashboard", "_selft");
+            }
+          })
+          .catch((err) => {
+            alert("Tài khoản hoặc mật khẩu không chính xác!");
+          });
   };
 
   // show login panel
@@ -124,8 +142,12 @@ function Header() {
         <div className="check">
           <label>
             <input type="checkbox" />
-            Remember me
+            Tôi là huấn luyện viên
           </label>
+          {/* <label>
+            <input type="checkbox" />
+            Remember me
+          </label> */}
         </div>
         <br />
         <button className="submit-login" onClick={() => fLogin()}>
