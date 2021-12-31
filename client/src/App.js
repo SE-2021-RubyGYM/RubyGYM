@@ -20,6 +20,7 @@ import UserDashBoard from "./routes/userForm/UserDashBoard";
 import AdminRegisterAccForCoach from "./routes/adminRegisterAccForCoach";
 import CoachProfilePage from "./routes/coachProfilePage";
 import AdminAddCoach from "./component/dat/adminaddcoach";
+import CoachUserTable from "./component/dat/coachUserTable";
 function App() {
   return (
     <div className="App">
@@ -134,7 +135,26 @@ function App() {
             path="coach/dashboard"
             element={<CoachDashBoard />}
           ></Route>
-          <Route exact path="coach/schedule" element={<SchedulePage />}></Route>
+          <Route
+            exact
+            path="/coach/schedule"
+            element={
+              <CoachForm>
+                {" "}
+                <SchedulePage />{" "}
+              </CoachForm>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/coach/userlist"
+            element={
+              <CoachForm>
+                {" "}
+                <CoachUserTable />{" "}
+              </CoachForm>
+            }
+          ></Route>
 
           {/* user */}
           <Route exact path="/user/home" element={<UserPage />} />

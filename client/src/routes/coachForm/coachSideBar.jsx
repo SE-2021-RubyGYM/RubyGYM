@@ -35,18 +35,17 @@ export default function AdminSideBar() {
         <Sider
           width={"210px"}
           style={{
-            position: "fixed",
+            position: "absolute",
             top: "0px",
             height: "100%",
-            display: "block",
           }}
         >
-          <div className="logo">
+          {/* <div className="logo">
             <img
               src="https://lh3.googleusercontent.com/d/1TR8uxHUpxSpM6NeGLU-Tz_2LswOLN2eH=s220?authuser=0"
               alt=""
             />
-          </div>
+          </div> */}
 
           <div className="userPanel">
             <div class="user-image">
@@ -74,7 +73,7 @@ export default function AdminSideBar() {
               title="Quản lý người tập "
             >
               <Menu.Item key="user-list" style={{ paddingLeft: "24px" }}>
-                <Link to="">
+                <Link to="/coach/userlist">
                   <FontAwesomeIcon icon={faList} /> Danh sách người tập{" "}
                 </Link>
               </Menu.Item>

@@ -8,11 +8,11 @@ import CoachSideBar from "./coachSideBar";
 import AdminBreadCrumb from "./adminBreadCrumb";
 import AdminContent from "./adminContent";
 
-export default function CoachForm() {
+export default function CoachForm(props) {
   return (
     <Layout>
       <AdminHeader />
-      {/* <AdminBreadCrumb /> */}
+      <div style={{ marginLeft: "210px" }}>{props.children}</div>
       <CoachSideBar />
     </Layout>
   );

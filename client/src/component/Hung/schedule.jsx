@@ -13,7 +13,7 @@ import {
 
 function Schedule_coach() {
   return (
-    <div className="schedule_bg" style={{ marginLeft: "220px" }}>
+    <div className="schedule_bg">
       <div className="schedule_table">
         <ScheduleComponent>
           <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
