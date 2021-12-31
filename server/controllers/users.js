@@ -314,11 +314,11 @@ module.exports = {
 
   // update an user's Assessment by his/her id , only done by his/her coach
   changeUserAssessment: async (req, res) => {
-    if (!req.position || req.position != "Coach") {
-      return res
-        .status(401)
-        .json({ success: false, message: "Unauthorized", result: null });
-    }
+    // if (!req.position || req.position != "Coach") {
+    //   return res
+    //     .status(401)
+    //     .json({ success: false, message: "Unauthorized", result: null });
+    // }
     let updateAt = new Date();
     const id = req.params.id;
     try {

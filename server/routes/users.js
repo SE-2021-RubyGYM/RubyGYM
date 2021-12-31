@@ -59,7 +59,9 @@ router.get("/get_by_coach", verifyToken, verifyCoach, async (req, res) => {
 // @route GET api/users/:id
 // @desc Get user by id
 // @access Private
-// router.get('/:id',verifyToken,verifyAdmin,async(req, res) => {await getUserById(req, res)})
+// router.get("/:id", verifyToken, verifyAdmin, async (req, res) => {
+//   await getUserById(req, res);
+// });
 router.get("/:id", async (req, res) => {
   await getUserById(req, res);
 });
@@ -90,7 +92,8 @@ router.put("/:id/change_password", verifyToken, async (req, res) => {
 // @route PUT api/users/:id/assess
 // @desc assess an user by id
 // @access Private
-router.put("/:id/assess", verifyToken, verifyCoach, async (req, res) => {
+// router.put("/:id/assess", verifyToken, verifyCoach, async (req, res) => {
+router.put("/:id/assess", async (req, res) => {
   await changeUserAssessment(req, res);
 });
 

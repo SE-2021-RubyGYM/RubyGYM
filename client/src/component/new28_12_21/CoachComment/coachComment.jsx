@@ -15,12 +15,20 @@ const CoachComment = (props) => {
     if (comment == "") {
       alert("Bạn phải viết gì đó trước!");
     }
-
+    alert(id);
     axios({
       method: "put",
       url: "http://localhost:5000/api/users/" + id + "/assess",
-      data: {},
-    }).then((res) => {});
+      data: comment,
+    })
+      .then((res, req) => {
+        alert("Đã gửi nhận xét");
+        console.log(req);
+      })
+      .catch((res) => {
+        alert("Không thành công");
+        console.log(res);
+      });
   });
   return (
     <div className="coach-comment">
@@ -43,6 +51,7 @@ const CoachComment = (props) => {
       ></textarea>
       <br />
       <Button
+        onClickedFunction={() => handleSubmit()}
         style={{
           backgroundColor: "rgb(59, 137, 255)",
           color: "rgb(246, 249, 255)",
