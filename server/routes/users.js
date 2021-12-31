@@ -47,6 +47,13 @@ router.get("/", async (req, res) => {
   await getUsers(req, res);
 });
 
+// @route GET api/users/get_by_coach
+// @desc Get all users of a coach
+// @access Private
+// router.get("/get_by_coach", verifyToken, verifyCoach, async (req, res) => {
+router.get("/get_by_coach", verifyToken, verifyCoach, async (req, res) => {
+  await getUsersByCoach(req, res);
+});
 // router.get('/',verifyToken,verifyAdmin,async(req, res) => {await getUsers(req, res)})
 
 // @route GET api/users/:id
@@ -92,13 +99,6 @@ router.put("/:id/assess", verifyToken, verifyCoach, async (req, res) => {
 // @access Private
 router.put("/:id/change_info", verifyToken, async (req, res) => {
   await changeUserInfos(req, res);
-});
-
-// @route GET api/users/get_by_coach
-// @desc Get all users of a coach
-// @access Private
-router.get("/get_by_coach", verifyToken, verifyCoach, async (req, res) => {
-  await getUsersByCoach(req, res);
 });
 
 // @route GET api/users/:id/my_info

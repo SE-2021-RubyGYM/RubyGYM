@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 
 export default function CoachUserTable() {
   const major = "userprofile/";
+  const actor = "/coach/";
   const tableheader = [
     "ID",
     "Tên",
@@ -27,8 +28,12 @@ export default function CoachUserTable() {
   ]);
   const getDataUser = () => {
     axios({
-      method: "get",
-      url: "http://localhost:5000/api/users/",
+      method: "GET",
+
+      url: "http://localhost:5000/api/users/get_by_coach",
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
     }).then((res) => {
       if (res.status == 200) {
         const tmp = res.data.result;
@@ -54,6 +59,22 @@ export default function CoachUserTable() {
       }
     });
   };
+  //   axios({
+  //     method: "GET",
+
+  //     url: "http://localhost:5000/api/users/get_by_coach",
+  //     headers: {
+  //       authorization: "Bearer " + localStorage.getItem("accessToken"),
+  //     },
+  //   })
+  //     .then((res) => {
+  //       console.log(res);
+  //       setData()
+  //     })
+  //     .catch((res) => {
+  //       console.log(res);
+  //     });
+  // };
   useEffect(() => {
     getDataUser();
   }, []);
@@ -80,6 +101,7 @@ export default function CoachUserTable() {
             headertable={tableheader}
             datatable={data}
             function={major}
+            actor={actor}
           />
         </div>
       </div>

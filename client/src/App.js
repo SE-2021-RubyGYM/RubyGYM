@@ -21,6 +21,7 @@ import AdminRegisterAccForCoach from "./routes/adminRegisterAccForCoach";
 import CoachProfilePage from "./routes/coachProfilePage";
 import AdminAddCoach from "./component/dat/adminaddcoach";
 import CoachUserTable from "./component/dat/coachUserTable";
+import CoachComment from "./component/new28_12_21/CoachComment/coachComment";
 function App() {
   return (
     <div className="App">
@@ -155,6 +156,19 @@ function App() {
               </CoachForm>
             }
           ></Route>
+          <Route
+            exact
+            path="/coach/userprofile/:id"
+            // element={<UserProfilePage />}
+            element={
+              <CoachForm>
+                {" "}
+                <UserProfilePage>
+                  <CoachComment></CoachComment>
+                </UserProfilePage>
+              </CoachForm>
+            }
+          />
 
           {/* user */}
           <Route exact path="/user/home" element={<UserPage />} />

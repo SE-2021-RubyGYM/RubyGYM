@@ -9,6 +9,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function AdminRegisterAccForUsers() {
+  const actor = "/admin/";
   const major = "userprofile/";
   const tableheader = [
     "ID",
@@ -80,6 +81,7 @@ export default function AdminRegisterAccForUsers() {
             headertable={tableheader}
             datatable={data}
             function={major}
+            actor={actor}
           />
         </div>
       </div>

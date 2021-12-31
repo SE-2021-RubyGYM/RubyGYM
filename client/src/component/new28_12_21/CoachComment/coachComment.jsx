@@ -1,7 +1,11 @@
 import { useState, useCallback } from "react";
-import "./CoachComment.css";
+import "./style.css";
 import Button from "../Element/button";
+import axios from "axios";
+import { useParams } from "react-router";
 const CoachComment = (props) => {
+  const { id } = useParams();
+
   const [comment, setComment] = useState("");
   const handleOnCommentChange = useCallback((e) => {
     setComment(e.target.value);
@@ -12,7 +16,11 @@ const CoachComment = (props) => {
       alert("Bạn phải viết gì đó trước!");
     }
 
-    //handlee api
+    axios({
+      method: "put",
+      url: "http://localhost:5000/api/users/" + id + "/assess",
+      data: {},
+    }).then((res) => {});
   });
   return (
     <div className="coach-comment">

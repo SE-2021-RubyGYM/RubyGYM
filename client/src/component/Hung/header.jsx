@@ -28,41 +28,43 @@ function Header() {
     }
   }, []);
   const fLogin = async () => {
-    document.getElementsByClassName("check").checked
-      ? axios({
-          method: "post",
-          url: "http://localhost:5000/api/users/login",
-          data: {
-            username: userName,
-            password: password,
-          },
+    if (!document.getElementsByClassName("checkhlv")[0].checked) {
+      axios({
+        method: "post",
+        url: "http://localhost:5000/api/users/login",
+        data: {
+          username: userName,
+          password: password,
+        },
+      })
+        .then((res) => {
+          if (res.status == 200) {
+            localStorage.setItem("accessToken", res.data.result);
+            window.open("http://localhost:3000/user/dashboard", "_selft");
+          }
         })
-          .then((res) => {
-            if (res.status == 200) {
-              localStorage.setItem("accessToken", res.data.result);
-              window.open("http://localhost:3000/user/dashboard", "_selft");
-            }
-          })
-          .catch((err) => {
-            alert("Tài khoản hoặc mật khẩu không chính xác!");
-          })
-      : axios({
-          method: "post",
-          url: "http://localhost:5000/api/coachs/login",
-          data: {
-            username: userName,
-            password: password,
-          },
+        .catch((err) => {
+          alert("Tài khoản hoặc mật khẩu không chính xác!");
+        });
+    } else {
+      axios({
+        method: "post",
+        url: "http://localhost:5000/api/coachs/login",
+        data: {
+          username: userName,
+          password: password,
+        },
+      })
+        .then((res) => {
+          if (res.status == 200) {
+            localStorage.setItem("accessToken", res.data.result);
+            window.open("http://localhost:3000/coach/dashboard", "_selft");
+          }
         })
-          .then((res) => {
-            if (res.status == 200) {
-              localStorage.setItem("accessToken", res.data.result);
-              window.open("http://localhost:3000/coach/dashboard", "_selft");
-            }
-          })
-          .catch((err) => {
-            alert("Tài khoản hoặc mật khẩu không chính xác!");
-          });
+        .catch((err) => {
+          alert("Tài khoản hoặc mật khẩu không chính xác!");
+        });
+    }
   };
 
   // show login panel
@@ -141,7 +143,7 @@ function Header() {
         />
         <div className="check">
           <label>
-            <input type="checkbox" />
+            <input className="checkhlv" type="checkbox" />
             Tôi là huấn luyện viên
           </label>
           {/* <label>

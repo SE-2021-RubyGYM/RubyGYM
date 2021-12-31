@@ -4,12 +4,13 @@ const jwt = require("jsonwebtoken");
 
 module.exports = {
   verifyCoach: async (req, res, next) => {
+    console.log("Loi" + req.userId + " " + req.position);
     try {
       const coach = await Coach.findById(req.userId).select("-password");
       if (!coach)
         return res
           .status(401)
-          .json({ success: false, message: "Unauthorized", result: null });
+          .json({ success: false, message: "Unauthorized 2", result: null });
       req.position = "Coach";
       next();
     } catch (error) {
@@ -129,7 +130,7 @@ module.exports = {
       // All good
       // Return token
       const accessToken = jwt.sign(
-        { coachId: coach._id },
+        { userId: coach._id },
         process.env.ACCESS_TOKEN_SECRET
       );
 
@@ -266,7 +267,7 @@ module.exports = {
   // change an coach's password, done by his/her-self
   changePassword: async (req, res) => {
     const id = req.params.id;
-    if (id != req.coachId) {
+    if (id != req.userId) {
       return res
         .status(401)
         .json({ success: false, message: "Unauthorized", result: null });
@@ -345,7 +346,7 @@ module.exports = {
   // get my informations
   getMyInfos: async (req, res) => {
     const id = req.params.id;
-    if (!req.position || req.position != "Coach" || id != req.coachId) {
+    if (!req.position || req.position != "Coach" || id != req.userId) {
       return res
         .status(401)
         .json({ success: false, message: "Unauthorized", result: null });

@@ -12,7 +12,10 @@ import { Button, Table } from "antd";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-export default function UserProfilePage() {
+import CoachComment from "../component/new28_12_21/CoachComment/coachComment";
+export default function UserProfilePage(props) {
+
+  
   const { id } = useParams();
   const url = "http://localhost:5000/api/users/" + id;
   const tableheader = [
@@ -173,6 +176,8 @@ export default function UserProfilePage() {
           <Link to="/admin/registeraccforuser">
             <Button onClick={() => handleDeleteUser()}>Xoá người dùng</Button>
           </Link>
+          {/* <CoachComment /> */}
+          {props.children}
         </div>
       </div>
     </>

@@ -101,7 +101,7 @@ export default function AdminSideBar() {
             </SubMenu> */}
 
             <Menu.Item key="sign-out">
-              <Link to="/admin/home">
+              <Link to="/user/home">
                 <FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất
               </Link>
             </Menu.Item>

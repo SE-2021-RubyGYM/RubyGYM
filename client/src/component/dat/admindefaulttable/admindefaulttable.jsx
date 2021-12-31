@@ -53,7 +53,7 @@ export default function AdminDefaultTable(props) {
                   Xem chi tiet
                 </Link> */}
                 {/* <Link to={"/admin/userprofile/" + element["_id"]}> */}
-                <Link to={"/admin/" + props.function + element["_id"]}>
+                <Link to={props.actor + props.function + element["_id"]}>
                   Xem chi tiet
                 </Link>
               </td>
