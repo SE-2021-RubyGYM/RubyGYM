@@ -1,25 +1,25 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import AdminAddUser from "./component/dat/adminadduser/adminadduser";
-import AdminLogin from "./routes/adminLogin";
-import UserPage from "./routes/userPage";
-import NewFeeds from "./routes/newFeeds";
-import AdminRegisterAccForUsers from "./component/dat/adminregisteraccforuser/adminregisterforuser";
-import AdminBlogList from "./component/trang/admin/adminBlogList";
-import AddBlog from "./component/new28_12_21/AddBlog/AddBlog";
-import AdminDashBoard from "./routes/adminDashboard";
-import UserProfilePage from "./routes/userProfilePage";
-import AdvProfilePage from "./routes/advProfilePage";
-import UserBlogDetail from "./routes/userBlogDetail";
-import AdminForm from "./routes/adminForm/adminForm";
-import SchedulePage from "./routes/schedulePage";
-import CoachDashBoard from "./routes/coachDashboard";
-import CoachForm from "./routes/coachForm/coachForm";
-import UserDashBoard from "./routes/userForm/UserDashBoard";
-import AdminRegisterAccForCoach from "./routes/adminRegisterAccForCoach";
-import CoachProfilePage from "./routes/coachProfilePage";
-import AdminAddCoach from "./component/dat/adminaddcoach";
-import CoachUserTable from "./component/dat/coachUserTable";
-import CoachComment from "./component/new28_12_21/CoachComment/coachComment";
+import AdminAddUser from "./component/sub-sections/dat/adminadduser/adminadduser";
+import AdminLogin from "./component/admin/adminPages/adminLogin";
+import UserPage from "./component/user/userPages/userPage";
+import NewFeeds from "./component/user/userPages/newFeeds";
+import AdminRegisterAccForUsers from "./component/admin/adminPages/adminRegisterAccForUser";
+import AdminBlogList from "./component/sub-sections/trang/admin/adminBlogList";
+import AddBlog from "./component/sub-sections/new28_12_21/AddBlog/AddBlog";
+import AdminDashBoard from "./component/admin/adminPages/adminDashboard";
+import UserProfilePage from "./component/admin/adminPages/userProfilePage";
+import AdvProfilePage from "./component/admin/adminPages/advProfilePage";
+import UserBlogDetail from "./component/user/userPages/userBlogDetail";
+import AdminForm from "./component/admin/adminForm/adminForm";
+import CoachDashBoard from "./component/coach/coachPages/coachDashboard";
+import CoachForm from "./component/coach/coachForm/coachForm";
+import UserDashBoard from "./component/user/userForm/UserDashBoard";
+import AdminRegisterAccForCoach from "./component/admin/adminPages/adminRegisterAccForCoach";
+import CoachProfilePage from "./component/admin/adminPages/coachProfilePage";
+import AdminAddCoach from "./component/sub-sections/dat/adminaddcoach";
+import CoachUserTable from "./component/sub-sections/dat/coachUserTable";
+import CoachComment from "./component/sub-sections/new28_12_21/CoachComment/coachComment";
+import Schedule_coach from "./component/sub-sections/Hung/schedule";
 function App() {
   return (
     <div className="App">
@@ -88,7 +88,7 @@ function App() {
           <Route
             exact
             path="/admin/userprofile/:id"
-            // element={<UserProfilePage />}
+          
             element={
               <AdminForm>
                 {" "}
@@ -118,13 +118,17 @@ function App() {
           />
           {/* coach */}
 
-          <Route exact path="coach/dashboard" element={<CoachForm />}></Route>
+          <Route
+            exact
+            path="coach/dashboard"
+            element={<CoachDashBoard />}
+          ></Route>
           <Route
             exact
             path="/coach/schedule"
             element={
               <CoachForm>
-                <SchedulePage />
+                <Schedule_coach />
               </CoachForm>
             }
           ></Route>
@@ -140,10 +144,12 @@ function App() {
           <Route
             exact
             path="/coach/userprofile/:id"
+            // element={<UserProfilePage />}
             element={
               <CoachForm>
+                {" "}
                 <UserProfilePage>
-                  <CoachComment />
+                  <CoachComment></CoachComment>
                 </UserProfilePage>
               </CoachForm>
             }
