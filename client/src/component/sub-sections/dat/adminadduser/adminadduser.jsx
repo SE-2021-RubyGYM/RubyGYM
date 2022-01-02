@@ -3,7 +3,7 @@ import AdminTitleHeaderContainer from "../admintitleheadercontainer/admintitlehe
 import { AdminContainerContentStyle } from "../admincontainercontent/admincontainercontent";
 import { AdminDefaultRightContainerStyle } from "../admindefaultrightcontainer/admindefaultrightcontainer";
 import { useState } from "react";
-import AdminEditUserForm from "../../../admin/adminEditForm/adminedituserform";
+import AdminEditUserForm from "../../../admin/adminEditForm/adminEditUserForm";
 
 export default function AdminAddUser() {
   const tableheader = [
@@ -94,7 +94,7 @@ export default function AdminAddUser() {
   return (
     <div style={{ AdminDefaultRightContainerStyle }}>
       <div style={AdminContainerStyle}>
-        <AdminTitleHeaderContainer title="Thêm tài khoản cho user" />
+        <AdminTitleHeaderContainer title="Thêm tài khoản cho người tập" />
         <div style={AdminContainerContentStyle}>
           <div>
             <AdminEditUserForm

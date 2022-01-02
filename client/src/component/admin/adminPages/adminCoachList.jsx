@@ -1,23 +1,25 @@
+import React from "react";
 import { AdminContainerStyle } from "../../sub-sections/dat/admincontainer/admincontainerstyle";
 import AdminTitleHeaderContainer from "../../sub-sections/dat/admintitleheadercontainer/admintitleheadercontainer";
 import { AdminContainerContentStyle } from "../../sub-sections/dat/admincontainercontent/admincontainercontent";
 import { AdminDefaultRightContainerStyle } from "../../sub-sections/dat/admindefaultrightcontainer/admindefaultrightcontainer";
 import AdminDefaultContentSearchTool from "../../sub-sections/dat/admindefaultcontentsearchtools/admindefaultcontentsearchtool";
-import UserTable from "../adminTable/UserTable";
-
+import CoachTable from "../adminTable/CoachTable";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
-export default function AdminRegisterAccForUsers() {
-  const actor = "/admin";
+import { Table } from "antd";
+export default function AdminCoachList
+() {
   const tableheader = [
     "ID",
     "Tên",
+    "Tài khoản",
     "Số điện thoai",
     "Ngày sinh",
-    "ID HLV",
-    "Payment Day",
+    "Ảnh",
+    "Vai trò",
   ];
+
   const [data, setData] = useState([
     {
       _id: 0,
@@ -25,37 +27,18 @@ export default function AdminRegisterAccForUsers() {
       birthDay: "",
     },
   ]);
-  const getDataUser = () => {
+  const getDataCoach = () => {
     axios({
       method: "get",
-      url: "http://localhost:5000/api/users/",
+      url: "http://localhost:5000/api/coachs/",
     }).then((res) => {
       if (res.status == 200) {
-        const tmp = res.data.result;
-        const out = [];
-        tmp.forEach(myFunction);
-        function myFunction(element) {
-          const output = {
-            _id: element._id,
-            name: element.name,
-            phone: element.phone,
-            birthDay: element.birthDay,
-            coach: element.coach,
-            paymentDay: element.paymentDay,
-          };
-          out.push(output);
-        }
-
-        setData(out);
-
-        console.log(tmp);
-        console.log("loideptrai");
-        console.log(out);
+        setData(res.data.result);
       }
     });
   };
   useEffect(() => {
-    getDataUser();
+    getDataCoach();
   }, []);
 
   return (
@@ -67,16 +50,16 @@ export default function AdminRegisterAccForUsers() {
       }}
     >
       <div style={AdminContainerStyle}>
-        <AdminTitleHeaderContainer title="Danh sách user" />
+        <AdminTitleHeaderContainer title="Danh sách huấn luyện viên" />
         <div style={AdminContainerContentStyle}>
           <AdminDefaultContentSearchTool
-            name1="Tên người dùng"
-            name2="Thêm người dùng"
-            name3="adduser"
+            name1="Tên huấn luyện viên"
+            name2="Thêm huấn luyện viên"
+            name3="addcoach"
           />
         </div>
         <div style={{ paddingLeft: "30px" }}>
-          <UserTable headertable={tableheader} datatable={data} actor={actor} />
+          <CoachTable headertable={tableheader} datatable={data} />
         </div>
       </div>
     </div>

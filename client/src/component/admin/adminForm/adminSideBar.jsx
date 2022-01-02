@@ -76,15 +76,15 @@ export default function AdminSideBar() {
             <SubMenu
               key="user-manager"
               icon={<FontAwesomeIcon icon={faUserFriends} />}
-              title="Quản lý người dùng "
+              title="Quản lý người tập "
             >
               <Menu.Item
                 className="menu-item-for-sidebar"
                 key="user-list"
                 style={{ paddingLeft: "24px" }}
               >
-                <Link to="/admin/registeraccforuser">
-                  <FontAwesomeIcon icon={faList} /> Danh sách người dùng{" "}
+                <Link to="/admin/userlist">
+                  <FontAwesomeIcon icon={faList} /> Danh sách người tập{" "}
                 </Link>
               </Menu.Item>
               <Menu.Item
@@ -93,7 +93,7 @@ export default function AdminSideBar() {
                 style={{ paddingLeft: "24px" }}
               >
                 <Link to="/admin/adduser">
-                  <UserAddOutlined /> Thêm người dùng{" "}
+                  <UserAddOutlined /> Thêm người tập{" "}
                 </Link>
               </Menu.Item>
             </SubMenu>
@@ -107,7 +107,7 @@ export default function AdminSideBar() {
                 key="coach-list"
                 style={{ paddingLeft: "24px" }}
               >
-                <Link to="/admin/registeraccforcoach">
+                <Link to="/admin/coachlist">
                   <FontAwesomeIcon icon={faList} /> Danh sách hlv{" "}
                 </Link>
               </Menu.Item>

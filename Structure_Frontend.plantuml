@@ -1,0 +1,17 @@
+@startuml Structure Frontend
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+' Chia thành 3 loại người dùng
+App -> Admin
+App -> User
+App -> Coach
+
+' Các trang của Admin
+
+Admin-> AdminLogin : đăng nhập
+Admin-> AdminDashBoard : trang chủ 
+Admin-> AdminRegis
+
+
+@enduml

@@ -3,7 +3,7 @@ import AdminAddUser from "./component/sub-sections/dat/adminadduser/adminadduser
 import AdminLogin from "./component/admin/adminPages/adminLogin";
 import UserPage from "./component/user/userPages/userPage";
 import NewFeeds from "./component/user/userPages/newFeeds";
-import AdminRegisterAccForUsers from "./component/admin/adminPages/adminRegisterAccForUser";
+import AdminUserList from "./component/admin/adminPages/adminUserList";
 import AdminBlogList from "./component/sub-sections/trang/admin/adminBlogList";
 import AddBlog from "./component/sub-sections/new28_12_21/AddBlog/AddBlog";
 import AdminDashBoard from "./component/admin/adminPages/adminDashboard";
@@ -14,7 +14,7 @@ import AdminForm from "./component/admin/adminForm/adminForm";
 import CoachDashBoard from "./component/coach/coachPages/coachDashboard";
 import CoachForm from "./component/coach/coachForm/coachForm";
 import UserDashBoard from "./component/user/userForm/UserDashBoard";
-import AdminRegisterAccForCoach from "./component/admin/adminPages/adminRegisterAccForCoach";
+import AdminCoachList from "./component/admin/adminPages/adminCoachList";
 import CoachProfilePage from "./component/admin/adminPages/coachProfilePage";
 import AdminAddCoach from "./component/sub-sections/dat/adminaddcoach";
 import CoachUserTable from "./component/sub-sections/dat/coachUserTable";
@@ -58,10 +58,10 @@ function App() {
 
           <Route
             exact
-            path="/admin/registeraccforuser"
+            path="/admin/userlist"
             element={
               <AdminForm>
-                <AdminRegisterAccForUsers />
+                <AdminUserList />
               </AdminForm>
             }
           />
@@ -88,7 +88,6 @@ function App() {
           <Route
             exact
             path="/admin/userprofile/:id"
-          
             element={
               <AdminForm>
                 {" "}
@@ -109,10 +108,10 @@ function App() {
 
           <Route
             exact
-            path="/admin/registeraccforcoach"
+            path="/admin/coachlist"
             element={
               <AdminForm>
-                <AdminRegisterAccForCoach />
+                <AdminCoachList />
               </AdminForm>
             }
           />

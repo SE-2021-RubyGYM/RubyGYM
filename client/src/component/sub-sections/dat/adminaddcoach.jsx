@@ -7,7 +7,7 @@ import { AdminDefaultRightContainerStyle } from "./admindefaultrightcontainer/ad
 // import AdminDefaultTable from "../admindefaulttable/admindefaulttable";
 import axios from "axios";
 import { useState } from "react";
-import AdminEditCoachForm from "../../admin/adminEditForm/admineditcoachform";
+import AdminEditCoachForm from "../../admin/adminEditForm/adminEditCoachForm";
 export default function AdminAddCoach() {
   const tableheader = [
     "id",

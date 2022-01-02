@@ -151,7 +151,7 @@ export default function CoachProfilePage() {
         <Table dataSource={dataSource} columns={columns} />
 
         <div>
-          <Link to="/admin/registeraccforcoach">
+          <Link to="/admin/coachlist">
             <Button onClick={() => handleDeleteCoach()}>
               Xoá huấn luyện viên{" "}
             </Button>

@@ -138,13 +138,13 @@ export default function UserProfilePage(props) {
     <>
       <div>
         <div>
-          <h1>Thông tin người dùng</h1>{" "}
+          <h1>Thông tin người tập</h1>{" "}
         </div>
         <Table dataSource={dataSource} columns={columns} />
 
         <div>
-          <Link to="/admin/registeraccforuser">
-            <Button onClick={() => handleDeleteUser()}>Xoá người dùng</Button>
+          <Link to="/admin/userlist">
+            <Button onClick={() => handleDeleteUser()}>Xoá người tập</Button>
           </Link>
 
           {props.children}
