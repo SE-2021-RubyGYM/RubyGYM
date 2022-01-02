@@ -1,14 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import AdminAddUser from "./component/dat/adminadduser/adminadduser";
 import AdminLogin from "./routes/adminLogin";
 import UserPage from "./routes/userPage";
 import NewFeeds from "./routes/newFeeds";
-
+import AdminRegisterAccForUsers from "./component/dat/adminregisteraccforuser/adminregisterforuser";
 import AdminBlogList from "./component/trang/admin/adminBlogList";
-import Adminaddblogpage from "./routes/adminaddblogpage";
+import AddBlog from "./component/new28_12_21/AddBlog/AddBlog";
 import AdminDashBoard from "./routes/adminDashboard";
-import AdminAddUserPage from "./routes/adminadduserpage";
-import AdminRegisterAccForUsersPage from "./routes/adminRegisterAccForUserPage";
 import UserProfilePage from "./routes/userProfilePage";
 import AdvProfilePage from "./routes/advProfilePage";
 import UserBlogDetail from "./routes/userBlogDetail";
@@ -34,16 +32,13 @@ function App() {
             path="/admin/addblog"
             element={
               <AdminForm>
-                {" "}
-                <Adminaddblogpage />{" "}
+                <AddBlog />
               </AdminForm>
             }
           />
-
           <Route
             exact
             path="/admin/bloglist"
-            // element={<AdminBlogListPage content={<AdminBlogList />} />}
             element={
               <AdminForm>
                 {" "}
@@ -56,8 +51,7 @@ function App() {
             path="/admin/bloglist/:id"
             element={
               <AdminForm>
-                {" "}
-                <AdvProfilePage />{" "}
+                <AdvProfilePage />
               </AdminForm>
             }
           />
@@ -65,22 +59,18 @@ function App() {
           <Route
             exact
             path="/admin/registeraccforuser"
-            // element={<AdminRegisterAccForUsersPage />}
             element={
               <AdminForm>
-                {" "}
-                <AdminRegisterAccForUsersPage />{" "}
+                <AdminRegisterAccForUsers />
               </AdminForm>
             }
           />
-
           <Route
             exact
             path="/admin/adduser"
             element={
               <AdminForm>
-                {" "}
-                <AdminAddUserPage />{" "}
+                <AdminAddUser />
               </AdminForm>
             }
           />
@@ -112,8 +102,7 @@ function App() {
             // element={<UserProfilePage />}
             element={
               <AdminForm>
-                {" "}
-                <CoachProfilePage />{" "}
+                <CoachProfilePage />
               </AdminForm>
             }
           />
@@ -121,28 +110,21 @@ function App() {
           <Route
             exact
             path="/admin/registeraccforcoach"
-            // element={<AdminRegisterAccForUsersPage />}
             element={
               <AdminForm>
-                {" "}
-                <AdminRegisterAccForCoach />{" "}
+                <AdminRegisterAccForCoach />
               </AdminForm>
             }
           />
           {/* coach */}
 
-          <Route
-            exact
-            path="coach/dashboard"
-            element={<CoachDashBoard />}
-          ></Route>
+          <Route exact path="coach/dashboard" element={<CoachForm />}></Route>
           <Route
             exact
             path="/coach/schedule"
             element={
               <CoachForm>
-                {" "}
-                <SchedulePage />{" "}
+                <SchedulePage />
               </CoachForm>
             }
           ></Route>
@@ -151,26 +133,24 @@ function App() {
             path="/coach/userlist"
             element={
               <CoachForm>
-                {" "}
-                <CoachUserTable />{" "}
+                <CoachUserTable />
               </CoachForm>
             }
           ></Route>
           <Route
             exact
             path="/coach/userprofile/:id"
-            // element={<UserProfilePage />}
             element={
               <CoachForm>
-                {" "}
                 <UserProfilePage>
-                  <CoachComment></CoachComment>
+                  <CoachComment />
                 </UserProfilePage>
               </CoachForm>
             }
           />
 
           {/* user */}
+
           <Route exact path="/user/home" element={<UserPage />} />
           <Route
             exact
