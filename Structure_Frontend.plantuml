@@ -1,17 +1,42 @@
 @startuml Structure Frontend
 skinparam Style strictuml
 skinparam SequenceMessageAlignment center
+skinparam linetype polyline
+left to right direction
 
-' Chia thành 3 loại người dùng
-App -> Admin
-App -> User
-App -> Coach
+
 
 ' Các trang của Admin
+rectangle Admin 
+rectangle AdminLogin
+rectangle AdminDashBoard
+rectangle AdminUserList
+rectangle AdminEditUserForm
+rectangle AdminCoachList
+rectangle AdminEditCoachForm
+rectangle AdminBlogList
+rectangle  AddBlog 
+rectangle AdminForm
+rectangle UserTable
+rectangle CoachTable
+rectangle AdvProfilePage
 
-Admin-> AdminLogin : đăng nhập
-Admin-> AdminDashBoard : trang chủ 
-Admin-> AdminRegis
+Admin-u-> AdminLogin : đăng nhập
+Admin-r-> AdminDashBoard : trang chủ 
+Admin-u-> AdminUserList : danh sách người tập
 
+Admin --> AdminCoachList : danh sách hlv
+
+Admin -l-> AdminBlogList : danh sách bài viết
+
+
+'Phân rã
+
+AdminUserList -> UserTable : gọi đến bảng hiện các user
+AdminUserList -l-> AdminEditUserForm : thêm người tập 
+AdminCoachList -> CoachTable : gọi đến bảng hiện các hlv
+AdminCoachList -l-> AdminEditCoachForm : thêm hlv
+AdminBlogList -l-> AdvProfilePage : xem chi tiết bài viết
+AdminBlogList --> AddBlog : thêm bài viết
 
 @enduml
