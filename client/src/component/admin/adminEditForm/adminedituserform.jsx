@@ -59,7 +59,7 @@ export default function AdminEditUserForm(props) {
   const buttonField = (title) => {
     return (
       <div style={{ marginTop: "20px" }}>
-        <Link to="/admin/registeraccforuser">
+        <Link to="/admin/userlist">
           <Button onClick={() => handleSubmit()}>{title}</Button>
         </Link>
       </div>

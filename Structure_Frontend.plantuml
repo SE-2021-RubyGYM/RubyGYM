@@ -15,7 +15,7 @@ rectangle AdminEditUserForm
 rectangle AdminCoachList
 rectangle AdminEditCoachForm
 rectangle AdminBlogList
-rectangle  AddBlog 
+rectangle AddBlog 
 rectangle AdminForm
 rectangle UserTable
 rectangle CoachTable

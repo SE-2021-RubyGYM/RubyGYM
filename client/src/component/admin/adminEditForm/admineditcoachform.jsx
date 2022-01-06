@@ -63,7 +63,7 @@ export default function AdminEditCoachForm(props) {
   const buttonField = (title) => {
     return (
       <div style={{ marginTop: "20px" }}>
-        <Link to="/admin/registeraccforcoach">
+        <Link to="/admin/coachlist">
           <Button onClick={() => handleSubmit()}>{title}</Button>
         </Link>
       </div>

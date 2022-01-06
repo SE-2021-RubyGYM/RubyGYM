@@ -3,7 +3,7 @@ import AdminTitleHeaderContainer from "../admintitleheadercontainer/admintitlehe
 import { AdminContainerContentStyle } from "../admincontainercontent/admincontainercontent";
 import { AdminDefaultRightContainerStyle } from "../admindefaultrightcontainer/admindefaultrightcontainer";
 import { useState } from "react";
-import AdminEditUserForm from "../../../admin/adminEditForm/adminEditUserForm";
+import AdminEditUserForm from "../../../admin/adminEditForm/adminedituserform";
 
 export default function AdminAddUser() {
   const tableheader = [
