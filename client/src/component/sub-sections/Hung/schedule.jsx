@@ -1,6 +1,6 @@
 import React from "react";
 import "./schedule.css";
-
+import { useState } from "react"
 import {
   Inject,
   ScheduleComponent,
@@ -12,14 +12,19 @@ import {
 } from "@syncfusion/ej2-react-schedule";
 
 function Schedule_coach() {
+  const [data,setData] = useState(
+    []
+  )
   return (
     <div className="schedule_bg">
       <div className="schedule_table">
-        <ScheduleComponent>
+        <ScheduleComponent  eventSettings={{ dataSource: data }}>
           <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
         </ScheduleComponent>
       </div>
+      <button onClick={()=>console.log(data)}>CLike me</button>
     </div>
   );
 }
 export default Schedule_coach;
+
