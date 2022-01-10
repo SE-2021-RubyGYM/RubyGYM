@@ -4,13 +4,12 @@ const jwt = require("jsonwebtoken");
 
 module.exports = {
   verifyCoach: async (req, res, next) => {
-    console.log("Loi" + req.userId + " " + req.position);
     try {
       const coach = await Coach.findById(req.userId).select("-password");
       if (!coach)
         return res
           .status(401)
-          .json({ success: false, message: "Unauthorized 2", result: null });
+          .json({ success: false, message: "Unauthorized", result: null });
       req.position = "Coach";
       next();
     } catch (error) {
