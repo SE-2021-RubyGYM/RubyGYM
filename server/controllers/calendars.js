@@ -3,6 +3,7 @@ const Coach = require("../models/coachs");
 const User = require("../models/users");
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 
 module.exports = {
   // create new calendar if not exist and update it if exist
@@ -55,6 +56,78 @@ module.exports = {
     } catch (error) {
       console.log(error);
       return res.status(510).json({
+        success: false,
+        message: "Internal server error",
+        result: null,
+      });
+    }
+  },
+  refreshCalendars: async (req, res) => {
+    if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
+        return res
+        .status(401)
+        .json({ success: false, message: 'Unauthorized',result: null  })
+    }
+    const coachId = req.userId;
+    const newCalendars = req.body;
+    let result = [];
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    try {
+      let deleted = await Calendar.deleteMany({coachId: coachId}, {session: session})
+      for (const calendar of newCalendars) {
+        let { startTime, endTime, startTimezone, endTimezone, isAllDay, subject, userId, description, recurrenceRule, recurrenceID, recurrenceException, ID } =
+          calendar;
+        if (!startTime || !endTime || (isAllDay == null) || !subject || !userId) {
+          console.log("Missing information(s)");
+          await session.abortTransaction();
+          session.endSession();
+          return res.status(400).json({
+            success: false,
+            message: "Missing information(s)" + startTime + " " + endTime + " "+ isAllDay + " "+ subject + " "+ userId,
+            result: null,
+          });
+        }
+        if(!mongoose.isValidObjectId(ID)){ 
+          ID = mongoose.Types.ObjectId()
+        }
+        let tempCalendar = new Calendar({
+          _id: ID,
+          startTime,
+          endTime,
+          startTimezone,
+          endTimezone,
+          isAllDay,
+          subject,
+          userId,
+          description,
+          recurrenceRule,
+          recurrenceID,
+          recurrenceException,
+          ID,
+          coachId
+        });
+        
+        await tempCalendar.save({ session: session });
+        result.push(tempCalendar);
+        
+
+        
+
+      };
+      await session.commitTransaction();
+      session.endSession();
+      return res.json({
+        success: true,
+        message: "API OK",
+        result: result,
+      });
+    }
+    catch (error) {
+      await session.abortTransaction();
+      session.endSession();
+      console.log(error);
+      return res.status(500).json({
         success: false,
         message: "Internal server error",
         result: null,
