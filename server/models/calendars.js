@@ -16,6 +16,9 @@ const Calendars = new Schema({
   endTimezone : {
     type: String,
   },
+  ID: {
+    type: String,
+  },
   
   isAllDay: {
     type: Boolean,

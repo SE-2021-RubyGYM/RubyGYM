@@ -25,7 +25,7 @@ module.exports = {
     }
 
     const query = {coachId: coachId, userId: userId, startTime: startTime, endTime: endTime },
-      update = { startTime, endTime, startTimezone, endTimezone, isAllDay, subject, userId, description, recurrenceRule, recurrenceID, recurrenceException },
+      update = { startTime, endTime, startTimezone, endTimezone, isAllDay, subject, userId, description, recurrenceRule, recurrenceID, recurrenceException, ID },
       options = { upsert: true, new: true, setDefaultsOnInsert: true };
     try {
       
@@ -36,6 +36,11 @@ module.exports = {
           result: error.message,
         })
         else {
+          if(result._id != ID) {
+            result.ID = result._id
+            result.save()
+          }
+
   
           return res.json({
             success: true,
