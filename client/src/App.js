@@ -1,174 +1,87 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import AdminAddUser from "./component/sub-sections/dat/adminadduser/adminadduser";
-import AdminLogin from "./component/admin/adminPages/adminLogin";
-import UserPage from "./component/user/userPages/userPage";
-import NewFeeds from "./component/user/userPages/newFeeds";
-import AdminUserList from "./component/admin/adminPages/adminUserList";
-import AdminBlogList from "./component/sub-sections/trang/admin/adminBlogList";
-import AddBlog from "./component/sub-sections/new28_12_21/AddBlog/AddBlog";
-import AdminDashBoard from "./component/admin/adminPages/adminDashboard";
-import UserProfilePage from "./component/admin/adminPages/userProfilePage";
-import AdvProfilePage from "./component/admin/adminPages/advProfilePage";
-import UserBlogDetail from "./component/user/userPages/userBlogDetail";
-import AdminForm from "./component/admin/adminForm/adminForm";
-import CoachDashBoard from "./component/coach/coachPages/coachDashboard";
-import CoachForm from "./component/coach/coachForm/coachForm";
-import UserDashBoard from "./component/user/userForm/UserDashBoard";
-import AdminCoachList from "./component/admin/adminPages/adminCoachList";
-import CoachProfilePage from "./component/admin/adminPages/coachProfilePage";
-import AdminAddCoach from "./component/sub-sections/dat/adminaddcoach";
-import CoachUserTable from "./component/sub-sections/dat/coachUserTable";
-import CoachComment from "./component/sub-sections/new28_12_21/CoachComment/coachComment";
-import Schedule_coach from "./component/sub-sections/Hung/schedule";
-function App() {
+// -- React and related libs
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router';
+import { HashRouter } from 'react-router-dom';
+
+// -- Redux
+import { connect } from 'react-redux';
+
+// -- Custom Components
+import LayoutComponent from './components/Layout/Layout';
+import CrmLayoutComponent from './components/Layout/CrmLayout';
+import ErrorPage from './pages/error/ErrorPage';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
+
+// -- Redux Actions
+import { logoutUser } from './actions/auth';
+
+// -- Third Party Libs
+import { ToastContainer } from 'react-toastify';
+
+// -- Services
+import isAuthenticated from './services/authService';
+
+// -- Component Styles
+import './styles/app.scss';
+
+const PrivateRoute = ({ dispatch, component, ...rest }) => {
+  if (!isAuthenticated(JSON.parse(localStorage.getItem('authenticated')))) {
+    dispatch(logoutUser());
+    return <Redirect to='/login' />;
+  } else {
+    return (
+      <Route
+        {...rest}
+        render={(props) => React.createElement(component, props)}
+      />
+    );
+  }
+};
+
+const App = (props) => {
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route exact path="/admin/home" element={<AdminLogin />} />
-          <Route exact path="/admin/dashboard" element={<AdminDashBoard />} />
+    <div>
+      <ToastContainer />
+      <HashRouter>
+        <Switch>
           <Route
+            path='/'
             exact
-            path="/admin/addblog"
-            element={
-              <AdminForm>
-                <AddBlog />
-              </AdminForm>
-            }
+            render={() => <Redirect to='/template/dashboard' />}
           />
           <Route
+            path='/template'
             exact
-            path="/admin/bloglist"
-            element={
-              <AdminForm>
-                {" "}
-                <AdminBlogList />{" "}
-              </AdminForm>
-            }
+            render={() => <Redirect to='/template/dashboard' />}
           />
-          <Route
-            exact
-            path="/admin/bloglist/:id"
-            element={
-              <AdminForm>
-                <AdvProfilePage />
-              </AdminForm>
-            }
+          <PrivateRoute
+            path='/template'
+            dispatch={props.dispatch}
+            component={LayoutComponent}
           />
-
-          <Route
-            exact
-            path="/admin/userlist"
-            element={
-              <AdminForm>
-                <AdminUserList />
-              </AdminForm>
-            }
+          <PrivateRoute
+            path='/crm'
+            dispatch={props.dispatch}
+            component={CrmLayoutComponent}
           />
+          <Route path='/login' exact component={Login} />
+          <Route path='/error' exact component={ErrorPage} />
+          <Route path='/register' exact component={Register} />
+          <Route component={ErrorPage} />
           <Route
-            exact
-            path="/admin/adduser"
-            element={
-              <AdminForm>
-                <AdminAddUser />
-              </AdminForm>
-            }
+            path='*'
+            exact={true}
+            render={() => <Redirect to='/error' />}
           />
-          <Route
-            exact
-            path="/admin/addcoach"
-            element={
-              <AdminForm>
-                {" "}
-                <AdminAddCoach />{" "}
-              </AdminForm>
-            }
-          />
-
-          <Route
-            exact
-            path="/admin/userprofile/:id"
-            element={
-              <AdminForm>
-                {" "}
-                <UserProfilePage />{" "}
-              </AdminForm>
-            }
-          />
-          <Route
-            exact
-            path="/admin/coachprofile/:id"
-            // element={<UserProfilePage />}
-            element={
-              <AdminForm>
-                <CoachProfilePage />
-              </AdminForm>
-            }
-          />
-
-          <Route
-            exact
-            path="/admin/coachlist"
-            element={
-              <AdminForm>
-                <AdminCoachList />
-              </AdminForm>
-            }
-          />
-          {/* coach */}
-
-          <Route
-            exact
-            path="coach/dashboard"
-            element={<CoachDashBoard />}
-          ></Route>
-          <Route
-            exact
-            path="/coach/schedule"
-            element={
-              <CoachForm>
-                <Schedule_coach />
-              </CoachForm>
-            }
-          ></Route>
-          <Route
-            exact
-            path="/coach/userlist"
-            element={
-              <CoachForm>
-                <CoachUserTable />
-              </CoachForm>
-            }
-          ></Route>
-          <Route
-            exact
-            path="/coach/userprofile/:id"
-            // element={<UserProfilePage />}
-            element={
-              <CoachForm>
-                {" "}
-                <UserProfilePage>
-                  <CoachComment></CoachComment>
-                </UserProfilePage>
-              </CoachForm>
-            }
-          />
-
-          {/* user */}
-
-          <Route exact path="/user/home" element={<UserPage />} />
-          <Route
-            exact
-            path="user/dashboard"
-            element={<UserDashBoard />}
-          ></Route>
-
-          <Route exact path="/user/blog" element={<NewFeeds />} />
-          <Route exact path="/user/blog/:id" element={<UserBlogDetail />} />
-        </Routes>
-      </Router>
+        </Switch>
+      </HashRouter>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(App);

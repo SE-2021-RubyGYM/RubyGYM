@@ -1,0 +1,133 @@
+.button_add {
+    background-color: #28A745;
+    padding: 8px 16px;
+    border: 1px solid #28A745;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #FFFFFF;
+    transition: opacity 100ms linear;
+    &:hover {
+        opacity: 0.5;
+    }
+    margin-right: 4px;
+}
+
+.button_export {
+    background-color: #3c8dbc;
+    padding: 8px 16px;
+    border: 1px solid #367fa9;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #FFFFFF;
+    transition: opacity 100ms linear;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px
+}
+
+.filter__root {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin: 20px 0px;
+    padding: 16px
+}
+
+.filter__container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    padding: 0px 16px;
+    height: 'auto';
+
+    input {
+        margin: 0px !important;
+        padding: 4px 40px;
+        &:focus-visible {
+            border: 1px solid #4d53e0;
+        }
+    }
+
+    .button_search {
+        background-color: #4d53e0;
+        padding: 8px 16px;
+        border: 1px solid #4d53e0;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #FFFFFF;
+        width: 150px;
+        transition: opacity 100ms linear;
+        &:hover {
+            opacity: 0.5;
+        }
+        margin: 0px 0px 0px 50px;
+    }
+    .icon_search { 
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        left: 24px;
+        transform: translateY(-50%);
+    }
+
+}
+
+.select__root {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+    span{
+        margin-right: 20px;
+    }
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.filter__options {
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+    div {
+        margin: 0px 16px
+    }
+}
+
+.modal_export__container {
+    padding: 16px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    button {
+        padding: 4px 20px;
+        border-radius: 5px;
+        margin-top: 16px;
+        border: 1px solid transparent;
+        background-color: #4d53e0;
+        color: #FFFFFF;
+        text-transform: uppercase;
+    }
+    h4 {
+        text-align: center;
+    }
+}
+
+.add_group_container {
+    
+}
