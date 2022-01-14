@@ -13,6 +13,7 @@
     "animate.css": "^4.1.1",
     "antd": "^4.18.2",
     "apexcharts": "^3.27.2",
+    "axios": "^0.24.0",
     "bootstrap": "^4.6.0",
     "classnames": "^2.2.6",
     "eva-icons": "^1.1.3",

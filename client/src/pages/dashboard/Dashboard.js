@@ -8,7 +8,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  UncontrolledDropdown
+  UncontrolledDropdown,
 } from "reactstrap";
 import Widget from "../../components/Widget/Widget.js";
 import ApexActivityChart from "./components/ActivityChart.js";
@@ -29,12 +29,13 @@ import statsPie from "../../assets/dashboard/statsPie.svg";
 import s from "./Dashboard.module.scss";
 
 const Dashboard = () => {
-  const [checkboxes, setCheckboxes] = useState([true, false])
+  const [checkboxes, setCheckboxes] = useState([true, false]);
 
   const toggleCheckbox = (id) => {
-    setCheckboxes(checkboxes => checkboxes
-      .map((checkbox, index) => index === id ? !checkbox : checkbox ))
-  }
+    setCheckboxes((checkboxes) =>
+      checkboxes.map((checkbox, index) => (index === id ? !checkbox : checkbox))
+    );
+  };
 
   const meals = [meal1, meal2, meal3];
 
@@ -46,11 +47,11 @@ const Dashboard = () => {
             <Col className="mb-4 mb-md-0" xs={12} md={6}>
               <Widget className="">
                 <div className="d-flex justify-content-between widget-p-md">
-                  <div className="headline-3 d-flex align-items-center">Your activity</div>
+                  <div className="headline-3 d-flex align-items-center">
+                    Your activity
+                  </div>
                   <UncontrolledDropdown>
-                    <DropdownToggle caret>
-                      &nbsp; Weekly &nbsp;
-                    </DropdownToggle>
+                    <DropdownToggle caret>&nbsp; Weekly &nbsp;</DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem>Daily</DropdownItem>
                       <DropdownItem>Weekly</DropdownItem>
@@ -58,17 +59,17 @@ const Dashboard = () => {
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </div>
-                <ApexActivityChart className="pb-4"/>
+                <ApexActivityChart className="pb-4" />
               </Widget>
             </Col>
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="d-flex justify-content-between">
-                  <div className="headline-3 d-flex align-items-center">Your meals</div>
+                  <div className="headline-3 d-flex align-items-center">
+                    Your meals
+                  </div>
                   <UncontrolledDropdown>
-                    <DropdownToggle caret>
-                      &nbsp; Weekly &nbsp;
-                    </DropdownToggle>
+                    <DropdownToggle caret>&nbsp; Weekly &nbsp;</DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem>Daily</DropdownItem>
                       <DropdownItem>Weekly</DropdownItem>
@@ -76,7 +77,7 @@ const Dashboard = () => {
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </div>
-                {meals.map((meal) =>
+                {meals.map((meal) => (
                   <div key={uuidv4()} className={`mt-4 ${s.widgetBlock}`}>
                     <div className={s.widgetBody}>
                       <div className="d-flex">
@@ -86,12 +87,10 @@ const Dashboard = () => {
                           <p className="body-3 muted">300 g</p>
                         </div>
                       </div>
-                      <div className="body-3 muted">
-                        175 cal
-                      </div>
+                      <div className="body-3 muted">175 cal</div>
                     </div>
                   </div>
-                )}
+                ))}
               </Widget>
             </Col>
           </Row>
@@ -101,14 +100,28 @@ const Dashboard = () => {
                 <div className="d-flex flex-wrap align-items-center justify-content-center">
                   <div className="d-flex flex-column align-items-center col-12 col-xl-6 p-sm-4">
                     <p className="headline-1">Upgrade your plan</p>
-                    <p className="body-3">So how did the classical Latin become so </p>
+                    <p className="body-3">
+                      So how did the classical Latin become so{" "}
+                    </p>
                     <div className="d-flex justify-content-between my-4">
-                      <Button className="rounded-pill mr-3" color="primary">Go Premium</Button>
-                      <Button className="rounded-pill body-3" outline color="dark">Try for free</Button>
+                      <Button className="rounded-pill mr-3" color="primary">
+                        Go Premium
+                      </Button>
+                      <Button
+                        className="rounded-pill body-3"
+                        outline
+                        color="dark"
+                      >
+                        Try for free
+                      </Button>
                     </div>
                   </div>
                   <div className="d-flex justify-content-center col-12 col-xl-6">
-                    <img className="p-1 img-fluid" src={upgradeImage} alt="..." />
+                    <img
+                      className="p-1 img-fluid"
+                      src={upgradeImage}
+                      alt="..."
+                    />
                   </div>
                 </div>
               </Widget>
@@ -119,14 +132,24 @@ const Dashboard = () => {
               <Widget className="widget-p-sm">
                 <div className={s.smallWidget}>
                   <div className="d-flex mb-4">
-                    <img className="py-1 mr-2 img-fluid" src={heartRed} alt="..." />
+                    <img
+                      className="py-1 mr-2 img-fluid"
+                      src={heartRed}
+                      alt="..."
+                    />
                     <div className="d-flex flex-column">
                       <p className="headline-3">Text</p>
-                      <p className="body-2">Num<span className="body-3 muted">/ ber</span></p>
+                      <p className="body-2">
+                        Num<span className="body-3 muted">/ ber</span>
+                      </p>
                     </div>
                   </div>
                   <div>
-                    <Progress color="secondary-red" className={`progress-xs ${s.mutedPink}`} value="75" />
+                    <Progress
+                      color="secondary-red"
+                      className={`progress-xs ${s.mutedPink}`}
+                      value="75"
+                    />
                   </div>
                 </div>
               </Widget>
@@ -135,14 +158,24 @@ const Dashboard = () => {
               <Widget className="widget-p-sm">
                 <div className={s.smallWidget}>
                   <div className="d-flex mb-4">
-                    <img className="py-1 mr-2 img-fluid" src={heartYellow} alt="..." />
+                    <img
+                      className="py-1 mr-2 img-fluid"
+                      src={heartYellow}
+                      alt="..."
+                    />
                     <div className="d-flex flex-column">
                       <p className="headline-3">Text</p>
-                      <p className="body-2">Num<span className="body-3 muted">/ ber</span></p>
+                      <p className="body-2">
+                        Num<span className="body-3 muted">/ ber</span>
+                      </p>
                     </div>
                   </div>
                   <div>
-                    <Progress color="secondary-yellow" className={`progress-xs ${s.mutedYellow}`} value="75" />
+                    <Progress
+                      color="secondary-yellow"
+                      className={`progress-xs ${s.mutedYellow}`}
+                      value="75"
+                    />
                   </div>
                 </div>
               </Widget>
@@ -151,14 +184,24 @@ const Dashboard = () => {
               <Widget className="widget-p-sm">
                 <div className={s.smallWidget}>
                   <div className="d-flex mb-4">
-                    <img className="py-1 mr-2 img-fluid" src={heartTeal} alt="..." />
+                    <img
+                      className="py-1 mr-2 img-fluid"
+                      src={heartTeal}
+                      alt="..."
+                    />
                     <div className="d-flex flex-column">
                       <p className="headline-3">Text</p>
-                      <p className="body-2">Num<span className="body-3 muted">/ ber</span></p>
+                      <p className="body-2">
+                        Num<span className="body-3 muted">/ ber</span>
+                      </p>
                     </div>
                   </div>
                   <div>
-                    <Progress color="secondary-cyan" className={`progress-xs ${s.mutedTeal}`} value="75" />
+                    <Progress
+                      color="secondary-cyan"
+                      className={`progress-xs ${s.mutedTeal}`}
+                      value="75"
+                    />
                   </div>
                 </div>
               </Widget>
@@ -167,14 +210,24 @@ const Dashboard = () => {
               <Widget className="widget-p-sm">
                 <div className={s.smallWidget}>
                   <div className="d-flex mb-4">
-                    <img className="py-1 mr-2 img-fluid" src={heartViolet} alt="..." />
+                    <img
+                      className="py-1 mr-2 img-fluid"
+                      src={heartViolet}
+                      alt="..."
+                    />
                     <div className="d-flex flex-column">
                       <p className="headline-3">Text</p>
-                      <p className="body-2">Num<span className="body-3 muted">/ ber</span></p>
+                      <p className="body-2">
+                        Num<span className="body-3 muted">/ ber</span>
+                      </p>
                     </div>
                   </div>
                   <div>
-                    <Progress color="violet" className={`progress-xs ${s.mutedViolet}`} value="75" />
+                    <Progress
+                      color="violet"
+                      className={`progress-xs ${s.mutedViolet}`}
+                      value="75"
+                    />
                   </div>
                 </div>
               </Widget>
@@ -208,9 +261,7 @@ const Dashboard = () => {
               <div className={s.goalsTitle}>
                 <p className="headline-3">Your Goals</p>
                 <UncontrolledDropdown>
-                  <DropdownToggle caret>
-                    &nbsp; Weekly &nbsp;
-                  </DropdownToggle>
+                  <DropdownToggle caret>&nbsp; Weekly &nbsp;</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem>Daily</DropdownItem>
                     <DropdownItem>Weekly</DropdownItem>
@@ -221,23 +272,41 @@ const Dashboard = () => {
               <div className="d-flex flex-column mt-3">
                 <div className={s.activity}>
                   <p className="body-2">Sleep</p>
-                  <p className="body-2">92<span className="body-3 muted"> / 160</span></p>
+                  <p className="body-2">
+                    92<span className="body-3 muted"> / 160</span>
+                  </p>
                 </div>
-                <Progress color="secondary-red" className="progress-xs" value={60} />
+                <Progress
+                  color="secondary-red"
+                  className="progress-xs"
+                  value={60}
+                />
               </div>
               <div className="d-flex flex-column mt-3">
                 <div className={s.activity}>
                   <p className="body-2">Sport</p>
-                  <p className="body-2">40<span className="body-3 muted"> / 50</span></p>
+                  <p className="body-2">
+                    40<span className="body-3 muted"> / 50</span>
+                  </p>
                 </div>
-                <Progress color="secondary-yellow" className="progress-xs" value={80} />
+                <Progress
+                  color="secondary-yellow"
+                  className="progress-xs"
+                  value={80}
+                />
               </div>
               <div className="d-flex flex-column mt-3">
                 <div className={s.activity}>
                   <p className="body-2">Water</p>
-                  <p className="body-2">25<span className="body-3 muted"> / 40</span></p>
+                  <p className="body-2">
+                    25<span className="body-3 muted"> / 40</span>
+                  </p>
                 </div>
-                <Progress color="secondary-cyan" className="progress-xs" value={40} />
+                <Progress
+                  color="secondary-cyan"
+                  className="progress-xs"
+                  value={40}
+                />
               </div>
             </div>
             <p className="headline-3">Appointments</p>
@@ -283,8 +352,12 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <a className={`btn-secondary-red ${s.statsBtn}`} href="#top" role="button">
-              <img className={s.pieImg}  src={statsPie} alt="..." />
+            <a
+              className={`btn-secondary-red ${s.statsBtn}`}
+              href="#top"
+              role="button"
+            >
+              <img className={s.pieImg} src={statsPie} alt="..." />
               <div>
                 <p className="headline-2">STATISTIC</p>
                 <p className="body-3">Download your activity</p>
@@ -294,7 +367,7 @@ const Dashboard = () => {
         </Col>
       </Row>
     </div>
-  )
-}
+  );
+};
 
 export default Dashboard;
