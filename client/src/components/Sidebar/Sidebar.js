@@ -54,6 +54,16 @@ const Sidebar = (props) => {
           iconName={<i className={"eva eva-person-outline"} />}
           link="/admin/customers"
         />
+        <LinksGroup
+          onActiveSidebarItemChange={(activeItem) =>
+            props.dispatch(changeActiveSidebarItem(activeItem))
+          }
+          activeItem={props.activeItem}
+          header="Quản lý bài viết"
+          isHeader
+          iconName={<i className={"eva eva-person-outline"} />}
+          link="/admin/blogs"
+        />
       </ul>
     </nav>
   );

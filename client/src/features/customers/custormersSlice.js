@@ -2,29 +2,30 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BackEndBaseURL } from "../../app/backend";
 export const customersSlice = createSlice({
-  name: "customersList",
+  name: "customerList",
   initialState: {
-    value: 0,
+    value: [
+      {
+        _id: "Đang tải",
+        name: "Đang tải",
+        gender: "Đang tải",
+        phone: "Đang tải",
+      },
+    ],
   },
   reducers: {
-    getData: (state) => {
-      axios({
-        method: "GET",
-        url: BackEndBaseURL + "/api/users/",
-      }).then((res) => {
-        state.value = res.data.result;
-      });
-    },
-
-    setData: (state, action) => {},
-    setDataWithID: (state) => {},
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    getDatas: (state) => {
+      // axios({
+      //   method: "GET",
+      //   url: BackEndBaseURL + "/api/users/",
+      // }).then((res) => {
+      //   if (res.status == 200) {
+      //     state.value = res.data.result;
+      //   }
+      // });
     },
   },
 });
+export const { getDatas } = customersSlice.actions;
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
-
-export default counterSlice.reducer;
+export default customersSlice.reducer;

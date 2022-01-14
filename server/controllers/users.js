@@ -32,8 +32,20 @@ module.exports = {
     //     .status(401)
     //     .json({ success: false, message: 'Unauthorized',result: null  })
     // }
-    const { username, password, name, gender, paymentDay, phone, birthDay } =
-      req.body;
+    const {
+      username,
+      password,
+      name,
+      gender,
+      paymentDay,
+      phone,
+      birthDay,
+      aim,
+      coach,
+      assessment,
+      height,
+      weight,
+    } = req.body;
 
     if (!username || !password || !name || !phone) {
       return res.status(400).json({
@@ -71,6 +83,11 @@ module.exports = {
         paymentDay,
         referralCode,
         phone,
+        aim,
+        coach,
+        assessment,
+        height,
+        weight,
       });
       let err = newUser.validateSync();
       if (err) {
