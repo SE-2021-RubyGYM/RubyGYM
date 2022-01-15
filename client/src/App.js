@@ -13,6 +13,9 @@ import ErrorPage from "./pages/error/ErrorPage";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 
+// new file for coach
+import CoachLayoutComponent from "./components/Layout/CoachLayout";
+
 // -- Redux Actions
 import { logoutUser } from "./actions/auth";
 
@@ -64,6 +67,11 @@ const App = (props) => {
             path="/admin"
             dispatch={props.dispatch}
             component={CrmLayoutComponent}
+          />
+          <PrivateRoute
+            path="/coach"
+            dispatch={props.dispatch}
+            component={CoachLayoutComponent}
           />
           <Route path="/login" exact component={Login} />
           <Route path="/error" exact component={ErrorPage} />
