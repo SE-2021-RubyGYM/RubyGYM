@@ -1,7 +1,7 @@
 // -- React and related libs
 import React from "react";
 import { Switch, Route, Redirect } from "react-router";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // -- Redux
 import { connect } from "react-redux";
@@ -43,7 +43,7 @@ const App = (props) => {
   return (
     <div>
       <ToastContainer />
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
           <Route
             path="/"
@@ -75,7 +75,7 @@ const App = (props) => {
             render={() => <Redirect to="/error" />}
           />
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 };
