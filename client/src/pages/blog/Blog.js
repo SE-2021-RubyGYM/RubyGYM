@@ -303,7 +303,7 @@ const Blog = function () {
                       <tr>
                         <th className="w-5">Mã khách hàng</th>
                         <th className="w-20">Tên khách hàng</th>
-                        <th className="w-10">Giới tính</th>
+                        <th className="w-10">Tiêu đề</th>
                         <th className="w-10">Số điện thoại</th>
                         <th className="w-10">Hành động</th>
                       </tr>

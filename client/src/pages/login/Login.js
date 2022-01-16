@@ -120,6 +120,7 @@ const Login = (props) => {
                 <div className="bg-widget d-flex justify-content-center">
                   <Button
                     className="rounded-pill my-3"
+                    type="submit"
                     color="secondary-red"
                     onClick={async () => {
                       if (isHlv == "true") {
