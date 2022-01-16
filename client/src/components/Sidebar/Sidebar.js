@@ -39,7 +39,7 @@ const Sidebar = (props) => {
           header="Dashboard"
           isHeader
           iconName={<i className={"eva eva-home-outline"} />}
-          link="/template/dashboard"
+          link="/admin/dashboard"
           index="dashboard"
           badge="9"
         />

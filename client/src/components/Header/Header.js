@@ -183,20 +183,16 @@ const Header = (props) => {
               <span>Messages</span>
             </DropdownItem>
             <NavItem>
-              <NavLink
+              <button
+                className="btn btn-primary rounded-pill mx-auto logout-btn"
+                type="submit"
                 onClick={() => {
-                  history.push("/login");
-                }}
-                href="#"
+                history.push("/login");
+              }}
               >
-                <button
-                  className="btn btn-primary rounded-pill mx-auto logout-btn"
-                  type="submit"
-                >
-                  <img src={logoutIcon} alt="Logout" />
-                  <span className="ml-1">Logout</span>
-                </button>
-              </NavLink>
+                <img src={logoutIcon} alt="Logout" />
+                <span className="ml-1">Logout</span>
+              </button>
             </NavItem>
           </DropdownMenu>
         </Dropdown>
