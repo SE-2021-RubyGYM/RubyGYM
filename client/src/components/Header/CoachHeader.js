@@ -39,8 +39,10 @@ import userImg from "../../assets/user.svg";
 
 import s from "./Header.module.scss";
 import "animate.css";
+import { useHistory } from "react-router";
 
 const CoachHeader = (props) => {
+  let history = useHistory();
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
@@ -161,7 +163,7 @@ const CoachHeader = (props) => {
               <img src={userImg} alt="User" />
             </span>
             <span className="small d-none d-sm-block ml-1 mr-2 body-1">
-              Coach
+              Admin
             </span>
           </DropdownToggle>
           <DropdownMenu
@@ -181,15 +183,16 @@ const CoachHeader = (props) => {
               <span>Messages</span>
             </DropdownItem>
             <NavItem>
-              <NavLink onClick={() => doLogout()} href="#">
-                <button
-                  className="btn btn-primary rounded-pill mx-auto logout-btn"
-                  type="submit"
-                >
-                  <img src={logoutIcon} alt="Logout" />
-                  <span className="ml-1">Logout</span>
-                </button>
-              </NavLink>
+              <button
+                className="btn btn-primary rounded-pill mx-auto logout-btn"
+                type="submit"
+                onClick={() => {
+                history.push("/login");
+              }}
+              >
+                <img src={logoutIcon} alt="Logout" />
+                <span className="ml-1">Logout</span>
+              </button>
             </NavItem>
           </DropdownMenu>
         </Dropdown>
