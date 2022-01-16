@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 
 // -- Custom Components
 import CoachHeader from "../Header/CoachHeader";
+import CoachSchedule from "../../pages/Coach-schedule/CoachSchedule";
 // import Sidebar from "../Sidebar/Sidebar";
 import CoachSidebar from "../Sidebar/CoachSideBar";
 import Footer from "../Footer/Footer";
@@ -45,7 +46,7 @@ const CoachLayout = (props) => {
             /> */}
             <Route path="/coach/dashboard" exact component={CoachDashboard} />
             <Route path="/coach/customers" exact component={CoachCustomers} />
-
+            <Route path="/coach/schedule" exact component={CoachSchedule} />
             <Route path="*" exact render={() => <Redirect to="/error" />} />
           </Switch>
         </main>
