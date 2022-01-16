@@ -101,10 +101,43 @@ const AddBlog = function () {
               hideProgressBar: true,
             }
           );
+          history.push("/admin/blogs");
+        } else {
+          var notificationName = "error";
+
+          let msg = {
+            success: "Đăng bài thành công",
+            error: "Đăng thất bại",
+          };
+          toast(
+            <Notification2
+              type={notificationName}
+              withIcon
+              msg={msg.success}
+            />,
+            {
+              autoClose: 4000,
+              closeButton: false,
+              hideProgressBar: true,
+            }
+          );
         }
       })
       .catch((e) => {
-        alert("Không thể đăng bài");
+        var notificationName = "error";
+
+        let msg = {
+          success: "Đăng bài thành công",
+          error: "Đăng thất bại",
+        };
+        toast(
+          <Notification2 type={notificationName} withIcon msg={msg.success} />,
+          {
+            autoClose: 4000,
+            closeButton: false,
+            hideProgressBar: true,
+          }
+        );
       });
     // send to server
   });
@@ -206,21 +239,20 @@ const AddBlog = function () {
                   onEditorStateChange={handleOnContentEditorChange}
                 />
               </div>
-              <Link to="/admin/blogs">
-                <Button
-                  style={{
-                    backgroundColor: "rgb(65, 166, 255)",
-                    margin: "auto",
-                    borderRadius: "3px",
-                    float: "right",
-                    margin: "0 10px 0 0 ",
-                  }}
-                  onHoldStyle={{ backgroundColor: "rgb(14, 76, 247)" }}
-                  onClick={() => handlePostToBlog()}
-                >
-                  <div style={{ color: "rgb(247, 247, 247)" }}>Đăng bài</div>
-                </Button>
-              </Link>
+
+              <Button
+                style={{
+                  backgroundColor: "rgb(65, 166, 255)",
+                  margin: "auto",
+                  borderRadius: "3px",
+                  float: "right",
+                  margin: "0 10px 0 0 ",
+                }}
+                onHoldStyle={{ backgroundColor: "rgb(14, 76, 247)" }}
+                onClick={() => handlePostToBlog()}
+              >
+                <div style={{ color: "rgb(247, 247, 247)" }}>Đăng bài</div>
+              </Button>
             </div>
           </Row>
         </Col>

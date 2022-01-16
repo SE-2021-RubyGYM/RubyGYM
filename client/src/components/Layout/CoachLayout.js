@@ -7,7 +7,8 @@ import { Switch, Route, withRouter, Redirect } from "react-router";
 import PropTypes from "prop-types";
 
 // -- Custom Components
-import Header from "../Header/Header";
+import CoachHeader from "../Header/CoachHeader";
+import CoachSchedule from "../../pages/Coach-schedule/CoachSchedule";
 // import Sidebar from "../Sidebar/Sidebar";
 import CoachSidebar from "../Sidebar/CoachSideBar";
 import Footer from "../Footer/Footer";
@@ -27,13 +28,13 @@ import Maps from "../../pages/uielements/maps/google/GoogleMapPage";
 import CoachDashboard from "../../pages/dashboard/CoachDashBoard";
 // -- Component Styles
 import s from "./Layout.module.scss";
-import CrmCustomers from "../../pages/CRM-customer/CrmCustomer";
+import CoachCustomers from "../../pages/Coach-customer/CrmCustomer";
 import Blog from "../../pages/blog/Blog";
 const CoachLayout = (props) => {
   return (
     <div className={s.root}>
       <div className={s.wrap}>
-        <Header />
+        <CoachHeader />
         <CoachSidebar />
         <main className={s.content}>
           {/* <Breadcrumbs url={props.location.pathname} /> */}
@@ -44,8 +45,8 @@ const CoachLayout = (props) => {
               render={() => <Redirect to='template/dashboard' />}
             /> */}
             <Route path="/coach/dashboard" exact component={CoachDashboard} />
-            <Route path="/coach/customers" exact component={CrmCustomers} />
-
+            <Route path="/coach/customers" exact component={CoachCustomers} />
+            <Route path="/coach/schedule" exact component={CoachSchedule} />
             <Route path="*" exact render={() => <Redirect to="/error" />} />
           </Switch>
         </main>
