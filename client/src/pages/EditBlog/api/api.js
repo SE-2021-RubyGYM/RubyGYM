@@ -38,6 +38,25 @@ export const deleteAdvById = async (id) => {
   return result;
 };
 
+export const getAdvById = async (id) => {
+  var result = await axios({
+    method: "get",
+    url: BackEndBaseURL + "/api/adv/" + id,
+  })
+    .then((res) => {
+      if (res.status == 200) {
+        return res.data.result;
+      } else {
+        return null;
+      }
+    })
+    .catch((e) => {
+      return null;
+    });
+
+  return result;
+};
+
 export const createUser = async (user) => {
   var result = await axios({
     method: "POST",
