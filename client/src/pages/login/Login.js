@@ -23,10 +23,12 @@ import TwitterIcon from "../../components/Icons/AuthIcons/TwitterIcon.js";
 import FacebookIcon from "../../components/Icons/AuthIcons/FacebookIcon.js";
 import GithubIcon from "../../components/Icons/AuthIcons/GithubIcon.js";
 import LinkedinIcon from "../../components/Icons/AuthIcons/LinkedinIcon.js";
-
 import { useHistory } from "react-router";
 //
 import { CoachLoginApi, AdminLoginApi } from "./api/api";
+import { toast } from "react-toastify";
+import { Notification2 } from "../../components/Notification/Notification";
+
 const Login = (props) => {
   let history = useHistory();
 
@@ -129,6 +131,22 @@ const Login = (props) => {
                         if (result == true) {
                           history.push("/coachs/dashboard");
                         } else {
+                          const notificationTypes = ["success", "error"];
+                          var mes = "Sai thông tin đăng nhập";
+                          let notificationName = result ? "success" : "error";
+                          let msg = { success: mes, error: mes };
+                          toast(
+                            <Notification2
+                              type={notificationName}
+                              withIcon
+                              msg={msg[notificationName]}
+                            />,
+                            {
+                              autoClose: 4000,
+                              closeButton: false,
+                              hideProgressBar: true,
+                            }
+                          );
                         }
                       } else {
                         var info = {
@@ -138,6 +156,23 @@ const Login = (props) => {
                         var result = await AdminLoginApi(info);
                         if (result == true) {
                           history.push("/admin/dashboard");
+                        } else {
+                          const notificationTypes = ["success", "error"];
+                          var mes = "Sai thông tin đăng nhập";
+                          let notificationName = result ? "success" : "error";
+                          let msg = { success: mes, error: mes };
+                          toast(
+                            <Notification2
+                              type={notificationName}
+                              withIcon
+                              msg={msg[notificationName]}
+                            />,
+                            {
+                              autoClose: 4000,
+                              closeButton: false,
+                              hideProgressBar: true,
+                            }
+                          );
                         }
                       }
                     }}
