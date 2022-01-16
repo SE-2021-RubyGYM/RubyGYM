@@ -39,7 +39,7 @@ const Login = (props) => {
 
   const doLogin = (e) => {
     e.preventDefault();
-    props.dispatch(loginUser({ password: state.password, email: state.email }));
+    // props.dispatch(loginUser({ password: state.password, email: state.email }));
   };
 
   const changeCreds = (event) => {
@@ -130,7 +130,11 @@ const Login = (props) => {
                         };
                         var result = await CoachLoginApi(info);
                         if (result == true) {
-                          history.push("/coachs/dashboard");
+                          history.push("/coach/dashboard");
+                          // window.open(
+                          //   "http://localhost:3000/coach/dashboard",
+                          //   "_self"
+                          // );
                         } else {
                           const notificationTypes = ["success", "error"];
                           var mes = "Sai thông tin đăng nhập";

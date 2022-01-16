@@ -58,17 +58,17 @@ const App = (props) => {
             exact
             render={() => <Redirect to="/template/dashboard" />}
           />
-          <PrivateRoute
+          <Route
             path="/template"
             dispatch={props.dispatch}
             component={LayoutComponent}
           />
-          <PrivateRoute
+          <Route
             path="/admin"
             dispatch={props.dispatch}
             component={CrmLayoutComponent}
           />
-          <PrivateRoute
+          <Route
             path="/coach"
             dispatch={props.dispatch}
             component={CoachLayoutComponent}
