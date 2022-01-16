@@ -3,7 +3,11 @@ import axios from "axios";
 export async function getCustomerList() {
   var c = await axios({
     method: "get",
+    // url: BackEndBaseURL + "/api/users/get_by_coach",
     url: BackEndBaseURL + "/api/users/get_by_coach",
+    headers: {
+      authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
   })
     .then((res) => {
       if (res.status == 200) {

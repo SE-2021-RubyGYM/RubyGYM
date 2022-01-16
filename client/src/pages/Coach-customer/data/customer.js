@@ -2,10 +2,10 @@ export const customers = {
   status: ["Đang hoạt động", "Ngưng hoạt động"],
   types: ["Cá nhân", "Doanh nghiệp"],
   assignees: [
-    "Hoàng Trọng Minh",
-    "Nguyễn Văn Quân",
-    "Lê Xuân Vinh",
-    "Nguyễn Văn Đạt",
+    // "Hoàng Trọng Minh",
+    // "Nguyễn Văn Quân",
+    // "Lê Xuân Vinh",
+    // "Nguyễn Văn Đạt",
   ],
 };
 

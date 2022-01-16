@@ -300,7 +300,7 @@ const CoachCustomers = function () {
                   return <option value={element}>{element}</option>;
                 })}
               </select>
-              <select
+              {/* <select
                 name="customerType"
                 id="customerTypes"
                 style={{
@@ -320,7 +320,7 @@ const CoachCustomers = function () {
                 {customers.assignees.map((element, index) => {
                   return <option value={element}>{element}</option>;
                 })}
-              </select>
+              </select> */}
 
               {/* <SelectCrm title={"Trạng thái khách hàng"} />
               <SelectCrm title={"Người quản lý"} />
@@ -430,8 +430,8 @@ const CoachCustomers = function () {
                             <tr key={uuidv4()}>
                               <td>{item._id}</td>
                               <td>{item.name}</td>
-                              <td>{gender}</td>
                               <td>{item.phone}</td>
+                              <td>{item.birthDay}</td>
 
                               <td>
                                 <i

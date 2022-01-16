@@ -7,7 +7,7 @@ import { Switch, Route, withRouter, Redirect } from "react-router";
 import PropTypes from "prop-types";
 
 // -- Custom Components
-import Header from "../Header/Header";
+import CoachHeader from "../Header/CoachHeader";
 // import Sidebar from "../Sidebar/Sidebar";
 import CoachSidebar from "../Sidebar/CoachSideBar";
 import Footer from "../Footer/Footer";
@@ -33,7 +33,7 @@ const CoachLayout = (props) => {
   return (
     <div className={s.root}>
       <div className={s.wrap}>
-        <Header />
+        <CoachHeader />
         <CoachSidebar />
         <main className={s.content}>
           {/* <Breadcrumbs url={props.location.pathname} /> */}
