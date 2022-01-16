@@ -19,10 +19,10 @@ export async function getAdvList() {
   return c;
 }
 
-export const deleteBlogById = async (id) => {
+export const deleteCustomerById = async (id) => {
   var result = await axios({
     method: "DELETE",
-    url: BackEndBaseURL + "/api/adv/" + id,
+    url: BackEndBaseURL + "/api/users/" + id,
   })
     .then((res) => {
       if (res.status == 200) {

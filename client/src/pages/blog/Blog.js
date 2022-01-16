@@ -32,8 +32,12 @@ import AddForm from "./AddForm.js";
 import { customers, data, changeData } from "./data/customer.js";
 import { element } from "prop-types";
 import EditForm from "./EditForm";
-import { getAdvList, deleteCustomerById, createUser } from "./api/api";
+import { getAdvList, deleteBlogById, createUser } from "./api/api";
+import { useHistory } from "react-router-dom";
+
 const Blog = function () {
+  let history = useHistory();
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [firstTable, setFirstTable] = useState(data);
   useEffect(async () => {
@@ -137,7 +141,7 @@ const Blog = function () {
     var newTable = [...firstTable];
     var elementDeleted = newTable[index];
 
-    var sucess = await deleteCustomerById(elementDeleted._id);
+    var sucess = await deleteBlogById(elementDeleted._id);
     var notificationName = "success";
     if (sucess) {
       newTable.splice(index, 1);
@@ -147,7 +151,7 @@ const Blog = function () {
     }
 
     let msg = {
-      success: "Đã xóa " + elementDeleted.name,
+      success: "Đã xóa " + elementDeleted.title,
       error: "Xóa thất bại",
     };
     toast(
@@ -220,14 +224,16 @@ const Blog = function () {
       <Row>
         <Col>
           <Row className="header__container">
-            <div className="headline-1">Quản lý bài viết quản cáo</div>
+            <div className="headline-1">Quản lý bài viết quảng cáo</div>
             <div>
               <button
                 color="primary"
                 className={classNames("button_add")}
-                onClick={() => handleShow()}
+                onClick={() => {
+                  history.push("/admin/blogs/addblog");
+                }}
               >
-                Thêm mới khách hàng
+                Thêm mới bài viết
               </button>
               <button
                 color="primary"
@@ -244,7 +250,7 @@ const Blog = function () {
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder="Tên khách hàng ví dụ: dembele"
+                placeholder="Tên bài viết ví dụ: làm thế nào để có 7 múi"
                 value={filter.name}
                 onChange={(e) => {
                   var newFilter = { ...filter };
@@ -255,75 +261,6 @@ const Blog = function () {
               <button type="button" className={classNames("button_search")}>
                 Tìm kiếm
               </button>
-            </div>
-            <div className="filter__options" style={{ marginRight: "600px" }}>
-              <select
-                name="customerType"
-                id="customerTypes"
-                style={{
-                  marginRight: "30px",
-                  padding: "5px",
-                  height: "45px",
-                  width: "fit-content",
-                }}
-                value={filter.status}
-                onChange={(e) => {
-                  var newFilter = { ...filter };
-                  newFilter.status = e.target.value;
-                  setFilter(newFilter);
-                }}
-              >
-                <option value={"Trạng thái"}>{"Trạng thái"}</option>
-                {customers.status.map((element, index) => {
-                  return <option value={element}>{element}</option>;
-                })}
-              </select>
-              <select
-                name="customerType"
-                id="customerTypes"
-                style={{
-                  marginRight: "30px",
-                  padding: "5px",
-                  height: "45px",
-                  width: "fit-content",
-                }}
-                value={filter.type}
-                onChange={(e) => {
-                  var newFilter = { ...filter };
-                  newFilter.type = e.target.value;
-                  setFilter(newFilter);
-                }}
-              >
-                <option value={"Loại"}>{"Loại"}</option>
-                {customers.types.map((element, index) => {
-                  return <option value={element}>{element}</option>;
-                })}
-              </select>
-              <select
-                name="customerType"
-                id="customerTypes"
-                style={{
-                  marginRight: "30px",
-                  padding: "5px",
-                  height: "45px",
-                  width: "fit-content",
-                }}
-                value={filter.assignee}
-                onChange={(e) => {
-                  var newFilter = { ...filter };
-                  newFilter.assignee = e.target.value;
-                  setFilter(newFilter);
-                }}
-              >
-                <option value={"Người quản lý"}>{"Người quản lý"}</option>
-                {customers.assignees.map((element, index) => {
-                  return <option value={element}>{element}</option>;
-                })}
-              </select>
-
-              {/* <SelectCrm title={"Trạng thái khách hàng"} />
-              <SelectCrm title={"Người quản lý"} />
-              <SelectCrm title={"Nhóm khách hàng"} /> */}
             </div>
           </Row>
           <Row className="mb-4">
@@ -386,7 +323,7 @@ const Blog = function () {
                               .normalize("NFD")
                               .replace(/[\u0300-\u036f]/g, "");
 
-                            var perfectItem = item.creator
+                            var perfectItem = item.title
                               .trim()
                               .replace(/\s+/g, " ")
                               .normalize("NFD")

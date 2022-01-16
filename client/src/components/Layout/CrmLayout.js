@@ -25,6 +25,7 @@ import Maps from "../../pages/uielements/maps/google/GoogleMapPage";
 import s from "./Layout.module.scss";
 import CrmCustomers from "../../pages/CRM-customer/CrmCustomer";
 import Blog from "../../pages/blog/Blog";
+import AddBlog from "../../pages/AddBlog/Blog";
 const CrmLayout = (props) => {
   return (
     <div className={s.root}>
@@ -42,6 +43,7 @@ const CrmLayout = (props) => {
             <Route path="/admin/dashboard" exact component={Dashboard} />
             <Route path="/admin/customers" exact component={CrmCustomers} />
             <Route path="/admin/blogs" exact component={Blog} />
+            <Route path="/admin/blogs/addblog" exact component={AddBlog} />
             <Route path="/admin/blogs/:id" exact component={Blog} />
             <Route path="*" exact render={() => <Redirect to="/error" />} />
           </Switch>
