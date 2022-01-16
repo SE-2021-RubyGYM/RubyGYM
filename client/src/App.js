@@ -27,12 +27,11 @@ import isAuthenticated from "./services/authService";
 
 // -- Component Styles
 import "./styles/app.scss";
-// User 
+// User
 
 import UserPage from "./Old_Code/user/userPages/userPage";
 import NewFeeds from "./Old_Code/user/userPages/newFeeds";
 import UserBlogDetail from "./Old_Code/user/userPages/userBlogDetail";
-
 
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
   if (!isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
@@ -77,9 +76,9 @@ const App = (props) => {
           <Route path="/login" exact component={Login} />
           <Route path="/error" exact component={ErrorPage} />
           <Route path="/register" exact component={Register} />
-          <Route path="/user/home" exact component={UserPage}/>
-          <Route path="/user/blog" exact component={NewFeeds}/>
-          <Route path="/user/blog/:id" exact component={<UserBlogDetail />} />
+          <Route path="/user/home" exact component={UserPage} />
+          <Route path="/user/blog" exact component={NewFeeds} />
+          <Route path="/user/blog/:id" exact component={UserBlogDetail} />
           <Route component={ErrorPage} />
           <Route
             path="*"

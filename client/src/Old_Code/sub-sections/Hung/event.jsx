@@ -1,4 +1,3 @@
-
 import "./style.css";
 import Header from "./header.jsx";
 import Footer from "../tung/footer.jsx";
@@ -25,7 +24,6 @@ function Event() {
         setContent("Bài viết không tồn tại");
       });
   }, []);
-
   return (
     <div id="event-page">
       <Header />
