@@ -45,6 +45,7 @@ export const createUser = async (user) => {
     data: user,
   })
     .then((res) => {
+      console.log(res);
       if (res.status == 200 || res.status == true) {
         return true;
       } else {
@@ -56,3 +57,22 @@ export const createUser = async (user) => {
     });
   return result;
 };
+
+
+
+export const getCoachList= async ()=>{
+  var result= await axios({
+    method:"GET",
+    url: BackEndBaseURL+"/api/coachs",
+  }).then(res=>{
+    if(res.status==200||res.status==true){
+      return res.data.result;
+    }else{
+      return null;
+    }
+  }).catch(e=>{
+    return null;
+  })
+
+  return result;
+}

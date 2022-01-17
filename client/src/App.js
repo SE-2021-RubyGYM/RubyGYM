@@ -1,5 +1,5 @@
 // -- React and related libs
-import React from "react";
+import React,{useEffect} from "react";
 import { Switch, Route, Redirect } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 
@@ -32,7 +32,7 @@ import "./styles/app.scss";
 import UserPage from "./Old_Code/user/userPages/userPage";
 import NewFeeds from "./Old_Code/user/userPages/newFeeds";
 import UserBlogDetail from "./Old_Code/user/userPages/userBlogDetail";
-
+import axios from 'axios';
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
   if (!isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
     dispatch(logoutUser());
@@ -48,6 +48,18 @@ const PrivateRoute = ({ dispatch, component, ...rest }) => {
 };
 
 const App = (props) => {
+
+  useEffect(() => {
+      if (localStorage.getItem("accessToken") !== null) {
+        axios.defaults.headers={
+          authorization:"Bearer " + localStorage.getItem("accessToken"),
+        }
+      }
+  }, [])
+
+
+
+
   return (
     <div>
       <ToastContainer />

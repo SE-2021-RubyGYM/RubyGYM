@@ -10,6 +10,12 @@ export const CoachLoginApi = async (value) => {
     .then((res) => {
       console.log(res);
       if (res.status == 200 || res.status == true) {
+        localStorage.setItem("accessToken", res.data.result);
+        if (localStorage.getItem("accessToken") !== null) {
+          axios.defaults.headers = {
+            authorization: "Bearer " + localStorage.getItem("accessToken"),
+          };
+        }
         return true;
       }
       return false;
@@ -29,6 +35,12 @@ export const AdminLoginApi = async (value) => {
   })
     .then((res) => {
       if (res.status == 200 || res.status == true) {
+        localStorage.setItem("accessToken",res.data.result);
+        if (localStorage.getItem("accessToken") !== null) {
+          axios.defaults.headers = {
+            authorization: "Bearer " + localStorage.getItem("accessToken"),
+          };
+        }
         return true;
       }
       return false;

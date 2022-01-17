@@ -7,8 +7,9 @@ import s from "./ErrorPage.module.scss";
 
 import errorImage from "../../assets/errorImage.svg"
 import FooterIcon from "../../components/Icons/FooterIcon.js";
-
+import { useHistory } from "react-router";
 const ErrorPage = () => {
+  let history=useHistory();
   return (
     <div className={s.pageContainer}>
       <div className={s.errorContainer}>
@@ -19,11 +20,11 @@ const ErrorPage = () => {
         <p className={s.errorHelp}>
           But we're here to bring you back to safety
         </p>
-        <Link to="/template/dashboard">
-          <Button className={`${s.errorBtn} rounded-pill`} type="submit" color="secondary-red">
+          <Button onClick={()=>{
+            history.push("/login");
+          }}>
             Back to Home
           </Button>
-        </Link>
       </div>
       <div className={s.imageContainer}>
         <img className={s.errorImage} src={errorImage} alt="Error page" width="80" />

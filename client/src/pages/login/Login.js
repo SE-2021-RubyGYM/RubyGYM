@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { withRouter, Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -28,8 +28,10 @@ import { useHistory } from "react-router";
 import { CoachLoginApi, AdminLoginApi } from "./api/api";
 import { toast } from "react-toastify";
 import { Notification2 } from "../../components/Notification/Notification";
-
+import axios from "axios";
+import { BackEndBaseURL } from "../../app/backend";
 const Login = (props) => {
+  
   let history = useHistory();
 
   const [state, setState] = useState({
@@ -47,10 +49,18 @@ const Login = (props) => {
   };
   const [isHlv, setIsHlv] = useState("false");
 
-  const { from } = props.location.state || { from: { pathname: "/template" } };
-  if (hasToken(JSON.parse(localStorage.getItem("authenticated")))) {
-    return <Redirect to={from} />;
-  }
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken") !==null) {
+      if(localStorage.getItem("admin")!==null){
+        history.push("/admin/dashboard");
+      }
+      if(localStorage.getItem("coach")!==null){
+        history.push("/coach/dashboard");
+      }
+    }
+  }, []);
+
 
   return (
     <div className="auth-page">
@@ -130,6 +140,7 @@ const Login = (props) => {
                         };
                         var result = await CoachLoginApi(info);
                         if (result == true) {
+                          localStorage.setItem("coach","00");
                           history.push("/coach/dashboard");
                           // window.open(
                           //   "http://localhost:3000/coach/dashboard",
@@ -160,6 +171,7 @@ const Login = (props) => {
                         };
                         var result = await AdminLoginApi(info);
                         if (result == true) {
+                          localStorage.setItem("admin", "00");
                           history.push("/admin/dashboard");
                         } else {
                           const notificationTypes = ["success", "error"];
