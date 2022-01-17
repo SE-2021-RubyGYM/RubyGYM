@@ -16,7 +16,7 @@ function Event() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:5000/api/adv/" + id,
+      url: "http://localhost:5000/api/adv/" +id,
     })
       .then((res) => {
         setContent(res.data.result.content);

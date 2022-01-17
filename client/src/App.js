@@ -32,6 +32,7 @@ import "./styles/app.scss";
 import UserPage from "./Old_Code/user/userPages/userPage";
 import NewFeeds from "./Old_Code/user/userPages/newFeeds";
 import UserBlogDetail from "./Old_Code/user/userPages/userBlogDetail";
+import UserDashBoard from "./Old_Code/user/userForm/UserDashBoard";
 
 
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
@@ -79,7 +80,8 @@ const App = (props) => {
           <Route path="/register" exact component={Register} />
           <Route path="/user/home" exact component={UserPage}/>
           <Route path="/user/blog" exact component={NewFeeds}/>
-          <Route path="/user/blog/:id" exact component={<UserBlogDetail />} />
+          <Route path="/user/blog/:id" exact component={UserBlogDetail} />
+          <Route path="/user/dashboard" exact component={UserDashBoard}/>
           <Route component={ErrorPage} />
           <Route
             path="*"
