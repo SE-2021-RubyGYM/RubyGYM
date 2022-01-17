@@ -57,7 +57,7 @@ const App = (props) => {
           <Route
             path="/"
             exact
-            render={() => <Redirect to="/admin/dashboard" />}
+            render={() => <Redirect to="/user/home" />}
           />
           <Route
             path="/template"

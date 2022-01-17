@@ -184,6 +184,15 @@ const Login = (props) => {
                   >
                     Login
                   </Button>
+                  
+                  <Link to="/user/home">
+                  <Button
+                    className="rounded-pill my-3"
+                    type="submit"
+                    color="secondary-red">
+                    Về trang chủ
+                  </Button>
+                  </Link>
 
                   <br></br>
                 </div>

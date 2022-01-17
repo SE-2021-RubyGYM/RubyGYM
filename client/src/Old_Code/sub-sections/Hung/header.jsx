@@ -1,6 +1,7 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Header() {
   // define login for user
@@ -89,6 +90,7 @@ function Header() {
       }
     });
   };
+  
 
   return (
     <div id="html">
@@ -141,23 +143,30 @@ function Header() {
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="check">
+        {/* <div className="check">
           <label>
             <input className="checkhlv" type="checkbox" />
             Tôi là huấn luyện viên
           </label>
-          {/* <label>
+          <label>
             <input type="checkbox" />
             Remember me
-          </label> */}
-        </div>
+          </label>
+        </div> */}
         <br />
         <button className="submit-login" onClick={() => fLogin()}>
           Log in
         </button>
+        
+        <Link to ="/login">
+          <button className="submit-login" >
+            Huấn luyện viên/Admin
+          </button>
+        </Link>
         <button className="close-panel" onClick={closeLoginPanel}>
           Đóng
         </button>
+        
       </div>
     </div>
   );
