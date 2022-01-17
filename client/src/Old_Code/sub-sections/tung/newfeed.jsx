@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 import axios from 'axios';
-
+import { BackEndBaseURL } from '../../../app/backend';
 import { useParams } from "react-router-dom";
 
 export default function NewFeed(){
@@ -25,7 +25,7 @@ export default function NewFeed(){
     const getData= ()=>{
         axios({
             method:'get',
-            url:'http://localhost:5000/api/adv',
+            url:BackEndBaseURL+'/api/adv',
         }).then(res=>{
             setData(res.data.result)
             // console.log(res)

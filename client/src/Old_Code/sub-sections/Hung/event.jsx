@@ -5,7 +5,7 @@ import Footer from "../tung/footer.jsx";
 import axios from "axios";
 import { useState, useEffect } from "react";
 // import ReactHtmlParser from "react-html-parser";
-
+import { BackEndBaseURL } from "../../../app/backend";
 import { useParams } from "react-router-dom";
 
 function Event() {
@@ -15,7 +15,7 @@ function Event() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:5000/api/adv/" +id,
+      url: BackEndBaseURL+"/api/adv/" +id,
     })
       .then((res) => {
         setContent(res.data.result.content);

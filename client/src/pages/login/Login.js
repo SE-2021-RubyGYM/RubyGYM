@@ -141,11 +141,17 @@ const Login = (props) => {
                         var result = await CoachLoginApi(info);
                         if (result == true) {
                           localStorage.setItem("coach","00");
-                          history.push("/coach/dashboard");
                           // window.open(
-                          //   "http://localhost:3000/coach/dashboard",
-                          //   "_self"
-                          // );
+                            //   "http://localhost:3000/coach/dashboard",
+                            //   "_self"
+                            // );
+                            if (localStorage.getItem("accessToken") !== null) {
+                              axios.defaults.headers = {
+                                authorization:
+                                "Bearer " + localStorage.getItem("accessToken"),
+                              };
+                            }
+                            history.push("/coach/dashboard");
                         } else {
                           const notificationTypes = ["success", "error"];
                           var mes = "Sai thông tin đăng nhập";
@@ -172,6 +178,12 @@ const Login = (props) => {
                         var result = await AdminLoginApi(info);
                         if (result == true) {
                           localStorage.setItem("admin", "00");
+                          if (localStorage.getItem("accessToken") !== null) {
+                            axios.defaults.headers = {
+                              authorization:
+                              "Bearer " + localStorage.getItem("accessToken"),
+                            };
+                          }
                           history.push("/admin/dashboard");
                         } else {
                           const notificationTypes = ["success", "error"];

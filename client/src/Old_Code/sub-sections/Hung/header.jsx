@@ -2,8 +2,11 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { useHistory } from "react-router";
+import { useStore } from "react-redux";
+import { BackEndBaseURL } from "../../../app/backend";
 function Header() {
+  let history= useHistory();
   // define login for user
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -29,10 +32,10 @@ function Header() {
     }
   }, []);
   const fLogin = async () => {
-    if (!document.getElementsByClassName("checkhlv")[0].checked) {
+
       axios({
         method: "post",
-        url: "http://localhost:5000/api/users/login",
+        url:  BackEndBaseURL+"/api/users/login",
         data: {
           username: userName,
           password: password,
@@ -41,15 +44,20 @@ function Header() {
         .then((res) => {
           if (res.status == 200) {
             localStorage.setItem("accessToken", res.data.result);
-            window.open("http://localhost:3000/user/dashboard", "_self");
+            
+            if (localStorage.getItem("accessToken") !== null) {
+              axios.defaults.headers={
+                authorization:"Bearer " + localStorage.getItem("accessToken"),
+              }
+            }
+
+            history.push("/user/dashboard");
           }
         })
         .catch((err) => {
           alert("Tài khoản hoặc mật khẩu không chính xác!");
         });
-    } else {
-      
-    }
+    
   };
 
   // show login panel
@@ -97,7 +105,7 @@ function Header() {
           <div
             className="nav-menu-login"
             onClick={() => {
-              localStorage.removeItem("accessToken");
+              localStorage.clear();
             }}
           >
             <a href="/user/home">Đăng xuất</a>
