@@ -18,7 +18,7 @@ const user_ruby = [
   },
 ];
 
-export default function PostManage(props) {
+export default function UserProfile(props) {
   const [datefinish, setDate] = useState(user_ruby[0].finish);
   const [chieucao, setHeight] = useState(user_ruby[0].chieucao);
   const [cannang, setWeight] = useState(user_ruby[0].cannang);
@@ -35,6 +35,7 @@ export default function PostManage(props) {
                   <h2> Thông tin chi tiết khách hàng {element.name} </h2>
                 </div>
                 <hr className="ad_red-line" />
+                
               </div>
 
                 <div className="ad_content">

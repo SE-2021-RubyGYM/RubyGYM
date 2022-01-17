@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { useHistory } from "react-router";
 import "./style/style.css";
 import {
   Col,
@@ -54,6 +55,9 @@ const CrmCustomers = function () {
       }
     }
   }, []);
+  let History = useHistory (
+
+  )
   const [secondTable] = useState(mock.secondTable);
   const [transactions, setTransactions] = useState(mock.transactionsWidget);
   const [tasks, setTasks] = useState(mock.tasksWidget);
@@ -370,13 +374,17 @@ const CrmCustomers = function () {
                               <td>{item.phone}</td>
 
                               <td>
-                                <Link to ={"/admin/customers/"+ item._id}>
+                                
                                   <i
                                     className="fa fa-edit"
                                     style={{ marginRight: "10px" }}
-                                    
+                                    onClick={()=>{
+                                      History.push(
+                                        "/admin/customers/"+item._id
+                                      )
+                                    }}
                                   ></i>
-                                </Link>
+            
                                 <i
                                   className="fa fa-trash hover-button"
                                   onClick={() => {

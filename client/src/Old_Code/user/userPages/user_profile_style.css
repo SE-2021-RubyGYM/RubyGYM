@@ -6,7 +6,7 @@
   box-sizing: border-box;
   display: block;
   height: 1500px;
-  width: 100%;
+  width: 100%;  
 }
 .ad_box-body .ad_user_image {
   margin-top: 25px;
@@ -59,10 +59,7 @@
   margin-bottom: -15px;
 }
 
-hr {
-  box-sizing: content-box;
-  border: 0;
-}
+
 .ad_red-line {
   margin: 20px 40%;
   color: black;
@@ -177,7 +174,7 @@ select {
   display: none;
   height: auto;
   width: 30vw;
-  background-color: white;
+  background-color: red;
   margin-top: 100px;
   margin-left: 35%;
   margin-right: 35%;
