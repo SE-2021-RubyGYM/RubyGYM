@@ -37,6 +37,7 @@ const CoachCustomers = function () {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [firstTable, setFirstTable] = useState(data);
   useEffect(async () => {
+    
     var c = await getCustomerList();
     if (c != null) {
       if (c.length > 0) {
@@ -111,58 +112,7 @@ const CoachCustomers = function () {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // const submitForm = async (info) => {
-  //   var newFirstTable = [...firstTable];
-  //   var success = await createUser(info);
-  //   if (success) {
-  //     newFirstTable.push(info);
-  //     setFirstTable(newFirstTable);
-  //   }
-  //   return success;
-  //   newFirstTable.push({
-  //     _id: "checkbox113",
-  //     code: "KH00" + (newFirstTable.length + 1),
-  //     name: info[0],
-  //     type: info[1],
-  //     email: info[2],
-  //     phone: info[3],
-  //     assignee: info[4],
-  //     status: customers.status[0],
-  //   });
-  //   setFirstTable(newFirstTable);
-  //   changeData(newFirstTable);
-  // };
-
-  // const deleteCustom = async (index) => {
-  //   var newTable = [...firstTable];
-  //   var elementDeleted = newTable[index];
-
-  //   var sucess = await deleteCustomerById(elementDeleted._id);
-  //   var notificationName = "success";
-  //   if (sucess) {
-  //     newTable.splice(index, 1);
-  //     setFirstTable(newTable);
-  //   } else {
-  //     notificationName = "error";
-  //   }
-
-  //   let msg = {
-  //     success: "Đã xóa " + elementDeleted.name,
-  //     error: "Xóa thất bại",
-  //   };
-  //   toast(
-  //     <Notification2
-  //       type={notificationName}
-  //       withIcon
-  //       msg={msg[notificationName]}
-  //     />,
-  //     {
-  //       autoClose: 4000,
-  //       closeButton: false,
-  //       hideProgressBar: true,
-  //     }
-  //   );
-  // };
+  
 
   const [filter, setFilter] = useState({
     name: "",
@@ -192,19 +142,7 @@ const CoachCustomers = function () {
 
   return (
     <div>
-      {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
-      {/* <Modal show={show} onHide={handleClose}>
-        <AddForm handleClose={handleClose} submitForm={submitForm} />
-      </Modal> */}
-
-      {/* <Modal show={showChangeElment} onHide={handleCloseChange}>
-        <EditForm
-          handleClose={handleCloseChange}
-          submitForm={handleChangeSubmit}
-          info={firstTable[changeIndex]}
-        />
-      </Modal> */}
-      {/* Modal Export */}
+     
       <Modal show={openExport} onHide={() => setOpenExport(false)}>
         <div className="modal_export__container">
           <img src="https://3.bp.blogspot.com/-LcEMnX2bshM/V8L36D14JLI/AAAAAAAAASc/1UWz_uWk6ek-ziP0xWvY_MuIucnhRTZaACEw/s1600/Bulletpoint_Bullet_Listicon_Shape_Bulletfont_Glyph_Typography_Bullet_Point_Customshape_Wingding_Custom_Tick_Accept_Check_Ok_Yes-512.png" />
@@ -257,106 +195,14 @@ const CoachCustomers = function () {
                 Tìm kiếm
               </button>
             </div>
-            {/* <div className="filter__options" style={{ marginRight: "600px" }}>
-              <select
-                name="customerType"
-                id="customerTypes"
-                style={{
-                  marginRight: "30px",
-                  padding: "5px",
-                  height: "45px",
-                  width: "fit-content",
-                }}
-                value={filter.status}
-                onChange={(e) => {
-                  var newFilter = { ...filter };
-                  newFilter.status = e.target.value;
-                  setFilter(newFilter);
-                }}
-              >
-                <option value={"Trạng thái"}>{"Trạng thái"}</option>
-                {customers.status.map((element, index) => {
-                  return <option value={element}>{element}</option>;
-                })}
-              </select>
-              <select
-                name="customerType"
-                id="customerTypes"
-                style={{
-                  marginRight: "30px",
-                  padding: "5px",
-                  height: "45px",
-                  width: "fit-content",
-                }}
-                value={filter.type}
-                onChange={(e) => {
-                  var newFilter = { ...filter };
-                  newFilter.type = e.target.value;
-                  setFilter(newFilter);
-                }}
-              >
-                <option value={"Loại"}>{"Loại"}</option>
-                {customers.types.map((element, index) => {
-                  return <option value={element}>{element}</option>;
-                })}
-              </select> */}
-            {/* <select
-                name="customerType"
-                id="customerTypes"
-                style={{
-                  marginRight: "30px",
-                  padding: "5px",
-                  height: "45px",
-                  width: "fit-content",
-                }}
-                value={filter.assignee}
-                onChange={(e) => {
-                  var newFilter = { ...filter };
-                  newFilter.assignee = e.target.value;
-                  setFilter(newFilter);
-                }}
-              >
-                <option value={"Người quản lý"}>{"Người quản lý"}</option>
-                {customers.assignees.map((element, index) => {
-                  return <option value={element}>{element}</option>;
-                })}
-              </select> */}
-
-            {/* <SelectCrm title={"Trạng thái khách hàng"} />
-              <SelectCrm title={"Người quản lý"} />
-              <SelectCrm title={"Nhóm khách hàng"} /> */}
-            {/* </div> */}
+     
           </Row>
           <Row className="mb-4">
             <Col>
               <Widget>
                 <div className={s.tableTitle}>
                   <div></div>
-                  <div className="d-flex">
-                    <a href="/#">
-                      <img src={searchIcon} alt="Search" />
-                    </a>
-                    <a href="/#">
-                      <img
-                        className="d-none d-sm-block"
-                        src={cloudIcon}
-                        alt="Cloud"
-                      />
-                    </a>
-                    <a href="/#">
-                      <img src={printerIcon} alt="Printer" />
-                    </a>
-                    <a href="/#">
-                      <img
-                        className="d-none d-sm-block"
-                        src={optionsIcon}
-                        alt="Options"
-                      />
-                    </a>
-                    <a href="/#">
-                      <img src={funnelIcon} alt="Funnel" />
-                    </a>
-                  </div>
+               
                 </div>
                 <div className="widget-table-overflow">
                   <Table
