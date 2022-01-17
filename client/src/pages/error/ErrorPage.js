@@ -20,14 +20,9 @@ const ErrorPage = () => {
         <p className={s.errorHelp}>
           But we're here to bring you back to safety
         </p>
-<<<<<<< HEAD
           <Button onClick={()=>{
             history.push("/login");
           }}>
-=======
-        <Link to="/user/home">
-          <Button className={`${s.errorBtn} rounded-pill`} type="submit" color="secondary-red">
->>>>>>> origin/newUI
             Back to Home
           </Button>
       </div>
