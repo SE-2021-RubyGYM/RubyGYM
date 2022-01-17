@@ -1,5 +1,5 @@
 // -- React and related libs
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter, Redirect } from "react-router";
 
@@ -30,7 +30,20 @@ import CoachDashboard from "../../pages/dashboard/CoachDashBoard";
 import s from "./Layout.module.scss";
 import CoachCustomers from "../../pages/Coach-customer/CrmCustomer";
 import Blog from "../../pages/blog/Blog";
+
+import { useHistory } from "react-router";
+
 const CoachLayout = (props) => {
+ let history = useHistory();
+ useEffect(() => {
+ 
+   if (
+     localStorage.getItem("accessToken") === null ||
+     localStorage.getItem("coach") === null
+   ) {
+            history.push("/login");
+   } 
+ });
   return (
     <div className={s.root}>
       <div className={s.wrap}>

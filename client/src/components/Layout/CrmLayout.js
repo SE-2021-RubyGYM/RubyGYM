@@ -1,5 +1,5 @@
 // -- React and related libs
-import React from "react";
+import React,{useEffect} from "react";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter, Redirect } from "react-router";
 
@@ -28,7 +28,18 @@ import CrmCoachs from "../../pages/CRM-coach/CrmCoach";
 import Blog from "../../pages/blog/Blog";
 import AddBlog from "../../pages/AddBlog/Blog";
 import EditBlog from "../../pages/EditBlog/Blog";
+import { useHistory } from "react-router";
 const CrmLayout = (props) => {
+  let history=useHistory();
+  useEffect(()=>{
+     if (
+       localStorage.getItem("accessToken") === null ||
+       localStorage.getItem("admin") === null
+     ) {
+       history.push("/login");
+     } 
+  })
+   
   return (
     <div className={s.root}>
       <div className={s.wrap}>

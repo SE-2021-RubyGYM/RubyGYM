@@ -73,11 +73,6 @@ const App = (props) => {
             render={() => <Redirect to="/user/home" />}
           />
           <Route
-            path="/template"
-            exact
-            render={() => <Redirect to="/template/dashboard" />}
-          />
-          <Route
             path="/admin"
             dispatch={props.dispatch}
             component={CrmLayoutComponent}
