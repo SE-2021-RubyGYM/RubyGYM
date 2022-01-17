@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import './user_info_style.css';
+import './user_profile_style.css';
 
 const user_ruby = [
   {
@@ -19,48 +18,48 @@ const user_ruby = [
   },
 ];
 
-export default function UserInfo(props) {
+export default function UserProfile(props) {
   const [datefinish, setDate] = useState(user_ruby[0].finish);
   const [chieucao, setHeight] = useState(user_ruby[0].chieucao);
   const [cannang, setWeight] = useState(user_ruby[0].cannang);
   const [bmi, setBmi] = useState(user_ruby[0].bmi);
   return (
-    <div className="all">
+    <div className="ad_all">
       {user_ruby.map((element, index) => {
         
         return (
-        <div className="content-chinh">
-            <div className="main-content" id="main_content_play">
-              <div className="content-header">
-                <div className="title">
+        <div className="ad_content-chinh">
+            <div className="ad_main-content" id="main_content_play">
+              <div className="ad_content-header">
+                <div className="ad_title">
                   <h2> Thông tin chi tiết khách hàng {element.name} </h2>
                 </div>
-                <hr className="red-line" />
+                <hr className="ad_red-line" />
               </div>
 
-                <div className="content">
-                    <div className="box">
-                        <div className="box-body">
-                            <div className="user_image">
+                <div className="ad_content">
+                    <div className="ad_box">
+                        <div className="ad_box-body">
+                            <div className="ad_user_image">
                             <img
                                 src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
-                                className="image-user"
+                                className="ad_image-user"
                             />
                             </div>
 
-                            <div className="box-user-infor">
-                                <div className = "user-name"> Mã khách hàng: {element.ID_user} </div>
-                                <div className="user-name">Họ và tên: {element.name}</div>
-                                <div className="user-name"> Số điện thoại: {element.phone_number} </div>
-                                <div className="user-name">Giới tính: {element.sex}</div>
-                                <div className="user-name">Ngày sinh: {element.dob}</div>
-                                <div className="user-name"> {' '} Thành viên hạng: {element.rank} </div>
+                            <div className="ad_box-user-infor">
+                                <div className = "ad_user-name"> Mã khách hàng: {element.ID_user} </div>
+                                <div className="ad_user-name">Họ và tên: {element.name}</div>
+                                <div className="ad_user-name"> Số điện thoại: {element.phone_number} </div>
+                                <div className="ad_user-name">Giới tính: {element.sex}</div>
+                                <div className="ad_user-name">Ngày sinh: {element.dob}</div>
+                                <div className="ad_user-name"> {' '} Thành viên hạng: {element.rank} </div>
                             </div>
                         </div>
                     
-                        <div className = "box-body-fix">
-                            <div className="user-name"> Thời gian đăng kí: {element.start}</div>
-                            <div className="user-name">
+                        <div className = "ad_box-body-fix">
+                            <div className="ad_user-name"> Thời gian đăng kí: {element.start}</div>
+                            <div className="ad_user-name">
                                 <form action="action_page.php">
                                     <label for="datefinish" > Thời gian gia hạn: </label>
                                     <input
@@ -76,7 +75,7 @@ export default function UserInfo(props) {
                                 </form>
                             </div>
 
-                            <div className="user-name">
+                            <div className="ad_user-name">
                                 <form action="action_page.php">
                                     <label for="datefinish" > Huấn luyện viên: 
                                         <select>
@@ -90,8 +89,8 @@ export default function UserInfo(props) {
                             </div>
                         </div>
 
-                        <div className = "box-body-fix">
-                            <div className="user-name">
+                        <div className = "ad_box-body-fix">
+                            <div className="ad_user-name">
                                 <form>
                                     <label for="datefinish" >
                                         Chiều cao:
@@ -110,7 +109,7 @@ export default function UserInfo(props) {
                                 </form>
                             </div>
 
-                            <div className="user-name">
+                            <div className="ad_user-name">
                                 <form>
                                     <label for="datefinish" >
                                         Cân nặng:
@@ -128,7 +127,7 @@ export default function UserInfo(props) {
                                 </form>
                             </div>
 
-                            <div className="user-name">
+                            <div className="ad_user-name">
                                 <form>
                                     <label for="datefinish" >
                                         Chỉ số BMI:
@@ -148,8 +147,8 @@ export default function UserInfo(props) {
                         </div>
                     </div>
 
-                    <div className="text-center">
-                            <button className="button" input type="submit" value="Submit" > Cập nhật thông tin </button>
+                    <div className="ad_text-center">
+                            <button className="ad_button" input type="submit" value="Submit" > Cập nhật thông tin </button>
                     </div>    
                 </div>
             </div>

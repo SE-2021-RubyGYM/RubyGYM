@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NewFeed from "../../sub-sections/tung/newfeed";
-import UserInfo from "../userPages/userInfo";
 // const user_ruby = [
 //   {
 //     name: "Nguyễn Văn A",
@@ -18,22 +17,7 @@ import UserInfo from "../userPages/userInfo";
 //     finish: "08/1/2022",
 //   },
 // ];
-const user_ruby = [
-  {
-    name: 'Nguyễn Văn A',
-    ID_user: 'IT3040',
-    phone_number: '096905605',
-    sex: 'Nam',
-    dob: '09/09/2000',
-    mail: 'abcd@gmai.com',
-    rank: 'Bạc',
-    start: '08/12/2021',
-    finish: '08/1/2022',
-    chieucao: '169 ',
-    cannang: '49',
-    bmi: '20',
-  },
-];
+
 export default function UserDashBoard() {
   const [data, setData] = useState([
     {
@@ -61,20 +45,23 @@ export default function UserDashBoard() {
     getDataUser();
   }, []);
 
-  // const user_ruby = [
-  //   {
-  //     name: data.name,
-  //     ID_user: data._id,
-  //     phone_number: data.phone,
-  //     sex: data.gender,
-  //     dob: data.birthDay,
-  //     paymentDay: data.paymentDay,
-  //     rank: "Bạc",
-  //     assess: data.assessment,
+  const user_ruby = [
+    {
+      name: data.name,
+      ID_user: data._id,
+      phone_number: data.phone,
+      sex: data.gender,
+      dob: data.birthDay,
+      paymentDay: data.paymentDay,
+      rank: "Bạc",
+      assess: data.assessment,
 
-    
-  //   },
-  // ];
+      //   mail: "abcd@gmai.com",
+      //   rank: "Bạc",
+      //   start: "08/12/2021",
+      //   finish: "08/1/2022",
+    },
+  ];
 
   const w3_open = (right) => {
     if (right)
@@ -148,7 +135,7 @@ export default function UserDashBoard() {
 
           <div className="top-navbar">
             <div className="navbar-custom-menu">
-              
+             
               <div
                 className="navbar-icon news"
                 onClick={() => click_ttsk(true)}
@@ -218,13 +205,64 @@ export default function UserDashBoard() {
         return (
           <div className="content-chinh-user">
             <div className="main-content1-user" id="main_content_play">
-              <UserInfo/>
+              <div className="content-header-user">
+                <div className="title">
+                  <h2> Thông tin cá nhân của {element.name} </h2>
+                </div>
+
+                <div className="explain-title">
+                  <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
+                </div>
+                <hr className="red-line" />
+              </div>
+
+              <div className="content-user">
+                <div className="box-user">
+                  <div className="box-body-user">
+                    <div className="user_image">
+                      <img
+                        src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
+                        className="image-user"
+                      />
+                    </div>
+
+                    <div className="box-user-infor">
+                      <div className="user-name">Họ và tên: {element.name}</div>
+                      <div className="user-name">
+                        Số điện thoại: {element.phone_number}
+                      </div>
+                      <div className="user-name">Giới tính: {element.sex}</div>
+                      <div className="user-name">Ngày sinh: {element.dob}</div>
+                      {/* <div className="user-name">Email: {element.mail}</div> */}
+
+                      <div className="user-name">
+                        {" "}
+                        Thành viên hạng: {element.rank}
+                      </div>
+                      {/* <div className="user-name">
+                        Thời gian đăng kí: {element.start}
+                      </div> */}
+                      <div className="user-name">
+                        Hạn đăng kí: {element.paymentDay}
+                      </div>
+                      <div className="user-name">
+                        Đánh giá: {element.assess}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="change-infor-user">
+                  <button className="button-change">
+                    {" "}
+                    Chỉnh sửa thông tin{" "}
+                  </button>
+                </div>
+              </div>
             </div>
-            
-             
+
             <div className="main-content-ttsk" id="content_ttsk_play">
               <NewFeed/>
-
             </div>
 
             <div className="main-content-schedule" id="content_schedule_play">

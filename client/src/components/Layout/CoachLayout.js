@@ -61,6 +61,7 @@ const CoachLayout = (props) => {
             <Route path="/coach/customers" exact component={CoachCustomers} />
             <Route path="/coach/schedule" exact component={CoachSchedule} />
             <Route path="*" exact render={() => <Redirect to="/error" />} />
+            
           </Switch>
         </main>
         <Footer />

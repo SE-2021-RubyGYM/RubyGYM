@@ -85,6 +85,7 @@ const App = (props) => {
           <Route path="/user/blog" exact component={NewFeeds} />
           <Route path="/user/blog/:id" exact component={UserBlogDetail} />
           <Route path="/user/dashboard" exact component={UserDashBoard} />
+          
           <Route path="/user" exact render={() => <Redirect to="/user/home" />} />
           <Route component={ErrorPage} />
           <Route
