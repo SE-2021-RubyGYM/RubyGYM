@@ -150,11 +150,7 @@ function Header() {
           Log in
         </button>
         
-        <Link to ="/login">
-          <button className="submit-login" >
-            Huấn luyện viên/Admin
-          </button>
-        </Link>
+        
         <button className="close-panel" onClick={closeLoginPanel}>
           Đóng
         </button>
