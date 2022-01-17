@@ -80,13 +80,13 @@
   height: 30px;
   width: 30px;
 }
-.content-chinh-user .main-content1-user {
+/* .content-chinh-user .main-content1-user {
   box-sizing: border-box;
   display: block;
   margin-top: 100px;
   height: 100%;
   width: 100%;
-}
+} */
 .box-body-user .user_image {
   margin-top: 25px;
   margin-right: 5%;
@@ -116,13 +116,13 @@
   color: black;
 }
 
-.content-chinh-user .main-content-schedule {
+/* .content-chinh-user .main-content-schedule {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
   display: none;
   margin-top: 100px;
-}
+} */
 
 .content-header-user {
   box-sizing: border-box;
@@ -179,16 +179,16 @@ hr {
   width: 90%;
   display: none;
 }
-.content-chinh-user .main-content-ttsk {
+/* .content-chinh-user .main-content-ttsk {
   display: none;
   
-}
-.main-content-schedule .content {
+} */
+/* .main-content-schedule .content {
   box-sizing: border-box;
   display: block;
   height:100%;
   width: 100%;
-}
+} */
 .content-user .box-user {
   box-sizing: border-box;
   display: block;
