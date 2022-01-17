@@ -138,7 +138,7 @@ function AddForm(props) {
                 selected={birthday}
                 onChange={(date) => setBirthDay(date)}
               />
-              <label for="lname">Chiều cao</label>
+              <label for="lname">Chiều cao(cm)</label>
               <input
                 type="text"
                 placeholder=""
@@ -147,7 +147,7 @@ function AddForm(props) {
                   setHeight(e.target.value);
                 }}
               />
-              <label for="lname">Chiều cao</label>
+              <label for="lname">Cân nặng(kg)</label>
               <input
                 type="text"
                 placeholder=""
@@ -205,6 +205,14 @@ function AddForm(props) {
 
               return;
             } else {
+
+              var id="";
+              for(var i=0;i<coachList.length;i++){
+                if(coachList.name==coach){
+                  id=coachList._id;
+                  break;
+                }
+              }
               success = await props.submitForm({
                 username: userName,
                 password: password,
@@ -214,10 +222,10 @@ function AddForm(props) {
                 phone: phoneNumber,
                 birthDay: birthday,
                 aim: "",
-                coach: coach,
+                coach: id,
                 assessment: "",
-                height:height,
-                weight:weight,
+                height: height,
+                weight: weight,
               });
             }
             if (success != true) {

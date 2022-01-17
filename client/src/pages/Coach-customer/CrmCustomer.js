@@ -257,7 +257,7 @@ const CoachCustomers = function () {
                 Tìm kiếm
               </button>
             </div>
-            <div className="filter__options" style={{ marginRight: "600px" }}>
+            {/* <div className="filter__options" style={{ marginRight: "600px" }}>
               <select
                 name="customerType"
                 id="customerTypes"
@@ -299,8 +299,8 @@ const CoachCustomers = function () {
                 {customers.types.map((element, index) => {
                   return <option value={element}>{element}</option>;
                 })}
-              </select>
-              {/* <select
+              </select> */}
+            {/* <select
                 name="customerType"
                 id="customerTypes"
                 style={{
@@ -322,10 +322,10 @@ const CoachCustomers = function () {
                 })}
               </select> */}
 
-              {/* <SelectCrm title={"Trạng thái khách hàng"} />
+            {/* <SelectCrm title={"Trạng thái khách hàng"} />
               <SelectCrm title={"Người quản lý"} />
               <SelectCrm title={"Nhóm khách hàng"} /> */}
-            </div>
+            {/* </div> */}
           </Row>
           <Row className="mb-4">
             <Col>
@@ -369,6 +369,7 @@ const CoachCustomers = function () {
                         <th className="w-20">Tên khách hàng</th>
                         <th className="w-10">Số điện thoại</th>
                         <th className="w-10">Ngày sinh</th>
+                        <th className="w-10">Hành động</th>
                       </tr>
                     </thead>
                     <tbody>

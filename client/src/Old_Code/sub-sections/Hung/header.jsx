@@ -41,30 +41,14 @@ function Header() {
         .then((res) => {
           if (res.status == 200) {
             localStorage.setItem("accessToken", res.data.result);
-            window.open("http://localhost:3000/user/dashboard", "_selft");
+            window.open("http://localhost:3000/user/dashboard", "_self");
           }
         })
         .catch((err) => {
           alert("Tài khoản hoặc mật khẩu không chính xác!");
         });
     } else {
-      axios({
-        method: "post",
-        url: "http://localhost:5000/api/coachs/login",
-        data: {
-          username: userName,
-          password: password,
-        },
-      })
-        .then((res) => {
-          if (res.status == 200) {
-            localStorage.setItem("accessToken", res.data.result);
-            window.open("http://localhost:3000/coach/dashboard", "_selft");
-          }
-        })
-        .catch((err) => {
-          alert("Tài khoản hoặc mật khẩu không chính xác!");
-        });
+      
     }
   };
 
