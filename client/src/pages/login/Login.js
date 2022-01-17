@@ -35,7 +35,7 @@ const Login = (props) => {
   let history = useHistory();
 
   const [state, setState] = useState({
-    email: "admin@flatlogic.com",
+    email: "admin@rubygym.com",
     password: "password",
   });
 
@@ -91,7 +91,7 @@ const Login = (props) => {
                     className="input-transparent pl-3"
                     value={state.email}
                     onChange={(event) => changeCreds(event)}
-                    type="email"
+                    type="text    "
                     required
                     name="email"
                     placeholder="Email"
@@ -196,6 +196,15 @@ const Login = (props) => {
                   >
                     Login
                   </Button>
+
+                  <Link to="/user/home">
+                  <Button
+                    className="rounded-pill my-3"
+                    type="submit"
+                    color="secondary-red">
+                    Về trang chủ
+                  </Button>
+                  </Link>
 
                   <br></br>
                 </div>

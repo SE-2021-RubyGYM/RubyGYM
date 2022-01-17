@@ -1,6 +1,7 @@
 .page_top{
     width: 100%;
-    height : 100px;
+    margin-top: 70px;
+    height: 100px;
     background-color:#e9ebee ;
 }
 .page_bottom{
@@ -27,7 +28,7 @@
     
 }
 .newfeed .header_newfeed{
-    padding-top: 30px;
+   
 } 
 
 .newfeed li:not(:first-child):before {

@@ -1,5 +1,5 @@
 .body_user_ui {
-  height: 2000px;
+  height: 100%;
 }
 .body_user_ui .main-header_user {
   box-sizing: border-box;
@@ -84,7 +84,7 @@
   box-sizing: border-box;
   display: block;
   margin-top: 100px;
-  height: 1500px;
+  height: 100%;
   width: 100%;
 }
 .box-body-user .user_image {
@@ -118,7 +118,7 @@
 
 .content-chinh-user .main-content-schedule {
   box-sizing: border-box;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: none;
   margin-top: 100px;
@@ -181,12 +181,12 @@ hr {
 }
 .content-chinh-user .main-content-ttsk {
   display: none;
-  margin-top: 100px;
+  
 }
 .main-content-schedule .content {
   box-sizing: border-box;
   display: block;
-  height: 252px;
+  height:100%;
   width: 100%;
 }
 .content-user .box-user {

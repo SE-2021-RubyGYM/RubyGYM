@@ -20,9 +20,14 @@ const ErrorPage = () => {
         <p className={s.errorHelp}>
           But we're here to bring you back to safety
         </p>
+<<<<<<< HEAD
           <Button onClick={()=>{
             history.push("/login");
           }}>
+=======
+        <Link to="/user/home">
+          <Button className={`${s.errorBtn} rounded-pill`} type="submit" color="secondary-red">
+>>>>>>> origin/newUI
             Back to Home
           </Button>
       </div>
@@ -30,7 +35,7 @@ const ErrorPage = () => {
         <img className={s.errorImage} src={errorImage} alt="Error page" width="80" />
       </div>
       <div className={s.footer}>
-        <span className={s.footerLabel}>2021 &copy; Flatlogic. Hand-crafted & Made with</span>
+        
         <FooterIcon />
       </div>
     </div>
