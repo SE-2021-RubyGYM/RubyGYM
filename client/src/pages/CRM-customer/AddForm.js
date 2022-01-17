@@ -138,6 +138,7 @@ function AddForm(props) {
                 paymentDay: paymentDay,
                 phone: phoneNumber,
                 birthDay: birthday,
+                assessment: "",
               });
             }
 

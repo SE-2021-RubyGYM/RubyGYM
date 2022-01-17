@@ -27,13 +27,12 @@ import isAuthenticated from "./services/authService";
 
 // -- Component Styles
 import "./styles/app.scss";
-// User 
+// User
 
 import UserPage from "./Old_Code/user/userPages/userPage";
 import NewFeeds from "./Old_Code/user/userPages/newFeeds";
 import UserBlogDetail from "./Old_Code/user/userPages/userBlogDetail";
 import UserDashBoard from "./Old_Code/user/userForm/UserDashBoard";
-
 
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
   if (!isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {

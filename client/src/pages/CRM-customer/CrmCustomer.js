@@ -192,6 +192,10 @@ const CrmCustomers = function () {
 
   return (
     <div>
+      <div
+        dangerouslySetInnerHTML={{ __html: '<a href="#"> hello world </a>' }}
+      />
+
       {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
       <Modal show={show} onHide={handleClose}>
         <AddForm handleClose={handleClose} submitForm={submitForm} />
