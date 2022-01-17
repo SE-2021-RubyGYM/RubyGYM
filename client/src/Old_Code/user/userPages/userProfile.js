@@ -18,7 +18,7 @@ const user_ruby = [
   },
 ];
 
-export default function UserProfile(props) {
+export default function PostManage(props) {
   const [datefinish, setDate] = useState(user_ruby[0].finish);
   const [chieucao, setHeight] = useState(user_ruby[0].chieucao);
   const [cannang, setWeight] = useState(user_ruby[0].cannang);

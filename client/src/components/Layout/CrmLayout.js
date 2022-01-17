@@ -60,7 +60,7 @@ const CrmLayout = (props) => {
             <Route path="/admin/blogs" exact component={Blog} />
             <Route path="/admin/blogs/addblog" exact component={AddBlog} />
             <Route path="/admin/blogs/:id" exact component={EditBlog} />
-            <Route path="/userprofile/:id" exact component={UserProfile}/>
+            <Route path="/admin/customers/:id" exact component={UserProfile}/>
             
             <Route path="*" exact render={() => <Redirect to="/error" />} />
           </Switch>

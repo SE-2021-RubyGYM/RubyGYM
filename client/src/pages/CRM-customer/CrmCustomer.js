@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "./style/style.css";
 import {
@@ -369,11 +370,13 @@ const CrmCustomers = function () {
                               <td>{item.phone}</td>
 
                               <td>
-                                <i
-                                  className="fa fa-edit"
-                                  style={{ marginRight: "10px" }}
-                                  onClick={() => {}}
-                                ></i>
+                                <Link to ={"/admin/customers/"+ item._id}>
+                                  <i
+                                    className="fa fa-edit"
+                                    style={{ marginRight: "10px" }}
+                                    
+                                  ></i>
+                                </Link>
                                 <i
                                   className="fa fa-trash hover-button"
                                   onClick={() => {

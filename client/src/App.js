@@ -34,7 +34,7 @@ import NewFeeds from "./Old_Code/user/userPages/newFeeds";
 import UserBlogDetail from "./Old_Code/user/userPages/userBlogDetail";
 import axios from 'axios';
 import UserDashBoard from "./Old_Code/user/userForm/UserDashBoard";
-
+import UserProfile from "./Old_Code/user/userPages/userProfile";
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
   if (!isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
     dispatch(logoutUser());
@@ -85,7 +85,7 @@ const App = (props) => {
           <Route path="/user/blog" exact component={NewFeeds} />
           <Route path="/user/blog/:id" exact component={UserBlogDetail} />
           <Route path="/user/dashboard" exact component={UserDashBoard} />
-          
+          <Route path="/test" exact component={UserProfile}/>
           <Route path="/user" exact render={() => <Redirect to="/user/home" />} />
           <Route component={ErrorPage} />
           <Route
