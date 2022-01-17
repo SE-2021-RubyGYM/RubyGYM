@@ -32,12 +32,9 @@ import "./styles/app.scss";
 import UserPage from "./Old_Code/user/userPages/userPage";
 import NewFeeds from "./Old_Code/user/userPages/newFeeds";
 import UserBlogDetail from "./Old_Code/user/userPages/userBlogDetail";
-<<<<<<< HEAD
 import axios from 'axios';
-=======
 import UserDashBoard from "./Old_Code/user/userForm/UserDashBoard";
 
->>>>>>> origin/newUI
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
   if (!isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
     dispatch(logoutUser());
