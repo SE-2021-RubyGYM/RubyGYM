@@ -1,161 +1,188 @@
-import React, { useState } from "react";
-import './user_profile_style.css';
+import React, { useState, useEffect } from "react";
+import "./user_profile_style.css";
+import { useParams } from "react-router";
 
-const user_ruby = [
-  {
-    name: 'Nguyễn Văn A',
-    ID_user: 'IT3040',
-    phone_number: '096905605',
-    sex: 'Nam',
-    dob: '09/09/2000',
-    mail: 'abcd@gmai.com',
-    rank: 'Bạc',
-    start: '08/12/2021',
-    finish: '08/1/2022',
-    chieucao: '169 ',
-    cannang: '49',
-    bmi: '20',
-  },
-];
-
+import axios from "axios";
+import { BackEndBaseURL } from "../../../app/backend";
 export default function UserProfile(props) {
-  const [datefinish, setDate] = useState(user_ruby[0].finish);
-  const [chieucao, setHeight] = useState(user_ruby[0].chieucao);
-  const [cannang, setWeight] = useState(user_ruby[0].cannang);
-  const [bmi, setBmi] = useState(user_ruby[0].bmi);
+  const { id } = useParams();
+
+  const [userInfo, setUserInfo] = useState({
+    _id: "61e1ad339fef242d81511b98",
+    name: "Lê Thiên Chúc",
+    username: "user03",
+    phone: "0169925628",
+    password:
+      "$argon2i$v=19$m=4096,t=3,p=1$wd449sARZ/FPw8hv/r0FQA$X/worTotBaY6v6N9mJQOesrBafHeLbO1sfAfETc7FcQ",
+    birthDay: "2001-01-14T17:00:00.000Z",
+    gender: "Female",
+    coach: "61bb55ba80c3938bf7800378",
+    referralCode: "GT-88XeP8KK-2022",
+    assessment: "Trống",
+    height: "1.73",
+    weight: "69",
+    paymentDay: "2022/06/06",
+    aim: "Trống",
+    __v: 0,
+  });
+  const [coachs, setCoachs] = useState([]);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: BackEndBaseURL + "/api/users/" + id,
+    }).then((res) => {
+      if (res.status == 200 || res.status == true) {
+        setUserInfo(res.data.result);
+      }
+    });
+    axios({
+      method: "get",
+      url: BackEndBaseURL + "/api/coachs",
+    }).then((res) => {
+      if (res.status == 200 || res.status == true) {
+        setCoachs(res.data.result);
+      }
+    });
+  });
+
   return (
     <div className="ad_all">
-      {user_ruby.map((element, index) => {
-        
-        return (
-        <div className="ad_content-chinh">
-            <div className="ad_main-content" id="main_content_play">
-              <div className="ad_content-header">
-                <div className="ad_title">
-                  <h2> Thông tin chi tiết khách hàng {element.name} </h2>
+      <div className="ad_content-chinh">
+        <div className="ad_main-content" id="main_content_play">
+          <div className="ad_content-header">
+            <div className="ad_title">
+              <h2> Thông tin chi tiết khách hàng {userInfo.name} </h2>
+            </div>
+            <hr className="ad_red-line" />
+          </div>
+
+          <div className="ad_content">
+            <div className="ad_box">
+              <div className="ad_box-body">
+                <div className="ad_user_image">
+                  <img
+                    src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
+                    className="ad_image-user"
+                  />
                 </div>
-                <hr className="ad_red-line" />
-                
+
+                <div className="ad_box-user-infor">
+                  <div className="ad_user-name">
+                    {" "}
+                    Mã khách hàng: {userInfo._id}{" "}
+                  </div>
+                  <div className="ad_user-name">Họ và tên: {userInfo.name}</div>
+                  <div className="ad_user-name">
+                    {" "}
+                    Số điện thoại: {userInfo.phone}{" "}
+                  </div>
+                  <div className="ad_user-name">
+                    Giới tính: {userInfo.gender}
+                  </div>
+                  <div className="ad_user-name">
+                    Ngày sinh: {userInfo.birthDay}
+                  </div>
+                  <div className="ad_user-name"> Thành viên hạng: Bạc</div>
+                </div>
               </div>
 
-                <div className="ad_content">
-                    <div className="ad_box">
-                        <div className="ad_box-body">
-                            <div className="ad_user_image">
-                            <img
-                                src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
-                                className="ad_image-user"
-                            />
-                            </div>
-
-                            <div className="ad_box-user-infor">
-                                <div className = "ad_user-name"> Mã khách hàng: {element.ID_user} </div>
-                                <div className="ad_user-name">Họ và tên: {element.name}</div>
-                                <div className="ad_user-name"> Số điện thoại: {element.phone_number} </div>
-                                <div className="ad_user-name">Giới tính: {element.sex}</div>
-                                <div className="ad_user-name">Ngày sinh: {element.dob}</div>
-                                <div className="ad_user-name"> {' '} Thành viên hạng: {element.rank} </div>
-                            </div>
-                        </div>
-                    
-                        <div className = "ad_box-body-fix">
-                            <div className="ad_user-name"> Thời gian đăng kí: {element.start}</div>
-                            <div className="ad_user-name">
-                                <form action="action_page.php">
-                                    <label for="datefinish" > Thời gian gia hạn: </label>
-                                    <input
-                                        type="text"
-                                        id="datefinish"
-                                        name="datefinish"
-                                        placeholder="dd/mm/yy"
-                                        value={datefinish}
-                                        onChange={(e) => {
-                                        setDate(e.target.value);
-                                    }}
-                                    />
-                                </form>
-                            </div>
-
-                            <div className="ad_user-name">
-                                <form action="action_page.php">
-                                    <label for="datefinish" > Huấn luyện viên: 
-                                        <select>
-                                                <option value="grapefruit">Bùi Thị Phương</option>
-                                                <option value="lime">Nguyễn Hải Anh</option>
-                                                <option value="coconut">HLV 03</option>
-                                                <option value="mango">Huấn luyện viên C</option>
-                                        </select>
-                                    </label>    
-                                </form>
-                            </div>
-                        </div>
-
-                        <div className = "ad_box-body-fix">
-                            <div className="ad_user-name">
-                                <form>
-                                    <label for="datefinish" >
-                                        Chiều cao:
-                                    </label>
-                                    
-                                    <input
-                                        type="text"
-                                        id="datefinish"
-                                        name="datefinish"
-                                        placeholder="Đơn vị: cm"
-                                        value={chieucao}
-                                        onChange={(e) => {
-                                            setHeight(e.target.value);
-                                        }}
-                                        />
-                                </form>
-                            </div>
-
-                            <div className="ad_user-name">
-                                <form>
-                                    <label for="datefinish" >
-                                        Cân nặng:
-                                    </label>
-                                        <input
-                                        type="text"
-                                        id="datefinish"
-                                        name="datefinish"
-                                        placeholder="Đơn vị: kg"
-                                        value={cannang}
-                                        onChange={(e) => {
-                                            setWeight(e.target.value);
-                                        }}
-                                        />
-                                </form>
-                            </div>
-
-                            <div className="ad_user-name">
-                                <form>
-                                    <label for="datefinish" >
-                                        Chỉ số BMI:
-                                    </label>
-                                        <input
-                                            type="text"
-                                            id="datefinish"
-                                            name="datefinish"
-                                            placeholder="Đơn vị: kg/m2"
-                                            value={bmi}
-                                            onChange={(e) => {
-                                                setBmi(e.target.value);
-                                            }}
-                                        />
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="ad_text-center">
-                            <button className="ad_button" input type="submit" value="Submit" > Cập nhật thông tin </button>
-                    </div>    
+              <div className="ad_box-body-fix">
+                {/* <div className="ad_user-name"> Thời gian đăng kí</div> */}
+                <div className="ad_user-name">
+                  <form action="action_page.php">
+                    <label for="datefinish"> Thời gian gia hạn </label>
+                    <input
+                      type="text"
+                      id="datefinish"
+                      name="datefinish"
+                      placeholder="dd/mm/yy"
+                      value={userInfo.paymentDay}
+                      onChange={(e) => {
+                        var newUserInfo = { ...userInfo };
+                        newUserInfo.paymentDay = e.target.value;
+                        setUserInfo(newUserInfo);
+                      }}
+                    />
+                  </form>
                 </div>
+
+                <div className="ad_user-name">
+                  <form action="action_page.php">
+                    <label for="datefinish">
+                      {" "}
+                      Huấn luyện viên:
+                      {coachs.map((e) => {
+                        if (e._id == userInfo.coach) {
+                          return e.name;
+                        }
+                      })}
+                    </label>
+                  </form>
+                </div>
+              </div>
+
+              <div className="ad_box-body-fix">
+                <div className="ad_user-name">
+                  <form>
+                    <label for="datefinish">Chiều cao(cm):</label>
+
+                    <input
+                      type="text"
+                      id="datefinish"
+                      name="datefinish"
+                      placeholder="Đơn vị: cm"
+                      value={userInfo.height}
+                      onChange={(e) => {
+                        var newUserInfo = { ...userInfo };
+                        newUserInfo.height = e.target.value;
+                        setUserInfo(newUserInfo);
+                      }}
+                    />
+                  </form>
+                </div>
+
+                <div className="ad_user-name">
+                  <form>
+                    <label for="datefinish">Cân nặng(kg):</label>
+                    <input
+                      type="text"
+                      id="datefinish"
+                      name="datefinish"
+                      placeholder="Đơn vị: kg"
+                      value={userInfo.weight}
+                      onChange={(e) => {
+                        var newUserInfo = { ...userInfo };
+                        newUserInfo.weight = e.target.value;
+                        setUserInfo(newUserInfo);
+                      }}
+                    />
+                  </form>
+                </div>
+
+                <div className="ad_user-name">
+                  <form>
+                    <label for="datefinish">
+                      Chỉ số BMI:
+                      {Math.round(
+                        userInfo.weight /
+                          ((userInfo.height * userInfo.height) / 10000),
+                        -2
+                      )}
+                    </label>
+                  </form>
+                </div>
+              </div>
             </div>
+
+            <div className="ad_text-center">
+              <button className="ad_button" input type="submit" value="Submit">
+                {" "}
+                Cập nhật thông tin{" "}
+              </button>
+            </div>
+          </div>
         </div>
-        );
-      })}
+      </div>
     </div>
   );
 }
