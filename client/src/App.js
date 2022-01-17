@@ -67,16 +67,7 @@ const App = (props) => {
       <ToastContainer />
       <BrowserRouter>
         <Switch>
-          <Route
-            path="/"
-            exact
-            render={() => <Redirect to="/user/home" />}
-          />
-          <Route
-            path="/template"
-            exact
-            render={() => <Redirect to="/template/dashboard" />}
-          />
+          <Route path="/" exact render={() => <Redirect to="/user/home" />} />
           <Route
             path="/admin"
             dispatch={props.dispatch}
@@ -90,10 +81,12 @@ const App = (props) => {
           <Route path="/login" exact component={Login} />
           <Route path="/error" exact component={ErrorPage} />
           <Route path="/register" exact component={Register} />
-          <Route path="/user/home" exact component={UserPage}/>
-          <Route path="/user/blog" exact component={NewFeeds}/>
+          <Route path="/user/home" exact component={UserPage} />
+          <Route path="/user/blog" exact component={NewFeeds} />
           <Route path="/user/blog/:id" exact component={UserBlogDetail} />
-          <Route path="/user/dashboard" exact component={UserDashBoard}/>
+          <Route path="/user/dashboard" exact component={UserDashBoard} />
+          
+          <Route path="/user" exact render={() => <Redirect to="/user/home" />} />
           <Route component={ErrorPage} />
           <Route
             path="*"
