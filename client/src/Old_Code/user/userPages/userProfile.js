@@ -4,7 +4,8 @@ import { useParams } from "react-router";
 
 import axios from "axios";
 import { BackEndBaseURL } from "../../../app/backend";
-export default function UserProfile(props) {
+// export default function UserProfile(props) 
+const UserProfile = function () {
   const { id } = useParams();
 
   const [userInfo, setUserInfo] = useState({
@@ -46,49 +47,153 @@ export default function UserProfile(props) {
   });
 
   return (
-    <div className="ad_all">
-      <div className="ad_content-chinh">
-        <div className="ad_main-content" id="main_content_play">
-          <div className="ad_content-header">
-            <div className="ad_title">
+
+    // <div>
+    //   <Row>
+    //     <Col>
+    //       <Row className="header__container">
+    //         <div className="headline-1">Thêm bài viết</div>
+    //       </Row>
+    //       <Row className="mb-4">
+    //         <div
+    //           className="add-blog"
+    //           style={{ backgroundColor: "rgba(247, 247, 247, 0.8)" }}
+    //         >
+    //           <div
+    //             style={{
+    //               width: "100%",
+    //               margin: "0 0 10px 0",
+    //               height: "20px",
+    //               float: "right",
+    //             }}
+    //           >
+    //             <div
+    //               style={{
+    //                 float: "right",
+    //                 position: "relative",
+    //                 width: "80 px",
+    //               }}
+    //             ></div>
+    //           </div>
+
+    //           <div className="title">
+    //             <div>
+    //               <Button style={{ margin: "0 10px 0 10px" }}>Hình ảnh </Button>
+    //               <input
+    //                 value={titleValue.picture}
+    //                 type="text"
+    //                 placeholder="Url tới ảnh"
+    //                 onChange={(e) => {
+    //                   var newElement = { ...element };
+    //                   newElement.picture = e.target.value;
+    //                   setElement(newElement);
+
+    //                   var newTitleValue = { ...titleValue };
+    //                   newTitleValue.picture = e.target.value;
+    //                   setTitleValue(newTitleValue);
+    //                 }}
+    //               />
+    //               <Button style={{ margin: "0 10px 0 10px" }}>Tiêu đề</Button>
+    //               <input
+    //                 value={titleValue.title}
+    //                 type="text"
+    //                 placeholder="Đoạn tiêu đề tóm tắt bài viết"
+    //                 onChange={(e) => {
+    //                   var newElement = { ...element };
+    //                   newElement.title = e.target.value;
+    //                   setElement(newElement);
+
+    //                   var newTitleValue = { ...titleValue };
+    //                   newTitleValue.title = e.target.value;
+    //                   setTitleValue(newTitleValue);
+    //                 }}
+    //               />
+    //             </div>
+    //           </div>
+
+    //           <div className="content">Content</div>
+    //           <div
+    //             style={{
+    //               borderBottom: "2px solid rgb(209, 209, 209)",
+    //             }}
+    //           >
+    //             <Editor
+    //               editorState={contentEditorState}
+    //               toolbarClassName="toolbarClassName"
+    //               wrapperClassName="wrapperClassName"
+    //               editorClassName="editorClassName"
+    //               onEditorStateChange={handleOnContentEditorChange}
+    //             />
+    //           </div>
+
+    //           <Button
+    //             style={{
+    //               backgroundColor: "rgb(65, 166, 255)",
+    //               margin: "auto",
+    //               borderRadius: "3px",
+    //               float: "right",
+    //               margin: "0 10px 0 0 ",
+    //             }}
+    //             onHoldStyle={{ backgroundColor: "rgb(14, 76, 247)" }}
+    //             onClick={() => handlePostToBlog()}
+    //           >
+    //             <div style={{ color: "rgb(247, 247, 247)" }}>Đăng bài</div>
+    //           </Button>
+    //         </div>
+    //       </Row>
+    //     </Col>
+    //   </Row>
+    // </div>
+
+
+// <div className="gnanT_all">
+//  <h2>Hienj de</h2>
+//  </div> 
+
+
+    <div className="gnanT_all">
+      <div className="gnanT_content-chinh">
+        <div className="gnanT_main-content" id="main_content_play">
+          <div className="gnanT_content-header">
+            <div className="gnanT_title">
               <h2> Thông tin chi tiết khách hàng {userInfo.name} </h2>
             </div>
-            <hr className="ad_red-line" />
+            <hr className="gnanT_red-line" />
           </div>
 
-          <div className="ad_content">
-            <div className="ad_box">
-              <div className="ad_box-body">
-                <div className="ad_user_image">
-                  <img
-                    src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
-                    className="ad_image-user"
-                  />
-                </div>
+           <div className="gnanT_content">
+             <div className="gnanT_box">
+               <div className="gnanT_box-body">
+                 <div className="gnanT_user_image">
+                   <img
+                     src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
+                     className="gnanT_image-user"
+                   />
+                 </div>
 
-                <div className="ad_box-user-infor">
-                  <div className="ad_user-name">
+                <div className="gnanT_box-user-infor">
+                  <div className="gnanT_user-name">
                     {" "}
                     Mã khách hàng: {userInfo._id}{" "}
                   </div>
-                  <div className="ad_user-name">Họ và tên: {userInfo.name}</div>
-                  <div className="ad_user-name">
+                  <div className="gnanT_user-name">Họ và tên: {userInfo.name}</div>
+                  <div className="gnanT_user-name">
                     {" "}
                     Số điện thoại: {userInfo.phone}{" "}
                   </div>
-                  <div className="ad_user-name">
+                  <div className="gnanT_user-name">
                     Giới tính: {userInfo.gender}
                   </div>
-                  <div className="ad_user-name">
+                  <div className="gnanT_user-name">
                     Ngày sinh: {userInfo.birthDay}
                   </div>
-                  <div className="ad_user-name"> Thành viên hạng: Bạc</div>
+                  <div className="gnanT_user-name"> Thành viên hạng: Bạc</div>
                 </div>
               </div>
 
-              <div className="ad_box-body-fix">
-                {/* <div className="ad_user-name"> Thời gian đăng kí</div> */}
-                <div className="ad_user-name">
+              <div className="gnanT_box-body-fix">
+                {/* <div className="gnanT_user-name"> Thời gian đăng kí</div> */}
+                <div className="gnanT_user-name">
                   <form action="action_page.php">
                     <label for="datefinish"> Thời gian gia hạn </label>
                     <input
@@ -106,7 +211,7 @@ export default function UserProfile(props) {
                   </form>
                 </div>
 
-                <div className="ad_user-name">
+                <div className="gnanT_user-name">
                   <form action="action_page.php">
                     <label for="datefinish">
                       {" "}
@@ -121,8 +226,8 @@ export default function UserProfile(props) {
                 </div>
               </div>
 
-              <div className="ad_box-body-fix">
-                <div className="ad_user-name">
+              <div className="gnanT_box-body-fix">
+                <div className="gnanT_user-name">
                   <form>
                     <label for="datefinish">Chiều cao(cm):</label>
 
@@ -141,7 +246,7 @@ export default function UserProfile(props) {
                   </form>
                 </div>
 
-                <div className="ad_user-name">
+                <div className="gnanT_user-name">
                   <form>
                     <label for="datefinish">Cân nặng(kg):</label>
                     <input
@@ -159,7 +264,7 @@ export default function UserProfile(props) {
                   </form>
                 </div>
 
-                <div className="ad_user-name">
+                <div className="gnanT_user-name">
                   <form>
                     <label for="datefinish">
                       Chỉ số BMI:
@@ -174,8 +279,8 @@ export default function UserProfile(props) {
               </div>
             </div>
 
-            <div className="ad_text-center">
-              <button className="ad_button" input type="submit" value="Submit">
+            <div className="gnanT_text-center">
+              <button className="gnanT_button" input type="submit" value="Submit">
                 {" "}
                 Cập nhật thông tin{" "}
               </button>
@@ -186,3 +291,5 @@ export default function UserProfile(props) {
     </div>
   );
 }
+
+export default UserProfile;

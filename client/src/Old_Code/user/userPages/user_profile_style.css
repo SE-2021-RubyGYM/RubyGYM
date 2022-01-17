@@ -1,23 +1,23 @@
-.ad_all {
+.gnanT_all {
   height: 2000px;
 }
 
-.ad_content-chinh .ad_main-content {
+.gnanT_content-chinh .gnanT_main-content {
   box-sizing: border-box;
   display: block;
   height: 1500px;
   width: 100%;  
 }
-.ad_box-body .ad_user_image {
+.gnanT_box-body .gnanT_user_image {
   margin-top: 25px;
   margin-right: 5%;
 }
-.ad_user_image .ad_image-user {
+.gnanT_user_image .gnanT_image-user {
   box-sizing: border-box;
   width: 226px;
   height: 170px;
 }
-.ad_box-body .ad_box-user-infor {
+.gnanT_box-body .gnanT_box-user-infor {
   float: left;
   display: flex;
   box-sizing: border-box;
@@ -26,7 +26,7 @@
   flex-wrap: wrap;
   margin-top: 25px;
 }
-.ad_box-body .ad_user-name {
+.gnanT_box-body .gnanT_user-name {
   margin-top: 1%;
   margin-right: 5%;
   font-family: Roboto, sans-serif;
@@ -36,7 +36,7 @@
   text-align: center;
   color: black;
 }
-.ad_content-header {
+.gnanT_content-header {
   box-sizing: border-box;
   display: block;
   height: auto;
@@ -47,7 +47,7 @@
   font-family: Monsterrat, sans-serif;
   color: rbg (51, 51, 51);
 }
-.ad_content-header .ad_title {
+.gnanT_content-header .gnanT_title {
   height: auto;
   text-align: center;
   display: block;
@@ -60,7 +60,7 @@
 }
 
 
-.ad_red-line {
+.gnanT_red-line {
   margin: 20px 40%;
   color: black;
   background: #db2328;
@@ -68,7 +68,7 @@
   width: 20%;
 }
 
-.ad_content .ad_box {
+.gnanT_content .gnanT_box {
   box-sizing: border-box;
   display: block;
   height: auto;
@@ -81,7 +81,7 @@
   outline-width: 1px;
   border-radius: 10px;
 }
-.ad_box .ad_box-body {
+.gnanT_box .gnanT_box-body {
   box-sizing: border-box;
   display: flex;
 
@@ -91,7 +91,7 @@
   margin-right: 3%;
   margin-left: 3%;
 }
-.ad_box .ad_box-body-fix {
+.gnanT_box .gnanT_box-body-fix {
   box-sizing: border-box;
   display: flex;
   height: 100%;
@@ -100,7 +100,7 @@
   margin-right: 3%;
   margin-left: 3%;
 }
-.ad_box-body-fix .ad_user-name {
+.gnanT_box-body-fix .gnanT_user-name {
   width: 30%;
   margin-right: 3%;
   font-family: Roboto, sans-serif;
@@ -110,7 +110,7 @@
   color: black;
   margin-bottom: 10px;
 }
-.ad_user-name input {
+.gnanT_user-name input {
   font-size: 16px;
   margin-left: 5px;
   width: 120px;
@@ -123,7 +123,7 @@ select {
   margin-left: 5px;
 }
 
-.ad_box-body .ad_option1 {
+.gnanT_box-body .gnanT_option1 {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -131,26 +131,26 @@ select {
   outline: none;
   font-size: 15px;
 }
-.ad_option1::-ms-expand {
+.gnanT_option1::-ms-expand {
   display: none;
 }
-.ad_option1:hover {
+.gnanT_option1:hover {
   border-color: #888;
 }
-.ad_option1:focus {
+.gnanT_option1:focus {
   border-color: #aaa;
 
   color: #222;
   outline: none;
 }
-.ad_option1 option {
+.gnanT_option1 option {
   font-weight: normal;
 }
 
-.ad_text-center {
+.gnanT_text-center {
   text-align: right;
 }
-.ad_content .ad_text-center .ad_button {
+.gnanT_content .gnanT_text-center .gnanT_button {
   display: block;
   height: auto;
   margin: 25px auto;
@@ -166,11 +166,11 @@ select {
   border-radius: 8px;
   border-color: white;
 }
-.ad_button .ad_text-button {
+.gnanT_button .gnanT_text-button {
   color: white;
 }
 
-.ad_container {
+.gnanT_container {
   display: none;
   height: auto;
   width: 30vw;
@@ -182,19 +182,19 @@ select {
   position: fixed;
   box-shadow: #ff512f 0px 0px 1px 1px, #dd2476 0px 1px 1px 0px;
 }
-.ad_container2 {
+.gnanT_container2 {
   padding: 20px;
 }
-.ad_login {
+.gnanT_login {
   text-align: center;
   font-weight: bold;
   font-family: 'Aerial', sans-serif;
 }
 
-.ad_container2 .ad_kaka {
+.gnanT_container2 .gnanT_kaka {
   display: flex;
 }
-.ad_btn {
+.gnanT_btn {
   width: 30%;
   display: block;
   padding: 10px;
@@ -204,19 +204,19 @@ select {
   color: white;
   background-image: linear-gradient(90deg, #ff512f, #dd2476);
 }
-.ad_btn:hover {
-  opacity: 0.ad_5;
+.gnanT_btn:hover {
+  opacity: 0.gnanT_5;
 }
 @media screen and (max-width: 600px) {
-  .ad_main-header.ad_logo {
+  .gnanT_main-header.gnanT_logo {
     display: none;
   }
 }
 @media screen and (max-width: 1200px) {
-  .ad_main-header .ad_top-navbar {
+  .gnanT_main-header .gnanT_top-navbar {
     width: 600px;
   }
-  .ad_navbar-custom-menu .ad_navbar-icon {
+  .gnanT_navbar-custom-menu .gnanT_navbar-icon {
     font-size: 15px;
     margin-top: 25px;
     margin-right: 3%;
