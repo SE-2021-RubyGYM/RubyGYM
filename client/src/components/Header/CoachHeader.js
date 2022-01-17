@@ -187,6 +187,7 @@ const CoachHeader = (props) => {
                 className="btn btn-primary rounded-pill mx-auto logout-btn"
                 type="submit"
                 onClick={() => {
+                  localStorage.clear();
                 history.push("/login");
               }}
               >
