@@ -27,6 +27,7 @@ import CrmCustomers from "../../pages/CRM-customer/CrmCustomer";
 import CrmCoachs from "../../pages/CRM-coach/CrmCoach";
 import Blog from "../../pages/blog/Blog";
 import AddBlog from "../../pages/AddBlog/Blog";
+import EditBlog from "../../pages/EditBlog/Blog";
 const CrmLayout = (props) => {
   return (
     <div className={s.root}>
@@ -46,7 +47,8 @@ const CrmLayout = (props) => {
             <Route path="/admin/coachs" exact component={CrmCoachs} />
             <Route path="/admin/blogs" exact component={Blog} />
             <Route path="/admin/blogs/addblog" exact component={AddBlog} />
-            <Route path="/admin/blogs/:id" exact component={Blog} />
+            <Route path="/admin/blogs/:id" exact component={EditBlog} />
+
             <Route path="*" exact render={() => <Redirect to="/error" />} />
           </Switch>
         </main>

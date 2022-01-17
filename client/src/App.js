@@ -1,5 +1,5 @@
 // -- React and related libs
-import React from "react";
+import React,{useEffect} from "react";
 import { Switch, Route, Redirect } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 
@@ -27,6 +27,13 @@ import isAuthenticated from "./services/authService";
 
 // -- Component Styles
 import "./styles/app.scss";
+// User
+
+import UserPage from "./Old_Code/user/userPages/userPage";
+import NewFeeds from "./Old_Code/user/userPages/newFeeds";
+import UserBlogDetail from "./Old_Code/user/userPages/userBlogDetail";
+import axios from 'axios';
+import UserDashBoard from "./Old_Code/user/userForm/UserDashBoard";
 
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
   if (!isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
@@ -43,6 +50,18 @@ const PrivateRoute = ({ dispatch, component, ...rest }) => {
 };
 
 const App = (props) => {
+
+  useEffect(() => {
+      if (localStorage.getItem("accessToken") !== null) {
+        axios.defaults.headers={
+          authorization:"Bearer " + localStorage.getItem("accessToken"),
+        }
+      }
+  }, [])
+
+
+
+
   return (
     <div>
       <ToastContainer />
@@ -51,7 +70,7 @@ const App = (props) => {
           <Route
             path="/"
             exact
-            render={() => <Redirect to="/admin/dashboard" />}
+            render={() => <Redirect to="/user/home" />}
           />
           <Route
             path="/template"
@@ -71,6 +90,10 @@ const App = (props) => {
           <Route path="/login" exact component={Login} />
           <Route path="/error" exact component={ErrorPage} />
           <Route path="/register" exact component={Register} />
+          <Route path="/user/home" exact component={UserPage}/>
+          <Route path="/user/blog" exact component={NewFeeds}/>
+          <Route path="/user/blog/:id" exact component={UserBlogDetail} />
+          <Route path="/user/dashboard" exact component={UserDashBoard}/>
           <Route component={ErrorPage} />
           <Route
             path="*"

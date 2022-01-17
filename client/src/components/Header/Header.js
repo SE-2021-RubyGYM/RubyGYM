@@ -187,7 +187,11 @@ const Header = (props) => {
                 className="btn btn-primary rounded-pill mx-auto logout-btn"
                 type="submit"
                 onClick={() => {
-                history.push("/login");
+                  localStorage.removeItem("accessToken");
+                  localStorage.clear();
+                  history.push("/login");
+                
+                  
               }}
               >
                 <img src={logoutIcon} alt="Logout" />

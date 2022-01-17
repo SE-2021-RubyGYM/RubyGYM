@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 //     finish: "08/1/2022",
 //   },
 // ];
-
+import NewFeed from "../../sub-sections/tung/newfeed";
 export default function UserDashBoard() {
   const [data, setData] = useState([
     {
@@ -134,7 +134,7 @@ export default function UserDashBoard() {
 
           <div className="top-navbar">
             <div className="navbar-custom-menu">
-              <a className="navbar-icon home-page"> TRANG CHỦ </a>
+              
               <div
                 className="navbar-icon news"
                 onClick={() => click_ttsk(true)}
@@ -259,9 +259,11 @@ export default function UserDashBoard() {
                 </div>
               </div>
             </div>
-
+            
+             
             <div className="main-content-ttsk" id="content_ttsk_play">
-              <p> Ghép phần ttsk vào đây nha </p>
+              <NewFeed/>
+
             </div>
 
             <div className="main-content-schedule" id="content_schedule_play">

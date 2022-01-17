@@ -15,7 +15,20 @@ import {
   GroupModel
 } from "@syncfusion/ej2-react-schedule";
 
+
 function CoachSchedule() {
+  var stringToColour = function(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    var colour = '#';
+    for (var i = 0; i < 3; i++) {
+      var value = (hash >> (i * 8)) & 0xFF;
+      colour += ('00' + value.toString(16)).substr(-2);
+    }
+    return colour;
+  }
   const [data, setData, ] = useState([
     {
       Id: 1,
@@ -38,15 +51,15 @@ function CoachSchedule() {
       EndTime: new Date(2022, 0, 19, 3, 0),
       userId: 3
     }
-  ]);
+  ] );
   const [resourceDataSource, setResourceDataSource] = useState([
-    {Name: 'Tung', Id:1, Color:'#ea7a57'},
-    {Name: 'Son', Id:2, Color:'#357CD2'},
-    {Name: 'Trang', Id:3, Color:'#7fa900'}
+    {Name: 'Tung', Id:"6197bf691de54733bfca8997", Color:'#ea7a57'},
+    {Name: 'Son', Id:"2", Color:'#357CD2'},
+    {Name: 'Trang', Id:"3", Color:'#7fa900'}
   ])
-  // const [groupData, setGroupDate] = useState(
-  //   {resources:['Resource']}
-  // )
+  const [groupData, setGroupDate] = useState(
+    {resources:['Resource']}
+  )
   
   useEffect(() => {
     
@@ -66,26 +79,76 @@ function CoachSchedule() {
       .catch((err) => {
         console.log("failed author");
       });
-  }, []);
+    axios({
+      method: "get",
+      url: "http://localhost:5000/api/users/get_by_coach",
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
+    })
+      .then((res) => {
+        if (res.status == 200) {
+          let tempSource = res.data.result;
+          tempSource.forEach(element => {
+            element.color = stringToColour(element.name);
+          });
+          setResourceDataSource(tempSource);
+        
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
 
+  }, []);
+  const uploadData = (data) =>{
+    axios({
+      method: "post",
+      url: "http://localhost:5000/api/calendars/refresh_calendars",
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
+      data: data
+    })
+      .then((res) => {
+        if (res.status == 200) {
+          
+          console.log(data)
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
 
 
   return (
     <>
       <div className="schedule_bg">
         <div className="schedule_table">
-          <ScheduleComponent  height = '100%' eventSettings={{ dataSource: data }}
-          view={['Day', 'Week', 'Month', 'TimelineDay', 'TimelineWeek']}  >
+          <ScheduleComponent  height = '100%' 
+          eventSettings={{ 
+                dataSource: data, 
+                fields : {
+                  subject: {name: "subject"},
+                  description: {name:"description"},
+                  startTime: {name: "startTime"},
+                  endTime: {name: "endTime"},
+                  id: {name: "ID"},
+                  isAllDay: {name: "isAllDay"}               
+              }}}>
             <ResourcesDirective>
               <ResourceDirective field="userId" title='Customer Name' 
-              name='Resource' textField="Name" idField="Id" colorField="Color" dataSource={resourceDataSource}>
+              name='Resources' textField="name" idField="_id" colorField="color" 
+              dataSource={resourceDataSource }>
               </ResourceDirective>
             </ResourcesDirective>
             <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
           </ScheduleComponent>
         </div>
       </div>
-      <button onClick={() => console.log(data)}>Confirm</button>
+      <button onClick={() => uploadData(data)}>
+      Confirm</button>
     </>
   );
 }

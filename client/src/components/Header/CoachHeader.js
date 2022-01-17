@@ -163,7 +163,7 @@ const CoachHeader = (props) => {
               <img src={userImg} alt="User" />
             </span>
             <span className="small d-none d-sm-block ml-1 mr-2 body-1">
-              Admin
+              Coach
             </span>
           </DropdownToggle>
           <DropdownMenu
@@ -187,6 +187,7 @@ const CoachHeader = (props) => {
                 className="btn btn-primary rounded-pill mx-auto logout-btn"
                 type="submit"
                 onClick={() => {
+                  localStorage.clear();
                 history.push("/login");
               }}
               >

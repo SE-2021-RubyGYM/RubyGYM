@@ -1,12 +1,12 @@
 import { BackEndBaseURL } from "../../../app/backend";
 import axios from "axios";
-export async function getCustomerList() {
+export async function getAdvList() {
   var c = await axios({
     method: "get",
-    url: BackEndBaseURL + "/api/users",
+    url: BackEndBaseURL + "/api/adv",
   })
     .then((res) => {
-      if (res.status == 200) {
+      if (res.status == 200 || res.status == true) {
         return res.data.result;
       } else {
         return null;
@@ -19,10 +19,10 @@ export async function getCustomerList() {
   return c;
 }
 
-export const deleteCustomerById = async (id) => {
+export const deleteAdvById = async (id) => {
   var result = await axios({
     method: "DELETE",
-    url: BackEndBaseURL + "/api/users/" + id,
+    url: BackEndBaseURL + "/api/adv/" + id,
   })
     .then((res) => {
       if (res.status == 200) {
@@ -38,6 +38,25 @@ export const deleteCustomerById = async (id) => {
   return result;
 };
 
+export const getAdvById = async (id) => {
+  var result = await axios({
+    method: "get",
+    url: BackEndBaseURL + "/api/adv/" + id,
+  })
+    .then((res) => {
+      if (res.status == 200) {
+        return res.data.result;
+      } else {
+        return null;
+      }
+    })
+    .catch((e) => {
+      return null;
+    });
+
+  return result;
+};
+
 export const createUser = async (user) => {
   var result = await axios({
     method: "POST",
@@ -45,7 +64,6 @@ export const createUser = async (user) => {
     data: user,
   })
     .then((res) => {
-      console.log(res);
       if (res.status == 200 || res.status == true) {
         return true;
       } else {
@@ -57,22 +75,3 @@ export const createUser = async (user) => {
     });
   return result;
 };
-
-
-
-export const getCoachList= async ()=>{
-  var result= await axios({
-    method:"GET",
-    url: BackEndBaseURL+"/api/coachs",
-  }).then(res=>{
-    if(res.status==200||res.status==true){
-      return res.data.result;
-    }else{
-      return null;
-    }
-  }).catch(e=>{
-    return null;
-  })
-
-  return result;
-}

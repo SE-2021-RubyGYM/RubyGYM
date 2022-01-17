@@ -39,10 +39,14 @@ import AddForm from "./AddForm.js";
 import { customers, data, changeData } from "./data/customer.js";
 import { element } from "prop-types";
 import EditForm from "./EditForm";
-import { getAdvList, deleteAdvById, createUser } from "./api/api";
+import { getAdvList, deleteAdvById, createUser, getAdvById } from "./api/api";
 import { useHistory } from "react-router-dom";
 
-const AddBlog = function () {
+import { useParams } from "react-router-dom";
+
+const EditBlog = function () {
+  let { id } = useParams();
+
   let history = useHistory();
 
   const [contentEditorState, setContentEditorState] = useState(
@@ -50,20 +54,23 @@ const AddBlog = function () {
   );
 
   useEffect(() => {
-    const contentBlock = htmlToDraft("write st");
-    if (contentBlock) {
-      const contentState = ContentState.createFromBlockArray(
-        contentBlock.contentBlocks
-      );
-      setContentEditorState(EditorState.createWithContent(contentState));
-    }
+    // const contentBlock = htmlToDraft("write st");
+    // if (contentBlock) {
+    //   const contentState = ContentState.createFromBlockArray(
+    //     contentBlock.contentBlocks
+    //   );
+    //   setContentEditorState(EditorState.createWithContent(contentState));
+    // }
   }, []);
 
   const handleOnContentEditorChange = useCallback((e) => {
     setContentEditorState(e);
   });
 
-  const handlePostToBlog = useCallback(() => {
+  const handlePostToBlog = useCallback(async () => {
+    var result = await deleteAdvById(id);
+    if (!result) {
+    }
     var now = new Date().toLocaleDateString("pt-PT");
     const blogContent = draftToHtml(
       convertToRaw(contentEditorState.getCurrentContent())
@@ -160,13 +167,29 @@ const AddBlog = function () {
     picture: "",
     title: "",
   });
-
+  useEffect(async () => {
+    var result = await getAdvById(id);
+    if (result != null) {
+      setTitleValue({
+        picture: result.picture,
+        title: result.title,
+      });
+      const contentBlock = htmlToDraft(result.content);
+      if (contentBlock) {
+        const contentState = ContentState.createFromBlockArray(
+          contentBlock.contentBlocks
+        );
+        setContentEditorState(EditorState.createWithContent(contentState));
+      }
+    } else {
+    }
+  }, []);
   return (
     <div>
       <Row>
         <Col>
           <Row className="header__container">
-            <div className="headline-1">Thêm bài viết</div>
+            <div className="headline-1">Sửa bài viết</div>
           </Row>
           <Row className="mb-4">
             <div
@@ -251,7 +274,7 @@ const AddBlog = function () {
                 onHoldStyle={{ backgroundColor: "rgb(14, 76, 247)" }}
                 onClick={() => handlePostToBlog()}
               >
-                <div style={{ color: "rgb(247, 247, 247)" }}>Đăng bài</div>
+                <div style={{ color: "rgb(247, 247, 247)" }}>Lưu</div>
               </Button>
             </div>
           </Row>
@@ -261,4 +284,4 @@ const AddBlog = function () {
   );
 };
 
-export default AddBlog;
+export default EditBlog;

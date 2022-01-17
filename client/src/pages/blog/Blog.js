@@ -301,10 +301,10 @@ const Blog = function () {
                   >
                     <thead>
                       <tr>
-                        <th className="w-5">Mã khách hàng</th>
-                        <th className="w-20">Tên khách hàng</th>
+                        <th className="w-5">Mã bài viết</th>
+                        <th className="w-20">Người tạo</th>
                         <th className="w-10">Tiêu đề</th>
-                        <th className="w-10">Số điện thoại</th>
+                        <th className="w-10">Lượt xem</th>
                         <th className="w-10">Hành động</th>
                       </tr>
                     </thead>
@@ -371,7 +371,9 @@ const Blog = function () {
                                 <i
                                   className="fa fa-edit"
                                   style={{ marginRight: "10px" }}
-                                  onClick={() => {}}
+                                  onClick={() => {
+                                    history.push("/admin/blogs/" + item._id);
+                                  }}
                                 ></i>
                                 <i
                                   className="fa fa-trash hover-button"
