@@ -49,9 +49,9 @@ const CoachSidebar = (props) => {
             props.dispatch(changeActiveSidebarItem(activeItem))
           }
           activeItem={props.activeItem}
-          header="Quản lý khách hàng"
+          header="Quản lý người tập"
           isHeader
-          iconName={<i className={"eva eva-person-outline"} />}
+          iconName={<i className={"eva eva-people-outline"} />}
           link="/coach/customers"
         />
         <LinksGroup
@@ -61,7 +61,7 @@ const CoachSidebar = (props) => {
           activeItem={props.activeItem}
           header="Lịch tập"
           isHeader
-          iconName={<i className={"eva eva-person-outline"} />}
+          iconName={<i className={"eva eva-calendar-outline"} />}
           link="/coach/schedule"
         />
       </ul>

@@ -113,8 +113,8 @@ const Login = (props) => {
                     placeholder="Password"
                   />
                 </FormGroup>
-                <div className="bg-widget d-flex justify-content-left">
-                  <input
+                <div className="bg-widget d-flex justify-content-left" style={{height:"20px"}}>
+                  <input style={{height:"20px"}}
                     type="checkbox"
                     value={isHlv}
                     onChange={(e) => {
@@ -125,7 +125,7 @@ const Login = (props) => {
                       }
                     }}
                   />
-                  <label for="vehicle1"> Là Huấn luyện viên</label>
+                  <label style={{fontSize:"13px", marginLeft:"10px", marginBottom:"0px"}} for="vehicle1"> Tôi là Huấn luyện viên</label>
                 </div>
                 <div className="bg-widget d-flex justify-content-center">
                   <Button

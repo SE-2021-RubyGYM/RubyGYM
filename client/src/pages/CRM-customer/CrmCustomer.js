@@ -195,9 +195,7 @@ const CrmCustomers = function () {
 
   return (
     <div>
-      <div
-        dangerouslySetInnerHTML={{ __html: '<a href="#"> hello world </a>' }}
-      />
+      
 
       {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
       <Modal show={show} onHide={handleClose}>
@@ -251,7 +249,7 @@ const CrmCustomers = function () {
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder="Tên khách hàng ví dụ: dembele"
+                placeholder=""
                 value={filter.name}
                 onChange={(e) => {
                   var newFilter = { ...filter };
@@ -269,31 +267,7 @@ const CrmCustomers = function () {
               <Widget>
                 <div className={s.tableTitle}>
                   <div></div>
-                  <div className="d-flex">
-                    <a href="/#">
-                      <img src={searchIcon} alt="Search" />
-                    </a>
-                    <a href="/#">
-                      <img
-                        className="d-none d-sm-block"
-                        src={cloudIcon}
-                        alt="Cloud"
-                      />
-                    </a>
-                    <a href="/#">
-                      <img src={printerIcon} alt="Printer" />
-                    </a>
-                    <a href="/#">
-                      <img
-                        className="d-none d-sm-block"
-                        src={optionsIcon}
-                        alt="Options"
-                      />
-                    </a>
-                    <a href="/#">
-                      <img src={funnelIcon} alt="Funnel" />
-                    </a>
-                  </div>
+              
                 </div>
                 <div className="widget-table-overflow">
                   <Table

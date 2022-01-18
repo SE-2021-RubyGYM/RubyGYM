@@ -46,7 +46,9 @@ export const createHLV = async (coach) => {
   })
     .then((res) => {
       console.log(res);
+      
       if (res.status == 200 || res.status == true) {
+        
         return true;
       } else {
         return false;

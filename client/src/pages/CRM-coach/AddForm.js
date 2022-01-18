@@ -28,10 +28,10 @@ function AddForm(props) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("Nam");
+  const [gender, setGender] = useState("Male");
   const [paymentDay, setPaymentDay] = useState(new Date());
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [major, setMajor] = useState("");
+  const [major, setMajor] = useState("Yoga");
   const [birthday, setBirthDay] = useState(new Date());
   return (
     <>
@@ -55,7 +55,7 @@ function AddForm(props) {
               />
               <label for="fname">Mật khẩu</label>
               <input
-                type="text"
+                type="password"
                 id="fname"
                 name="firstname"
                 placeholder="Ví dụ: 123456"
@@ -108,14 +108,29 @@ function AddForm(props) {
                 onChange={(date) => setBirthDay(date)}
               />
               <label for="lname">Major</label>
-              <input
+              
+              <select
                 type="text"
-                placeholder=""
                 value={major}
                 onChange={(e) => {
                   setMajor(e.target.value);
                 }}
-              />
+              >
+                <option value={"LesMills"}>LesMills</option>
+                <option value={"Yoga"}>Yoga</option>
+                <option value={"Dance"}>Dance</option>
+                <option value={"Huấn luyện cá nhân"}>Huấn luyện cá nhân</option>
+                <option value={"Kickfit/MMA"}>Kickfit/MMA</option>
+                <option value={"Group Fitness"}>Group Fitness</option>
+                {/* enum: [
+      "LesMills",
+      "Yoga",
+      "Dance",
+      "Huấn luyện cá nhân",
+      "Kickfit/MMA",
+      "Group Fitness",
+    ], */}
+              </select>
             </form>
           </div>
         </Modal.Body>
@@ -132,13 +147,18 @@ function AddForm(props) {
         <Button
           variant="primary"
           onClick={async () => {
-            var mes = "Thêm thành công";
+            var mes = "";
             if (name == "") {
-              mes = "Tên không được bỏ trống.";
+              mes = +" Tên không được bỏ trống.";
             }
-            var success;
-            if (mes != "Thêm thành công") {
-              mes = "Thêm thất bại" + mes;
+            if (userName == "") {
+              mes = +" Tên tài khoản không được bỏ trống.";
+            }
+            if (password == "") {
+              mes = +" Mật khẩu không được bỏ trống.";
+            }
+            var success = true;
+            if (mes != "") {
             } else {
               success = await props.submitForm({
                 username: userName,
@@ -150,7 +170,15 @@ function AddForm(props) {
                 major: major,
               });
             }
-
+            if (success != true) {
+              mes = "Thêm thất bại lỗi hệ thống";
+            } else {
+              if (mes != "") {
+                mes = "Thêm thất bại " + mes;
+              } else {
+                mes = "Thêm thành công huấn luyện viên " + name;
+              }
+            }
             const notificationTypes = ["success", "error"];
 
             let notificationName = success ? "success" : "error";
@@ -171,6 +199,7 @@ function AddForm(props) {
           }}
         >
           Lưu
+          
         </Button>
       </Modal.Footer>
     </>
