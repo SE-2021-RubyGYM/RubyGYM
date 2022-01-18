@@ -108,10 +108,7 @@ function AddForm(props) {
                 onChange={(date) => setBirthDay(date)}
               />
               <label for="lname">Major</label>
-<<<<<<< HEAD
-=======
               
->>>>>>> e77788dd5bea53147ed08d7122c8a8569e64ace6
               <select
                 type="text"
                 value={major}
@@ -125,8 +122,6 @@ function AddForm(props) {
                 <option value={"Huấn luyện cá nhân"}>Huấn luyện cá nhân</option>
                 <option value={"Kickfit/MMA"}>Kickfit/MMA</option>
                 <option value={"Group Fitness"}>Group Fitness</option>
-<<<<<<< HEAD
-=======
                 {/* enum: [
       "LesMills",
       "Yoga",
@@ -135,7 +130,6 @@ function AddForm(props) {
       "Kickfit/MMA",
       "Group Fitness",
     ], */}
->>>>>>> e77788dd5bea53147ed08d7122c8a8569e64ace6
               </select>
             </form>
           </div>
