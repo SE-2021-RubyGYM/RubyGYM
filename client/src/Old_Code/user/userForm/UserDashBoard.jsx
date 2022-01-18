@@ -5,6 +5,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NewFeed from "../../sub-sections/tung/newfeed";
 import { element } from "prop-types";
+import { useParams } from "react-router";
+import { BackEndBaseURL } from "../../../app/backend";
+import { Notification2 } from "../../../components/Notification/Notification";
+import "font-awesome/css/font-awesome.min.css";
+import { toast } from "react-toastify";
 // const user_ruby = [
 //   {
 //     name: "Nguyễn Văn A",
@@ -20,42 +25,115 @@ import { element } from "prop-types";
 // ];
 
 export default function UserDashBoard() {
-  const [data, setData] = useState([
-    {
-      _id: 0,
-      name: "dat",
-      birthDay: "",
-    },
-  ])
-
-  const getDataUser = () => {
+  const [userInfo, setUserInfo] = useState({
+    _id: "61e1ad339fef242d81511b98",
+    name: "Lê Thiên Chúc",
+    username: "user03",
+    phone: "0169925628",
+    password:
+      "$argon2i$v=19$m=4096,t=3,p=1$wd449sARZ/FPw8hv/r0FQA$X/worTotBaY6v6N9mJQOesrBafHeLbO1sfAfETc7FcQ",
+    birthDay: "2001-01-14T17:00:00.000Z",
+    gender: "Female",
+    coach: "61bb55ba80c3938bf7800378",
+    referralCode: "GT-88XeP8KK-2022",
+    assessment: "Trống",
+    height: "1.73",
+    weight: "69",
+    paymentDay: "2022/06/06",
+    aim: "Trống",
+    __v: 0,
+  });
+   const { id } = useParams();
+  useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:5000/api/users/auth",
-      headers: {
-        authorization: "Bearer " + localStorage.getItem("accessToken"),
-      },
+      url: BackEndBaseURL + "/api/users/" + id,
     }).then((res) => {
-      if (res.status == 200) {
-        console.log(res.data.result);
-        setData(res.data.result);
+      if (res.status == 200 || res.status == true) {
+        setUserInfo(res.data.result);
+        
       }
     });
-  };
-  useEffect(() => {
-    getDataUser();
+  
   }, []);
+   const handleSubmit = () => {
+    var userInfoCopy = { ...userInfo };
+   
 
+    axios({
+      method: "PUT",
+      url: BackEndBaseURL + "/api/users/" + id,
+      data: userInfoCopy,
+    })
+      .then((res) => {
+        if (res.status == 200 || res.status == true) {
+          const notificationTypes = ["success", "error"];
+          var success = true;
+          var mes = "Cập nhập thành công";
+          let notificationName = success ? "success" : "error";
+          let msg = { success: mes, error: mes };
+          toast(
+            <Notification2
+              type={notificationName}
+              withIcon
+              msg={msg[notificationName]}
+            />,
+            {
+              autoClose: 4000,
+              closeButton: false,
+              hideProgressBar: true,
+            }
+          );
+        } else {
+          const notificationTypes = ["success", "error"];
+          var success = false;
+          var mes = "Cập nhập thất bại";
+          let notificationName = success ? "success" : "error";
+          let msg = { success: mes, error: mes };
+          toast(
+            <Notification2
+              type={notificationName}
+              withIcon
+              msg={msg[notificationName]}
+            />,
+            {
+              autoClose: 4000,
+              closeButton: false,
+              hideProgressBar: true,
+            }
+          );
+        }
+      })
+      .catch((e) => {
+        const notificationTypes = ["success", "error"];
+        var success = false;
+        var mes = "Cập nhập thất bại";
+        let notificationName = success ? "success" : "error";
+        let msg = { success: mes, error: mes };
+        toast(
+          <Notification2
+            type={notificationName}
+            withIcon
+            msg={msg[notificationName]}
+          />,
+          {
+            autoClose: 4000,
+            closeButton: false,
+            hideProgressBar: true,
+          }
+        );
+      });
+  };
   const user_ruby = [
     {
-      name: data.name,
-      ID_user: data._id,
-      phone_number: data.phone,
-      sex: data.gender,
-      dob: data.birthDay,
-      paymentDay: data.paymentDay,
+      name: userInfo.name,
+      ID_user: userInfo._id,
+      phone_number: userInfo.phone,
+      sex: userInfo.gender,
+      dob: userInfo.birthDay,
+      paymentDay: userInfo.paymentDay,
       rank: "Bạc",
-      assess: data.assessment,
+      assess: userInfo.assessment,
 
       //   mail: "abcd@gmai.com",
       //   rank: "Bạc",
@@ -254,8 +332,13 @@ export default function UserDashBoard() {
                 </div>
 
                 <div className="change-infor-user">
-                  <button className="button-change">
-                    {" "}
+                  <button
+                   className="button-change"
+                   onClick={()=>{
+                     handleSubmit();
+                   }}
+                  >
+                   
                     Chỉnh sửa thông tin{" "}
                   </button>
                 </div>
