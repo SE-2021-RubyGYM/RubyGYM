@@ -1,0 +1,283 @@
+.ad_xct_hlv_all {
+  height: 2000px;
+}
+
+.ad_xct_hlv_content-chinh .ad_xct_hlv_main-content {
+  box-sizing: border-box;
+  display: block;
+  height: 1500px;
+  width: 100%;
+}
+.ad_xct_hlv_box-body .ad_xct_hlv_coach_image {
+  margin-top: 25px;
+  margin-right: 5%;
+}
+.ad_xct_hlv_coach_image .ad_xct_hlv_image-coach {
+  box-sizing: border-box;
+  width: 226px;
+  height: 170px;
+}
+.ad_xct_hlv_box-body .ad_xct_hlv_box-coach-infor {
+  float: left;
+  display: flex;
+  box-sizing: border-box;
+  width: 80%;
+  height: auto;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+.ad_xct_hlv_box-body .ad_xct_hlv_coach-name {
+  margin-top: 1%;
+  margin-right: 5%;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 28.ad_xct_hlv_8px;
+  text-align: center;
+  color: black;
+}
+.ad_xct_hlv_content-header {
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  padding-bottom: 0px;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  font-family: Monsterrat, sans-serif;
+  color: rbg (51, 51, 51);
+}
+.ad_xct_hlv_content-header .ad_xct_hlv_title {
+  height: auto;
+  text-align: center;
+  display: block;
+  font-family: Monsterrat, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 40.ad_xct_hlv_5px;
+  color: rbg (51, 51, 51);
+  margin-bottom: -15px;
+}
+
+hr {
+  box-sizing: content-box;
+  border: 0;
+}
+.ad_xct_hlv_red-line {
+  margin: 20px 40%;
+  color: black;
+  background: #db2328;
+  height: 5px;
+  width: 20%;
+}
+
+.ad_xct_hlv_content .ad_xct_hlv_box {
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  margin-top: 35px;
+  margin-right: 13%;
+  margin-left: 13%;
+  width: auto;
+  box-shadow: #ff512f 0px 0px 1px 1px, #dd2476 0px 1px 1px 0px;
+  outline-color: #dd2476;
+  outline-width: 1px;
+  border-radius: 10px;
+}
+.ad_xct_hlv_box .ad_xct_hlv_box-body {
+  box-sizing: border-box;
+  display: flex;
+
+  height: 100%;
+  padding: 10px;
+  width: 88%;
+  margin-right: 6%;
+  margin-left: 6%;
+}
+.ad_xct_hlv_box .ad_xct_hlv_box-body-fix {
+    
+  
+  width: 94%;
+  margin-right: 3%;
+  margin-left: 3%;
+  padding-bottom: 20px;
+}
+.ad_xct_hlv_box-body-fix .ad_xct_hlv_coach_manage_user{
+  
+  display: block;
+  padding-bottom: 0px;
+  padding-left: 5%;
+  text-align: center;
+  padding-right: 5%;
+  font-size: 200px;
+ 
+}
+.ad_xct_hlv_box-body-fix .ad_xct_hlv_list-user{
+  margin-top: 1%;
+  margin-right: 5%;
+  font-family: Roboto, sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  color: black;
+}
+.ad_xct_hlv_box-body-user .ad_xct_hlv_table-content-user {
+  box-sizing: border-box;
+  display: table;
+  height: auto;
+  margin-top: 10px;
+  width: 100%;
+  border-bottom-color: rgb(204, 102, 61);
+  border-color: #ff512f;
+  border-style: solid;
+  border-width: 1px;
+  border-collapse: collapse;
+
+}
+
+.ad_xct_hlv_table-content-user .ad_xct_hlv_column {
+  width: 18vw;
+  white-space: nowrap;
+  
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 25px;
+  text-indent: 0px;
+  text-size-adjust: 100%;
+  color: rgb(204, 102, 61);
+  background-color: white;
+}
+.ad_xct_hlv_table-content-user .ad_xct_hlv_co {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 25px;
+  text-indent: 0px;
+  text-size-adjust: 100%;
+  color: rgb(202, 106, 68);
+  background-color: white;
+}
+.ad_xct_hlv_box-body-fix .ad_xct_hlv_coach-name {
+  width: 30%;
+  margin-right: 3%;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  color: black;
+  margin-bottom: 10px;
+}
+.ad_xct_hlv_coach-name input {
+  font-size: 19px;
+  margin-left: 5px;
+  width: 120px;
+}
+select {
+  border-radius: 2px;
+  width: 160px;
+  border-inline-color: none;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.ad_xct_hlv_box-body .ad_xct_hlv_option1 {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  font-size: 15px;
+}
+.ad_xct_hlv_option1::-ms-expand {
+  display: none;
+}
+.ad_xct_hlv_option1:hover {
+  border-color: #888;
+}
+.ad_xct_hlv_option1:focus {
+  border-color: #aaa;
+
+  color: #222;
+  outline: none;
+}
+.ad_xct_hlv_option1 option {
+  font-weight: normal;
+}
+
+.ad_xct_hlv_text-center {
+  text-align: right;
+}
+.ad_xct_hlv_content .ad_xct_hlv_text-center .ad_xct_hlv_button {
+  display: block;
+  height: auto;
+  margin: 25px auto;
+  padding: 15px 1% 15px 1%;
+  width: 13%;
+  font-family: cali, sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  text-align: center;
+  text-decoration-color: white;
+  color: rgb(255, 255, 255);
+  background-color: #db2328;
+  border-radius: 8px;
+  border-color: white;
+}
+.ad_xct_hlv_button .ad_xct_hlv_text-button {
+  color: white;
+}
+
+.ad_xct_hlv_container {
+  display: none;
+  height: auto;
+  width: 30vw;
+  background-color: white;
+  margin-top: 100px;
+  margin-left: 35%;
+  margin-right: 35%;
+  border-radius: 15px;
+  position: fixed;
+  box-shadow: #ff512f 0px 0px 1px 1px, #dd2476 0px 1px 1px 0px;
+}
+.ad_xct_hlv_container2 {
+  padding: 20px;
+}
+.ad_xct_hlv_login {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Aerial', sans-serif;
+}
+
+.ad_xct_hlv_container2 .ad_xct_hlv_kaka {
+  display: flex;
+}
+.ad_xct_hlv_btn {
+  width: 30%;
+  display: block;
+  padding: 10px;
+  border-radius: 30px;
+  margin: 20px auto 10px;
+  border: none;
+  color: white;
+  background-image: linear-gradient(90deg, #ff512f, #dd2476);
+}
+.ad_xct_hlv_btn:hover {
+  opacity: 0.ad_xct_hlv_5;
+}
+@media screen and (max-width: 600px) {
+  .ad_xct_hlv_main-header.ad_xct_hlv_logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .ad_xct_hlv_main-header .ad_xct_hlv_top-navbar {
+    width: 600px;
+  }
+  .ad_xct_hlv_navbar-custom-menu .ad_xct_hlv_navbar-icon {
+    font-size: 15px;
+    margin-top: 25px;
+    margin-right: 3%;
+  }
+}

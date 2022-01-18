@@ -55,9 +55,7 @@ const CrmCustomers = function () {
       }
     }
   }, []);
-  let History = useHistory (
-
-  )
+  let History = useHistory ()
   const [secondTable] = useState(mock.secondTable);
   const [transactions, setTransactions] = useState(mock.transactionsWidget);
   const [tasks, setTasks] = useState(mock.tasksWidget);
