@@ -124,34 +124,39 @@ function CoachSchedule() {
 
   return (
     <>
-      <div className="schedule_bg">
-        <div className="schedule_table">
-          <ScheduleComponent  height = '100%' 
-          eventSettings={{ 
-                dataSource: data, 
-                fields : {
-                  subject: {name: "subject"},
-                  description: {name:"description"},
-                  startTime: {name: "startTime"},
-                  endTime: {name: "endTime"},
-                  id: "ID",
-                  isAllDay: {name: "isAllDay"}               
-              }
-              }}>
-            <ResourcesDirective>
-              <ResourceDirective field="userId" title='Customer Name' 
-              name='Resources' textField="name" idField="_id" colorField="color" 
-              dataSource={resourceDataSource }>
-              </ResourceDirective>
-            </ResourcesDirective>
-            <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
-          </ScheduleComponent>
-        </div>
+      <div className="schedule_titlebar">
+        {/* <div className="title">
+          Ruby Gym & Fitness Schedule
+        </div> */}
       </div>
-      <button onClick={() => {
-        uploadData(data)
-      }}>
-      Confirm</button>
+      <div className="schedule_table">
+        <ScheduleComponent  height = '100%' 
+        eventSettings={{ 
+              dataSource: data, 
+              fields : {
+                subject: {name: "subject"},
+                description: {name:"description"},
+                startTime: {name: "startTime"},
+                endTime: {name: "endTime"},
+                id: "ID",
+                isAllDay: {name: "isAllDay"}               
+            }
+            }}>
+          <ResourcesDirective>
+            <ResourceDirective field="userId" title='Customer Name' 
+            name='Resources' textField="name" idField="_id" colorField="color" 
+            dataSource={resourceDataSource }>
+            </ResourceDirective>
+          </ResourcesDirective>
+          <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+        </ScheduleComponent>
+      </div>
+      <div className="confirm-modification">
+        <button onClick={() => {
+          uploadData(data)
+        }}>
+        Confirm</button>
+      </div>
     </>
   );
 }
