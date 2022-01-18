@@ -26,7 +26,7 @@ export default function UserDashBoard() {
       name: "dat",
       birthDay: "",
     },
-  ]);
+  ])
 
   const getDataUser = () => {
     axios({
