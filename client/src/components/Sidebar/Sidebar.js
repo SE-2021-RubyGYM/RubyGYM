@@ -51,7 +51,7 @@ const Sidebar = (props) => {
           activeItem={props.activeItem}
           header="Quản lý khách hàng"
           isHeader
-          iconName={<i className={"eva eva-person-outline"} />}
+          iconName={<i className={"eva eva-people-outline"} />}
           link="/admin/customers"
         />
         <LinksGroup
@@ -61,7 +61,7 @@ const Sidebar = (props) => {
           activeItem={props.activeItem}
           header="Quản lý huấn luyện viên "
           isHeader
-          iconName={<i className={"eva eva-person-outline"} />}
+          iconName={<i className={"eva eva-people-outline"} />}
           link="/admin/coachs"
         />
         <LinksGroup
@@ -71,7 +71,7 @@ const Sidebar = (props) => {
           activeItem={props.activeItem}
           header="Quản lý bài viết"
           isHeader
-          iconName={<i className={"eva eva-person-outline"} />}
+          iconName={<i className={"eva eva-book-open-outline"} />}
           link="/admin/blogs"
         />
       </ul>

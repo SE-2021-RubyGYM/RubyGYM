@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NewFeed from "../../sub-sections/tung/newfeed";
+import { element } from "prop-types";
 // const user_ruby = [
 //   {
 //     name: "Nguyễn Văn A",
@@ -128,7 +129,7 @@ export default function UserDashBoard() {
         <nav>
           <a href="">
             <img
-              src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.15752-9/263489534_309213704448605_1612519373928604894_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_ohc=yeLsfkFPxUAAX8Uc9UK&_nc_ht=scontent-hkg4-1.xx&oh=b6a3ffd7443c499cb878dfe144ba3699&oe=61D7BC9A"
+              src={element.image}
               className="logo"
             />
           </a>
