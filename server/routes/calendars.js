@@ -3,7 +3,7 @@ const {
   verifyCoach
 } = require("../controllers/coachs");
 const verifyToken = require("../middlewares/authentication");
-const {updateCalendars, getCalendarsOfCoach, getCalendarsOfUser, deleteCalendar, refreshCalendars} = require("../controllers/calendars");
+const {updateCalendars, getCalendarsOfCoach, getCalendarsOfUser, deleteCalendar, refreshCalendars, getCalendarOfMine} = require("../controllers/calendars");
 
 // @access Private
 router.post("/update_calendars",verifyToken,verifyCoach, async (req, res) => {
@@ -30,5 +30,11 @@ router.get("/",verifyToken,verifyCoach, async (req, res) => {
 router.get("/:id",verifyToken,verifyCoach, async (req, res) => {
     await getCalendarsOfUser(req, res);
   });
+
+// @access Private
+router.get("/my_calendars",verifyToken, async (req, res) => {
+  await getCalendarOfMine(req, res);
+});
+
 
 module.exports = router;
