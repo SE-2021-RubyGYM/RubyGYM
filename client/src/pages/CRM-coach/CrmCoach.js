@@ -119,18 +119,6 @@ const CrmCoachs = function () {
       setFirstTable(newFirstTable);
     }
     return success;
-    // newFirstTable.push({
-    //   _id: "checkbox113",
-    //   code: "KH00" + (newFirstTable.length + 1),
-    //   name: info[0],
-    //   type: info[1],
-    //   email: info[2],
-    //   phone: info[3],
-    //   assignee: info[4],
-    //   status: Coachs.status[0],
-    // });
-    // setFirstTable(newFirstTable);
-    // changeData(newFirstTable);
   };
 
   const deleteCustom = async (index) => {
@@ -170,38 +158,13 @@ const CrmCoachs = function () {
     type: "Loại",
     assignee: "Người quản lý",
   });
-
   const [changeIndex, setChangeIndex] = useState(-1);
-  const handleChangeSubmit = (e) => {
-    var newFirstTable = [...firstTable];
-    firstTable[changeIndex] = {
-      id: "checkbox113",
-      code: newFirstTable[changeIndex].id,
-      name: e[0],
-      status: e[5],
-      type: e[1],
-      email: e[2],
-      phone: e[3],
-      assignee: e[4],
-    };
-  };
-
-  const [showChangeElment, setShowChangeElment] = useState(false);
-  const handleShowChange = () => setShowChangeElment(true);
-  const handleCloseChange = () => setShowChangeElment(false);
 
   return (
     <div>
       {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
       <Modal show={show} onHide={handleClose}>
         <AddForm handleClose={handleClose} submitForm={submitForm} />
-      </Modal>
-      <Modal show={showChangeElment} onHide={handleCloseChange}>
-        <EditForm
-          handleClose={handleCloseChange}
-          submitForm={handleChangeSubmit}
-          info={firstTable[changeIndex]}
-        />
       </Modal>
       {/* Modal Export */}
       <Modal show={openExport} onHide={() => setOpenExport(false)}>
