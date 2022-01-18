@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useHistory } from "react-router";
 import "./style/style.css";
 import {
   Col,
@@ -53,6 +54,7 @@ const CrmCoachs = function () {
       }
     }
   }, []);
+  let History = useHistory()
   const [secondTable] = useState(mock.secondTable);
   const [transactions, setTransactions] = useState(mock.transactionsWidget);
   const [tasks, setTasks] = useState(mock.tasksWidget);
@@ -365,7 +367,11 @@ const CrmCoachs = function () {
                                 <i
                                   className="fa fa-edit"
                                   style={{ marginRight: "10px" }}
-                                  onClick={() => {}}
+                                  onClick={() => {
+                                    History.push(
+                                    "/admin/coachs/"+item._id
+                                    )
+                                  }}
                                 ></i>
                                 <i
                                   className="fa fa-trash hover-button"
