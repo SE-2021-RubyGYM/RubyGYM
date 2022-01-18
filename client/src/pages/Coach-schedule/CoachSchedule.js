@@ -31,31 +31,31 @@ function CoachSchedule() {
   }
   const [data, setData, ] = useState([
     {
-      Id: 1,
-      Subject: 'Learning',
-      StartTime: new Date(2022, 0, 17, 1, 0),
-      EndTime: new Date(2022, 0, 17, 2, 0),
-      userId: 1
+      ID: 1,
+      subject: 'Learning',
+      startTime: new Date(2022, 0, 17, 1, 0),
+      endTime: new Date(2022, 0, 17, 2, 0),
+      userId: "6197bf691de54733bfca8997"
     },
     {
-      Id: 2,
-      Subject: 'Singing',
-      StartTime: new Date(2022, 0, 18, 3, 0),
-      EndTime: new Date(2022, 0, 18, 4, 0),
-      userId: 2
+      ID: 2,
+      subject: 'Singing',
+      startTime: new Date(2022, 0, 18, 3, 0),
+      endTime: new Date(2022, 0, 18, 4, 0),
+      userId: "6197bf691de54733bfca8997"
     },
     {
-      Id: 3,
-      Subject: 'Dancing',
-      StartTime: new Date(2022, 0, 19, 1, 0),
-      EndTime: new Date(2022, 0, 19, 3, 0),
-      userId: 3
+      ID: 3,
+      subject: 'Dancing',
+      startTime: new Date(2022, 0, 19, 1, 0),
+      endTime: new Date(2022, 0, 19, 3, 0),
+      userId: "6197bf691de54733bfca8997"
     }
   ] );
   const [resourceDataSource, setResourceDataSource] = useState([
-    {Name: 'Tung', Id:"6197bf691de54733bfca8997", Color:'#ea7a57'},
-    {Name: 'Son', Id:"2", Color:'#357CD2'},
-    {Name: 'Trang', Id:"3", Color:'#7fa900'}
+    {name: 'Tung', _id:"6197bf691de54733bfca8997", color:'#ea7a57'},
+    {name: 'Son', _id:"2", color:'#357CD2'},
+    {name: 'Trang', _id:"3", color:'#7fa900'}
   ])
   const [groupData, setGroupDate] = useState(
     {resources:['Resource']}
@@ -72,8 +72,8 @@ function CoachSchedule() {
     })
       .then((res) => {
         if (res.status == 200) {
+          
           setData(res.data.result);
-          console.log(res.data.result);
         }
       })
       .catch((err) => {
@@ -134,9 +134,10 @@ function CoachSchedule() {
                   description: {name:"description"},
                   startTime: {name: "startTime"},
                   endTime: {name: "endTime"},
-                  id: {name: "ID"},
+                  id: "ID",
                   isAllDay: {name: "isAllDay"}               
-              }}}>
+              }
+              }}>
             <ResourcesDirective>
               <ResourceDirective field="userId" title='Customer Name' 
               name='Resources' textField="name" idField="_id" colorField="color" 
@@ -147,7 +148,9 @@ function CoachSchedule() {
           </ScheduleComponent>
         </div>
       </div>
-      <button onClick={() => uploadData(data)}>
+      <button onClick={() => {
+        uploadData(data)
+      }}>
       Confirm</button>
     </>
   );
