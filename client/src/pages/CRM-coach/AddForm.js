@@ -108,14 +108,29 @@ function AddForm(props) {
                 onChange={(date) => setBirthDay(date)}
               />
               <label for="lname">Major</label>
-              <input
+              
+              <select
                 type="text"
-                placeholder=""
                 value={major}
                 onChange={(e) => {
                   setMajor(e.target.value);
                 }}
-              />
+              >
+                <option value={"LesMills"}>LesMills</option>
+                <option value={"Yoga"}>Yoga</option>
+                <option value={"Dance"}>Dance</option>
+                <option value={"Huấn luyện cá nhân"}>Huấn luyện cá nhân</option>
+                <option value={"Kickfit/MMA"}>Kickfit/MMA</option>
+                <option value={"Group Fitness"}>Group Fitness</option>
+                {/* enum: [
+      "LesMills",
+      "Yoga",
+      "Dance",
+      "Huấn luyện cá nhân",
+      "Kickfit/MMA",
+      "Group Fitness",
+    ], */}
+              </select>
             </form>
           </div>
         </Modal.Body>
@@ -171,6 +186,7 @@ function AddForm(props) {
           }}
         >
           Lưu
+          
         </Button>
       </Modal.Footer>
     </>
