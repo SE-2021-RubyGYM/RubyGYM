@@ -10,19 +10,7 @@ import { BackEndBaseURL } from "../../../app/backend";
 import { Notification2 } from "../../../components/Notification/Notification";
 import "font-awesome/css/font-awesome.min.css";
 import { toast } from "react-toastify";
-// const user_ruby = [
-//   {
-//     name: "Nguyễn Văn A",
-//     ID_user: "IT3040",
-//     phone_number: "096905605",
-//     sex: "Nam",
-//     dob: "09/09/2000",
-//     mail: "abcd@gmai.com",
-//     rank: "Bạc",
-//     start: "08/12/2021",
-//     finish: "08/1/2022",
-//   },
-// ];
+
 
 export default function UserDashBoard() {
   const [userInfo, setUserInfo] = useState({
@@ -124,23 +112,7 @@ export default function UserDashBoard() {
         );
       });
   };
-  const user_ruby = [
-    {
-      name: userInfo.name,
-      ID_user: userInfo._id,
-      phone_number: userInfo.phone,
-      sex: userInfo.gender,
-      dob: userInfo.birthDay,
-      paymentDay: userInfo.paymentDay,
-      rank: "Bạc",
-      assess: userInfo.assessment,
-
-      //   mail: "abcd@gmai.com",
-      //   rank: "Bạc",
-      //   start: "08/12/2021",
-      //   finish: "08/1/2022",
-    },
-  ];
+ 
 
   const w3_open = (right) => {
     if (right)
@@ -280,13 +252,13 @@ export default function UserDashBoard() {
         </div>
       </div>
 
-      {user_ruby.map((element, index) => {
-        return (
+      
+     
           <div className="content-chinh-user">
             <div className="main-content1-user" id="main_content_play">
               <div className="content-header-user">
                 <div className="title">
-                  <h2> Thông tin cá nhân của {element.name} </h2>
+                  <h2> Thông tin cá nhân của {userInfo.name} </h2>
                 </div>
 
                 <div className="explain-title">
@@ -306,26 +278,89 @@ export default function UserDashBoard() {
                     </div>
 
                     <div className="box-user-infor">
-                      <div className="user-name">Họ và tên: {element.name}</div>
-                      <div className="user-name">
-                        Số điện thoại: {element.phone_number}
-                      </div>
-                      <div className="user-name">Giới tính: {element.sex}</div>
-                      <div className="user-name">Ngày sinh: {element.dob}</div>
-                      {/* <div className="user-name">Email: {element.mail}</div> */}
-
+                      <label>Họ và tên</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.name}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.name = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      
+                        {/* Số điện thoại: {userInfo.phone_number} */}
+                        <label>Số điện thoại:</label>
+                          <input
+                            type="text"
+                            placeholder="Đơn vị: cm"
+                            value={userInfo.phone}
+                            onChange={(e) => {
+                              var newUserInfo = { ...userInfo };
+                              newUserInfo.phone = e.target.value;
+                              setUserInfo(newUserInfo);
+                            }}
+                          />
+                      
+                     <label>Giới tính:</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.gender}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.gender = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      <label>Ngày sinh:</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.birthDay}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.birthDay = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      {/* <div className="user-name">Email: {userInfo.mail}</div> */}
+                      <label>Chiều cao(cm):</label>
+                        <input
+                          type="text"
+                          placeholder="Đơn vị: cm"
+                          value={userInfo.height}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.height = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                        <label>Cân nặng(kg):</label>
+                        <input
+                          type="text"
+                          placeholder="Đơn vị: kg"
+                          value={userInfo.weight}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.weight = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                     
                       <div className="user-name">
                         {" "}
-                        Thành viên hạng: {element.rank}
+                        Thành viên hạng: {userInfo.rank}
                       </div>
                       {/* <div className="user-name">
-                        Thời gian đăng kí: {element.start}
+                        Thời gian đăng kí: {userInfo.start}
                       </div> */}
                       <div className="user-name">
-                        Hạn đăng kí: {element.paymentDay}
+                        Hạn đăng kí: {userInfo.paymentDay}
                       </div>
                       <div className="user-name">
-                        Đánh giá: {element.assess}
+                        Đánh giá: {userInfo.assess}
                       </div>
                     </div>
                   </div>
@@ -339,7 +374,7 @@ export default function UserDashBoard() {
                    }}
                   >
                    
-                    Chỉnh sửa thông tin{" "}
+                    Cập nhật thông tin{" "}
                   </button>
                 </div>
               </div>
@@ -352,7 +387,7 @@ export default function UserDashBoard() {
             <div className="main-content-schedule" id="content_schedule_play">
               <div className="content-header-user">
                 <div className="title">
-                  <h2> Lịch tập của {element.name} </h2>
+                  <h2> Lịch tập của {userInfo.name} </h2>
                 </div>
 
                 <div className="explain-title">
@@ -398,8 +433,8 @@ export default function UserDashBoard() {
               </div>
             </div>
           </div>
-        );
-      })}
+        
+      )
     </div>
   );
 }
