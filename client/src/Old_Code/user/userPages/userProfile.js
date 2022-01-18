@@ -175,7 +175,7 @@ export default function UserProfile(props) {
             </div>
 
             <div className="ad_text-center">
-              <button className="ad_button" input type="submit" value="Submit">
+              <button className="ad_button" type="submit" value="Submit">
                 {" "}
                 Cập nhật thông tin{" "}
               </button>
