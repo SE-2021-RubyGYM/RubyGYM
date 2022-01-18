@@ -237,4 +237,30 @@ module.exports = {
       });
     }
   },
+  getCalendarOfMine: async (req, res) => {
+    if(!req.position || (req.position != "User")) {
+      return res
+      .status(401)
+      .json({ success: false, message: 'Unauthorized',result: null  })
+    }
+    const userId = req.userId;
+    try {
+      const user = await User.findById(userId, "-password").exec();
+      if (!user) {
+        return res
+          .status(404)
+          .json({ success: false, message: "User not found", result: null });
+      }
+      
+      const calendars = await Calendar.find({userId})
+      return res.json({ success: true, message: "API OK", result: calendars });
+
+    } catch (error) {
+      return res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        result: null,
+      });
+    }
+  }
 };
