@@ -121,18 +121,6 @@ const CrmCoachs = function () {
       setFirstTable(newFirstTable);
     }
     return success;
-    // newFirstTable.push({
-    //   _id: "checkbox113",
-    //   code: "KH00" + (newFirstTable.length + 1),
-    //   name: info[0],
-    //   type: info[1],
-    //   email: info[2],
-    //   phone: info[3],
-    //   assignee: info[4],
-    //   status: Coachs.status[0],
-    // });
-    // setFirstTable(newFirstTable);
-    // changeData(newFirstTable);
   };
 
   const deleteCustom = async (index) => {
@@ -172,38 +160,13 @@ const CrmCoachs = function () {
     type: "Loại",
     assignee: "Người quản lý",
   });
-
   const [changeIndex, setChangeIndex] = useState(-1);
-  const handleChangeSubmit = (e) => {
-    var newFirstTable = [...firstTable];
-    firstTable[changeIndex] = {
-      id: "checkbox113",
-      code: newFirstTable[changeIndex].id,
-      name: e[0],
-      status: e[5],
-      type: e[1],
-      email: e[2],
-      phone: e[3],
-      assignee: e[4],
-    };
-  };
-
-  const [showChangeElment, setShowChangeElment] = useState(false);
-  const handleShowChange = () => setShowChangeElment(true);
-  const handleCloseChange = () => setShowChangeElment(false);
 
   return (
     <div>
       {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
       <Modal show={show} onHide={handleClose}>
         <AddForm handleClose={handleClose} submitForm={submitForm} />
-      </Modal>
-      <Modal show={showChangeElment} onHide={handleCloseChange}>
-        <EditForm
-          handleClose={handleCloseChange}
-          submitForm={handleChangeSubmit}
-          info={firstTable[changeIndex]}
-        />
       </Modal>
       {/* Modal Export */}
       <Modal show={openExport} onHide={() => setOpenExport(false)}>
@@ -246,7 +209,7 @@ const CrmCoachs = function () {
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder="Tên HLV ví dụ: dembele"
+                placeholder=""
                 value={filter.name}
                 onChange={(e) => {
                   var newFilter = { ...filter };
@@ -264,31 +227,7 @@ const CrmCoachs = function () {
               <Widget>
                 <div className={s.tableTitle}>
                   <div></div>
-                  <div className="d-flex">
-                    <a href="/#">
-                      <img src={searchIcon} alt="Search" />
-                    </a>
-                    <a href="/#">
-                      <img
-                        className="d-none d-sm-block"
-                        src={cloudIcon}
-                        alt="Cloud"
-                      />
-                    </a>
-                    <a href="/#">
-                      <img src={printerIcon} alt="Printer" />
-                    </a>
-                    <a href="/#">
-                      <img
-                        className="d-none d-sm-block"
-                        src={optionsIcon}
-                        alt="Options"
-                      />
-                    </a>
-                    <a href="/#">
-                      <img src={funnelIcon} alt="Funnel" />
-                    </a>
-                  </div>
+                 
                 </div>
                 <div className="widget-table-overflow">
                   <Table

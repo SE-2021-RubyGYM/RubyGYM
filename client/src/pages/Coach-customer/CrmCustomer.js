@@ -168,13 +168,7 @@ const CoachCustomers = function () {
               >
                 Thêm mới khách hàng
               </button> */}
-              <button
-                color="primary"
-                className={classNames("button_export")}
-                onClick={() => setOpenExport(true)}
-              >
-                Xuất báo cáo
-              </button>
+              
             </div>
           </Row>
           {/* Filter */}
@@ -183,7 +177,7 @@ const CoachCustomers = function () {
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder="Tên khách hàng ví dụ: dembele"
+                placeholder=""
                 value={filter.name}
                 onChange={(e) => {
                   var newFilter = { ...filter };
