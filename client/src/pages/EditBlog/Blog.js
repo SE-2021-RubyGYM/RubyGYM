@@ -81,10 +81,10 @@ const EditBlog = function () {
       url: "http://localhost:5000/api/adv",
       data: {
         creator: "Admin",
-        title: element.title,
+        title: titleValue.title,
         time: now,
         view: 0,
-        picture: element.picture,
+        picture: titleValue.picture,
         content: blogContent,
       },
     })
