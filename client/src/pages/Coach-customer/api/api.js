@@ -55,7 +55,7 @@ export const submitAssessment = async(id, assessment)=> {
   
   var result = await axios({
     method: "PUT",
-    url: BackEndBaseURL + "/api/users/"+ id +"/assess",
+    url: BackEndBaseURL + "/api/users/"+ id,
     data: assessment,
      headers: {
       authorization: "Bearer " + localStorage.getItem("accessToken"),

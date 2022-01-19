@@ -200,6 +200,12 @@ var assessment= document.getElementById("subject")
                 name="subject"
                 placeholder="Viết nhận xét"
                 style={{ height: "200px" }}
+                value={userInfo.assessment}
+                onChange={(e)=>{
+                  var newuserInfo={...userInfo};
+                  newuserInfo.assessment=e.target.value;
+                  setUserInfo(newuserInfo);
+                }}
               ></textarea>
             </div>
           </div>
@@ -212,7 +218,8 @@ var assessment= document.getElementById("subject")
             /> */}
             <Button onClick={()=>{
               
-              submitAssessment(id,"thanhcong");
+              
+              submitAssessment(id,userInfo);
               // getCustomerList(id);
              
             }}>

@@ -368,7 +368,7 @@ export default function UserDashBoard() {
                         Đánh giá: {userInfo.assessment}
                       </div>
                         <div className="user-name">
-                          Mục tiêu
+                          Mục tiêu:{userInfo.aim}
                         </div>
                        <input
                           type="text"
