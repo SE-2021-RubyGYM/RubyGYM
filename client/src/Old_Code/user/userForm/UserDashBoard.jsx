@@ -3,7 +3,7 @@ import './userForm.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import NewFeed from '../../sub-sections/tung/newfeed';
+import NewFeedForUser from '../../sub-sections/tung/newfeedForUser';
 import { element } from 'prop-types';
 import { useParams } from 'react-router';
 import { BackEndBaseURL } from '../../../app/backend';
@@ -415,7 +415,7 @@ export default function UserDashBoard() {
         </div>
 
         <div className="main-content-ttsk" id="content_ttsk_play">
-          <NewFeed />
+          <NewFeedForUser />
         </div>
 
         <div className="main-content-schedule" id="content_schedule_play">
