@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { BackEndBaseURL } from "../../../app/backend";
 import { Table } from "reactstrap";
-import { getCustomerList } from "../../../pages/Coach-customer/api/api";
+import { getCustomerListForAdmin } from "../../../pages/Coach-customer/api/api_admin";
 import DatePicker from "react-datepicker";
 import { Notification2 } from "../../../components/Notification/Notification";
 import { toast } from "react-toastify";
@@ -48,7 +48,7 @@ const CoachProfile = function () {
   }, []);
 
   useEffect(async () => {
-    var c = await getCustomerList(id);
+    var c = await getCustomerListForAdmin(id);
     console.log(c);
     if (c != null) {
       if (c.length > 0) {
