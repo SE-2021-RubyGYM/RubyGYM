@@ -14,13 +14,15 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(0, 0, 0);
+  background-color: #000000;
+  
+  
 }
 
 #header .nav-menu a {
   width: 15vw;
   height: 69.5px;
-  color: rgb(216, 207, 207);
+  color: #ffffff;
   /* background-color: rgb(0, 0, 0) ; */
   display: flex;
   justify-content: center;
@@ -55,7 +57,7 @@
 #header .nav-menu-login button {
   width: 15vw;
   height: 69.5px;
-  color: rgb(216, 207, 207);
+  color: rgb(255, 255, 255);
   background-color: rgb(12, 12, 12);
   display: block;
 
@@ -159,10 +161,37 @@
   margin-right: 45vw;
 }
 
-.row-facilities .row {
+.row-facilities .row1{
+  width: 100vw;
   display: flex;
-  justify-content: flex;
+  
 }
+.row-facilities .row2{
+  width: 100vw;
+  display: flex;
+}
+
+.row-facilities .row3{
+  width: 100vw;
+  display: flex;
+}
+
+.row-facilities .row4{
+  width: 100vw;
+  display: flex;
+}
+.row-facilities .row5{
+  width: 100vw;
+  display: flex;
+}
+.row-facilities .row6{
+  width: 100vw;
+  display: flex;
+}
+
+
+
+
 
 .img-falcilities {
   width: 100%;
@@ -171,9 +200,9 @@
 }
 
 .login-panel {
-  width: 24%;
-  height: 54%;
-  background-color: rgb(58, 16, 16);
+  width: 30%;
+  height: 60%;
+  background-color: rgb(2, 2, 2);
   background-image: linear-gradient(rgb(151, 10, 17), black);
 
   border: 1px solid rgb(160, 118, 118);
@@ -222,8 +251,8 @@
   top: -1px;
 }
 .login-panel .submit-login {
-  width: 90%;
-  height: 12%;
+  width: 79%;
+  height: 18%;
   border: none;
   border-radius: 20px;
   background-color: #ff3366;
@@ -236,8 +265,8 @@
 }
 
 .login-panel .close-panel {
-  width: 66%;
-  height: 11%;
+  width: 55%;
+  height: 14%;
   border: none;
   border-radius: 20px;
   color: rgb(255, 255, 255);
