@@ -13,6 +13,7 @@ import {
 import Widget from "../../components/Widget/Widget.js";
 import ApexActivityChart from "./components/ActivityChart.js";
 
+
 import meal1 from "../../assets/dashboard/meal-1.svg";
 import meal2 from "../../assets/dashboard/meal-2.svg";
 import meal3 from "../../assets/dashboard/meal-3.svg";
@@ -25,10 +26,15 @@ import gymIcon from "../../assets/dashboard/gymIcon.svg";
 import therapyIcon from "../../assets/dashboard/therapyIcon.svg";
 import user from "../../assets/user.svg";
 import statsPie from "../../assets/dashboard/statsPie.svg";
-
+import axios from "axios";
+import { useEffect } from "react";
 import s from "./Dashboard.module.scss";
+import { BackEndBaseURL } from "../../app/backend.js";
 
 const Dashboard = () => {
+
+
+
   const [checkboxes, setCheckboxes] = useState([true, false]);
 
   const toggleCheckbox = (id) => {

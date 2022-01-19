@@ -12,7 +12,9 @@ import {
 } from "reactstrap";
 import Widget from "../../components/Widget/Widget.js";
 import ApexActivityChart from "./components/ActivityChart.js";
-
+import { useEffect } from "react";
+import axios from "axios";
+import { BackEndBaseURL } from "../../app/backend.js";
 import meal1 from "../../assets/dashboard/meal-1.svg";
 import meal2 from "../../assets/dashboard/meal-2.svg";
 import meal3 from "../../assets/dashboard/meal-3.svg";
@@ -29,6 +31,42 @@ import statsPie from "../../assets/dashboard/statsPie.svg";
 import s from "./Dashboard.module.scss";
 
 const CoachDashboard = () => {
+    const [coachInfo, setCoachInfo] = useState({
+  _id: "Đang tải",
+  name: "Coach",
+  username: "Đang tải",
+  phone: "Đang tải",
+  password:
+    "Đang tải",
+  birthDay: "Đang tải",
+  gender: "Đang tải",
+  coach: "Đang tải",
+  referralCode: "Đang tải",
+  assessment: "Trống",
+  height: "Đang tải",
+  weight: "Đang tải",
+  paymentDay: "Đang tải",
+  aim: "Trống",
+  
+  __v: 0,
+});
+useEffect(() => {
+axios({
+  method:"GET",
+  url:BackEndBaseURL+"/api/coachs/auth" ,
+  headers: {
+    authorization: "Bearer " + localStorage.getItem("accessToken"),
+  },
+}).then(res=>{
+  if(res.status==200||res.status==true){
+    console.log("thanh cong");
+    setCoachInfo(res.data.result);       
+  }
+})
+
+
+}, []);
+  
   const [checkboxes, setCheckboxes] = useState([true, false]);
 
   const toggleCheckbox = (id) => {
@@ -239,23 +277,20 @@ const CoachDashboard = () => {
             <div className="d-flex">
               <img className={s.image} src={user} alt="..." />
               <div className={s.userInfo}>
-                <p className="headline-3">Christina Karey</p>
-                <p className="body-3 muted">Brasil</p>
+                <p className="headline-3">{coachInfo.name}</p>
+                <p className="body-3 muted">{coachInfo.major}</p>
               </div>
             </div>
             <div className={s.userParams}>
               <div className="d-flex flex-column">
-                <p className="headline-3">63 kg</p>
-                <p className="body-3 muted">Weight</p>
+                <p className="headline-3">{coachInfo.phone}</p>
+                <p className="body-3 muted">Số điện thoại</p>
               </div>
               <div className="d-flex flex-column">
-                <p className="headline-3">175 sm</p>
-                <p className="body-3 muted">Height</p>
+                <p className="headline-3">{coachInfo.birthDay}</p>
+                <p className="body-3 muted">Ngày sinh</p>
               </div>
-              <div className="d-flex flex-column">
-                <p className="headline-3">28 y.</p>
-                <p className="body-3 muted">Age</p>
-              </div>
+              
             </div>
             <div className={s.goals}>
               <div className={s.goalsTitle}>

@@ -36,12 +36,48 @@ import envelopeIcon from "../../assets/navbarMenus/envelopeIcon.svg";
 import mariaImage from "../../assets/navbarMenus/mariaImage.jpg";
 import notificationImage from "../../assets/navbarMenus/notificationImage.jpg";
 import userImg from "../../assets/user.svg";
-
+import { BackEndBaseURL } from "../../app/backend";
 import s from "./Header.module.scss";
 import "animate.css";
 import { useHistory } from "react-router";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Header = (props) => {
+  const [adminInfo, setAdminInfo] = useState({
+  _id: "Đang tải",
+  name: "Admin",
+  username: "Đang tải",
+  phone: "Đang tải",
+  password:
+    "Đang tải",
+  birthDay: "Đang tải",
+  gender: "Đang tải",
+  coach: "Đang tải",
+  referralCode: "Đang tải",
+  assessment: "Trống",
+  height: "Đang tải",
+  weight: "Đang tải",
+  paymentDay: "Đang tải",
+  aim: "Trống",
+  
+  __v: 0,
+});
+useEffect(() => {
+axios({
+  method:"GET",
+  url:BackEndBaseURL+"/api/admins/auth",
+  headers: {
+    authorization: "Bearer " + localStorage.getItem("accessToken"),
+  },
+}).then(res=>{
+  if(res.status==200||res.status==true){
+    setAdminInfo(res.data.result);       
+  }
+})
+
+
+}, []);
   let history = useHistory();
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -163,7 +199,7 @@ const Header = (props) => {
               <img src={userImg} alt="User" />
             </span>
             <span className="small d-none d-sm-block ml-1 mr-2 body-1">
-              Admin
+              {adminInfo.name}
             </span>
           </DropdownToggle>
           <DropdownMenu

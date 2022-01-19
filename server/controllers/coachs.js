@@ -21,6 +21,34 @@ module.exports = {
       });
     }
   },
+
+  verifyCoachMe: async (req, res, next) => {
+    if (!req.position || req.position != "Coach") {
+      return res
+        .status(401)
+        .json({ success: false, message: "Unauthorized", result: null });
+    }
+    try {
+      const coach = await Coach.findById(req.userId).select("-password");
+      if (!coach)
+        return res
+          .status(401)
+          .json({ success: false, message: "Unauthorized", result: null });
+      return res.status(200).json({
+        success: true,
+        message: "API OK",
+        result: coach,
+      });
+      
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        result: null,
+      });
+    }
+  },
   // create new coach if all infos valid, only done by Admins or Sales
   createCoach: async (req, res) => {
     // if(!req.position || (req.position != "Administrator" && req.position != "Sales manager")) {

@@ -64,22 +64,29 @@ export default function NewFeed(){
             {
                 article.map((element , index)=>{
                     return(
+                        <Link to = {"/user/blog/" + element._id}>
                         <div className="section">
+                            
                             <div className="image-wrapper">
-                                <img className="image_link" src={element.picture} alt="" onClick={()=>{
-                                     window.open("http://localhost:3000/user/blog/"+element._id);
-                                }}/>      
+                                {/* <Link to = {"/user/blog" + element._id}> */}
+                                <img className="image_link" src={element.picture} alt="" />   
+                                 {/* </Link> */}   
                             </div>
+                           
                             <div className="info-wrapper">
                                 <div className="red-dot"> Tin tức &amp; Sự kiện</div>
                                 <div className="date">
                                     <h4>{element.time}</h4>
                                 </div>
-                                <a className="title" href ={"http://localhost:3000/user/blog/"+element._id} title={element.title} >
+                                
+                                <a className="title" title={element.title} >
                                     <p >{element.title}</p>
+                                    
                                 </a>
+                
                             </div>
                         </div>
+                        </Link>
                     )
                 
                 }

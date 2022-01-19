@@ -45,6 +45,7 @@ module.exports = {
       assessment,
       height,
       weight,
+      // createAt=new Date(),
     } = req.body;
 
     if (!username || !password || !name || !phone) {
@@ -88,6 +89,7 @@ module.exports = {
         assessment,
         height,
         weight,
+        createAt : new Date(),
       });
       let err = newUser.validateSync();
       if (err) {
@@ -356,6 +358,7 @@ module.exports = {
       });
     }
   },
+  
 
   // update an user's informations by his/her id , only done by his/her-self
   changeUserInfos: async (req, res) => {

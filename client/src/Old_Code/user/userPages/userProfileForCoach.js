@@ -9,6 +9,7 @@ import { element } from "prop-types";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { BackEndBaseURL } from "../../../app/backend";
+import { submitAssessment, getCustomerList } from "../../../pages/Coach-customer/api/api";
 import {
   Col,
   Row,
@@ -28,6 +29,7 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 
 
+
 const UserProfileForCoach = function () {
   const { id } = useParams();
  
@@ -43,10 +45,11 @@ const UserProfileForCoach = function () {
     coach: "61bb55ba80c3938bf7800378",
     referralCode: "GT-88XeP8KK-2022",
     assessment: "Trống",
-    height: "1.73",
+    height: "173",
     weight: "69",
     paymentDay: "2022/06/06",
     aim: "Trống",
+    createAt: new Date(),
     __v: 0,
   });
   const [coachs, setCoachs] = useState([]);
@@ -56,8 +59,10 @@ const UserProfileForCoach = function () {
       url: BackEndBaseURL + "/api/users/" + id,
     }).then((res) => {
       if (res.status == 200 || res.status == true) {
-        setUserInfo(res.data.result);
-        
+
+        var result=res.data.result;
+        result.createAt=new Date(result.createAt)      
+        setUserInfo(result);  
       }
     });
     axios({
@@ -73,25 +78,13 @@ const UserProfileForCoach = function () {
   
   }, []);
 
-const [assessment, SetAssessment]= useState()
+var rank=()=>{
+  if(Date.now()-userInfo.createAt.getTime() > 1*365*24*60*60) return "Thân thiết";
+  else return "Phổ thông";
+}
 
-function SubmitAssessment(){
- axios({
-      method : "put",
-      url : BackEndBaseURL +"/api/users"+ id+"/assess",
-      data: assessment ,
-      
-    }).then((res) => {
-      console.log(res);
-      if (res.status == 200 || res.status == true) {
-        return true;
-      } else {
-        return false;
-      }
-    }).catch((e) => {
-      return false;
-    });
-  }
+var assessment= document.getElementById("subject")
+
   return (
     <div className="gnanT_all">
       <div className="gnanT_content-chinh">
@@ -129,7 +122,7 @@ function SubmitAssessment(){
                   <div className="gnanT_user-name">
                     Ngày sinh: {userInfo.birthDay}
                   </div>
-                  <div className="gnanT_user-name"> Thành viên hạng: Bạc</div>
+                  <div className="gnanT_user-name"> Thành viên hạng: {rank()}</div>
                 </div>
               </div>
 
@@ -173,6 +166,11 @@ function SubmitAssessment(){
                     )}
                   </label>
                 </div>
+                <div className="gnanT_user-name">
+                  <label>Mục tiêu:</label>
+                  
+                  <div>{userInfo.aim}</div>
+                </div>                
               </div>
             </div>
             <div className="gnanT_text-center">
@@ -183,26 +181,6 @@ function SubmitAssessment(){
 
       <div className="container">
         <form action="/action_page.php">
-          <div className="row">
-            <div className="col-25">
-              <label for="score">Điểm</label>
-            </div>
-
-            <div className="col-75">
-              <select id="score" name="score">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-          </div>
 
           <div className="row">
             <div className="col-25">
@@ -215,16 +193,22 @@ function SubmitAssessment(){
                 name="subject"
                 placeholder="Viết nhận xét"
                 style={{ height: "200px" }}
+                value={userInfo.assessment}
+                onChange={(e)=>{
+                  var newuserInfo={...userInfo};
+                  newuserInfo.assessment=e.target.value;
+                  setUserInfo(newuserInfo);
+                }}
               ></textarea>
             </div>
           </div>
 
           <div className="row">
-            <input type="submit" value="Gửi đánh giá"
-            // onClick={()=>{
-            //   SubmitAssessment();
-            // }} 
-            />
+            <Button onClick={()=>{
+              submitAssessment(id,userInfo);
+            }}>
+              Gửi đánh giá
+            </Button>
           </div>
         </form>
       </div>
