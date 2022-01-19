@@ -17,22 +17,20 @@ export default function UserDashBoard() {
     let history= useHistory();
 
   const [userInfo, setUserInfo] = useState({
-    _id: "Đang tải",
-    name: "Đang tải",
-    username: "Đang tải",
-    phone: "Đang tải",
-    password:
-      "Đang tải",
-    birthDay: "Đang tải",
-    gender: "Đang tải",
-    coach: "Đang tải",
-    referralCode: "Đang tải",
-    assessment: "Trống",
-    height: "Đang tải",
-    weight: "Đang tải",
-    paymentDay: "Đang tải",
-    aim: "Trống",
-    createAt : new Date(),
+    _id: 'Đang tải',
+    name: 'Đang tải',
+    username: 'Đang tải',
+    phone: 'Đang tải',
+    password: 'Đang tải',
+    birthDay: 'Đang tải',
+    gender: 'Đang tải',
+    coach: 'Đang tải',
+    referralCode: 'Đang tải',
+    assessment: 'Trống',
+    height: 'Đang tải',
+    weight: 'Đang tải',
+    paymentDay: 'Đang tải',
+    aim: 'Trống',
     __v: 0,
   });
   useEffect(() => {
@@ -44,29 +42,21 @@ export default function UserDashBoard() {
 
       }
     }else{
-        history.push("/")
-      }
+      history.push("/")
+    }
     axios({
       method: 'GET',
       url: BackEndBaseURL + '/api/users/auth',
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('accessToken'),
       },
-    }).then(res=>{
-      if(res.status==200||res.status==true){
-        var result=res.data.result;
-        result.createAt=new Date(result.createAt)      
-        setUserInfo(result);        
+    }).then((res) => {
+      if (res.status == 200 || res.status == true) {
+        setUserInfo(res.data.result);
       }
     });
   }, []);
-
-var rank = ()=>{
-  if(Date.now()-userInfo.createAt.getTime() > 1*365*24*60*60) return "Thân thiết";
-  else return "Phổ thông";
-}
-
-   const handleSubmit = () => {
+  const handleSubmit = () => {
     var userInfoCopy = { ...userInfo };
 
     axios({
@@ -377,107 +367,17 @@ var rank = ()=>{
                 </div>
               </div>
 
-                    <div className="box-user-infor">
-                      <label>Họ và tên</label>
-                        <input
-                          type="text"
-                          placeholder=""
-                          value={userInfo.name}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.name = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                      
-                        {/* Số điện thoại: {userInfo.phone_number} */}
-                        <label>Số điện thoại:</label>
-                          <input
-                            type="text"
-                            placeholder="Đơn vị: cm"
-                            value={userInfo.phone}
-                            onChange={(e) => {
-                              var newUserInfo = { ...userInfo };
-                              newUserInfo.phone = e.target.value;
-                              setUserInfo(newUserInfo);
-                            }}
-                          />
-                      
-                     <label>Giới tính:</label>
-                        <input
-                          type="text"
-                          placeholder=""
-                          value={userInfo.gender}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.gender = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                      <label>Ngày sinh:</label>
-                        <input
-                          type="text"
-                          placeholder=""
-                          value={userInfo.birthDay}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.birthDay = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                      {/* <div className="user-name">Email: {userInfo.mail}</div> */}
-                      <label>Chiều cao(cm):</label>
-                        <input
-                          type="text"
-                          placeholder="Đơn vị: cm"
-                          value={userInfo.height}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.height = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                        <label>Cân nặng(kg):</label>
-                        <input
-                          type="text"
-                          placeholder="Đơn vị: kg"
-                          value={userInfo.weight}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.weight = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                     
-                      <div className="user-name">
-                        {" "}
-                        Thành viên hạng: {rank()}
-                      </div>
-                      {/* <div className="user-name">
+              <div className="box-body-fix">
+                <div className="user-name">
+                  {' '}
+                  Thành viên hạng: {userInfo.rank}
+                </div>
+                {/* <div className="user-name">
                         Thời gian đăng kí: {userInfo.start}
                       </div> */}
-                      <div className="user-name">
-                        Hạn đăng kí: {userInfo.paymentDay}
-                      </div>
-                      <div className="user-name">
-                        Đánh giá: {userInfo.assessment}
-                      </div>
-                        <div className="user-name">
-                          Mục tiêu:
-                        </div>
-                       <input
-                          type="text"
-                          placeholder="..."
-                          value={userInfo.aim}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.aim = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                      
-                    </div>
-                  </div>
+
+                <div className="user-name">
+                  Hạn đăng kí: {userInfo.paymentDay}
                 </div>
               </div>
               <div className="box-body-fix">
@@ -512,5 +412,22 @@ var rank = ()=>{
               </button>
             </div>
           </div>
-  )
+        </div>
+
+        <div className="main-content-ttsk" id="content_ttsk_play">
+          <NewFeed />
+        </div>
+
+        <div className="main-content-schedule" id="content_schedule_play">
+          <UserSchedule />
+          <div className="content-user">
+            <div className="box-user">
+              <div className="box-body-user"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      )
+    </div>
+  );
 }
