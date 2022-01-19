@@ -398,7 +398,8 @@ var rank = ()=>{
                    className="button-change"
                    onClick={()=>{
                      handleSubmit();
-                   }}
+                   }
+                   }
                   >
                     Cập nhật thông tin{" "}
                   </button>

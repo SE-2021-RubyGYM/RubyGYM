@@ -1,5 +1,7 @@
 import { BackEndBaseURL } from "../../../app/backend";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { Notification2 } from "../../../components/Notification/Notification";
 export async function getCustomerList(id) {
   var c = await axios({
     method: "get",
@@ -63,6 +65,24 @@ export const submitAssessment = async(id, assessment)=> {
   })
     .then((res) => {
       if (res.status == 200 || res.status == true) {
+        const notificationTypes = ["success", "error"];
+          var success = true;
+          var mes = "Gửi đánh giá thành công";
+          let notificationName = success ? "success" : "error";
+          let msg = { success: mes, error: mes };
+          toast(
+            <Notification2
+              type={notificationName}
+              withIcon
+              msg={msg[notificationName]}
+            />,
+            {
+              autoClose: 4000,
+              closeButton: false,
+              hideProgressBar: true,
+            }
+          );
+
         console.log({assessment});
         return true;
       } else {
@@ -71,8 +91,96 @@ export const submitAssessment = async(id, assessment)=> {
       
     })
     .catch((e) => {
+      const notificationTypes = ["success", "error"];
+        var success = false;
+        var mes = "Gửi đánh giá thất bại";
+        let notificationName = success ? "success" : "error";
+        let msg = { success: mes, error: mes };
+        toast(
+          <Notification2
+            type={notificationName}
+            withIcon
+            msg={msg[notificationName]}
+          />,
+          {
+            autoClose: 4000,
+            closeButton: false,
+            hideProgressBar: true,
+          }
+        );
       console.log(e);
       return false;
     });
   return result;
 };
+
+
+
+//  const handleSubmit = () => {
+//     var userInfoCopy = { ...userInfo };
+//     userInfoCopy.paymentDay = datePicker.toString();
+
+//     axios({
+//       method: "PUT",
+//       url: BackEndBaseURL + "/api/users/" + id,
+//       data: userInfoCopy,
+//     })
+//       .then((res) => {
+//         if (res.status == 200 || res.status == true) {
+//           const notificationTypes = ["success", "error"];
+//           var success = true;
+//           var mes = "Cập nhập thành công";
+//           let notificationName = success ? "success" : "error";
+//           let msg = { success: mes, error: mes };
+//           toast(
+//             <Notification2
+//               type={notificationName}
+//               withIcon
+//               msg={msg[notificationName]}
+//             />,
+//             {
+//               autoClose: 4000,
+//               closeButton: false,
+//               hideProgressBar: true,
+//             }
+//           );
+//         } else {
+//           const notificationTypes = ["success", "error"];
+//           var success = false;
+//           var mes = "Cập nhập thất bại";
+//           let notificationName = success ? "success" : "error";
+//           let msg = { success: mes, error: mes };
+//           toast(
+//             <Notification2
+//               type={notificationName}
+//               withIcon
+//               msg={msg[notificationName]}
+//             />,
+//             {
+//               autoClose: 4000,
+//               closeButton: false,
+//               hideProgressBar: true,
+//             }
+//           );
+//         }
+//       })
+//       .catch((e) => {
+//         const notificationTypes = ["success", "error"];
+//         var success = false;
+//         var mes = "Cập nhập thất bại";
+//         let notificationName = success ? "success" : "error";
+//         let msg = { success: mes, error: mes };
+//         toast(
+//           <Notification2
+//             type={notificationName}
+//             withIcon
+//             msg={msg[notificationName]}
+//           />,
+//           {
+//             autoClose: 4000,
+//             closeButton: false,
+//             hideProgressBar: true,
+//           }
+//         );
+//       });
+//   };
