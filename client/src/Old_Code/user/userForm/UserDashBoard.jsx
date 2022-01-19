@@ -10,7 +10,7 @@ import { BackEndBaseURL } from "../../../app/backend";
 import { Notification2 } from "../../../components/Notification/Notification";
 import "font-awesome/css/font-awesome.min.css";
 import { toast } from "react-toastify";
-
+import UserSchedule from "../../../pages/User-Schedule/userSchedule"
 
 export default function UserDashBoard() {
   const [userInfo, setUserInfo] = useState({
@@ -405,49 +405,14 @@ export default function UserDashBoard() {
             </div>
 
             <div className="main-content-schedule" id="content_schedule_play">
-              <div className="content-header-user">
-                <div className="title">
-                  <h2> Lịch tập của {userInfo.name} </h2>
-                </div>
 
-                <div className="explain-title">
-                  <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
-                </div>
 
-                <hr className="red-line" />
-              </div>
-
+              <UserSchedule />     
               <div className="content-user">
+                
                 <div className="box-user">
                   <div className="box-body-user">
-                    <table border="1" className="table-content-user">
-                      <thread>
-                        <tr>
-                          <th className="column"> Mã khách hàng </th>
-                          <th className="column"> Buổi </th>
-                          <th className="column"> Thứ </th>
-                          <th className="column"> Thời gian </th>
-                          <th className="column"> Môn tập </th>
-                          <th className="column"> Huấn luyện viên </th>
-                        </tr>
-                        <tr>
-                          <th className="co">{element.ID_user} </th>
-                          <th className="co"> 1</th>
-                          <th className="co"> 5</th>
-                          <th className="co"> 8:00 - 10:00 </th>
-                          <th className="co"> Yoga </th>
-                          <th className="co"> Bùi Thị Phương </th>
-                        </tr>
-                        <tr>
-                          <th className="co"> {element.ID_user} </th>
-                          <th className="co"> 2</th>
-                          <th className="co"> 7</th>
-                          <th className="co"> 15:00 - 17:00 </th>
-                          <th className="co"> Yoga </th>
-                          <th className="co"> Bùi Thị Phương </th>
-                        </tr>
-                      </thread>
-                    </table>
+                    
                   </div>
                 </div>
               </div>
