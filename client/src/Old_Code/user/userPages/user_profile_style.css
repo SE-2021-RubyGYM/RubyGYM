@@ -28,11 +28,11 @@
 }
 .gnanT_box-body .gnanT_user-name {
   margin-top: 1%;
-  margin-right: 5%;
+  margin-right: 6%;
   font-family: Roboto, sans-serif;
-  font-size: 21px;
-  font-weight: 500;
-  line-height: 28.ad_8px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
   text-align: center;
   color: black;
 }
@@ -53,10 +53,10 @@
   display: block;
   font-family: Monsterrat, sans-serif;
   font-size: 24px;
-  font-weight: 500;
-  line-height: 40.ad_5px;
-  color: rbg (51, 51, 51);
-  margin-bottom: -15px;
+  font-weight: 600;
+  line-height: 40.5px;
+  color: rbg(51, 51, 51);
+  margin-bottom: 15px;
 }
 
 
@@ -73,8 +73,8 @@
   display: block;
   height: auto;
   margin-top: 35px;
-  margin-right: 13%;
-  margin-left: 13%;
+  margin-right: 10%;
+  margin-left: 10%;
   width: auto;
   box-shadow: #ff512f 0px 0px 1px 1px, #dd2476 0px 1px 1px 0px;
   outline-color: #dd2476;
@@ -87,40 +87,68 @@
 
   height: 100%;
   padding: 10px;
-  width: 94%;
-  margin-right: 3%;
-  margin-left: 3%;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
-.gnanT_box .gnanT_box-body-fix {
+.gnanT_box .gnanT_box-body-fix1 {
   box-sizing: border-box;
   display: flex;
   height: 100%;
   padding: 10px;
-  width: 94%;
-  margin-right: 3%;
-  margin-left: 3%;
+  width: 84%;
+  margin-right: 8%;
+  margin-left: 8%;
 }
-.gnanT_box-body-fix .gnanT_user-name {
-  width: 30%;
+.gnanT_box-body-fix1 .gnanT_user-name {
+  
   margin-right: 3%;
   font-family: Roboto, sans-serif;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   color: black;
   margin-bottom: 10px;
 }
-.gnanT_user-name input {
+.gnanT_box-body-fix1 .bmi-user {
+  margin-top: 17px;
+}
+.gnanT_box-body-fix1 .gnanT_user-name input {
+  font-size: 18px;
+  margin-left: 7px;
+  width: 80px;
+}
+.gnanT_box .gnanT_box-body-fix2 {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  padding: 10px;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.gnanT_box-body-fix2 .gnanT_user-name {
+  
+  margin-right: 7%;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: black;
+  margin-bottom: 10px;
+}
+.gnanT_box-body-fix2 .gnanT_user-name input {
   font-size: 16px;
   margin-left: 5px;
   width: 120px;
 }
-select {
+.gnanT_box-body-fix2 select {
   border-radius: 2px;
   width: 160px;
   border-inline-color: none;
   font-size: 16px;
   margin-left: 5px;
+  margin-top: 5px;
 }
 
 .gnanT_box-body .gnanT_option1 {
