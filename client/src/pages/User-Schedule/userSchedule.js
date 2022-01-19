@@ -1,7 +1,7 @@
 import React from "react";
 import "./schedule.css";
 import { useState, useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
 import {
   Inject,
   ScheduleComponent,
@@ -12,38 +12,35 @@ import {
   Agenda,
   ResourcesDirective,
   ResourceDirective,
-  GroupModel
+  GroupModel,
 } from "@syncfusion/ej2-react-schedule";
 
+import { BackEndBaseURL } from "../../app/backend";
 
 function UserSchedule() {
-  var stringToColour = function(str) {
+  var stringToColour = function (str) {
     var hash = 0;
     for (var i = 0; i < str.length; i++) {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
-    var colour = '#';
+    var colour = "#";
     for (var i = 0; i < 3; i++) {
-      var value = (hash >> (i * 8)) & 0xFF;
-      colour += ('00' + value.toString(16)).substr(-2);
+      var value = (hash >> (i * 8)) & 0xff;
+      colour += ("00" + value.toString(16)).substr(-2);
     }
     return colour;
-  }
-  const [data, setData, ] = useState([
-
-  ] );
+  };
+  const [data, setData] = useState([]);
   const [resourceDataSource, setResourceDataSource] = useState([
-    {name: 'Tung', _id:"6197bf691de54733bfca8997", color:'#ea7a57'},
-    {name: 'Son', _id:"2", color:'#357CD2'},
-    {name: 'Trang', _id:"3", color:'#7fa900'}
-  ])
-  
-  
+    { name: "Tung", _id: "6197bf691de54733bfca8997", color: "#ea7a57" },
+    { name: "Son", _id: "2", color: "#357CD2" },
+    { name: "Trang", _id: "3", color: "#7fa900" },
+  ]);
+
   useEffect(() => {
-    
     axios({
       method: "get",
-      url: "http://localhost:5000/api/calendars/my_calendars",
+      url: BackEndBaseURL + "/api/calendars/my_calendars",
       headers: {
         authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
@@ -55,7 +52,7 @@ function UserSchedule() {
       })
       .catch((err) => {
         console.log(err.message);
-      })
+      });
   }, []);
 
   return (
@@ -66,26 +63,33 @@ function UserSchedule() {
         </div> */}
       </div>
       <div className="schedule_table">
-        <ScheduleComponent  height = '100%' 
-        eventSettings={{ 
-              dataSource: data, 
-              fields : {
-                subject: {name: "subject"},
-                description: {name:"description"},
-                startTime: {name: "startTime"},
-                endTime: {name: "endTime"},
-                id: "ID",
-                isAllDay: {name: "isAllDay"},
-                recurrenceRule : {name: "recurrenceRule"},
-                recurrenceID : {name: "recurrenceID"},
-                recurrenceException : {name: "recurrenceException"}          
-            }
-            }}>
+        <ScheduleComponent
+          height="100%"
+          eventSettings={{
+            dataSource: data,
+            fields: {
+              subject: { name: "subject" },
+              description: { name: "description" },
+              startTime: { name: "startTime" },
+              endTime: { name: "endTime" },
+              id: "ID",
+              isAllDay: { name: "isAllDay" },
+              recurrenceRule: { name: "recurrenceRule" },
+              recurrenceID: { name: "recurrenceID" },
+              recurrenceException: { name: "recurrenceException" },
+            },
+          }}
+        >
           <ResourcesDirective>
-            <ResourceDirective field="userId" title='Customer Name' 
-            name='Resources' textField="name" idField="_id" colorField="color" 
-            dataSource={resourceDataSource }>
-            </ResourceDirective>
+            <ResourceDirective
+              field="userId"
+              title="Customer Name"
+              name="Resources"
+              textField="name"
+              idField="_id"
+              colorField="color"
+              dataSource={resourceDataSource}
+            ></ResourceDirective>
           </ResourcesDirective>
           <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
         </ScheduleComponent>

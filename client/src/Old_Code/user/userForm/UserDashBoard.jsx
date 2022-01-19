@@ -257,9 +257,6 @@ export default function UserDashBoard() {
           </div>
         </div>
       </div>
-
-      
-     
           <div className="content-chinh-user">
             <div className="main-content1-user" id="main_content_play">
               <div className="content-header-user">
