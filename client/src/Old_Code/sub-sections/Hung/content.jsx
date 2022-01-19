@@ -107,7 +107,7 @@ function ContentIntro() {
         </div>
 
         <div className="row-facilities">
-          <div className="row">
+          <div className="row1">
             {
               img_facilities_row1.map((element, index) => {
                 return (
@@ -119,7 +119,7 @@ function ContentIntro() {
             }
         
           </div>
-          <div className="row">
+          <div className="row2">
             {
               img_facilities_row2.map((element, index) => {
                 return (
@@ -147,7 +147,7 @@ function ContentIntro() {
         </div>
 
         <div className="row-facilities">
-          <div className="row">
+          <div className="row3">
             {
               img_facilities_row3.map((element, index)=>{
                 return (
@@ -159,7 +159,7 @@ function ContentIntro() {
             }
           </div>
           
-          <div className="row">
+          <div className="row4">
             {
               img_facilities_row4.map((element, index)=>{
                 return (
@@ -171,7 +171,7 @@ function ContentIntro() {
             }
           </div>
 
-          <div className="row">
+          <div className="row5">
             {
               img_facilities_row5.map((element, index)=>{
                 return (
@@ -183,7 +183,7 @@ function ContentIntro() {
             }
           </div>
 
-          <div className="row">
+          <div className="row6">
             {
               img_facilities_row6.map((element, index)=>{
                 return (
