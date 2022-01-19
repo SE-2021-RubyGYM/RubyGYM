@@ -1,5 +1,5 @@
 // -- React and related libs
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter, Redirect } from "react-router";
 
@@ -32,37 +32,31 @@ import UserProfile from "../../Old_Code/user/userPages/userProfile";
 import CoachProfile from "../../Old_Code/coach/coachPages/coachProfile";
 import { useHistory } from "react-router";
 const CrmLayout = (props) => {
-  let history=useHistory();
-  useEffect(()=>{
-     if (
-       localStorage.getItem("accessToken") === null ||
-       localStorage.getItem("admin") === null
-     ) {
-       history.push("/login");
-     } 
-  })
-   
+  let history = useHistory();
+  useEffect(() => {
+    if (
+      localStorage.getItem("accessToken") === null ||
+      localStorage.getItem("admin") === null
+    ) {
+      history.push("/login");
+    }
+  });
+
   return (
     <div className={s.root}>
       <div className={s.wrap}>
         <Header />
         <Sidebar />
         <main className={s.content}>
-          {/* <Breadcrumbs url={props.location.pathname} /> */}
           <Switch>
-            {/* <Route
-              path='/crm'
-              exact
-              render={() => <Redirect to='template/dashboard' />}
-            /> */}
             <Route path="/admin/dashboard" exact component={Dashboard} />
             <Route path="/admin/customers" exact component={CrmCustomers} />
             <Route path="/admin/coachs" exact component={CrmCoachs} />
+            <Route path="/admin/coachs/:id" exact component={CoachProfile} />
             <Route path="/admin/blogs" exact component={Blog} />
             <Route path="/admin/blogs/addblog" exact component={AddBlog} />
             <Route path="/admin/blogs/:id" exact component={EditBlog} />
-            <Route path="/admin/customers/:id" exact component={UserProfile}/>
-            <Route path="/admin/coachs/:id" exact component={CoachProfile}/>
+            <Route path="/admin/customers/:id" exact component={UserProfile} />
             <Route path="*" exact render={() => <Redirect to="/error" />} />
           </Switch>
         </main>
