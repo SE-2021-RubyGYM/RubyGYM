@@ -42,8 +42,8 @@ const Users = new Schema({
   },
   assessment: {
     type: String,
-    minLength: 3,
-    maxLength: 255,
+    // minLength: 3,
+    // maxLength: 255,
     default: "Trống",
   },
   height: {

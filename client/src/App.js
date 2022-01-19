@@ -1,174 +1,106 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import AdminAddUser from "./component/sub-sections/dat/adminadduser/adminadduser";
-import AdminLogin from "./component/admin/adminPages/adminLogin";
-import UserPage from "./component/user/userPages/userPage";
-import NewFeeds from "./component/user/userPages/newFeeds";
-import AdminUserList from "./component/admin/adminPages/adminUserList";
-import AdminBlogList from "./component/sub-sections/trang/admin/adminBlogList";
-import AddBlog from "./component/sub-sections/new28_12_21/AddBlog/AddBlog";
-import AdminDashBoard from "./component/admin/adminPages/adminDashboard";
-import UserProfilePage from "./component/admin/adminPages/userProfilePage";
-import AdvProfilePage from "./component/admin/adminPages/advProfilePage";
-import UserBlogDetail from "./component/user/userPages/userBlogDetail";
-import AdminForm from "./component/admin/adminForm/adminForm";
-import CoachDashBoard from "./component/coach/coachPages/coachDashboard";
-import CoachForm from "./component/coach/coachForm/coachForm";
-import UserDashBoard from "./component/user/userForm/UserDashBoard";
-import AdminCoachList from "./component/admin/adminPages/adminCoachList";
-import CoachProfilePage from "./component/admin/adminPages/coachProfilePage";
-import AdminAddCoach from "./component/sub-sections/dat/adminaddcoach";
-import CoachUserTable from "./component/sub-sections/dat/coachUserTable";
-import CoachComment from "./component/sub-sections/new28_12_21/CoachComment/coachComment";
-import Schedule_coach from "./component/sub-sections/Hung/schedule";
-function App() {
+// -- React and related libs
+import React,{useEffect} from "react";
+import { Switch, Route, Redirect } from "react-router";
+import { BrowserRouter } from "react-router-dom";
+
+// -- Redux
+import { connect } from "react-redux";
+
+// -- Custom Components
+import LayoutComponent from "./components/Layout/Layout";
+import CrmLayoutComponent from "./components/Layout/CrmLayout";
+import ErrorPage from "./pages/error/ErrorPage";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+
+// new file for coach
+import CoachLayoutComponent from "./components/Layout/CoachLayout";
+
+// -- Redux Actions
+import { logoutUser } from "./actions/auth";
+
+// -- Third Party Libs
+import { ToastContainer } from "react-toastify";
+
+// -- Services
+import isAuthenticated from "./services/authService";
+
+// -- Component Styles
+import "./styles/app.scss";
+// User
+
+import UserPage from "./Old_Code/user/userPages/userPage";
+import NewFeeds from "./Old_Code/user/userPages/newFeeds";
+import UserBlogDetail from "./Old_Code/user/userPages/userBlogDetail";
+import axios from 'axios';
+import UserDashBoard from "./Old_Code/user/userForm/UserDashBoard";
+import UserProfile from "./Old_Code/user/userPages/userProfile";
+const PrivateRoute = ({ dispatch, component, ...rest }) => {
+  if (!isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
+    dispatch(logoutUser());
+    return <Redirect to="/login" />;
+  } else {
+    return (
+      <Route
+        {...rest}
+        render={(props) => React.createElement(component, props)}
+      />
+    );
+  }
+};
+
+const App = (props) => {
+
+  useEffect(() => {
+      if (localStorage.getItem("accessToken") !== null) {
+        axios.defaults.headers={
+          authorization:"Bearer " + localStorage.getItem("accessToken"),
+        }
+      }
+  }, [])
+
+
+
+
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route exact path="/admin/home" element={<AdminLogin />} />
-          <Route exact path="/admin/dashboard" element={<AdminDashBoard />} />
+    <div>
+      <ToastContainer />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact render={() => <Redirect to="/user/home" />} />
           <Route
-            exact
-            path="/admin/addblog"
-            element={
-              <AdminForm>
-                <AddBlog />
-              </AdminForm>
-            }
+            path="/admin"
+            dispatch={props.dispatch}
+            component={CrmLayoutComponent}
           />
           <Route
-            exact
-            path="/admin/bloglist"
-            element={
-              <AdminForm>
-                {" "}
-                <AdminBlogList />{" "}
-              </AdminForm>
-            }
+            path="/coach"
+            dispatch={props.dispatch}
+            component={CoachLayoutComponent}
           />
+          <Route path="/login" exact component={Login} />
+          <Route path="/error" exact component={ErrorPage} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/user/home" exact component={UserPage} />
+          <Route path="/user/blog" exact component={NewFeeds} />
+          <Route path="/user/blog/:id" exact component={UserBlogDetail} />
+          <Route path="/user/dashboard" exact component={UserDashBoard} />
+          <Route path="/test" exact component={UserProfile}/>
+          <Route path="/user" exact render={() => <Redirect to="/user/home" />} />
+          <Route component={ErrorPage} />
           <Route
-            exact
-            path="/admin/bloglist/:id"
-            element={
-              <AdminForm>
-                <AdvProfilePage />
-              </AdminForm>
-            }
+            path="*"
+            exact={true}
+            render={() => <Redirect to="/error" />}
           />
-
-          <Route
-            exact
-            path="/admin/userlist"
-            element={
-              <AdminForm>
-                <AdminUserList />
-              </AdminForm>
-            }
-          />
-          <Route
-            exact
-            path="/admin/adduser"
-            element={
-              <AdminForm>
-                <AdminAddUser />
-              </AdminForm>
-            }
-          />
-          <Route
-            exact
-            path="/admin/addcoach"
-            element={
-              <AdminForm>
-                {" "}
-                <AdminAddCoach />{" "}
-              </AdminForm>
-            }
-          />
-
-          <Route
-            exact
-            path="/admin/userprofile/:id"
-            element={
-              <AdminForm>
-                {" "}
-                <UserProfilePage />{" "}
-              </AdminForm>
-            }
-          />
-          <Route
-            exact
-            path="/admin/coachprofile/:id"
-            // element={<UserProfilePage />}
-            element={
-              <AdminForm>
-                <CoachProfilePage />
-              </AdminForm>
-            }
-          />
-
-          <Route
-            exact
-            path="/admin/coachlist"
-            element={
-              <AdminForm>
-                <AdminCoachList />
-              </AdminForm>
-            }
-          />
-          {/* coach */}
-
-          <Route
-            exact
-            path="coach/dashboard"
-            element={<CoachDashBoard />}
-          ></Route>
-          <Route
-            exact
-            path="/coach/schedule"
-            element={
-              <CoachForm>
-                <Schedule_coach />
-              </CoachForm>
-            }
-          ></Route>
-          <Route
-            exact
-            path="/coach/userlist"
-            element={
-              <CoachForm>
-                <CoachUserTable />
-              </CoachForm>
-            }
-          ></Route>
-          <Route
-            exact
-            path="/coach/userprofile/:id"
-            // element={<UserProfilePage />}
-            element={
-              <CoachForm>
-                {" "}
-                <UserProfilePage>
-                  <CoachComment></CoachComment>
-                </UserProfilePage>
-              </CoachForm>
-            }
-          />
-
-          {/* user */}
-
-          <Route exact path="/user/home" element={<UserPage />} />
-          <Route
-            exact
-            path="user/dashboard"
-            element={<UserDashBoard />}
-          ></Route>
-
-          <Route exact path="/user/blog" element={<NewFeeds />} />
-          <Route exact path="/user/blog/:id" element={<UserBlogDetail />} />
-        </Routes>
-      </Router>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(App);

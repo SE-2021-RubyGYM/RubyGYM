@@ -1,0 +1,23 @@
+.coach-comment {
+  width: fit-content;
+  font: 20px sans-serif;
+  font-family: Verdana, sans-serif;
+}
+
+.coach-comment .coach-comment-textarea {
+  border: 2px solid rgba(91, 176, 255, 0.3);
+  width: fit-content;
+  font: 20px sans-serif;
+  margin: 0 0 0 0;
+  max-width: min-content;
+  /* resize: none; */
+}
+
+.coach-comment textarea:focus {
+  outline-color: rgba(51, 122, 255, 0.6);
+}
+
+.llsfsdfsdfahsfshffjeyfhewigaulbskfhd {
+  color: rgb(246, 249, 255);
+  position: absolute;
+}

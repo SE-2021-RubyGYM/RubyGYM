@@ -1,0 +1,317 @@
+.body_user_ui {
+  height:100%;
+}
+.body_user_ui .main-header_user {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 73.2px;
+  background-image: linear-gradient(90deg, #ff512f, #dd2476);
+  position: fixed;
+  top: 0;
+}
+.main-header_user nav {
+  display: flex;
+  justify-content: space-between;
+}
+.main-header_user .logo {
+  box-sizing: border-box;
+  height: 73.2px;
+  font-size: 2rem;
+  display: inline-block;
+  color: #fff;
+  transition: all 0.2s;
+}
+.main-header_user .top-navbar {
+  box-sizing: border-box;
+  display: flex;
+  float: right;
+  height: 100%;
+  position: relative;
+  width: 70%;
+  margin-right: 5%;
+}
+.main-header_user .top-navbar .menu-navbar-icon {
+  display: none;
+}
+.main-header_user .top-navbar .navbar-custom-menu {
+  box-sizing: border-box;
+  display: flex;
+  float: right;
+  height: 100%;
+  width: 100%;
+  outline-width: 0px;
+}
+.navbar-custom-menu .navbar-icon {
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  height: 73.2px;
+  width: auto;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  text-size-adjust: 100%;
+  color: white;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  margin-right: 5%;
+}
+.navbar-custom-menu .log-out-button_user {
+  color: #dd2476;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  margin-right: 5%;
+}
+
+.log-out-button_user .button1_user {
+  display: block;
+  height: auto;
+  width: auto;
+  background-color: #e22a6b;
+  border: #db2328;
+}
+
+.button1_user .img-button {
+  height: 30px;
+  width: 30px;
+}
+.content-chinh-user .main-content1-user {
+  box-sizing: border-box;
+  display: block;
+  margin-top:100px;
+  height: 100%;
+  width: 100%;
+}
+.box-body-user .user_image {
+  margin-top: 25px;
+  margin-right: 5%;
+}
+.user_image .image-user {
+  box-sizing: border-box;
+  width: 280px;
+  height: 210px;
+}
+.box-body-user .box-user-infor {
+  float: left;
+  display: flex;
+  box-sizing: border-box;
+  width: 80%;
+  height: auto;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+.box-body-user .user-name {
+  margin-top: 2%;
+  margin-right: 5%;
+  font-family: Roboto, sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 28.8px;
+  text-align: center;
+  color: black;
+}
+
+.content-chinh-user .main-content-schedule {
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+  display: none;
+  margin-top: 100px;
+}
+
+.content-header-user {
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  padding-bottom: 0px;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  width: 100%;
+  font-family: Monsterrat, sans-serif;
+  color: rbg (51, 51, 51);
+}
+.content-header-user .title {
+  height: auto;
+  text-align: center;
+  display: block;
+  font-family: Monsterrat, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 40.5px;
+  color: rbg (51, 51, 51);
+  margin-bottom: -15px;
+}
+
+.content-header-user .explain-title {
+  height: auto;
+  width: 60%;
+  margin-right: 20%;
+  margin-left: 20%;
+  display: block;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 28.8px;
+  text-align: center;
+  color: black;
+}
+hr {
+  box-sizing: content-box;
+  border: 0;
+}
+.red-line {
+  margin: 20px 40%;
+  color: black;
+  background: #db2328;
+  height: 5px;
+  width: 20%;
+}
+.white-line {
+  margin-top: 10px;
+  color: black;
+  background: white;
+  height: 3px;
+  width: 90%;
+  display: none;
+}
+.content-chinh-user .main-content-ttsk {
+  display: none;
+  margin-top: 70px;
+}
+.main-content-schedule .content {
+  box-sizing: border-box;
+  display: block;
+  height: 252px;
+  width: 100%;
+}
+.content-user .box-user {
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  margin-top: 35px;
+  margin-right: 13%;
+  margin-left: 13%;
+
+  width: auto;
+  box-shadow: #ff512f 0px 0px 1px 1px, #dd2476 0px 1px 1px 0px;
+  outline-color: #dd2476;
+  outline-width: 1px;
+  border-radius: 10px;
+}
+.box-user .box-body-user {
+  box-sizing: border-box;
+  display: flex;
+
+  height: 100%;
+  padding: 10px;
+  width: 94%;
+  margin-right: 3%;
+  margin-left: 3%;
+}
+
+.box-body-user .table-content-user {
+  box-sizing: border-box;
+  display: table;
+  height: auto;
+  margin-top: 10px;
+  width: 100%;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-indent: 0px;
+  text-size-adjust: 100%;
+  color: rgb(202, 106, 68);
+  background-color: white;
+  border-bottom-color: rgb(244, 244, 244);
+  border-color: rgb(244, 244, 244);
+  border-style: solid;
+  border-width: 1px;
+  border-collapse: collapse;
+}
+
+.table-content-user .column {
+  width: 18vw;
+  white-space: nowrap;
+}
+.change-infor-user {
+  text-align: right;
+}
+.content-user .change-infor-user .button-change {
+  display: block;
+  height: auto;
+  margin: 25px auto;
+  padding: 15px 1% 15px 1%;
+  width: 13%;
+  font-family: cali, sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  text-align: center;
+  text-decoration-color: white;
+  color: rgb(255, 255, 255);
+  background-color: #db2328;
+  border-radius: 8px;
+  border-color: white;
+}
+.change-infor-user .button-change .text-button {
+  color: white;
+}
+
+.container_box_user {
+  display: none;
+  height: auto;
+  width: 26vw;
+  background-color: rgb(252, 252, 249);
+  margin-top: 70px;
+  margin-left: 37%;
+  margin-right: 37%;
+  border-radius: 15px;
+  position: fixed;
+  box-shadow: rgb(238, 182, 182) 0px 0px 0px 1px;
+}
+.container_box_user .container2 {
+  padding: 20px;
+}
+.container_box_user .container2 .login-user {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Aerial", sans-serif;
+  color: rgb(24, 95, 156);
+}
+
+.container2 .kaka {
+  display: flex;
+}
+.btn-user {
+ 
+  display: block;
+  padding: 10px;
+  border-radius: 30px;
+  margin: 20px auto 10px;
+  border: none;
+  color: white;
+  background-image: linear-gradient(90deg, #ff512f, #dd2476);
+}
+.btn-user:hover {
+  opacity: 0.5;
+}
+@media screen and (max-width: 600px) {
+  .main-header_user {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .main-header_user .top-navbar {
+    width: 600px;
+  }
+  .navbar-custom-menu .navbar-icon {
+    font-size: 15px;
+    margin-top: 25px;
+    margin-right: 3%;
+  }
+}

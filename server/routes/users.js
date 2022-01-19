@@ -69,7 +69,7 @@ router.get("/:id", async (req, res) => {
 // @route PUT api/users/:id
 // @desc Update user by id
 // @access Private
-router.put("/:id", verifyToken, verifyAdmin, async (req, res) => {
+router.put("/:id", verifyToken, async (req, res) => {
   await updateUserById(req, res);
 });
 

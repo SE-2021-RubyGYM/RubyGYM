@@ -1,0 +1,296 @@
+.gnanT_all {
+  /* height: 2000px; */
+}
+
+.gnanT_content-chinh .gnanT_main-content {
+  box-sizing: border-box;
+  display: block;
+  height: 1500px;
+  width: 100%;  
+}
+.gnanT_box-body .gnanT_user_image {
+  margin-top: 25px;
+  margin-right: 5%;
+}
+.gnanT_user_image .gnanT_image-user {
+  box-sizing: border-box;
+  width: 226px;
+  height: 170px;
+}
+.gnanT_box-body .gnanT_box-user-infor {
+  float: left;
+  display: flex;
+  box-sizing: border-box;
+  width: 80%;
+  height: auto;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+.gnanT_box-body .gnanT_user-name {
+  margin-top: 1%;
+  margin-right: 5%;
+  font-family: Roboto, sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 28.ad_8px;
+  text-align: center;
+  color: black;
+}
+.gnanT_content-header {
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  padding-bottom: 0px;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  font-family: Monsterrat, sans-serif;
+  color: rbg (51, 51, 51);
+}
+.gnanT_content-header .gnanT_title {
+  height: auto;
+  text-align: center;
+  display: block;
+  font-family: Monsterrat, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 40.ad_5px;
+  color: rbg (51, 51, 51);
+  margin-bottom: -15px;
+}
+
+
+.gnanT_red-line {
+  margin: 20px 40%;
+  color: black;
+  background: #db2328;
+  height: 5px;
+  width: 20%;
+}
+
+.gnanT_content .gnanT_box {
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  margin-top: 35px;
+  margin-right: 13%;
+  margin-left: 13%;
+  width: auto;
+  box-shadow: #ff512f 0px 0px 1px 1px, #dd2476 0px 1px 1px 0px;
+  outline-color: #dd2476;
+  outline-width: 1px;
+  border-radius: 10px;
+}
+.gnanT_box .gnanT_box-body {
+  box-sizing: border-box;
+  display: flex;
+
+  height: 100%;
+  padding: 10px;
+  width: 94%;
+  margin-right: 3%;
+  margin-left: 3%;
+}
+.gnanT_box .gnanT_box-body-fix {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  padding: 10px;
+  width: 94%;
+  margin-right: 3%;
+  margin-left: 3%;
+}
+.gnanT_box-body-fix .gnanT_user-name {
+  width: 30%;
+  margin-right: 3%;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  color: black;
+  margin-bottom: 10px;
+}
+.gnanT_user-name input {
+  font-size: 16px;
+  margin-left: 5px;
+  width: 120px;
+}
+select {
+  border-radius: 2px;
+  width: 160px;
+  border-inline-color: none;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.gnanT_box-body .gnanT_option1 {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  font-size: 15px;
+}
+.gnanT_option1::-ms-expand {
+  display: none;
+}
+.gnanT_option1:hover {
+  border-color: #888;
+}
+.gnanT_option1:focus {
+  border-color: #aaa;
+
+  color: #222;
+  outline: none;
+}
+.gnanT_option1 option {
+  font-weight: normal;
+}
+
+.gnanT_text-center {
+  text-align: right;
+}
+.gnanT_content .gnanT_text-center .gnanT_button {
+  display: block;
+  height: auto;
+  margin: 25px auto;
+  padding: 15px 1% 15px 1%;
+  width: 13%;
+  font-family: cali, sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  text-align: center;
+  text-decoration-color: white;
+  color: rgb(255, 255, 255);
+  background-color: #db2328;
+  border-radius: 8px;
+  border-color: white;
+}
+.gnanT_button .gnanT_text-button {
+  color: white;
+}
+
+.gnanT_container {
+  display: none;
+  height: auto;
+  width: 30vw;
+  background-color: red;
+  margin-top: 100px;
+  margin-left: 35%;
+  margin-right: 35%;
+  border-radius: 15px;
+  position: fixed;
+  box-shadow: #ff512f 0px 0px 1px 1px, #dd2476 0px 1px 1px 0px;
+}
+.gnanT_container2 {
+  padding: 20px;
+}
+.gnanT_login {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Aerial', sans-serif;
+}
+
+.gnanT_container2 .gnanT_kaka {
+  display: flex;
+}
+.gnanT_btn {
+  width: 30%;
+  display: block;
+  padding: 10px;
+  border-radius: 30px;
+  margin: 20px auto 10px;
+  border: none;
+  color: white;
+  background-image: linear-gradient(90deg, #ff512f, #dd2476);
+}
+.gnanT_btn:hover {
+  opacity: 0.gnanT_5;
+}
+@media screen and (max-width: 600px) {
+  .gnanT_main-header.gnanT_logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .gnanT_main-header .gnanT_top-navbar {
+    width: 600px;
+  }
+  .gnanT_navbar-custom-menu .gnanT_navbar-icon {
+    font-size: 15px;
+    margin-top: 25px;
+    margin-right: 3%;
+  }
+}
+.coach-review h2 {
+  height: auto;
+  text-align: center;
+  display: block;
+  font-family: Monsterrat, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 40.5px;
+  color: rbg (51, 51, 51);
+  margin-bottom: 20px;
+}
+.coach-review input[type="text"],
+select,
+textarea {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.coach-review .coach-review label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 28.8px;
+  text-align: center;
+  color: black;
+}
+
+.coach-review input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.coach-review input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.coach-review .container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 60%;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+.coach-review .col-25 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+
+.coach-review .col-75 {
+  float: left;
+  width: 85%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.coach-review .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

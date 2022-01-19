@@ -8,11 +8,11 @@ const mongoose = require("mongoose");
 module.exports = {
   // create new calendar if not exist and update it if exist
   updateCalendars: async (req, res) => {
-    if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
-        return res
-        .status(401)
-        .json({ success: false, message: 'Unauthorized',result: null  })
-    }
+    // if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
+    //     return res
+    //     .status(401)
+    //     .json({ success: false, message: 'Unauthorized',result: null  })
+    // }
     const coachId = req.userId
     const { startTime, endTime, startTimezone, endTimezone, isAllDay, subject, userId, description, recurrenceRule, recurrenceID, recurrenceException, ID } =
       req.body;
@@ -63,11 +63,11 @@ module.exports = {
     }
   },
   refreshCalendars: async (req, res) => {
-    if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
-        return res
-        .status(401)
-        .json({ success: false, message: 'Unauthorized',result: null  })
-    }
+    // if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
+    //     return res
+    //     .status(401)
+    //     .json({ success: false, message: 'Unauthorized',result: null  })
+    // }
     const coachId = req.userId;
     const newCalendars = req.body;
     let result = [];
@@ -116,7 +116,7 @@ module.exports = {
 
       };
       await session.commitTransaction();
-      session.endSession();
+      // session.endSession();
       return res.json({
         success: true,
         message: "API OK",
@@ -135,11 +135,11 @@ module.exports = {
     }
   },
   deleteCalendar : async (req, res) => {
-    if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
-        return res
-        .status(401)
-        .json({ success: false, message: 'Unauthorized',result: null  })
-    }
+    // if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
+    //     return res
+    //     .status(401)
+    //     .json({ success: false, message: 'Unauthorized',result: null  })
+    // }
     const coachId = req.userId
     const { startTime, endTime, isAllDay, subject, userId, ID } =
       req.body;
@@ -184,11 +184,11 @@ module.exports = {
 
   // get all coachs, only done by Admins or Sales or HR
   getCalendarsOfCoach: async (req, res) => {
-    if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
-      return res
-      .status(401)
-      .json({ success: false, message: 'Unauthorized',result: null  })
-    }
+    // if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
+    //   return res
+    //   .status(401)
+    //   .json({ success: false, message: 'Unauthorized',result: null  })
+    // }
     try {
       const coachId = req.userId
       const existingCoach = await Coach.findById(coachId, "-password").exec();
@@ -212,11 +212,11 @@ module.exports = {
 
   
   getCalendarsOfUser: async (req, res) => {
-    if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
-      return res
-      .status(401)
-      .json({ success: false, message: 'Unauthorized',result: null  })
-    }
+    // if(!req.position || (req.position != "Administrator" && req.position != "HR" && req.position != "Coach")) {
+    //   return res
+    //   .status(401)
+    //   .json({ success: false, message: 'Unauthorized',result: null  })
+    // }
     const userId = req.params.id;
     try {
       const user = await User.findById(userId, "-password").exec();
@@ -237,4 +237,30 @@ module.exports = {
       });
     }
   },
+  getCalendarOfMine: async (req, res) => {
+    // if(!req.position || (req.position != "User")) {
+    //   return res
+    //   .status(401)
+    //   .json({ success: false, message: 'Unauthorized 2',result: null  })
+    // }
+    const userId = req.userId;
+    try {
+      const user = await User.findById(userId, "-password").exec();
+      if (!user) {
+        return res
+          .status(404)
+          .json({ success: false, message: "User not found", result: null });
+      }
+      
+      const calendars = await Calendar.find({userId})
+      return res.json({ success: true, message: "API OK", result: calendars });
+
+    } catch (error) {
+      return res.status(500).json({
+        success: false,
+        message: "Internal server error",
+        result: null,
+      });
+    }
+  }
 };

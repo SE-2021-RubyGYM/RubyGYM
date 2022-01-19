@@ -32,8 +32,20 @@ module.exports = {
     //     .status(401)
     //     .json({ success: false, message: 'Unauthorized',result: null  })
     // }
-    const { username, password, name, gender, paymentDay, phone, birthDay } =
-      req.body;
+    const {
+      username,
+      password,
+      name,
+      gender,
+      paymentDay,
+      phone,
+      birthDay,
+      aim,
+      coach,
+      assessment,
+      height,
+      weight,
+    } = req.body;
 
     if (!username || !password || !name || !phone) {
       return res.status(400).json({
@@ -71,6 +83,11 @@ module.exports = {
         paymentDay,
         referralCode,
         phone,
+        aim,
+        coach,
+        assessment,
+        height,
+        weight,
       });
       let err = newUser.validateSync();
       if (err) {
@@ -129,8 +146,6 @@ module.exports = {
           result: null,
         });
 
-      // All good
-      // Return token
       const accessToken = jwt.sign(
         { userId: user._id },
         process.env.ACCESS_TOKEN_SECRET
@@ -208,14 +223,14 @@ module.exports = {
 
   // update an user's informations by his/her id , only done by Admins or Sales
   updateUserById: async (req, res) => {
-    if (
-      !req.position ||
-      (req.position != "Administrator" && req.position != "Sales manager")
-    ) {
-      return res
-        .status(401)
-        .json({ success: false, message: "Unauthorized", result: null });
-    }
+    // if (
+    //   !req.position ||
+    //   (req.position != "Administrator" && req.position != "Sales manager")
+    // ) {
+    //   return res
+    //     .status(401)
+    //     .json({ success: false, message: "Unauthorized", result: null });
+    // }
     req.body.updateAt = new Date();
     if (req.body.password) {
       req.body.password = await argon2.hash(req.body.password);
