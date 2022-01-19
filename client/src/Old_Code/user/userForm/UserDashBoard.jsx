@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NewFeed from "../../sub-sections/tung/newfeed";
 import { element } from "prop-types";
+
+import UserSchedule from "../../../pages/User-Schedule/userSchedule"
 // const user_ruby = [
 //   {
 //     name: "Nguyễn Văn A",
@@ -317,6 +319,12 @@ export default function UserDashBoard() {
           </div>
         );
       })}
+
+
+
+      {/* UserSchedule là component chứa lịch user ae thêm option xem lịch nhá, e đang chắp vá tạm xuống dưới vì méo thêm được */}
+      <UserSchedule />
+
     </div>
   );
 }

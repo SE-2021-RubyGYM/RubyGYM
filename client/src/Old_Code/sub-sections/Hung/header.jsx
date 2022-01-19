@@ -101,25 +101,16 @@ function Header() {
           <a href="http://localhost:3000/user/blog">Tin tức & sự kiện</a>
         </div>
 
-        {localStorage.getItem("accessToken") !== null ? (
-          <div
-            className="nav-menu-login"
-            onClick={() => {
-              localStorage.clear();
-            }}
-          >
-            <a href="/user/home">Đăng xuất</a>
-          </div>
-        ) : (
-          <div
-            className="nav-menu-login"
-            onClick={() => {
-              showLoginPanel();
-            }}
-          >
-            <button>Đăng nhập</button>
-          </div>
-        )}
+        
+        <div
+          className="nav-menu-login"
+          onClick={() => {
+            showLoginPanel();
+          }}
+        >
+          <button>Đăng nhập</button>
+        </div>
+        
       </div>
       {/* Panel Login */}
       <div class="login-panel" style={{ display: state }}>

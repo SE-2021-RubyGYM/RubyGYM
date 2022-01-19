@@ -16,7 +16,7 @@ import {
 } from "@syncfusion/ej2-react-schedule";
 
 
-function CoachSchedule() {
+function UserSchedule() {
   var stringToColour = function(str) {
     var hash = 0;
     for (var i = 0; i < str.length; i++) {
@@ -30,99 +30,33 @@ function CoachSchedule() {
     return colour;
   }
   const [data, setData, ] = useState([
-    {
-      ID: 1,
-      subject: 'Learning',
-      startTime: new Date(2022, 0, 17, 1, 0),
-      endTime: new Date(2022, 0, 17, 2, 0),
-      userId: "6197bf691de54733bfca8997"
-    },
-    {
-      ID: 2,
-      subject: 'Singing',
-      startTime: new Date(2022, 0, 18, 3, 0),
-      endTime: new Date(2022, 0, 18, 4, 0),
-      userId: "6197bf691de54733bfca8997"
-    },
-    {
-      ID: 3,
-      subject: 'Dancing',
-      startTime: new Date(2022, 0, 19, 1, 0),
-      endTime: new Date(2022, 0, 19, 3, 0),
-      userId: "6197bf691de54733bfca8997"
-    }
+
   ] );
   const [resourceDataSource, setResourceDataSource] = useState([
     {name: 'Tung', _id:"6197bf691de54733bfca8997", color:'#ea7a57'},
     {name: 'Son', _id:"2", color:'#357CD2'},
     {name: 'Trang', _id:"3", color:'#7fa900'}
   ])
-  const [groupData, setGroupDate] = useState(
-    {resources:['Resource']}
-  )
+  
   
   useEffect(() => {
     
     axios({
       method: "get",
-      url: "http://localhost:5000/api/calendars",
+      url: "http://localhost:5000/api/calendars/my_calendars",
       headers: {
         authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
     })
       .then((res) => {
         if (res.status == 200) {
-          
           setData(res.data.result);
         }
       })
       .catch((err) => {
-        console.log("failed author");
-      });
-    axios({
-      method: "get",
-      url: "http://localhost:5000/api/users/get_by_coach",
-      headers: {
-        authorization: "Bearer " + localStorage.getItem("accessToken"),
-      },
-    })
-      .then((res) => {
-        if (res.status == 200) {
-          let tempSource = res.data.result;
-          tempSource.forEach(element => {
-            element.color = stringToColour(element.name);
-          });
-          setResourceDataSource(tempSource);
-        
-        }
-      })
-      .catch((err) => {
         console.log(err.message);
-      });
-
+      })
   }, []);
-  const uploadData = (data) =>{
-    axios({
-      method: "post",
-      url: "http://localhost:5000/api/calendars/refresh_calendars",
-      headers: {
-        authorization: "Bearer " + localStorage.getItem("accessToken"),
-      },
-      data: data
-    })
-      .then((res) => {
-        if (res.status == 200) {
-          console.log("Lợi đẹp")
-          console.log(data)
-        }
-      })
-      .catch((err) => {
-        console.log("gái")
-        
-        console.log(err.message);
-      });
-  }
-
 
   return (
     <>
@@ -144,7 +78,7 @@ function CoachSchedule() {
                 isAllDay: {name: "isAllDay"},
                 recurrenceRule : {name: "recurrenceRule"},
                 recurrenceID : {name: "recurrenceID"},
-                recurrenceException : {name: "recurrenceException"}
+                recurrenceException : {name: "recurrenceException"}          
             }
             }}>
           <ResourcesDirective>
@@ -156,13 +90,7 @@ function CoachSchedule() {
           <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
         </ScheduleComponent>
       </div>
-      <div className="confirm-modification">
-        <button onClick={() => {
-          uploadData(data)
-        }}>
-        Confirm</button>
-      </div>
     </>
   );
 }
-export default CoachSchedule;
+export default UserSchedule;
