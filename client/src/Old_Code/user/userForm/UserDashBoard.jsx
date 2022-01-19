@@ -355,7 +355,7 @@ export default function UserDashBoard() {
                         />
                      
                       <div className="user-name">
-                        {" "}
+                        
                         Thành viên hạng: {userInfo.rank}
                       </div>
                       {/* <div className="user-name">

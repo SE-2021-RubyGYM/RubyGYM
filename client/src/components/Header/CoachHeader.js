@@ -39,10 +39,50 @@ import userImg from "../../assets/user.svg";
 
 import s from "./Header.module.scss";
 import "animate.css";
+import { useEffect } from "react";
+import { BackEndBaseURL } from "../../app/backend";
+import axios from "axios"
+
+
 import { useHistory } from "react-router";
 
 const CoachHeader = (props) => {
   let history = useHistory();
+  const [coachInfo, setCoachInfo] = useState({
+  _id: "Đang tải",
+  name: "Coach",
+  username: "Đang tải",
+  phone: "Đang tải",
+  password:
+    "Đang tải",
+  birthDay: "Đang tải",
+  gender: "Đang tải",
+  coach: "Đang tải",
+  referralCode: "Đang tải",
+  assessment: "Trống",
+  height: "Đang tải",
+  weight: "Đang tải",
+  paymentDay: "Đang tải",
+  aim: "Trống",
+  
+  __v: 0,
+});
+useEffect(() => {
+axios({
+  method:"GET",
+  url:BackEndBaseURL+"/api/coachs/auth" ,
+  headers: {
+    authorization: "Bearer " + localStorage.getItem("accessToken"),
+  },
+}).then(res=>{
+  if(res.status==200||res.status==true){
+    console.log("thanh cong");
+    setCoachInfo(res.data.result);       
+  }
+})
+
+
+}, []);
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
@@ -163,7 +203,7 @@ const CoachHeader = (props) => {
               <img src={userImg} alt="User" />
             </span>
             <span className="small d-none d-sm-block ml-1 mr-2 body-1">
-              Coach
+              {coachInfo.name}
             </span>
           </DropdownToggle>
           <DropdownMenu
