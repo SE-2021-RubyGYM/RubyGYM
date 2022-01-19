@@ -14,36 +14,37 @@ import { toast } from "react-toastify";
 
 export default function UserDashBoard() {
   const [userInfo, setUserInfo] = useState({
-    _id: "61e1ad339fef242d81511b98",
-    name: "Lê Thiên",
-    username: "user03",
-    phone: "0169925628",
+    _id: "Đang tải",
+    name: "Đang tải",
+    username: "Đang tải",
+    phone: "Đang tải",
     password:
-      "$argon2i$v=19$m=4096,t=3,p=1$wd449sARZ/FPw8hv/r0FQA$X/worTotBaY6v6N9mJQOesrBafHeLbO1sfAfETc7FcQ",
-    birthDay: "2001-01-14T17:00:00.000Z",
-    gender: "Female",
-    coach: "61bb55ba80c3938bf7800378",
-    referralCode: "GT-88XeP8KK-2022",
+      "Đang tải",
+    birthDay: "Đang tải",
+    gender: "Đang tải",
+    coach: "Đang tải",
+    referralCode: "Đang tải",
     assessment: "Trống",
-    height: "1.73",
-    weight: "69",
-    paymentDay: "2022/06/06",
+    height: "Đang tải",
+    weight: "Đang tải",
+    paymentDay: "Đang tải",
     aim: "Trống",
+    
     __v: 0,
   });
   useEffect(() => {
     axios({
-      method: "get",
-      url: BackEndBaseURL + "/api/users/",
+      method:"GET",
+      url:BackEndBaseURL+"/api/users/auth",
       headers: {
         authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
-    }).then((res) => {
-      console.log(res)
-      if (res.status == 200 || res.status == true) {
-        setUserInfo(res.data.result);
+    }).then(res=>{
+      if(res.status==200||res.status==true){
+        setUserInfo(res.data.result);       
       }
-    });
+    })
+    
   
   }, []);
    const handleSubmit = () => {
@@ -52,8 +53,11 @@ export default function UserDashBoard() {
 
     axios({
       method: "PUT",
-      url: BackEndBaseURL + "/api/users/",
+      url: BackEndBaseURL + "/api/users/"+userInfoCopy._id,
       data: userInfoCopy,
+       headers: {
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
     })
       .then((res) => {
         if (res.status == 200 || res.status == true) {
@@ -362,8 +366,22 @@ export default function UserDashBoard() {
                         Hạn đăng kí: {userInfo.paymentDay}
                       </div>
                       <div className="user-name">
-                        Đánh giá: {userInfo.assess}
+                        Đánh giá: {userInfo.assessment}
                       </div>
+                        <div className="user-name">
+                          Mục tiêu
+                        </div>
+                       <input
+                          type="text"
+                          placeholder="..."
+                          value={userInfo.aim}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.aim = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      
                     </div>
                   </div>
                 </div>

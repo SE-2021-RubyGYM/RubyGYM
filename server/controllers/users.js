@@ -223,14 +223,14 @@ module.exports = {
 
   // update an user's informations by his/her id , only done by Admins or Sales
   updateUserById: async (req, res) => {
-    if (
-      !req.position ||
-      (req.position != "Administrator" && req.position != "Sales manager")
-    ) {
-      return res
-        .status(401)
-        .json({ success: false, message: "Unauthorized", result: null });
-    }
+    // if (
+    //   !req.position ||
+    //   (req.position != "Administrator" && req.position != "Sales manager")
+    // ) {
+    //   return res
+    //     .status(401)
+    //     .json({ success: false, message: "Unauthorized", result: null });
+    // }
     req.body.updateAt = new Date();
     if (req.body.password) {
       req.body.password = await argon2.hash(req.body.password);
