@@ -14,6 +14,7 @@ import {
   ResourceDirective,
   GroupModel
 } from "@syncfusion/ej2-react-schedule";
+import { BackEndBaseURL } from "../../app/backend";
 
 
 function CoachSchedule() {
@@ -65,7 +66,7 @@ function CoachSchedule() {
     
     axios({
       method: "get",
-      url: "http://localhost:5000/api/calendars",
+      url: BackEndBaseURL +"/api/calendars",
       headers: {
         authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
@@ -81,7 +82,7 @@ function CoachSchedule() {
       });
     axios({
       method: "get",
-      url: "http://localhost:5000/api/users/get_by_coach",
+      url: BackEndBaseURL +"/api/users/get_by_coach",
       headers: {
         authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
@@ -104,7 +105,7 @@ function CoachSchedule() {
   const uploadData = (data) =>{
     axios({
       method: "post",
-      url: "http://localhost:5000/api/calendars/refresh_calendars",
+      url: BackEndBaseURL +"/api/calendars/refresh_calendars",
       headers: {
         authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
