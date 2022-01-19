@@ -93,7 +93,7 @@ const text = [
 
 function ContentIntro() {
   return (                                  
-    
+    <div className='content_Intro'>
     <div id="html">
 
     
@@ -136,11 +136,11 @@ function ContentIntro() {
           <div className="new-header text-center">
             <h2> {text[1].content} </h2>
             <div className="row-sub">
-              <div className="col-md-offset-2 col-md-8">
+             
                 <p>
                   {text[2].content}
                 </p>
-              </div>
+              
               <div class="cool-divider short-red-line center" id="line_s"></div>
             </div>
           </div>
@@ -198,7 +198,8 @@ function ContentIntro() {
         </div>
       </div>
 
-    </div>           
+    </div>  
+    </div>         
   );
 }
 export default ContentIntro;

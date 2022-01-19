@@ -5,66 +5,114 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NewFeed from "../../sub-sections/tung/newfeed";
 import { element } from "prop-types";
-
+import { useParams } from "react-router";
+import { BackEndBaseURL } from "../../../app/backend";
+import { Notification2 } from "../../../components/Notification/Notification";
+import "font-awesome/css/font-awesome.min.css";
+import { toast } from "react-toastify";
 import UserSchedule from "../../../pages/User-Schedule/userSchedule"
-// const user_ruby = [
-//   {
-//     name: "Nguyễn Văn A",
-//     ID_user: "IT3040",
-//     phone_number: "096905605",
-//     sex: "Nam",
-//     dob: "09/09/2000",
-//     mail: "abcd@gmai.com",
-//     rank: "Bạc",
-//     start: "08/12/2021",
-//     finish: "08/1/2022",
-//   },
-// ];
 
 export default function UserDashBoard() {
-  const [data, setData] = useState([
-    {
-      _id: 0,
-      name: "dat",
-      birthDay: "",
-    },
-  ]);
-
-  const getDataUser = () => {
+  const [userInfo, setUserInfo] = useState({
+    _id: "61e1ad339fef242d81511b98",
+    name: "Lê Thiên Chúc",
+    username: "user03",
+    phone: "0169925628",
+    password:
+      "$argon2i$v=19$m=4096,t=3,p=1$wd449sARZ/FPw8hv/r0FQA$X/worTotBaY6v6N9mJQOesrBafHeLbO1sfAfETc7FcQ",
+    birthDay: "2001-01-14T17:00:00.000Z",
+    gender: "Female",
+    coach: "61bb55ba80c3938bf7800378",
+    referralCode: "GT-88XeP8KK-2022",
+    assessment: "Trống",
+    height: "1.73",
+    weight: "69",
+    paymentDay: "2022/06/06",
+    aim: "Trống",
+    __v: 0,
+  });
+   const { id } = useParams();
+  useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:5000/api/users/auth",
-      headers: {
-        authorization: "Bearer " + localStorage.getItem("accessToken"),
-      },
+      url: BackEndBaseURL + "/api/users/" + id,
     }).then((res) => {
-      if (res.status == 200) {
-        console.log(res.data.result);
-        setData(res.data.result);
+      if (res.status == 200 || res.status == true) {
+        setUserInfo(res.data.result);
+        
       }
     });
-  };
-  useEffect(() => {
-    getDataUser();
+  
   }, []);
+   const handleSubmit = () => {
+    var userInfoCopy = { ...userInfo };
+   
 
-  const user_ruby = [
-    {
-      name: data.name,
-      ID_user: data._id,
-      phone_number: data.phone,
-      sex: data.gender,
-      dob: data.birthDay,
-      paymentDay: data.paymentDay,
-      rank: "Bạc",
-      assess: data.assessment,
-
-      //   mail: "abcd@gmai.com",
-      //   rank: "Bạc",
-      //   start: "08/12/2021",
-      //   finish: "08/1/2022",
-    },
-  ];
+    axios({
+      method: "PUT",
+      url: BackEndBaseURL + "/api/users/" + id,
+      data: userInfoCopy,
+    })
+      .then((res) => {
+        if (res.status == 200 || res.status == true) {
+          const notificationTypes = ["success", "error"];
+          var success = true;
+          var mes = "Cập nhập thành công";
+          let notificationName = success ? "success" : "error";
+          let msg = { success: mes, error: mes };
+          toast(
+            <Notification2
+              type={notificationName}
+              withIcon
+              msg={msg[notificationName]}
+            />,
+            {
+              autoClose: 4000,
+              closeButton: false,
+              hideProgressBar: true,
+            }
+          );
+        } else {
+          const notificationTypes = ["success", "error"];
+          var success = false;
+          var mes = "Cập nhập thất bại";
+          let notificationName = success ? "success" : "error";
+          let msg = { success: mes, error: mes };
+          toast(
+            <Notification2
+              type={notificationName}
+              withIcon
+              msg={msg[notificationName]}
+            />,
+            {
+              autoClose: 4000,
+              closeButton: false,
+              hideProgressBar: true,
+            }
+          );
+        }
+      })
+      .catch((e) => {
+        const notificationTypes = ["success", "error"];
+        var success = false;
+        var mes = "Cập nhập thất bại";
+        let notificationName = success ? "success" : "error";
+        let msg = { success: mes, error: mes };
+        toast(
+          <Notification2
+            type={notificationName}
+            withIcon
+            msg={msg[notificationName]}
+          />,
+          {
+            autoClose: 4000,
+            closeButton: false,
+            hideProgressBar: true,
+          }
+        );
+      });
+  };
+ 
 
   const w3_open = (right) => {
     if (right)
@@ -204,13 +252,13 @@ export default function UserDashBoard() {
         </div>
       </div>
 
-      {user_ruby.map((element, index) => {
-        return (
+      
+     
           <div className="content-chinh-user">
             <div className="main-content1-user" id="main_content_play">
               <div className="content-header-user">
                 <div className="title">
-                  <h2> Thông tin cá nhân của {element.name} </h2>
+                  <h2> Thông tin cá nhân của {userInfo.name} </h2>
                 </div>
 
                 <div className="explain-title">
@@ -230,35 +278,103 @@ export default function UserDashBoard() {
                     </div>
 
                     <div className="box-user-infor">
-                      <div className="user-name">Họ và tên: {element.name}</div>
-                      <div className="user-name">
-                        Số điện thoại: {element.phone_number}
-                      </div>
-                      <div className="user-name">Giới tính: {element.sex}</div>
-                      <div className="user-name">Ngày sinh: {element.dob}</div>
-                      {/* <div className="user-name">Email: {element.mail}</div> */}
-
+                      <label>Họ và tên</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.name}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.name = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      
+                        {/* Số điện thoại: {userInfo.phone_number} */}
+                        <label>Số điện thoại:</label>
+                          <input
+                            type="text"
+                            placeholder="Đơn vị: cm"
+                            value={userInfo.phone}
+                            onChange={(e) => {
+                              var newUserInfo = { ...userInfo };
+                              newUserInfo.phone = e.target.value;
+                              setUserInfo(newUserInfo);
+                            }}
+                          />
+                      
+                     <label>Giới tính:</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.gender}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.gender = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      <label>Ngày sinh:</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.birthDay}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.birthDay = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      {/* <div className="user-name">Email: {userInfo.mail}</div> */}
+                      <label>Chiều cao(cm):</label>
+                        <input
+                          type="text"
+                          placeholder="Đơn vị: cm"
+                          value={userInfo.height}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.height = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                        <label>Cân nặng(kg):</label>
+                        <input
+                          type="text"
+                          placeholder="Đơn vị: kg"
+                          value={userInfo.weight}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.weight = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                     
                       <div className="user-name">
                         {" "}
-                        Thành viên hạng: {element.rank}
+                        Thành viên hạng: {userInfo.rank}
                       </div>
                       {/* <div className="user-name">
-                        Thời gian đăng kí: {element.start}
+                        Thời gian đăng kí: {userInfo.start}
                       </div> */}
                       <div className="user-name">
-                        Hạn đăng kí: {element.paymentDay}
+                        Hạn đăng kí: {userInfo.paymentDay}
                       </div>
                       <div className="user-name">
-                        Đánh giá: {element.assess}
+                        Đánh giá: {userInfo.assess}
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="change-infor-user">
-                  <button className="button-change">
-                    {" "}
-                    Chỉnh sửa thông tin{" "}
+                  <button
+                   className="button-change"
+                   onClick={()=>{
+                     handleSubmit();
+                   }}
+                  >
+                   
+                    Cập nhật thông tin{" "}
                   </button>
                 </div>
               </div>
@@ -269,62 +385,21 @@ export default function UserDashBoard() {
             </div>
 
             <div className="main-content-schedule" id="content_schedule_play">
-              <div className="content-header-user">
-                <div className="title">
-                  <h2> Lịch tập của {element.name} </h2>
-                </div>
 
-                <div className="explain-title">
-                  <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
-                </div>
 
-                <hr className="red-line" />
-              </div>
-
+              <UserSchedule />     
               <div className="content-user">
+                
                 <div className="box-user">
                   <div className="box-body-user">
-                    <table border="1" className="table-content-user">
-                      <thread>
-                        <tr>
-                          <th className="column"> Mã khách hàng </th>
-                          <th className="column"> Buổi </th>
-                          <th className="column"> Thứ </th>
-                          <th className="column"> Thời gian </th>
-                          <th className="column"> Môn tập </th>
-                          <th className="column"> Huấn luyện viên </th>
-                        </tr>
-                        <tr>
-                          <th className="co">{element.ID_user} </th>
-                          <th className="co"> 1</th>
-                          <th className="co"> 5</th>
-                          <th className="co"> 8:00 - 10:00 </th>
-                          <th className="co"> Yoga </th>
-                          <th className="co"> Bùi Thị Phương </th>
-                        </tr>
-                        <tr>
-                          <th className="co"> {element.ID_user} </th>
-                          <th className="co"> 2</th>
-                          <th className="co"> 7</th>
-                          <th className="co"> 15:00 - 17:00 </th>
-                          <th className="co"> Yoga </th>
-                          <th className="co"> Bùi Thị Phương </th>
-                        </tr>
-                      </thread>
-                    </table>
+                    
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        );
-      })}
-
-
-
-      {/* UserSchedule là component chứa lịch user ae thêm option xem lịch nhá, e đang chắp vá tạm xuống dưới vì méo thêm được */}
-      <UserSchedule />
-
+        
+      )
     </div>
   );
 }

@@ -30,6 +30,7 @@ import CoachDashboard from "../../pages/dashboard/CoachDashBoard";
 import s from "./Layout.module.scss";
 import CoachCustomers from "../../pages/Coach-customer/CrmCustomer";
 import Blog from "../../pages/blog/Blog";
+import UserProfileForCoach from "../../Old_Code/user/userPages/userProfileForCoach";
 
 import { useHistory } from "react-router";
 
@@ -60,6 +61,7 @@ const CoachLayout = (props) => {
             <Route path="/coach/dashboard" exact component={CoachDashboard} />
             <Route path="/coach/customers" exact component={CoachCustomers} />
             <Route path="/coach/schedule" exact component={CoachSchedule} />
+            <Route path="/coach/customers/:id" exact component={UserProfileForCoach}/>
             <Route path="*" exact render={() => <Redirect to="/error" />} />
             
           </Switch>

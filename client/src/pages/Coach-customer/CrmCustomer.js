@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useHistory } from "react-router";
 import "./style/style.css";
 import {
   Col,
@@ -33,6 +34,7 @@ import { customers, data, changeData } from "./data/customer.js";
 import { element } from "prop-types";
 import EditForm from "./EditForm";
 import { getCustomerList, deleteCustomerById, createUser } from "./api/api";
+
 const CoachCustomers = function () {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [firstTable, setFirstTable] = useState(data);
@@ -54,6 +56,7 @@ const CoachCustomers = function () {
       }
     }
   }, []);
+  let History = useHistory()
   const [secondTable] = useState(mock.secondTable);
   const [transactions, setTransactions] = useState(mock.transactionsWidget);
   const [tasks, setTasks] = useState(mock.tasksWidget);
@@ -278,7 +281,11 @@ const CoachCustomers = function () {
                                 <i
                                   className="fa fa-edit"
                                   style={{ marginRight: "10px" }}
-                                  onClick={() => {}}
+                                  onClick={() => {
+                                    History.push(
+                                      "/coach/customers/"+item._id
+                                    )
+                                  }}
                                 ></i>
                                 {/* <i
                                   className="fa fa-trash hover-button"
