@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 export default function UserDashBoard() {
   const [userInfo, setUserInfo] = useState({
     _id: "61e1ad339fef242d81511b98",
-    name: "Lê Thiên Chúc",
+    name: "Lê Thiên",
     username: "user03",
     phone: "0169925628",
     password:
@@ -31,15 +31,17 @@ export default function UserDashBoard() {
     aim: "Trống",
     __v: 0,
   });
-   const { id } = useParams();
   useEffect(() => {
     axios({
       method: "get",
-      url: BackEndBaseURL + "/api/users/" + id,
+      url: BackEndBaseURL + "/api/users/",
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
     }).then((res) => {
+      console.log(res)
       if (res.status == 200 || res.status == true) {
         setUserInfo(res.data.result);
-        
       }
     });
   
@@ -50,7 +52,7 @@ export default function UserDashBoard() {
 
     axios({
       method: "PUT",
-      url: BackEndBaseURL + "/api/users/" + id,
+      url: BackEndBaseURL + "/api/users/",
       data: userInfoCopy,
     })
       .then((res) => {
@@ -239,7 +241,7 @@ export default function UserDashBoard() {
               <Link
                 to="/user/home"
                 onClick={() => {
-                  localStorage.removeItem("accessToken");
+                  localStorage.clear();
                 }}
               >
                 YES{" "}

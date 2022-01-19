@@ -13,24 +13,16 @@ function Header() {
   const [loggedIn, setLoggedIn] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("accessToken") !== null) {
-      axios({
-        method: "get",
-        url: "http://localhost:5000/api/users/6190c6fbb62fa29cba2b1322/my_info",
-        headers: {
-          authorization: "Bearer " + localStorage.getItem("accessToken"),
-        },
-      })
-        .then((res) => {
-          if (res.status == 200) {
-            setLoggedIn(true);
-            console.log(res.data.result.name);
-          }
-        })
-        .catch((err) => {
-          console.log("failed author");
-        });
+      if(localStorage.getItem("user")!==null){
+        axios.defaults.headers = {
+          authorization:"Bearer " + localStorage.getItem("accessToken"),
+        };
+        history.push("/user/dashboard");
+      }
     }
   }, []);
+  
+  
   const fLogin = async () => {
 
       axios({
@@ -44,12 +36,14 @@ function Header() {
         .then((res) => {
           if (res.status == 200) {
             localStorage.setItem("accessToken", res.data.result);
+            console.log(res);
+            localStorage.setItem("user","00");
             
-            if (localStorage.getItem("accessToken") !== null) {
-              axios.defaults.headers={
-                authorization:"Bearer " + localStorage.getItem("accessToken"),
-              }
+            axios.defaults.headers={
+              authorization:"Bearer " + localStorage.getItem("accessToken"),
             }
+            
+
 
             history.push("/user/dashboard");
           }

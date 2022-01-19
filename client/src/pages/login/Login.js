@@ -31,7 +31,6 @@ import { Notification2 } from "../../components/Notification/Notification";
 import axios from "axios";
 import { BackEndBaseURL } from "../../app/backend";
 const Login = (props) => {
-  
   let history = useHistory();
 
   const [state, setState] = useState({
@@ -49,18 +48,16 @@ const Login = (props) => {
   };
   const [isHlv, setIsHlv] = useState("false");
 
-
   useEffect(() => {
-    if (localStorage.getItem("accessToken") !==null) {
-      if(localStorage.getItem("admin")!==null){
+    if (localStorage.getItem("accessToken") !== null) {
+      if (localStorage.getItem("admin") !== null) {
         history.push("/admin/dashboard");
       }
-      if(localStorage.getItem("coach")!==null){
+      if (localStorage.getItem("coach") !== null) {
         history.push("/coach/dashboard");
       }
     }
   }, []);
-
 
   return (
     <div className="auth-page">
@@ -113,8 +110,12 @@ const Login = (props) => {
                     placeholder="Password"
                   />
                 </FormGroup>
-                <div className="bg-widget d-flex justify-content-left" style={{height:"20px"}}>
-                  <input style={{height:"20px"}}
+                <div
+                  className="bg-widget d-flex justify-content-left"
+                  style={{ height: "20px" }}
+                >
+                  <input
+                    style={{ height: "20px" }}
                     type="checkbox"
                     value={isHlv}
                     onChange={(e) => {
@@ -125,7 +126,17 @@ const Login = (props) => {
                       }
                     }}
                   />
-                  <label style={{fontSize:"13px", marginLeft:"10px", marginBottom:"0px"}} for="vehicle1"> Tôi là Huấn luyện viên</label>
+                  <label
+                    style={{
+                      fontSize: "13px",
+                      marginLeft: "10px",
+                      marginBottom: "0px",
+                    }}
+                    for="vehicle1"
+                  >
+                    {" "}
+                    Tôi là Huấn luyện viên
+                  </label>
                 </div>
                 <div className="bg-widget d-flex justify-content-center">
                   <Button
@@ -140,18 +151,18 @@ const Login = (props) => {
                         };
                         var result = await CoachLoginApi(info);
                         if (result == true) {
-                          localStorage.setItem("coach","00");
+                          localStorage.setItem("coach", "00");
                           // window.open(
-                            //   "http://localhost:3000/coach/dashboard",
-                            //   "_self"
-                            // );
-                            if (localStorage.getItem("accessToken") !== null) {
-                              axios.defaults.headers = {
-                                authorization:
+                          //   "http://localhost:3000/coach/dashboard",
+                          //   "_self"
+                          // );
+                          if (localStorage.getItem("accessToken") !== null) {
+                            axios.defaults.headers = {
+                              authorization:
                                 "Bearer " + localStorage.getItem("accessToken"),
-                              };
-                            }
-                            history.push("/coach/dashboard");
+                            };
+                          }
+                          history.push("/coach/dashboard");
                         } else {
                           const notificationTypes = ["success", "error"];
                           var mes = "Sai thông tin đăng nhập";
@@ -181,7 +192,7 @@ const Login = (props) => {
                           if (localStorage.getItem("accessToken") !== null) {
                             axios.defaults.headers = {
                               authorization:
-                              "Bearer " + localStorage.getItem("accessToken"),
+                                "Bearer " + localStorage.getItem("accessToken"),
                             };
                           }
                           history.push("/admin/dashboard");
