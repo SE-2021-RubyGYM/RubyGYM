@@ -17,20 +17,22 @@ export default function UserDashBoard() {
     let history= useHistory();
 
   const [userInfo, setUserInfo] = useState({
-    _id: 'Đang tải',
-    name: 'Đang tải',
-    username: 'Đang tải',
-    phone: 'Đang tải',
-    password: 'Đang tải',
-    birthDay: 'Đang tải',
-    gender: 'Đang tải',
-    coach: 'Đang tải',
-    referralCode: 'Đang tải',
-    assessment: 'Trống',
-    height: 'Đang tải',
-    weight: 'Đang tải',
-    paymentDay: 'Đang tải',
-    aim: 'Trống',
+    _id: "Đang tải",
+    name: "Đang tải",
+    username: "Đang tải",
+    phone: "Đang tải",
+    password:
+      "Đang tải",
+    birthDay: "Đang tải",
+    gender: "Đang tải",
+    coach: "Đang tải",
+    referralCode: "Đang tải",
+    assessment: "Trống",
+    height: "Đang tải",
+    weight: "Đang tải",
+    paymentDay: "Đang tải",
+    aim: "Trống",
+    createAt : new Date(),
     __v: 0,
   });
   useEffect(() => {
@@ -50,13 +52,31 @@ export default function UserDashBoard() {
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('accessToken'),
       },
+<<<<<<< HEAD
     }).then((res) => {
       if (res.status == 200 || res.status == true) {
         setUserInfo(res.data.result);
+=======
+    }).then(res=>{
+      if(res.status==200||res.status==true){
+        var result=res.data.result;
+        result.createAt=new Date(result.createAt)      
+        setUserInfo(result);        
+>>>>>>> 1ea9eb43f09661e734ef9e043193d6d5c0188301
       }
     });
   }, []);
+<<<<<<< HEAD
   const handleSubmit = () => {
+=======
+
+var rank = ()=>{
+  if(Date.now()-userInfo.createAt.getTime() > 1*365*24*60*60) return "Thân thiết";
+  else return "Phổ thông";
+}
+
+   const handleSubmit = () => {
+>>>>>>> 1ea9eb43f09661e734ef9e043193d6d5c0188301
     var userInfoCopy = { ...userInfo };
 
     axios({
@@ -367,6 +387,7 @@ export default function UserDashBoard() {
                 </div>
               </div>
 
+<<<<<<< HEAD
               <div className="box-body-fix">
                 <div className="user-name">
                   {' '}
@@ -378,6 +399,109 @@ export default function UserDashBoard() {
 
                 <div className="user-name">
                   Hạn đăng kí: {userInfo.paymentDay}
+=======
+                    <div className="box-user-infor">
+                      <label>Họ và tên</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.name}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.name = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      
+                        {/* Số điện thoại: {userInfo.phone_number} */}
+                        <label>Số điện thoại:</label>
+                          <input
+                            type="text"
+                            placeholder="Đơn vị: cm"
+                            value={userInfo.phone}
+                            onChange={(e) => {
+                              var newUserInfo = { ...userInfo };
+                              newUserInfo.phone = e.target.value;
+                              setUserInfo(newUserInfo);
+                            }}
+                          />
+                      
+                     <label>Giới tính:</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.gender}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.gender = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      <label>Ngày sinh:</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={userInfo.birthDay}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.birthDay = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      {/* <div className="user-name">Email: {userInfo.mail}</div> */}
+                      <label>Chiều cao(cm):</label>
+                        <input
+                          type="text"
+                          placeholder="Đơn vị: cm"
+                          value={userInfo.height}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.height = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                        <label>Cân nặng(kg):</label>
+                        <input
+                          type="text"
+                          placeholder="Đơn vị: kg"
+                          value={userInfo.weight}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.weight = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                     
+                      <div className="user-name">
+                        {" "}
+                        Thành viên hạng: {rank()}
+                      </div>
+                      {/* <div className="user-name">
+                        Thời gian đăng kí: {userInfo.start}
+                      </div> */}
+                      <div className="user-name">
+                        Hạn đăng kí: {userInfo.paymentDay}
+                      </div>
+                      <div className="user-name">
+                        Đánh giá: {userInfo.assessment}
+                      </div>
+                        <div className="user-name">
+                          Mục tiêu:
+                        </div>
+                       <input
+                          type="text"
+                          placeholder="..."
+                          value={userInfo.aim}
+                          onChange={(e) => {
+                            var newUserInfo = { ...userInfo };
+                            newUserInfo.aim = e.target.value;
+                            setUserInfo(newUserInfo);
+                          }}
+                        />
+                      
+                    </div>
+                  </div>
+>>>>>>> 1ea9eb43f09661e734ef9e043193d6d5c0188301
                 </div>
               </div>
               <div className="box-body-fix">
