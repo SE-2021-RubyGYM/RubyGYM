@@ -146,8 +146,6 @@ module.exports = {
           result: null,
         });
 
-      // All good
-      // Return token
       const accessToken = jwt.sign(
         { userId: user._id },
         process.env.ACCESS_TOKEN_SECRET
