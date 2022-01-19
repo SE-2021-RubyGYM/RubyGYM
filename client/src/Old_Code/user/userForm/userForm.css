@@ -90,7 +90,6 @@
 .box-body-user .user_image {
   margin-top: 25px;
   margin-right: 5%;
- 
 }
 .user_image .image-user {
   box-sizing: border-box;
@@ -106,11 +105,7 @@
   flex-wrap: wrap;
   margin-top: 25px;
 }
-<<<<<<< HEAD
-.box-user .box-body-fix{
-=======
 .box-user .box-body-fix {
->>>>>>> origin/newUi
   box-sizing: border-box;
   display: flex;
   padding: 10px;
@@ -118,29 +113,17 @@
   margin-right: 5%;
   margin-left: 5%;
 }
-<<<<<<< HEAD
-.box-body-fix input{
-=======
 .box-body-fix input {
->>>>>>> origin/newUi
   margin-left: 5px;
   font-size: 16px;
   width: 220px;
 }
-<<<<<<< HEAD
-.box-body-fix select{
-=======
 .box-body-fix select {
->>>>>>> origin/newUi
   margin-left: 5px;
   font-size: 16px;
   width: 80px;
 }
 .box-body-fix .user-name {
-<<<<<<< HEAD
- 
-=======
->>>>>>> origin/newUi
   margin-right: 6%;
   font-family: Roboto, sans-serif;
   font-size: 15px;
@@ -148,7 +131,6 @@
   line-height: 28.8px;
   text-align: center;
   color: black;
-  
 }
 
 .content-chinh-user .main-content-schedule {
@@ -247,7 +229,6 @@ hr {
   width: 94%;
   margin-right: 3%;
   margin-left: 3%;
-  
 }
 
 .box-body-user .table-content-user {

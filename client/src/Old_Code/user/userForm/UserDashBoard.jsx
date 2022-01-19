@@ -196,16 +196,11 @@ export default function UserDashBoard() {
 
           <div className="top-navbar">
             <div className="navbar-custom-menu">
-<<<<<<< HEAD
-              <div className="navbar-icon news" onClick={() => click_ttsk(true)}>
-                {" "}
-=======
               <div
                 className="navbar-icon news"
                 onClick={() => click_ttsk(true)}
               >
                 {' '}
->>>>>>> origin/newUi
                 TIN TỨC & SỰ KIỆN
                 <hr className="white-line" id="hr_play3" />{' '}
               </div>
@@ -262,19 +257,6 @@ export default function UserDashBoard() {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-
-      <div className="content-chinh-user">
-        <div className="main-content1-user" id="main_content_play">
-
-          <div className="content-header-user">
-            <div className="title">
-                <h2> Thông tin cá nhân của {userInfo.name} </h2>
-            </div>
-
-            <div className="explain-title">
-                <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
-=======
       <div className="content-chinh-user">
         <div className="main-content1-user" id="main_content_play">
           <div className="content-header-user">
@@ -284,7 +266,6 @@ export default function UserDashBoard() {
 
             <div className="explain-title">
               <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
->>>>>>> origin/newUi
             </div>
             <hr className="red-line" />
           </div>
@@ -311,25 +292,6 @@ export default function UserDashBoard() {
                       setUserInfo(newUserInfo);
                     }}
                   />
-<<<<<<< HEAD
-                          
-                 
-                  <label>Giới tính:</label>
-                    <select>
-                              type="text"
-                              placeholder=""
-                              value={userInfo.gender}
-                              onChange={(e) => {
-                                var newUserInfo = { ...userInfo };
-                                newUserInfo.gender = e.target.value;
-                                setUserInfo(newUserInfo);
-                              }}
-                            >
-                              <option value = 'Male'> Nam</option>
-                              <option value = 'Female'> Nữ</option>                             
-                    </select>
-                              
-=======
 
                   <label>Giới tính:</label>
                   <select
@@ -343,114 +305,9 @@ export default function UserDashBoard() {
                     ><option value="Male"> Nam</option>
                     <option value="Female"> Nữ</option>
                   </select>
->>>>>>> origin/newUi
                 </div>
               </div>
-              
-                
-                <div className = "box-body-fix">
-                <div className="user-name">
-                <label>Ngày sinh:</label>
-                  <input
-                    type="text"
-                    placeholder="yy/mm/dd"
-                    value={userInfo.birthDay}
-                    onChange={(e) => {
-                      var newUserInfo = { ...userInfo };
-                      newUserInfo.birthDay = e.target.value;
-                      setUserInfo(newUserInfo);
-                    }}
-                  />    
-                  </div>
 
-<<<<<<< HEAD
-                  <div className="user-name">
-                  <label>Số điện thoại:</label>
-                          <input
-                            type="text"
-                            placeholder="Nhập số điện thoại của bạn"
-                            value={userInfo.phone}
-                            onChange={(e) => {
-                              var newUserInfo = { ...userInfo };
-                              newUserInfo.phone = e.target.value;
-                              setUserInfo(newUserInfo);
-                            }}
-                          />
-                  </div>
-
-                 
-
-                  </div>
-                  <div className = "box-body-fix">
-
-                  <div className="user-name">
-                  <label>Chiều cao hiện tại (cm):</label>
-                        <input
-                          type="text"
-                          placeholder="Đơn vị: cm"
-                          value={userInfo.height}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.height = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                  </div>   
-
-                  <div className="user-name">   
-                  <label>Cân nặng hiện tại (kg):</label>
-                        <input
-                          type="text"
-                          placeholder="Đơn vị: kg"
-                          value={userInfo.weight}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.weight = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                  </div>
-                </div>
-
-                <div className = "box-body-fix">
-                  <div className="user-name">
-                        {" "}
-                        Thành viên hạng: {userInfo.rank}
-                  </div>
-                      {/* <div className="user-name">
-                        Thời gian đăng kí: {userInfo.start}
-                      </div> */}
-                  
-                  <div className="user-name">
-                        Hạn đăng kí: {userInfo.paymentDay}
-                  </div>
-                </div>
-                <div className = "box-body-fix">
-                  
-                  <div className="user-name">
-                        Đánh giá: {userInfo.assessment}
-                  </div>
-                </div>
-
-                <div className = "box-body-fix">
-                  <div className="user-name">
-                         Đặt mục tiêu luyện tập:
-                  
-                       <input
-                          type="text"
-                          placeholder="..."
-                          value={userInfo.aim}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.aim = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                  </div>    
-                </div>
-              
-            </div>
-=======
               <div className="box-body-fix">
                 <div className="user-name">
                   <label>Ngày sinh:</label>
@@ -526,7 +383,6 @@ export default function UserDashBoard() {
               <div className="box-body-fix">
                 <div className="user-name">Đánh giá: {userInfo.assessment}</div>
               </div>
->>>>>>> origin/newUi
 
               <div className="box-body-fix">
                 <div className="user-name">
@@ -574,9 +430,4 @@ export default function UserDashBoard() {
       )
     </div>
   );
-<<<<<<< HEAD
 }
-  
-=======
-}
->>>>>>> origin/newUi
