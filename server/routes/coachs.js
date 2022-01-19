@@ -13,6 +13,7 @@ const {
   getMyInfos,
   verifyCoach,
   login,
+  verifyCoachMe
 } = require("../controllers/coachs");
 const verifyToken = require("../middlewares/authentication");
 
@@ -20,7 +21,7 @@ const verifyToken = require("../middlewares/authentication");
 // @desc Check if coach is logged in
 // @access Public
 router.get("/auth", verifyToken, verifyCoach, async (req, res) => {
-  await verifyCoach(req, res);
+  await verifyCoachMe(req, res);
 });
 
 // @route POST api/coachs/login

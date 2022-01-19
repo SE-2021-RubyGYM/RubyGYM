@@ -17,7 +17,6 @@ function Header() {
         axios.defaults.headers = {
           authorization:"Bearer " + localStorage.getItem("accessToken"),
         };
-        history.push("/user/dashboard");
       }
     }
   }, []);
