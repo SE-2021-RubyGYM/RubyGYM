@@ -1,5 +1,5 @@
 .body_user_ui {
-  height:100%;
+  height: 100%;
 }
 .body_user_ui .main-header_user {
   box-sizing: border-box;
@@ -83,7 +83,7 @@
 .content-chinh-user .main-content1-user {
   box-sizing: border-box;
   display: block;
-  margin-top:100px;
+  margin-top: 100px;
   height: 100%;
   width: 100%;
 }
@@ -106,7 +106,11 @@
   flex-wrap: wrap;
   margin-top: 25px;
 }
+<<<<<<< HEAD
 .box-user .box-body-fix{
+=======
+.box-user .box-body-fix {
+>>>>>>> origin/newUi
   box-sizing: border-box;
   display: flex;
   padding: 10px;
@@ -114,18 +118,29 @@
   margin-right: 5%;
   margin-left: 5%;
 }
+<<<<<<< HEAD
 .box-body-fix input{
+=======
+.box-body-fix input {
+>>>>>>> origin/newUi
   margin-left: 5px;
   font-size: 16px;
   width: 220px;
 }
+<<<<<<< HEAD
 .box-body-fix select{
+=======
+.box-body-fix select {
+>>>>>>> origin/newUi
   margin-left: 5px;
   font-size: 16px;
   width: 80px;
 }
 .box-body-fix .user-name {
+<<<<<<< HEAD
  
+=======
+>>>>>>> origin/newUi
   margin-right: 6%;
   font-family: Roboto, sans-serif;
   font-size: 15px;
@@ -301,7 +316,7 @@ hr {
 .container_box_user .container2 .login-user {
   text-align: center;
   font-weight: bold;
-  font-family: "Aerial", sans-serif;
+  font-family: 'Aerial', sans-serif;
   color: rgb(24, 95, 156);
 }
 
@@ -309,7 +324,6 @@ hr {
   display: flex;
 }
 .btn-user {
- 
   display: block;
   padding: 10px;
   border-radius: 30px;
