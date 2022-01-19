@@ -90,11 +90,12 @@
 .box-body-user .user_image {
   margin-top: 25px;
   margin-right: 5%;
+ 
 }
 .user_image .image-user {
   box-sizing: border-box;
-  width: 280px;
-  height: 210px;
+  width: 213px;
+  height: 170px;
 }
 .box-body-user .box-user-infor {
   float: left;
@@ -105,15 +106,34 @@
   flex-wrap: wrap;
   margin-top: 25px;
 }
-.box-body-user .user-name {
-  margin-top: 2%;
+.box-user .box-body-fix{
+  box-sizing: border-box;
+  display: flex;
+  padding: 10px;
+  width: 90%;
   margin-right: 5%;
+  margin-left: 5%;
+}
+.box-body-fix input{
+  margin-left: 5px;
+  font-size: 16px;
+  width: 220px;
+}
+.box-body-fix select{
+  margin-left: 5px;
+  font-size: 16px;
+  width: 80px;
+}
+.box-body-fix .user-name {
+ 
+  margin-right: 6%;
   font-family: Roboto, sans-serif;
-  font-size: 21px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 28.8px;
   text-align: center;
   color: black;
+  
 }
 
 .content-chinh-user .main-content-schedule {
@@ -212,6 +232,7 @@ hr {
   width: 94%;
   margin-right: 3%;
   margin-left: 3%;
+  
 }
 
 .box-body-user .table-content-user {

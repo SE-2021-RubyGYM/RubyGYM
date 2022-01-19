@@ -145,7 +145,7 @@ const UserProfile = function () {
         <div className="gnanT_main-content" id="main_content_play">
           <div className="gnanT_content-header">
             <div className="gnanT_title">
-              <h2> Thông tin chi tiết khách hàng {userInfo.name} </h2>
+              <h2> Thông tin chi tiết của khách hàng {userInfo.name} </h2>
             </div>
             <hr className="gnanT_red-line" />
           </div>
@@ -177,36 +177,24 @@ const UserProfile = function () {
                     Ngày sinh: {userInfo.birthDay}
                   </div>
                   <div className="gnanT_user-name"> Thành viên hạng: Bạc</div>
-                </div>
-              </div>
-
-              <div className="gnanT_box-body-fix">
-                {/* <div className="gnanT_user-name"> Thời gian đăng kí</div> */}
-                <div className="gnanT_user-name">
-                  <label> Thời gian gia hạn </label>
-                  <DatePicker
-                    selected={datePicker}
-                    onChange={(e) => {
-                      setDatePicker(e);
-                    }}
-                  />
-                </div>
-                <div className="gnanT_user-name">
+                  <div className="gnanT_user-name">
                   <label>
                     {" "}
-                    Huấn luyện viên:
+                    Huấn luyện viên: 
                     {coachs.map((e) => {
-                      if (e._id == userInfo.coach) {
+                      if (e._id ==  userInfo.coach) {
                         return e.name;
                       }
                     })}
                   </label>
                 </div>
+                 
+                </div>
               </div>
-
-              <div className="gnanT_box-body-fix">
+              <div className="gnanT_box-body-fix1">
+              
                 <div className="gnanT_user-name">
-                  <label>Chiều cao(cm):</label>
+                  <label>Chiều cao hiện tại (cm):</label>
                   <input
                     type="text"
                     placeholder="Đơn vị: cm"
@@ -219,7 +207,7 @@ const UserProfile = function () {
                   />
                 </div>
                 <div className="gnanT_user-name">
-                  <label>Cân nặng(kg):</label>
+                  <label>Cân nặng hiện tại (kg):</label>
                   <input
                     type="text"
                     placeholder="Đơn vị: kg"
@@ -231,7 +219,7 @@ const UserProfile = function () {
                     }}
                   />
                 </div>
-                <div className="gnanT_user-name">
+                <div className="gnanT_user-name bmi-user">
                   <label>
                     Chỉ số BMI:
                     {Math.round(
@@ -241,7 +229,51 @@ const UserProfile = function () {
                     )}
                   </label>
                 </div>
+                
               </div>
+
+              <div className="gnanT_box-body-fix2">
+                {/* <div className="gnanT_user-name"> Thời gian đăng kí</div> */}
+                <div className="gnanT_user-name">
+                  <label> Đã đóng phí: </label>
+                  <select>
+                              type="text"
+                              placeholder=""
+                              {/*value={userInfo.fee}
+                              onChange={(e) => {
+                                var newUserInfo = { ...userInfo };
+                                newUserInfo.gender = e.target.value;
+                                setUserInfo(newUserInfo);
+                              }}*/}
+                            >
+                              <option value = 'None'> Chưa đóng phí</option>
+                              <option value = '3months'> 3 tháng</option>
+                              <option value = '6months'> 6 tháng</option>
+                              <option value = '9months'> 9 tháng</option>
+                              <option value = '12months'> 12 tháng</option>                             
+                    </select>
+                </div>
+                <div className="gnanT_user-name">
+                  <label>  Số lượt chia sẻ mã ID </label>     
+                  <input
+                    type="text"
+                    placeholder=""
+                    
+                  />
+                </div>
+                <div className="gnanT_user-name">
+                  <label> Thời gian gia hạn </label>
+                  <DatePicker
+                    selected={datePicker}
+                    onChange={(e) => {
+                      setDatePicker(e);
+                    }}
+                  />
+                </div>
+                
+              </div>
+
+             
             </div>
             <div className="gnanT_text-center">
               <button

@@ -184,19 +184,12 @@ export default function UserDashBoard() {
       <div className="main-header_user">
         <nav>
           <a href="">
-            <img
-              src={element.image}
-              className="logo"
-            />
+            <img src={element.image} className="logo" />
           </a>
 
           <div className="top-navbar">
             <div className="navbar-custom-menu">
-             
-              <div
-                className="navbar-icon news"
-                onClick={() => click_ttsk(true)}
-              >
+              <div className="navbar-icon news" onClick={() => click_ttsk(true)}>
                 {" "}
                 TIN TỨC & SỰ KIỆN
                 <hr className="white-line" id="hr_play3" />{" "}
@@ -239,7 +232,6 @@ export default function UserDashBoard() {
       <div className="container_box_user" id="log_out_play">
         <div className="container2">
           <h1 className="login-user">Bạn muốn đăng xuất?</h1>
-
           <div className="kaka">
               <Link style={{width:"50%"}}
                 to="/user/home"
@@ -259,47 +251,84 @@ export default function UserDashBoard() {
           </div>
         </div>
       </div>
-          <div className="content-chinh-user">
-            <div className="main-content1-user" id="main_content_play">
-              <div className="content-header-user">
-                <div className="title">
-                  <h2> Thông tin cá nhân của {userInfo.name} </h2>
+
+      <div className="content-chinh-user">
+        <div className="main-content1-user" id="main_content_play">
+
+          <div className="content-header-user">
+            <div className="title">
+                <h2> Thông tin cá nhân của {userInfo.name} </h2>
+            </div>
+
+            <div className="explain-title">
+                <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
+            </div>
+            <hr className="red-line" />
+          </div>
+
+          <div className="content-user">
+            <div className="box-user">
+              <div className="box-body-user">
+                <div className="user_image">
+                  <img
+                    src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
+                    className="image-user"
+                  />
                 </div>
 
-                <div className="explain-title">
-                  <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
+                <div className="box-user-infor">
+                  <label>Họ và tên</label>
+                  <input
+                    type="text"
+                    placeholder=""
+                    value={userInfo.name}
+                    onChange={(e) => {
+                      var newUserInfo = { ...userInfo };
+                      newUserInfo.name = e.target.value;
+                      setUserInfo(newUserInfo);
+                    }}
+                  />
+                          
+                 
+                  <label>Giới tính:</label>
+                    <select>
+                              type="text"
+                              placeholder=""
+                              value={userInfo.gender}
+                              onChange={(e) => {
+                                var newUserInfo = { ...userInfo };
+                                newUserInfo.gender = e.target.value;
+                                setUserInfo(newUserInfo);
+                              }}
+                            >
+                              <option value = 'Male'> Nam</option>
+                              <option value = 'Female'> Nữ</option>                             
+                    </select>
+                              
                 </div>
-                <hr className="red-line" />
               </div>
+              
+                
+                <div className = "box-body-fix">
+                <div className="user-name">
+                <label>Ngày sinh:</label>
+                  <input
+                    type="text"
+                    placeholder="yy/mm/dd"
+                    value={userInfo.birthDay}
+                    onChange={(e) => {
+                      var newUserInfo = { ...userInfo };
+                      newUserInfo.birthDay = e.target.value;
+                      setUserInfo(newUserInfo);
+                    }}
+                  />    
+                  </div>
 
-              <div className="content-user">
-                <div className="box-user">
-                  <div className="box-body-user">
-                    <div className="user_image">
-                      <img
-                        src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
-                        className="image-user"
-                      />
-                    </div>
-
-                    <div className="box-user-infor">
-                      <label>Họ và tên</label>
-                        <input
-                          type="text"
-                          placeholder=""
-                          value={userInfo.name}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.name = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                      
-                        {/* Số điện thoại: {userInfo.phone_number} */}
-                        <label>Số điện thoại:</label>
+                  <div className="user-name">
+                  <label>Số điện thoại:</label>
                           <input
                             type="text"
-                            placeholder="Đơn vị: cm"
+                            placeholder="Nhập số điện thoại của bạn"
                             value={userInfo.phone}
                             onChange={(e) => {
                               var newUserInfo = { ...userInfo };
@@ -307,31 +336,15 @@ export default function UserDashBoard() {
                               setUserInfo(newUserInfo);
                             }}
                           />
-                      
-                     <label>Giới tính:</label>
-                        <input
-                          type="text"
-                          placeholder=""
-                          value={userInfo.gender}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.gender = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                      <label>Ngày sinh:</label>
-                        <input
-                          type="text"
-                          placeholder=""
-                          value={userInfo.birthDay}
-                          onChange={(e) => {
-                            var newUserInfo = { ...userInfo };
-                            newUserInfo.birthDay = e.target.value;
-                            setUserInfo(newUserInfo);
-                          }}
-                        />
-                      {/* <div className="user-name">Email: {userInfo.mail}</div> */}
-                      <label>Chiều cao(cm):</label>
+                  </div>
+
+                 
+
+                  </div>
+                  <div className = "box-body-fix">
+
+                  <div className="user-name">
+                  <label>Chiều cao hiện tại (cm):</label>
                         <input
                           type="text"
                           placeholder="Đơn vị: cm"
@@ -342,7 +355,10 @@ export default function UserDashBoard() {
                             setUserInfo(newUserInfo);
                           }}
                         />
-                        <label>Cân nặng(kg):</label>
+                  </div>   
+
+                  <div className="user-name">   
+                  <label>Cân nặng hiện tại (kg):</label>
                         <input
                           type="text"
                           placeholder="Đơn vị: kg"
@@ -353,23 +369,33 @@ export default function UserDashBoard() {
                             setUserInfo(newUserInfo);
                           }}
                         />
-                     
-                      <div className="user-name">
+                  </div>
+                </div>
+
+                <div className = "box-body-fix">
+                  <div className="user-name">
                         {" "}
                         Thành viên hạng: {userInfo.rank}
-                      </div>
+                  </div>
                       {/* <div className="user-name">
                         Thời gian đăng kí: {userInfo.start}
                       </div> */}
-                      <div className="user-name">
+                  
+                  <div className="user-name">
                         Hạn đăng kí: {userInfo.paymentDay}
-                      </div>
-                      <div className="user-name">
+                  </div>
+                </div>
+                <div className = "box-body-fix">
+                  
+                  <div className="user-name">
                         Đánh giá: {userInfo.assessment}
-                      </div>
-                        <div className="user-name">
-                          Mục tiêu:{userInfo.aim}
-                        </div>
+                  </div>
+                </div>
+
+                <div className = "box-body-fix">
+                  <div className="user-name">
+                         Đặt mục tiêu luyện tập:
+                  
                        <input
                           type="text"
                           placeholder="..."
@@ -380,10 +406,10 @@ export default function UserDashBoard() {
                             setUserInfo(newUserInfo);
                           }}
                         />
-                      
-                    </div>
-                  </div>
+                  </div>    
                 </div>
+              
+            </div>
 
                 <div className="change-infor-user">
                   <button
@@ -421,3 +447,4 @@ export default function UserDashBoard() {
     </div>
   );
 }
+  
