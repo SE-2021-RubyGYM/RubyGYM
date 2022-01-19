@@ -9,6 +9,7 @@ import { element } from "prop-types";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { BackEndBaseURL } from "../../../app/backend";
+import { submitAssessment, getCustomerList } from "../../../pages/Coach-customer/api/api";
 import {
   Col,
   Row,
@@ -73,25 +74,9 @@ const UserProfileForCoach = function () {
   
   }, []);
 
-const [assessment, SetAssessment]= useState()
 
-function SubmitAssessment(){
- axios({
-      method : "put",
-      url : BackEndBaseURL +"/api/users"+ id+"/assess",
-      data: assessment ,
-      
-    }).then((res) => {
-      console.log(res);
-      if (res.status == 200 || res.status == true) {
-        return true;
-      } else {
-        return false;
-      }
-    }).catch((e) => {
-      return false;
-    });
-  }
+var assessment= document.getElementById("subject")
+
   return (
     <div className="gnanT_all">
       <div className="gnanT_content-chinh">
@@ -220,11 +205,19 @@ function SubmitAssessment(){
           </div>
 
           <div className="row">
-            <input type="submit" value="Gửi đánh giá"
-            // onClick={()=>{
-            //   SubmitAssessment();
-            // }} 
-            />
+            {/* <input type="submit" value="Gửi đánh giá"
+            onClick={()=>{
+              submitAssessment(id,"thanh cong");
+            }} 
+            /> */}
+            <Button onClick={()=>{
+              
+              submitAssessment(id,"thanhcong");
+              // getCustomerList(id);
+             
+            }}>
+              Gửi đánh giá
+            </Button>
           </div>
         </form>
       </div>

@@ -18,7 +18,9 @@ export async function getCustomerList(id) {
         //   }
         // }
         // return rs;
+        console.log("thanh cong")
         return res.data.result;
+        
       } else {
         return null;
       }
@@ -49,21 +51,28 @@ export async function getCustomerList(id) {
 //   return result;
 // };
 
-// export const createUser = async (user) => {
-//   var result = await axios({
-//     method: "POST",
-//     url: BackEndBaseURL + "/api/users",
-//     data: user,
-//   })
-//     .then((res) => {
-//       if (res.status == 200 || res.status == true) {
-//         return true;
-//       } else {
-//         return false;
-//       }
-//     })
-//     .catch((e) => {
-//       return false;
-//     });
-//   return result;
-// };
+export const submitAssessment = async(id, assessment)=> {
+  
+  var result = await axios({
+    method: "PUT",
+    url: BackEndBaseURL + "/api/users/"+ id +"/assess",
+    data: assessment,
+     headers: {
+      authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+  })
+    .then((res) => {
+      if (res.status == 200 || res.status == true) {
+        console.log({assessment});
+        return true;
+      } else {
+        return false;
+      }
+      
+    })
+    .catch((e) => {
+      console.log(e);
+      return false;
+    });
+  return result;
+};
