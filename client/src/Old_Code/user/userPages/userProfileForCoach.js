@@ -204,17 +204,8 @@ var assessment= document.getElementById("subject")
           </div>
 
           <div className="row">
-            {/* <input type="submit" value="Gửi đánh giá"
-            onClick={()=>{
-              submitAssessment(id,"thanh cong");
-            }} 
-            /> */}
             <Button onClick={()=>{
-              
-              
               submitAssessment(id,userInfo);
-              // getCustomerList(id);
-             
             }}>
               Gửi đánh giá
             </Button>
