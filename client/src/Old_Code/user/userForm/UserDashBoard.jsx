@@ -29,7 +29,7 @@ export default function UserDashBoard() {
     weight: "Đang tải",
     paymentDay: "Đang tải",
     aim: "Trống",
-    
+    createAt : new Date(),
     __v: 0,
   });
   useEffect(() => {
@@ -41,12 +41,20 @@ export default function UserDashBoard() {
       },
     }).then(res=>{
       if(res.status==200||res.status==true){
-        setUserInfo(res.data.result);       
+        var result=res.data.result;
+        result.createAt=new Date(result.createAt)      
+        setUserInfo(result);        
       }
     })
     
   
   }, []);
+
+var rank = ()=>{
+  if(Date.now()-userInfo.createAt.getTime() > 1*365*24*60*60) return "Thân thiết";
+  else return "Phổ thông";
+}
+
    const handleSubmit = () => {
     var userInfoCopy = { ...userInfo };
    
@@ -356,7 +364,7 @@ export default function UserDashBoard() {
                      
                       <div className="user-name">
                         {" "}
-                        Thành viên hạng: {userInfo.rank}
+                        Thành viên hạng: {rank()}
                       </div>
                       {/* <div className="user-name">
                         Thời gian đăng kí: {userInfo.start}
@@ -368,7 +376,7 @@ export default function UserDashBoard() {
                         Đánh giá: {userInfo.assessment}
                       </div>
                         <div className="user-name">
-                          Mục tiêu:{userInfo.aim}
+                          Mục tiêu:
                         </div>
                        <input
                           type="text"
