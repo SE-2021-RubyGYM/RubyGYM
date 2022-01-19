@@ -241,17 +241,19 @@ export default function UserDashBoard() {
           <h1 className="login-user">Bạn muốn đăng xuất?</h1>
 
           <div className="kaka">
-            <button className="btn-user">
-              <Link
+              <Link style={{width:"50%"}}
                 to="/user/home"
                 onClick={() => {
                   localStorage.clear();
                 }}
               >
+            <button  className="btn-user">
+            
                 YES{" "}
-              </Link>
+            
             </button>
-            <button className="btn-user" onClick={() => click_log_out_no(true)}>
+              </Link>
+            <button  className="btn-user" onClick={() => click_log_out_no(true)}>
               NO
             </button>
           </div>
