@@ -45,6 +45,7 @@ module.exports = {
       assessment,
       height,
       weight,
+      // createAt=new Date(),
     } = req.body;
 
     if (!username || !password || !name || !phone) {
@@ -88,6 +89,7 @@ module.exports = {
         assessment,
         height,
         weight,
+        createAt : new Date(),
       });
       let err = newUser.validateSync();
       if (err) {
