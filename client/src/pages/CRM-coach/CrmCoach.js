@@ -208,8 +208,9 @@ const CrmCoachs = function () {
             <div className="filter__container">
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
+                style={{paddingLeft:"30px"}}
                 type="text"
-                placeholder=""
+                placeholder="Tìm kiếm huấn luyện viên, ví dụ: Tùng"
                 value={filter.name}
                 onChange={(e) => {
                   var newFilter = { ...filter };
