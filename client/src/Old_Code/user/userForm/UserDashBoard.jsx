@@ -33,6 +33,7 @@ export default function UserDashBoard() {
     aim: 'Trống',
     __v: 0,
      createAt: "2020-03-05T04:51:01.000Z",
+    image:"https://wallpapercave.com/wp/wp9414303.jpg"
   });
   useEffect(() => {
     if (localStorage.getItem("accessToken") !== null) {
@@ -287,7 +288,7 @@ export default function UserDashBoard() {
               <div className="box-body-user">
                 <div className="user_image">
                   <img
-                    src="https://wallpapercave.com/wp/wp9414303.jpg"
+                    src={userInfo.image}
                     className="image-user"
                     style={{marginLeft:"30px"}}
                   />
@@ -374,6 +375,19 @@ export default function UserDashBoard() {
                     onChange={(e) => {
                       var newUserInfo = { ...userInfo };
                       newUserInfo.weight = e.target.value;
+                      setUserInfo(newUserInfo);
+                    }}
+                  />
+                </div>
+                <div className="user-name">
+                  <label>Link hình ảnh:</label>
+                  <input
+                    type="text"
+                    placeholder="Link hình đại diện"
+                    value={userInfo.image}
+                    onChange={(e) => {
+                      var newUserInfo = { ...userInfo };
+                      newUserInfo.image= e.target.value;
                       setUserInfo(newUserInfo);
                     }}
                   />
