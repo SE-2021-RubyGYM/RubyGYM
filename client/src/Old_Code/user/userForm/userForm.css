@@ -300,6 +300,7 @@ hr {
   margin-right: 37%;
   border-radius: 15px;
   position: fixed;
+  z-index: 10;
   box-shadow: rgb(238, 182, 182) 0px 0px 0px 1px;
 }
 .container_box_user .container2 {
