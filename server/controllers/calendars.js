@@ -76,7 +76,7 @@ module.exports = {
     try {
       let deleted = await Calendar.deleteMany({coachId: coachId}, {session: session})
       for (const calendar of newCalendars) {
-        let { startTime, endTime, startTimezone, endTimezone, isAllDay, subject, userId, description, recurrenceRule, recurrenceID, recurrenceException, ID } =
+        let { startTime, endTime, startTimezone, endTimezone, isAllDay, subject, userId, description, recurrenceRule, recurrenceID, recurrenceException, ID, IsBlock } =
           calendar;
         if (!startTime || !endTime || (isAllDay == null) || !subject || !userId) {
           console.log("Missing information(s)");
@@ -105,7 +105,8 @@ module.exports = {
           recurrenceID,
           recurrenceException,
           ID,
-          coachId
+          coachId,
+          IsBlock
         });
         
         await tempCalendar.save({ session: session });

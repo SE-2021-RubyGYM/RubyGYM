@@ -100,7 +100,7 @@ module.exports = {
         });
       } else {
         await newUser.save();
-
+        
         return res.json({
           success: true,
           message: "API OK",

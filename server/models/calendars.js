@@ -49,6 +49,9 @@ const Calendars = new Schema({
   recurrenceException: {
     type: String
   },
+  IsBlock : {
+    type: Boolean
+  },
   createAt: {
     type: String,
     // default: Date.now
