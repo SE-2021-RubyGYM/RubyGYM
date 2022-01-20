@@ -253,18 +253,18 @@ const UserProfile = function () {
                     <option value={12}> 12 tháng</option>
                   </select>
                 </div>
-                <div className="gnanT_user-name">
-                  <label> Số lượt chia sẻ mã ID </label>
-                  <input type="text" placeholder="" />
-                </div>
+                
                 <div className="gnanT_user-name">
                   <label> Thời gian gia hạn </label>
-                  <DatePicker
+                  <div style={{display:"inline-block"}}>
+                  <DatePicker 
+                    
                     selected={datePicker}
                     onChange={(e) => {
                       setDatePicker(e);
                     }}
                   />
+                  </div>
                 </div>
               </div>
             </div>
