@@ -275,8 +275,9 @@ export default function UserDashBoard() {
               <div className="box-body-user">
                 <div className="user_image">
                   <img
-                    src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
+                    src="https://wallpapercave.com/wp/wp9414303.jpg"
                     className="image-user"
+                    style={{marginLeft:"30px"}}
                   />
                 </div>
 

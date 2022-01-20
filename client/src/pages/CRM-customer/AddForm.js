@@ -40,6 +40,7 @@ function AddForm(props) {
   const [coachList, setCoachList] = useState([]);
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
+  const [image, setUserImage] = useState("");
   useEffect(async () => {
     var data = await getCoachList();
     if (data != null) {
@@ -209,6 +210,15 @@ function AddForm(props) {
                 value={invitedBy}
                 onChange={(e) => {
                   setInvitedBy(e.target.value);
+                }}
+              />
+              <label for="lname">Link hình ảnh</label>
+              <input
+                type="text"
+                placeholder="Link hình ảnh"
+                value={image}
+                onChange={(e) => {
+                  setUserImage(e.target.value);
                 }}
               />
             </form>
