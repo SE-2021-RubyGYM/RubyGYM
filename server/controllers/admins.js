@@ -61,7 +61,7 @@ module.exports = {
         }
     },
 
-    verifyAdminMe: async (req, res, next) => {
+    verifyAdminMe: async (req, res) => {
         // if (!req.position || req.position != "Coach") {
         //   return res
         //     .status(401)

@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {verifyAdmin,loginAdmin} = require('../controllers/admins')
+const {verifyAdmin,loginAdmin, verifyAdminMe} = require('../controllers/admins')
 const verifyToken = require('../middlewares/authentication')
 
 
