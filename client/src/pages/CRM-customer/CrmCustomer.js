@@ -55,7 +55,7 @@ const CrmCustomers = function () {
       }
     }
   }, []);
-  let History = useHistory ()
+  let History = useHistory();
   const [secondTable] = useState(mock.secondTable);
   const [transactions, setTransactions] = useState(mock.transactionsWidget);
   const [tasks, setTasks] = useState(mock.tasksWidget);
@@ -195,8 +195,6 @@ const CrmCustomers = function () {
 
   return (
     <div>
-      
-
       {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
       <Modal show={show} onHide={handleClose}>
         <AddForm handleClose={handleClose} submitForm={submitForm} />
@@ -249,8 +247,9 @@ const CrmCustomers = function () {
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder=""
+                placeholder="Tên khách hàng ví dụ: Chúc "
                 value={filter.name}
+                style={{ paddingLeft: "30px" }}
                 onChange={(e) => {
                   var newFilter = { ...filter };
                   newFilter.name = e.target.value;
@@ -267,7 +266,6 @@ const CrmCustomers = function () {
               <Widget>
                 <div className={s.tableTitle}>
                   <div></div>
-              
                 </div>
                 <div className="widget-table-overflow">
                   <Table
@@ -346,17 +344,16 @@ const CrmCustomers = function () {
                               <td>{item.phone}</td>
 
                               <td>
-                                
-                                  <i
-                                    className="fa fa-edit"
-                                    style={{ marginRight: "10px" }}
-                                    onClick={()=>{
-                                      History.push(
-                                        "/admin/customers/"+item._id
-                                      )
-                                    }}
-                                  ></i>
-            
+                                <i
+                                  className="fa fa-edit"
+                                  style={{ marginRight: "10px" }}
+                                  onClick={() => {
+                                    History.push(
+                                      "/admin/customers/" + item._id
+                                    );
+                                  }}
+                                ></i>
+
                                 <i
                                   className="fa fa-trash hover-button"
                                   onClick={() => {

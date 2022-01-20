@@ -76,8 +76,21 @@ axios({
   }
 })
 
-
-}, []);
+    
+  });
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: BackEndBaseURL + "/api/admins/auth",
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
+    }).then((res) => {
+      if (res.status == 200 || res.status == true) {
+        setAdminInfo(res.data.result);
+      }
+    });
+  }, []);
   let history = useHistory();
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -181,10 +194,10 @@ axios({
                 
                   
               }}
-              >
-                <img src={logoutIcon} alt="Logout" />
-                <span className="ml-1">Logout</span>
-              </button>
+            >
+              <img src={logoutIcon} alt="Logout" />
+              <span className="ml-1">Logout</span>
+            </button>
             </NavItem>
           </DropdownMenu>
         </Dropdown>
