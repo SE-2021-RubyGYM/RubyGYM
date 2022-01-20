@@ -206,6 +206,21 @@ const CoachProfile = function () {
                     }}
                   />
                 </div>
+                <div className="ad_xct_hlv_coach-name">
+                  <label for="datefinish"> Link hình ảnh: </label>
+                  <input
+                    type="text"
+                    id="datefinish"
+                    name="datefinish"
+                    placeholder=""
+                    value={coachInfo.image}
+                    onChange={(e) => {
+                      var newCoachInfo = { ...coachInfo };
+                      newCoachInfo.image = e.target.value;
+                      setCoachInfo(newCoachInfo);
+                    }}
+                  />
+                </div>
                 
               
             </div>
