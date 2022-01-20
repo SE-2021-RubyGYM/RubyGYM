@@ -35,7 +35,7 @@ import { customers, data, changeData } from "./data/customer.js";
 import { element } from "prop-types";
 import EditForm from "./EditForm";
 import { getCustomerList, deleteCustomerById, createUser } from "./api/api";
-const CrmCustomers = function () {
+const CrmMoney = function () {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [firstTable, setFirstTable] = useState(data);
   useEffect(async () => {
@@ -247,7 +247,7 @@ const CrmCustomers = function () {
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder="Tên khách hàng, ví dụ: Tùng"
+                placeholder="Tên khách hàng ví dụ: Chúc "
                 value={filter.name}
                 style={{ paddingLeft: "30px" }}
                 onChange={(e) => {
@@ -418,4 +418,4 @@ const CrmCustomers = function () {
   );
 };
 
-export default CrmCustomers;
+export default CrmMoney;

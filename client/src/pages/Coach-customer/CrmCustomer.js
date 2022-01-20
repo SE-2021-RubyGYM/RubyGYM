@@ -39,7 +39,6 @@ const CoachCustomers = function () {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [firstTable, setFirstTable] = useState(data);
   useEffect(async () => {
-    
     var c = await getCustomerList();
     if (c != null) {
       if (c.length > 0) {
@@ -56,7 +55,7 @@ const CoachCustomers = function () {
       }
     }
   }, []);
-  let History = useHistory()
+  let History = useHistory();
   const [secondTable] = useState(mock.secondTable);
   const [transactions, setTransactions] = useState(mock.transactionsWidget);
   const [tasks, setTasks] = useState(mock.tasksWidget);
@@ -115,8 +114,6 @@ const CoachCustomers = function () {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  
-
   const [filter, setFilter] = useState({
     name: "",
     status: "Trạng thái",
@@ -145,7 +142,6 @@ const CoachCustomers = function () {
 
   return (
     <div>
-     
       <Modal show={openExport} onHide={() => setOpenExport(false)}>
         <div className="modal_export__container">
           <img src="https://3.bp.blogspot.com/-LcEMnX2bshM/V8L36D14JLI/AAAAAAAAASc/1UWz_uWk6ek-ziP0xWvY_MuIucnhRTZaACEw/s1600/Bulletpoint_Bullet_Listicon_Shape_Bulletfont_Glyph_Typography_Bullet_Point_Customshape_Wingding_Custom_Tick_Accept_Check_Ok_Yes-512.png" />
@@ -171,7 +167,6 @@ const CoachCustomers = function () {
               >
                 Thêm mới khách hàng
               </button> */}
-              
             </div>
           </Row>
           {/* Filter */}
@@ -180,8 +175,9 @@ const CoachCustomers = function () {
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder=""
+                placeholder="Tên khách hàng, ví dụ: Tùng"
                 value={filter.name}
+                style={{paddingLeft:"30px"}}
                 onChange={(e) => {
                   var newFilter = { ...filter };
                   newFilter.name = e.target.value;
@@ -192,14 +188,12 @@ const CoachCustomers = function () {
                 Tìm kiếm
               </button>
             </div>
-     
           </Row>
           <Row className="mb-4">
             <Col>
               <Widget>
                 <div className={s.tableTitle}>
                   <div></div>
-               
                 </div>
                 <div className="widget-table-overflow">
                   <Table
@@ -239,11 +233,7 @@ const CoachCustomers = function () {
                             if (perfectName.length > perfectItem.length) {
                               return;
                             }
-                            // for (var i = 0; i < perfectName.length; i++) {
-                            //   if (perfectName[i] != perfectItem[i]) {
-                            //     return;
-                            //   }
-                            // }
+                            
                             if (perfectItem.search(perfectName) == -1) {
                               return;
                             }
@@ -283,8 +273,8 @@ const CoachCustomers = function () {
                                   style={{ marginRight: "10px" }}
                                   onClick={() => {
                                     History.push(
-                                      "/coach/customers/"+item._id
-                                    )
+                                      "/coach/customers/" + item._id
+                                    );
                                   }}
                                 ></i>
                                 {/* <i

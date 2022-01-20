@@ -14,8 +14,8 @@
 }
 .ad_xct_hlv_coach_image .ad_xct_hlv_image-coach {
   box-sizing: border-box;
-  width: 226px;
-  height: 170px;
+  width: 160px;
+  height: 160px;
 }
 .ad_xct_hlv_box-body .ad_xct_hlv_box-coach-infor {
   float: left;
@@ -56,7 +56,7 @@
   font-weight: 500;
   line-height: 40.ad_xct_hlv_5px;
   color: rbg (51, 51, 51);
-  margin-bottom: -15px;
+  margin-bottom: 15px;
 }
 
 hr {
@@ -90,9 +90,39 @@ hr {
 
   height: 100%;
   padding: 10px;
-  width: 88%;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.ad_xct_hlv_box-body .ad_xct_hlv_coach-name{
+  
+  margin-top: 2%;
   margin-right: 6%;
-  margin-left: 6%;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: center;
+  color: black;
+ 
+}
+.ad_xct_hlv_box-body select{
+    margin-top: 5px;
+    border-radius: 2px;
+    width: 150px;
+    border-inline-color: none;
+    font-size: 17px;
+    margin-left: 5px; 
+}
+.ad_xct_hlv_box-body .ad_xct_hlv_coach-name input{
+  
+  border-radius: 2px;
+  width: 150px;
+  border-inline-color: none;
+  font-size: 17px;
+  margin-left: 5px; 
+  
 }
 .ad_xct_hlv_box .ad_xct_hlv_box-body-fix {
     
@@ -114,6 +144,7 @@ hr {
 }
 .ad_xct_hlv_box-body-fix .ad_xct_hlv_list-user{
   margin-top: 1%;
+  margin-bottom: 1%;
   margin-right: 5%;
   font-family: Roboto, sans-serif;
   font-size: 21px;
@@ -163,24 +194,14 @@ hr {
   width: 30%;
   margin-right: 3%;
   font-family: Roboto, sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 300;
   text-align: center;
   color: black;
   margin-bottom: 10px;
 }
-.ad_xct_hlv_coach-name input {
-  font-size: 19px;
-  margin-left: 5px;
-  width: 120px;
-}
-select {
-  border-radius: 2px;
-  width: 160px;
-  border-inline-color: none;
-  font-size: 16px;
-  margin-left: 5px;
-}
+
+
 
 .ad_xct_hlv_box-body .ad_xct_hlv_option1 {
   width: 100%;

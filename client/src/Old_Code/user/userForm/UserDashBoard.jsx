@@ -419,12 +419,25 @@ export default function UserDashBoard() {
         </div>
 
         <div className="main-content-schedule" id="content_schedule_play">
-          <UserSchedule />
-          <div className="content-user">
-            <div className="box-user">
-              <div className="box-body-user"></div>
+        <div className="content-header-user">
+            <div className="title">
+              <h2> Lịch tập của {userInfo.name} </h2>
             </div>
+
+            <div className="explain-title">
+              <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
+            </div>
+            <hr className="red-line" />
           </div>
+          
+          <div className="content-user">
+            <div className = "box-user1">
+          <UserSchedule />
+          </div>
+          
+          </div>
+          
+          
         </div>
       </div>
       )
