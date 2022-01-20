@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { useHistory } from "react-router";
 import "./style/style.css";
@@ -34,8 +35,7 @@ import { customers, data, changeData } from "./data/customer.js";
 import { element } from "prop-types";
 import EditForm from "./EditForm";
 import { getCustomerList, deleteCustomerById, createUser } from "./api/api";
-
-const CoachCustomers = function () {
+const CrmMoney = function () {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [firstTable, setFirstTable] = useState(data);
   useEffect(async () => {
@@ -48,8 +48,8 @@ const CoachCustomers = function () {
           {
             _id: "Không có",
             name: "Không có",
+            gender: "Không có",
             phone: "Không có",
-            birthday: "Không có",
           },
         ]);
       }
@@ -114,6 +114,59 @@ const CoachCustomers = function () {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const submitForm = async (info) => {
+    var newFirstTable = [...firstTable];
+    var success = await createUser(info);
+    if (success) {
+      newFirstTable.push(info);
+      setFirstTable(newFirstTable);
+    }
+    return success;
+    // newFirstTable.push({
+    //   _id: "checkbox113",
+    //   code: "KH00" + (newFirstTable.length + 1),
+    //   name: info[0],
+    //   type: info[1],
+    //   email: info[2],
+    //   phone: info[3],
+    //   assignee: info[4],
+    //   status: customers.status[0],
+    // });
+    // setFirstTable(newFirstTable);
+    // changeData(newFirstTable);
+  };
+
+  const deleteCustom = async (index) => {
+    var newTable = [...firstTable];
+    var elementDeleted = newTable[index];
+
+    var sucess = await deleteCustomerById(elementDeleted._id);
+    var notificationName = "success";
+    if (sucess) {
+      newTable.splice(index, 1);
+      setFirstTable(newTable);
+    } else {
+      notificationName = "error";
+    }
+
+    let msg = {
+      success: "Đã xóa " + elementDeleted.name,
+      error: "Xóa thất bại",
+    };
+    toast(
+      <Notification2
+        type={notificationName}
+        withIcon
+        msg={msg[notificationName]}
+      />,
+      {
+        autoClose: 4000,
+        closeButton: false,
+        hideProgressBar: true,
+      }
+    );
+  };
+
   const [filter, setFilter] = useState({
     name: "",
     status: "Trạng thái",
@@ -126,13 +179,13 @@ const CoachCustomers = function () {
     var newFirstTable = [...firstTable];
     firstTable[changeIndex] = {
       id: "checkbox113",
-      // code: newFirstTable[changeIndex].id,
-      // name: e[0],
-      // status: e[5],
-      // type: e[1],
-      // email: e[2],
-      // phone: e[3],
-      // assignee: e[4],
+      code: newFirstTable[changeIndex].id,
+      name: e[0],
+      status: e[5],
+      type: e[1],
+      email: e[2],
+      phone: e[3],
+      assignee: e[4],
     };
   };
 
@@ -142,6 +195,18 @@ const CoachCustomers = function () {
 
   return (
     <div>
+      {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
+      <Modal show={show} onHide={handleClose}>
+        <AddForm handleClose={handleClose} submitForm={submitForm} />
+      </Modal>
+      <Modal show={showChangeElment} onHide={handleCloseChange}>
+        <EditForm
+          handleClose={handleCloseChange}
+          submitForm={handleChangeSubmit}
+          info={firstTable[changeIndex]}
+        />
+      </Modal>
+      {/* Modal Export */}
       <Modal show={openExport} onHide={() => setOpenExport(false)}>
         <div className="modal_export__container">
           <img src="https://3.bp.blogspot.com/-LcEMnX2bshM/V8L36D14JLI/AAAAAAAAASc/1UWz_uWk6ek-ziP0xWvY_MuIucnhRTZaACEw/s1600/Bulletpoint_Bullet_Listicon_Shape_Bulletfont_Glyph_Typography_Bullet_Point_Customshape_Wingding_Custom_Tick_Accept_Check_Ok_Yes-512.png" />
@@ -158,25 +223,33 @@ const CoachCustomers = function () {
       <Row>
         <Col>
           <Row className="header__container">
-            <div className="headline-1">Quản lý thông tin người tập</div>
+            <div className="headline-1">Quản lý thông tin khách hàng</div>
             <div>
-              {/* <button
+              <button
                 color="primary"
                 className={classNames("button_add")}
                 onClick={() => handleShow()}
               >
                 Thêm mới khách hàng
-              </button> */}
+              </button>
+              <button
+                color="primary"
+                className={classNames("button_export")}
+                onClick={() => setOpenExport(true)}
+              >
+                Xuất báo cáo
+              </button>
             </div>
           </Row>
           {/* Filter */}
           <Row className="filter__root">
             <div className="filter__container">
-              {/* <img src={searchIcon} alt="Search" className="icon_search" /> */}
+              <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder=""
+                placeholder="Tên khách hàng ví dụ: Chúc "
                 value={filter.name}
+                style={{ paddingLeft: "30px" }}
                 onChange={(e) => {
                   var newFilter = { ...filter };
                   newFilter.name = e.target.value;
@@ -203,8 +276,8 @@ const CoachCustomers = function () {
                       <tr>
                         <th className="w-5">Mã khách hàng</th>
                         <th className="w-20">Tên khách hàng</th>
+                        <th className="w-10">Giới tính</th>
                         <th className="w-10">Số điện thoại</th>
-                        <th className="w-10">Ngày sinh</th>
                         <th className="w-10">Hành động</th>
                       </tr>
                     </thead>
@@ -267,8 +340,8 @@ const CoachCustomers = function () {
                             <tr key={uuidv4()}>
                               <td>{item._id}</td>
                               <td>{item.name}</td>
+                              <td>{gender}</td>
                               <td>{item.phone}</td>
-                              <td>{item.birthDay}</td>
 
                               <td>
                                 <i
@@ -276,18 +349,19 @@ const CoachCustomers = function () {
                                   style={{ marginRight: "10px" }}
                                   onClick={() => {
                                     History.push(
-                                      "/coach/customers/" + item._id
+                                      "/admin/customers/" + item._id
                                     );
                                   }}
                                 ></i>
-                                {/* <i
+
+                                <i
                                   className="fa fa-trash hover-button"
                                   onClick={() => {
                                     deleteCustom(
                                       index + firstTableCurrentPage * pageSize
                                     );
                                   }}
-                                ></i> */}
+                                ></i>
                               </td>
                             </tr>
                           );
@@ -344,4 +418,4 @@ const CoachCustomers = function () {
   );
 };
 
-export default CoachCustomers;
+export default CrmMoney;

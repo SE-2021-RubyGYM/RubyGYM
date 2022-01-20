@@ -45,39 +45,36 @@ import axios from "axios";
 
 const Header = (props) => {
   const [adminInfo, setAdminInfo] = useState({
-  _id: "Đang tải",
-  name: "Admin",
-  username: "Đang tải",
-  phone: "Đang tải",
-  password:
-    "Đang tải",
-  birthDay: "Đang tải",
-  gender: "Đang tải",
-  coach: "Đang tải",
-  referralCode: "Đang tải",
-  assessment: "Trống",
-  height: "Đang tải",
-  weight: "Đang tải",
-  paymentDay: "Đang tải",
-  aim: "Trống",
-  
-  __v: 0,
-});
-useEffect(() => {
-axios({
-  method:"GET",
-  url:BackEndBaseURL+"/api/admins/auth",
-  headers: {
-    authorization: "Bearer " + localStorage.getItem("accessToken"),
-  },
-}).then(res=>{
-  if(res.status==200||res.status==true){
-    setAdminInfo(res.data.result);       
-  }
-})
+    _id: "Đang tải",
+    name: "Admin",
+    username: "Đang tải",
+    phone: "Đang tải",
+    password: "Đang tải",
+    birthDay: "Đang tải",
+    gender: "Đang tải",
+    coach: "Đang tải",
+    referralCode: "Đang tải",
+    assessment: "Trống",
+    height: "Đang tải",
+    weight: "Đang tải",
+    paymentDay: "Đang tải",
+    aim: "Trống",
 
-
-}, []);
+    __v: 0,
+  });
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: BackEndBaseURL + "/api/admins/auth",
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
+    }).then((res) => {
+      if (res.status == 200 || res.status == true) {
+        setAdminInfo(res.data.result);
+      }
+    });
+  }, []);
   let history = useHistory();
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -206,34 +203,17 @@ axios({
             className="navbar-dropdown profile-dropdown"
             style={{ width: "194px" }}
           >
-            {/* <DropdownItem className={s.dropdownProfileItem}>
-              <ProfileIcon />
-              <span>Profile</span>
-            </DropdownItem> */}
-            {/* <DropdownItem className={s.dropdownProfileItem}>
-              <TasksIcon />
-              <span>Tasks</span>
-            </DropdownItem>
-            <DropdownItem className={s.dropdownProfileItem}>
-              <MessagesIcon />
-              <span>Messages</span>
-            </DropdownItem> */} 
-            <NavItem>
-              <button
-                className="btn btn-primary rounded-pill mx-auto logout-btn"
-                type="submit"
-                onClick={() => {
-                  localStorage.removeItem("accessToken");
-                  localStorage.clear();
-                  history.push("/login");
-                
-                  
+            <button
+              className="btn btn-primary rounded-pill mx-auto logout-btn"
+              type="submit"
+              onClick={() => {
+                localStorage.clear();
+                history.push("/login");
               }}
-              >
-                <img src={logoutIcon} alt="Logout" />
-                <span className="ml-1">Logout</span>
-              </button>
-            </NavItem>
+            >
+              <img src={logoutIcon} alt="Logout" />
+              <span className="ml-1">Logout</span>
+            </button>
           </DropdownMenu>
         </Dropdown>
       </Nav>
