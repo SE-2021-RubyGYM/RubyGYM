@@ -80,9 +80,9 @@ axios({
   return (
     <div>
       <Row>
-        <Col className="pr-grid-col" xs={12} lg={8}>
-          <Row className="gutter mb-4">
-            <Col className="mb-4 mb-md-0" xs={12} md={6}>
+        {/* <Col className="pr-grid-col" xs={12} lg={8}> */}
+          {/* <Row className="gutter mb-4"> */}
+            {/* <Col className="mb-4 mb-md-0" xs={12} md={6}>
               <Widget className="">
                 <div className="d-flex justify-content-between widget-p-md">
                   <div className="headline-3 d-flex align-items-center">
@@ -99,8 +99,8 @@ axios({
                 </div>
                 <ApexActivityChart className="pb-4" />
               </Widget>
-            </Col>
-            <Col xs={12} md={6}>
+            </Col> */}
+            {/* <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="d-flex justify-content-between">
                   <div className="headline-3 d-flex align-items-center">
@@ -130,10 +130,10 @@ axios({
                   </div>
                 ))}
               </Widget>
-            </Col>
-          </Row>
-          <Row className="gutter mb-4">
-            <Col xs={12}>
+            </Col> */}
+          {/* </Row>
+          <Row className="gutter mb-4"> */}
+            {/* <Col xs={12}>
               <Widget className="widget-p-none">
                 <div className="d-flex flex-wrap align-items-center justify-content-center">
                   <div className="d-flex flex-column align-items-center col-12 col-xl-6 p-sm-4">
@@ -163,9 +163,9 @@ axios({
                   </div>
                 </div>
               </Widget>
-            </Col>
-          </Row>
-          <Row className="gutter">
+            </Col> */}
+          {/* </Row> */}
+          {/* <Row className="gutter">
             <Col className="mb-4 mb-xl-0" xs={6} sm={6} xl={3}>
               <Widget className="widget-p-sm">
                 <div className={s.smallWidget}>
@@ -270,8 +270,8 @@ axios({
                 </div>
               </Widget>
             </Col>
-          </Row>
-        </Col>
+          </Row> */}
+        {/* </Col> */}
         <Col className="mt-4 mt-lg-0 pl-grid-col" xs={12} lg={4}>
           <Widget className="widget-p-lg">
             <div className="d-flex">
