@@ -78,8 +78,7 @@ axios({
   const meals = [meal1, meal2, meal3];
 
   return (
-    <div>
-       
+        <div>
           <Widget className="widget-p-lg">
             <div className="d-flex">
               <img className={s.image} src={coachInfo.image} alt="..." />
@@ -90,21 +89,19 @@ axios({
             </div>
             <div className={s.userParams}>
               <div className="d-flex flex-column">
-                <p className="headline-3">{coachInfo.username}</p>
-                <p className="body-3 muted">Tên tài khoản</p>
+                <p className="headline-3">Tên tài khoản</p>
+                <p className="body-3 muted">{coachInfo.username}</p>
               </div>
               <div className="d-flex flex-column">
-                <p className="headline-3">{coachInfo.phone}</p>
-                <p className="body-3 muted">Số điện thoại</p>
+                <p className="headline-3">Số điện thoại</p>  
+                <p className="body-3 muted">{coachInfo.phone}</p>
               </div>
               <div className="d-flex flex-column">
-                <p className="headline-3">{coachInfo.birthDay}</p>
-                <p className="body-3 muted">Ngày sinh</p>
+                <p className="headline-3">Ngày sinh</p>
+                <p className="body-3 muted">{coachInfo.birthDay}</p>
               </div>
-              
-              
             </div>
-            {/* <div className={s.goals}>
+            <div className={s.goals}>
               <div className={s.goalsTitle}>
                 <p className="headline-3">Your Goals</p>
                 <UncontrolledDropdown>
@@ -155,8 +152,8 @@ axios({
                   value={40}
                 />
               </div>
-            </div> */}
-            {/* <p className="headline-3">Appointments</p>
+            </div>
+            <p className="headline-3">Appointments</p>
             <div className={`mt-3 ${s.widgetBlock}`}>
               <div className={s.widgetBody}>
                 <div className="d-flex">
@@ -177,8 +174,8 @@ axios({
                   <label htmlFor="checkbox0" />
                 </div>
               </div>
-            </div> */}
-            {/* <div className={`mt-3 ${s.widgetBlock}`}>
+            </div>
+            <div className={`mt-3 ${s.widgetBlock}`}>
               <div className={s.widgetBody}>
                 <div className="d-flex">
                   <img className="img-fluid mr-2" src={therapyIcon} alt="..." />
@@ -198,8 +195,8 @@ axios({
                   <label htmlFor="checkbox1" />
                 </div>
               </div>
-            </div> */}
-            {/* <a
+            </div>
+            <a
               className={`btn-secondary-red ${s.statsBtn}`}
               href="#top"
               role="button"
@@ -209,10 +206,9 @@ axios({
                 <p className="headline-2">STATISTIC</p>
                 <p className="body-3">Download your activity</p>
               </div>
-            </a> */}
+            </a>
           </Widget>
         
-      
     </div>
   );
 };

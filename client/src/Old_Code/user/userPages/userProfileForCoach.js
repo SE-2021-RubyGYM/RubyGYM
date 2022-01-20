@@ -183,11 +183,11 @@ var assessment= document.getElementById("subject")
           <div className="gnanT_title_cmt">
       <h2>Đánh giá quá trình luyện tập của học viên {userInfo.name} </h2>
                         </div>
-      <div className="container">
+      <div className="container" >
         <form action="/action_page.php">
 
-          <div className="row">
-            <div className="col-25">
+          <div className="row" >
+            <div className="col-25" >
               <label for="subject">Nhận xét</label>
             </div>
 

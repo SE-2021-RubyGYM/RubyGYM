@@ -247,7 +247,7 @@ const CrmCustomers = function () {
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder="Tên khách hàng ví dụ: Chúc "
+                placeholder="Tên khách hàng, ví dụ: Tùng"
                 value={filter.name}
                 style={{ paddingLeft: "30px" }}
                 onChange={(e) => {
