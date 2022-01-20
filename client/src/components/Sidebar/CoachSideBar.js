@@ -41,7 +41,7 @@ const CoachSidebar = (props) => {
           iconName={<i className={"eva eva-home-outline"} />}
           link="/coach/dashboard"
           index="dashboard"
-          badge="9"
+          // badge="9"
         />
 
         <LinksGroup
