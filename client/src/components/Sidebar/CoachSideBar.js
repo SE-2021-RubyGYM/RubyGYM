@@ -36,7 +36,7 @@ const CoachSidebar = (props) => {
             props.dispatch(changeActiveSidebarItem(activeItem))
           }
           activeItem={props.activeItem}
-          header="Dashboard"
+          header="Trang chủ"
           isHeader
           iconName={<i className={"eva eva-home-outline"} />}
           link="/coach/dashboard"
