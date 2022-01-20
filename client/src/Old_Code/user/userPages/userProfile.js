@@ -71,8 +71,12 @@ const UserProfile = function () {
   }, []);
   const handleSubmit = () => {
     var userInfoCopy = { ...userInfo };
-    userInfoCopy.paymentDay = datePicker.toString();
 
+    setDatePicker(
+      new Date(datePicker.getTime() + 1000 * 30 * 24 * 60 * 60 * payment)
+    );
+
+    userInfoCopy.paymentDay = datePicker.toString();
     axios({
       method: "PUT",
       url: BackEndBaseURL + "/api/users/" + id,
@@ -139,6 +143,8 @@ const UserProfile = function () {
   };
   const [datePicker, setDatePicker] = useState(new Date());
 
+  const [payment, setPayment] = useState(0);
+
   return (
     <div className="gnanT_all">
       <div className="gnanT_content-chinh">
@@ -178,21 +184,19 @@ const UserProfile = function () {
                   </div>
                   <div className="gnanT_user-name"> Thành viên hạng: Bạc</div>
                   <div className="gnanT_user-name">
-                  <label>
-                    {" "}
-                    Huấn luyện viên: 
-                    {coachs.map((e) => {
-                      if (e._id ==  userInfo.coach) {
-                        return e.name;
-                      }
-                    })}
-                  </label>
-                </div>
-                 
+                    <label>
+                      {" "}
+                      Huấn luyện viên:
+                      {coachs.map((e) => {
+                        if (e._id == userInfo.coach) {
+                          return e.name;
+                        }
+                      })}
+                    </label>
+                  </div>
                 </div>
               </div>
               <div className="gnanT_box-body-fix1">
-              
                 <div className="gnanT_user-name">
                   <label>Chiều cao hiện tại (cm):</label>
                   <input
@@ -229,37 +233,28 @@ const UserProfile = function () {
                     )}
                   </label>
                 </div>
-                
               </div>
 
               <div className="gnanT_box-body-fix2">
                 {/* <div className="gnanT_user-name"> Thời gian đăng kí</div> */}
                 <div className="gnanT_user-name">
                   <label> Đã đóng phí: </label>
-                  <select>
-                              <input type="text"
-                              placeholder=""
-                              // value={userInfo.fee}
-                              // onChange={(e) => {
-                              //   var newUserInfo = { ...userInfo };
-                              //   newUserInfo.gender = e.target.value;
-                              //   setUserInfo(newUserInfo);
-                              // }}
-                            />
-                              <option value = 'None'> Chưa đóng phí</option>
-                              <option value = '3months'> 3 tháng</option>
-                              <option value = '6months'> 6 tháng</option>
-                              <option value = '9months'> 9 tháng</option>
-                              <option value = '12months'> 12 tháng</option>                             
-                    </select>
+                  <select
+                    value={payment}
+                    onChange={(e) => {
+                      setPayment(e.target.value);
+                    }}
+                  >
+                    <option value={0}> Chưa đóng phí</option>
+                    <option value={3}> 3 tháng</option>
+                    <option value={6}> 6 tháng</option>
+                    <option value={9}> 9 tháng</option>
+                    <option value={12}> 12 tháng</option>
+                  </select>
                 </div>
                 <div className="gnanT_user-name">
-                  <label>  Số lượt chia sẻ mã ID </label>     
-                  <input
-                    type="text"
-                    placeholder=""
-                    
-                  />
+                  <label> Số lượt chia sẻ mã ID </label>
+                  <input type="text" placeholder="" />
                 </div>
                 <div className="gnanT_user-name">
                   <label> Thời gian gia hạn </label>
@@ -270,10 +265,7 @@ const UserProfile = function () {
                     }}
                   />
                 </div>
-                
               </div>
-
-             
             </div>
             <div className="gnanT_text-center">
               <button
