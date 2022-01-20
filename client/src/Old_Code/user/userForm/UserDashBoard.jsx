@@ -15,7 +15,11 @@ import { useHistory } from "react-router";
 
 export default function UserDashBoard() {
     let history= useHistory();
-
+  const [coachInfo, setCoachInfo] = useState(
+    {
+    name:"Đang tải",
+    }
+  );
   const [userInfo, setUserInfo] = useState({
     _id: 'Đang tải',
     name: 'Đang tải',
@@ -57,7 +61,30 @@ export default function UserDashBoard() {
         setUserInfo(res.data.result);
       }
     });
+    axios({
+      method: 'GET',
+      url: BackEndBaseURL + '/api/coachs/' + userInfo.coach,
+      
+    }).then((res) => {
+      if (res.status == 200 || res.status == true) {
+        setCoachInfo(res.data.result);
+      }
+    });
+  
+    
   }, []);
+  const getCoachName=()=>{
+      axios({
+      method: 'GET',
+      url: BackEndBaseURL + '/api/coachs/' + userInfo.coach,
+      
+    }).then((res) => {
+      console.log(res)
+      if (res.status == 200 || res.status == true) {
+        setCoachInfo(res.data.result);
+      }
+    });
+  }
   const handleSubmit = () => {
     var userInfoCopy = { ...userInfo };
 
@@ -198,7 +225,7 @@ export default function UserDashBoard() {
   useEffect(()=>{
     console.log()
   },[])
-
+  getCoachName();
   return (
     <div className="body_user_ui">
       <div className="main-header_user">
@@ -288,7 +315,7 @@ export default function UserDashBoard() {
               <div className="box-body-user">
                 <div className="user_image">
                   <img
-                    src={userInfo.image}
+                    src="https://wallpapercave.com/wp/wp9414303.jpg"
                     className="image-user"
                     style={{marginLeft:"30px"}}
                   />
@@ -350,6 +377,7 @@ export default function UserDashBoard() {
                     }}
                   />
                 </div>
+                
               </div>
               <div className="box-body-fix">
                 <div className="user-name">
@@ -379,19 +407,7 @@ export default function UserDashBoard() {
                     }}
                   />
                 </div>
-                <div className="user-name">
-                  <label>Link hình ảnh:</label>
-                  <input
-                    type="text"
-                    placeholder="Link hình đại diện"
-                    value={userInfo.image}
-                    onChange={(e) => {
-                      var newUserInfo = { ...userInfo };
-                      newUserInfo.image= e.target.value;
-                      setUserInfo(newUserInfo);
-                    }}
-                  />
-                </div>
+             
               </div>
 
               <div className="box-body-fix">
@@ -411,6 +427,11 @@ export default function UserDashBoard() {
               </div>
               <div className="box-body-fix">
                 <div className="user-name">Đánh giá: {userInfo.assessment}</div>
+              </div>
+              
+              <div className="box-body-fix">
+                
+                <div className="user-name">Huấn luyện viên: {coachInfo.name}</div>
               </div>
 
               <div className="box-body-fix">

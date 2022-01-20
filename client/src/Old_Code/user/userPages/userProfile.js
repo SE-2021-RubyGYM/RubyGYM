@@ -162,7 +162,7 @@ const UserProfile = function () {
               <div className="gnanT_box-body">
                 <div className="gnanT_user_image">
                   <img
-                    src={userInfo.image}
+                    src="https://wallpapercave.com/wp/wp9414303.jpg"
                     className="gnanT_image-user"
                   />
                 </div>

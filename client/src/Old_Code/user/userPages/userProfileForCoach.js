@@ -101,7 +101,7 @@ var assessment= document.getElementById("subject")
               <div className="gnanT_box-body">
                 <div className="gnanT_user_image">
                   <img
-                    src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
+                    src="https://wallpapercave.com/wp/wp9414303.jpg"
                     className="gnanT_image-user"
                   />
                 </div>
