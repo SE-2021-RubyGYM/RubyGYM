@@ -12,4 +12,8 @@ const verifyToken = require('../middlewares/authentication')
 // @access Public
 router.post('/login',async(req, res) => {await loginAdmin(req, res)})
 
+router.get("/auth", verifyToken, verifyAdmin, async (req, res) => {
+    await verifyAdminMe(req, res);
+  });
+
 module.exports = router

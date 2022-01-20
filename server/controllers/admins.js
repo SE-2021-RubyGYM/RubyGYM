@@ -59,5 +59,33 @@ module.exports = {
             console.log(error)
             return res.status(500).json({ success: false, message: 'Internal server error',result: null })
         }
-    }
+    },
+
+    verifyAdminMe: async (req, res, next) => {
+        // if (!req.position || req.position != "Coach") {
+        //   return res
+        //     .status(401)
+        //     .json({ success: false, message: "Unauthorized", result: null });
+        // }
+        try {
+          const admin = await Admin.findById(req.userId).select("-password");
+          if (!admin)
+            return res
+              .status(401)
+              .json({ success: false, message: "Unauthorized", result: null });
+          return res.status(200).json({
+            success: true,
+            message: "API OK",
+            result: admin,
+          });
+          
+        } catch (error) {
+          console.log(error);
+          return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            result: null,
+          });
+        }
+      },
 }
