@@ -25,8 +25,9 @@ import {
   Label,
   Badge,
 } from "reactstrap";
-import {getCoachList} from "./api/api";
-import './components/addformstyle.css';
+import { getCoachList } from "./api/api";
+import "./components/addformstyle.css";
+import { getCustomerList, updateUserById } from "./api/api";
 function AddForm(props) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -35,19 +36,63 @@ function AddForm(props) {
   const [paymentDay, setPaymentDay] = useState(new Date());
   const [phoneNumber, setPhoneNumber] = useState("");
   const [birthday, setBirthDay] = useState(new Date());
-  const [coach,setCoach]=useState("");
-  const [coachList,setCoachList]=useState([]);
-  const [height,setHeight]=useState(0);
-  const [weight,setWeight]=useState(0);
-  useEffect(async()=>{
-    var data=await getCoachList();
-    if(data!=null){
+  const [coach, setCoach] = useState("");
+  const [coachList, setCoachList] = useState([]);
+  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState(0);
+  useEffect(async () => {
+    var data = await getCoachList();
+    if (data != null) {
       setCoachList(data);
-      if(data.length>0){
+      if (data.length > 0) {
         setCoach(data[0].name);
       }
     }
-  },[])
+  }, []);
+
+  const [invitedBy, setInvitedBy] = useState("");
+  const handleGiveAway = async () => {
+    if (invitedBy == "") {
+      return "Thành công";
+    }
+    var found = -1;
+
+    var result = await getCustomerList();
+    if (result == null) {
+      return "Lỗi hệ thống";
+    }
+
+    for (var i = 0; i < result.length; i++) {
+      if (result[i].referralCode == invitedBy) {
+        found = i;
+        break;
+      }
+    }
+
+    if (found == -1) {
+      return "Không tìm thấy mã giới thiệu";
+    }
+
+    var newUpdatePaymentday = { ...result[found] };
+    newUpdatePaymentday.paymentDay = new Date(newUpdatePaymentday.paymentDay);
+
+    newUpdatePaymentday.paymentDay = new Date(
+      (newUpdatePaymentday.paymentDay.getTime() / 1000 + 60 * 60 * 24 * 30) *
+        1000
+    );
+
+    var updateSuccess = await updateUserById(
+      result[i]._id,
+      newUpdatePaymentday
+    );
+
+    if (updateSuccess == 1) {
+      return "Thành công";
+    } else {
+      return "Lỗi hệ thống";
+    }
+  };
+
   return (
     <>
       <div>
@@ -156,6 +201,16 @@ function AddForm(props) {
                   setWeight(e.target.value);
                 }}
               />
+              <div>Thông tin khác</div>
+              <label for="lname">Mã giới thiệu</label>
+              <input
+                type="text"
+                placeholder=""
+                value={invitedBy}
+                onChange={(e) => {
+                  setInvitedBy(e.target.value);
+                }}
+              />
             </form>
           </div>
         </Modal.Body>
@@ -205,28 +260,32 @@ function AddForm(props) {
 
               return;
             } else {
-
-              var id="";
-              for(var i=0;i<coachList.length;i++){
-                if(coachList.name==coach){
-                  id=coachList._id;
+              var id = "";
+              for (var i = 0; i < coachList.length; i++) {
+                if (coachList.name == coach) {
+                  id = coachList._id;
                   break;
                 }
               }
-              success = await props.submitForm({
-                username: userName,
-                password: password,
-                name: name,
-                gender: gender,
-                paymentDay: paymentDay,
-                phone: phoneNumber,
-                birthDay: birthday,
-                aim: "",
-                coach: id,
-                assessment: "",
-                height: height,
-                weight: weight,
-              });
+              success = await handleGiveAway();
+              if (success != "Thành công") {
+                success = false;
+              } else {
+                success = await props.submitForm({
+                  username: userName,
+                  password: password,
+                  name: name,
+                  gender: gender,
+                  paymentDay: paymentDay,
+                  phone: phoneNumber,
+                  birthDay: birthday,
+                  aim: "",
+                  coach: id,
+                  assessment: "",
+                  height: height,
+                  weight: weight,
+                });
+              }
             }
             if (success != true) {
               mes = "Thêm thất bại lỗi hệ thống";
@@ -252,7 +311,7 @@ function AddForm(props) {
             if (notificationName == "success") props.handleClose();
           }}
         >
-          Lưu
+          Thêm
         </Button>
       </Modal.Footer>
     </>

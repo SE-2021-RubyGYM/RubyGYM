@@ -43,7 +43,6 @@ const Sidebar = (props) => {
           index="dashboard"
           // badge="9"
         />
-
         <LinksGroup
           onActiveSidebarItemChange={(activeItem) =>
             props.dispatch(changeActiveSidebarItem(activeItem))
