@@ -56,7 +56,7 @@ module.exports = {
     //     .status(401)
     //     .json({ success: false, message: 'Unauthorized',result: null  })
     // }
-    const { username, password, name, gender, phone, birthDay, major } =
+    const { username, password, name, gender, phone, birthDay, major, image } =
       req.body;
 
     if (!username || !password || !name || !phone) {
@@ -96,6 +96,7 @@ module.exports = {
         // referralCode,
         phone,
         major,
+        image,
       });
       let err = newCoach.validateSync();
       if (err) {
