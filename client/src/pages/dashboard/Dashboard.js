@@ -164,17 +164,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <a
-              className={`btn-secondary-red ${s.statsBtn}`}
-              href="#top"
-              role="button"
-            >
-              <img className={s.pieImg} src={statsPie} alt="..." />
-              <div>
-                <p className="headline-2">STATISTIC</p>
-                <p className="body-3">Download your activity</p>
-              </div>
-            </a>
+            
           </Widget>
         
     </div>
