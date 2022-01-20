@@ -32,6 +32,7 @@ export default function UserDashBoard() {
     paymentDay: 'Đang tải',
     aim: 'Trống',
     __v: 0,
+     createAt: "2020-03-05T04:51:01.000Z",
   });
   useEffect(() => {
     if (localStorage.getItem("accessToken") !== null) {
@@ -185,6 +186,17 @@ export default function UserDashBoard() {
       return (document.getElementById('log_out_play').style.display = 'none');
     else return (document.getElementById('hr_play').style.display = 'none');
   };
+
+  const handleRank=()=>{
+    if((Date.now()-new Date(userInfo.createAt).getTime())/(1000*60*60*24*365)>1){
+      return "Thân thiết";
+    }else{
+      return "Bình thường"
+    }
+  }
+  useEffect(()=>{
+    console.log()
+  },[])
 
   return (
     <div className="body_user_ui">
@@ -370,7 +382,9 @@ export default function UserDashBoard() {
               <div className="box-body-fix">
                 <div className="user-name">
                   {' '}
-                  Thành viên hạng: {userInfo.rank}
+                  Thành viên hạng: {
+                     handleRank()
+                  }
                 </div>
                 {/* <div className="user-name">
                         Thời gian đăng kí: {userInfo.start}
