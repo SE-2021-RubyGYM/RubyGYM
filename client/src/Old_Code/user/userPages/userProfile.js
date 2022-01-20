@@ -237,15 +237,15 @@ const UserProfile = function () {
                 <div className="gnanT_user-name">
                   <label> Đã đóng phí: </label>
                   <select>
-                              type="text"
+                              <input type="text"
                               placeholder=""
-                              {/*value={userInfo.fee}
-                              onChange={(e) => {
-                                var newUserInfo = { ...userInfo };
-                                newUserInfo.gender = e.target.value;
-                                setUserInfo(newUserInfo);
-                              }}*/}
-                            >
+                              // value={userInfo.fee}
+                              // onChange={(e) => {
+                              //   var newUserInfo = { ...userInfo };
+                              //   newUserInfo.gender = e.target.value;
+                              //   setUserInfo(newUserInfo);
+                              // }}
+                            />
                               <option value = 'None'> Chưa đóng phí</option>
                               <option value = '3months'> 3 tháng</option>
                               <option value = '6months'> 6 tháng</option>

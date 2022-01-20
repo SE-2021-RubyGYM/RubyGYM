@@ -114,23 +114,25 @@ var assessment= document.getElementById("subject")
                     Họ và tên: {userInfo.name}
                   </div>
                   <div className="gnanT_user-name">
-                    Số điện thoại: {userInfo.phone}
-                  </div>
-                  <div className="gnanT_user-name">
                     Giới tính: {userInfo.gender}
                   </div>
                   <div className="gnanT_user-name">
                     Ngày sinh: {userInfo.birthDay}
                   </div>
+                  <div className="gnanT_user-name">
+                    Số điện thoại: {userInfo.phone}
+                  </div>
+                  
+                  
                   <div className="gnanT_user-name"> Thành viên hạng: {rank()}</div>
                 </div>
               </div>
 
-              <div className="gnanT_box-body-fix">
-                
-                <div className="gnanT_user-name">
-                  <label> Thời gian gia hạn </label>
-                  <div>{userInfo.paymentDay}</div>
+
+              <div className="gnanT_box-body-fix1">
+              {/*<div className="gnanT_user-name">
+                  <label> Thời gian gia hạn: {userInfo.paymentDay}  </label>
+                  
                 </div>
                 <div className="gnanT_user-name">
                   <label>
@@ -142,23 +144,21 @@ var assessment= document.getElementById("subject")
                       }
                     })}
                   </label>
-                </div>
-              </div>
-
-              <div className="gnanT_box-body-fix">
+                </div>*/}
                 <div className="gnanT_user-name">
-                  <label>Chiều cao(cm):</label>
+                  <label>Chiều cao hiện tại (cm):  {userInfo.height}</label>
                   
-                  <div>{userInfo.height}</div>
+                  
                 </div>
                 <div className="gnanT_user-name">
-                  <label>Cân nặng(kg):</label>
+                  <label>Cân nặng hiện tại (kg):  {userInfo.weight}</label>
                   
-                  <div>{userInfo.weight}</div>
+                  
                 </div>
                 <div className="gnanT_user-name">
                   <label>
-                    Chỉ số BMI:
+                    Chỉ số BMI: 
+
                     {Math.round(
                       userInfo.weight /
                         ((userInfo.height * userInfo.height) / 10000),
@@ -166,19 +166,23 @@ var assessment= document.getElementById("subject")
                     )}
                   </label>
                 </div>
+                </div>
+                <div className = "gnanT_box-body-fix1">
+
                 <div className="gnanT_user-name">
-                  <label>Mục tiêu:</label>
+                  <label>Mục tiêu của khách hàng: {userInfo.aim}</label>
                   
-                  <div>{userInfo.aim}</div>
+                  
                 </div>                
-              </div>
-            </div>
-            <div className="gnanT_text-center">
               
             </div>
-            <div className="coach-review">
+           
+           
+          </div>
+          <div className="coach-review">
+          <div className="gnanT_title_cmt">
       <h2>Đánh giá quá trình luyện tập của học viên {userInfo.name} </h2>
-
+                        </div>
       <div className="container">
         <form action="/action_page.php">
 
@@ -202,21 +206,24 @@ var assessment= document.getElementById("subject")
               ></textarea>
             </div>
           </div>
+          <div className = "row">
 
-          <div className="row">
+          <div className="sent-button">
             <Button onClick={()=>{
               submitAssessment(id,userInfo);
             }}>
-              Gửi đánh giá
+              Gửi nhận xét
             </Button>
+          </div>
           </div>
         </form>
       </div>
-    </div>
           </div>
         </div>
+        
       </div>
-    </div>
+      </div>
+      </div>
   );
 };
 

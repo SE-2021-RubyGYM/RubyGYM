@@ -140,6 +140,17 @@
   display: none;
   margin-top: 100px;
 }
+.main-content-schedule .box-user1{
+  box-sizing: border-box;
+  display: block;
+ 
+  margin-top: 35px;
+  margin-right: 6%;
+  margin-left: 6%;
+
+  width: auto;
+  
+}
 
 .content-header-user {
   box-sizing: border-box;

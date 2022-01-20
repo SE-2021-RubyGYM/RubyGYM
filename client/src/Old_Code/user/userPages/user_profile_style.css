@@ -95,14 +95,15 @@
   box-sizing: border-box;
   display: flex;
   height: 100%;
-  padding: 10px;
-  width: 84%;
-  margin-right: 8%;
-  margin-left: 8%;
+  padding: 5px 0px 5px 0px;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+  
 }
 .gnanT_box-body-fix1 .gnanT_user-name {
   
-  margin-right: 3%;
+  margin-right: 7%;
   font-family: Roboto, sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -250,6 +251,21 @@
     margin-right: 3%;
   }
 }
+.gnanT_content .coach-review{
+  margin-top: 20px;
+}
+.coach-review .gnanT_title_cmt {
+ 
+  height: auto;
+  text-align: center;
+  display: block;
+  font-family: Monsterrat, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 40.5px;
+  color: rbg(51, 51, 51);
+  margin-bottom: 15px;
+}
 .coach-review h2 {
   height: auto;
   text-align: center;
@@ -308,12 +324,20 @@ textarea {
   float: left;
   width: 15%;
   margin-top: 6px;
+  margin-left: 3%;
 }
 
 .coach-review .col-75 {
   float: left;
-  width: 85%;
+  width: 80%;
   margin-top: 6px;
+  margin-right: 2%;
+}
+.coach-review .sent-button{
+  margin-top: 2%;
+  width: 24%;
+  height: auto;
+  margin-left: 76%;
 }
 
 /* Clear floats after the columns */

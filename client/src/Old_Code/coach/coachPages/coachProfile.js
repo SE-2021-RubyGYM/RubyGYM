@@ -154,6 +154,14 @@ const CoachProfile = function () {
                 <div className="ad_xct_hlv_coach-name">
                   Tên tài khoản: {coachInfo.username}{" "}
                 </div>
+                
+                <div className="ad_xct_hlv_coach-name">
+                  Chuyên ngành: {coachInfo.major}
+                </div>
+                
+                </div>
+                </div>
+                <div className = "ad_xct_hlv_box-body">
                 <div className="ad_xct_hlv_coach-name">
                   <label for="datefinish"> Giới tính: </label>
 
@@ -173,6 +181,17 @@ const CoachProfile = function () {
                   </select>
                 </div>
                 <div className="ad_xct_hlv_coach-name">
+                  <label for="datefinish"> Ngày sinh: </label>
+                  < DatePicker
+                    selected={coachInfo.birthDay}
+                    onChange={(date) => {
+                      var newCoachInfo = { ...coachInfo };
+                      newCoachInfo.birthDay = date;
+                      setCoachInfo(newCoachInfo);
+                    }}
+                  />
+                </div>
+                <div className="ad_xct_hlv_coach-name">
                   <label for="datefinish"> Số điện thoại: </label>
                   <input
                     type="text"
@@ -187,24 +206,10 @@ const CoachProfile = function () {
                     }}
                   />
                 </div>
-
-                <div className="ad_xct_hlv_coach-name">
-                  <label for="datefinish"> Ngày sinh: </label>
-                  <DatePicker
-                    selected={coachInfo.birthDay}
-                    onChange={(date) => {
-                      var newCoachInfo = { ...coachInfo };
-                      newCoachInfo.birthDay = date;
-                      setCoachInfo(newCoachInfo);
-                    }}
-                  />
-                </div>
-                <div className="ad_xct_hlv_coach-name">
-                  Chuyên ngành: {coachInfo.major}
-                </div>
-              </div>
+                
+              
             </div>
-
+            
             <div className="ad_xct_hlv_box-body-fix">
               <div className="ad_xct_hlv_coach_manager_user">
                 <div className="ad_xct_hlv_list-user">
