@@ -200,7 +200,7 @@ axios({
         >
           <DropdownToggle nav caret className="navbar-dropdown-toggle">
             <span className={`${s.avatar} rounded-circle float-left mr-2`}>
-              <img src={userImg} alt="User" />
+              <img src={coachInfo.image} alt="User" />
             </span>
             <span className="small d-none d-sm-block ml-1 mr-2 body-1">
               {coachInfo.name}
