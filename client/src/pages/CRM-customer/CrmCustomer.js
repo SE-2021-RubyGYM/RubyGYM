@@ -15,10 +15,6 @@ import {
 import Widget from "../../components/Widget/Widget.js";
 import "font-awesome/css/font-awesome.min.css";
 
-import cloudIcon from "../../assets/tables/cloudIcon.svg";
-import funnelIcon from "../../assets/tables/funnelIcon.svg";
-import optionsIcon from "../../assets/tables/optionsIcon.svg";
-import printerIcon from "../../assets/tables/printerIcon.svg";
 import searchIcon from "../../assets/tables/searchIcon.svg";
 
 import s from "./Tables.module.scss";
@@ -28,11 +24,8 @@ import { Notification2 } from "../../components/Notification/Notification.js";
 import { toast } from "react-toastify";
 import "./styles.scss";
 import classNames from "classnames";
-import SelectCrm from "./components/SelectCrm.js";
-import { Select } from "antd";
 import AddForm from "./AddForm.js";
 import { customers, data, changeData } from "./data/customer.js";
-import { element } from "prop-types";
 import EditForm from "./EditForm";
 import { getCustomerList, deleteCustomerById, createUser } from "./api/api";
 const CrmCustomers = function () {

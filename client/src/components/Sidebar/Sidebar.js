@@ -43,7 +43,6 @@ const Sidebar = (props) => {
           index="dashboard"
           // badge="9"
         />
-
         <LinksGroup
           onActiveSidebarItemChange={(activeItem) =>
             props.dispatch(changeActiveSidebarItem(activeItem))
@@ -73,6 +72,16 @@ const Sidebar = (props) => {
           isHeader
           iconName={<i className={"eva eva-book-open-outline"} />}
           link="/admin/blogs"
+        />
+        <LinksGroup
+          onActiveSidebarItemChange={(activeItem) =>
+            props.dispatch(changeActiveSidebarItem(activeItem))
+          }
+          activeItem={props.activeItem}
+          header="Quản lý thanh toán"
+          isHeader
+          iconName={<i className={"eva eva-book-open-outline"} />}
+          link="/admin/payment"
         />
       </ul>
     </nav>

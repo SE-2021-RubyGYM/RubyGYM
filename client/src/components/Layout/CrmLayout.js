@@ -31,6 +31,7 @@ import EditBlog from "../../pages/EditBlog/Blog";
 import UserProfile from "../../Old_Code/user/userPages/userProfile";
 import CoachProfile from "../../Old_Code/coach/coachPages/coachProfile";
 import { useHistory } from "react-router";
+import CrmMoney from "../../pages/Crm-Money/CrmCustomer";
 const CrmLayout = (props) => {
   let history = useHistory();
   useEffect(() => {
@@ -57,6 +58,7 @@ const CrmLayout = (props) => {
             <Route path="/admin/blogs/addblog" exact component={AddBlog} />
             <Route path="/admin/blogs/:id" exact component={EditBlog} />
             <Route path="/admin/customers/:id" exact component={UserProfile} />
+            <Route path="/admin/payment" exact component={CrmMoney} />
             <Route path="*" exact render={() => <Redirect to="/error" />} />
           </Switch>
         </main>
