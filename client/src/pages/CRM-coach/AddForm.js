@@ -33,6 +33,7 @@ function AddForm(props) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [major, setMajor] = useState("Yoga");
   const [birthday, setBirthDay] = useState(new Date());
+  const [image, setImage] = useState("");
   return (
     <>
       <div>
@@ -100,6 +101,15 @@ function AddForm(props) {
                 value={phoneNumber}
                 onChange={(e) => {
                   setPhoneNumber(e.target.value);
+                }}
+              />
+              <label for="lname">Hình ảnh</label>
+              <input
+                type="text"
+                placeholder="Link hình ảnh"
+                value={image}
+                onChange={(e) => {
+                  setImage(e.target.value);
                 }}
               />
               <label for="fname">Ngày sinh</label>

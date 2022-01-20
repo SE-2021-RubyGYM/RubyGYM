@@ -47,7 +47,7 @@ const CoachDashboard = () => {
   weight: "Đang tải",
   paymentDay: "Đang tải",
   aim: "Trống",
-  
+  image :"",
   __v: 0,
 });
 useEffect(() => {
