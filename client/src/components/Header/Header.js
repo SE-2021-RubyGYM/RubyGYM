@@ -154,11 +154,11 @@ axios({
             className="navbar-dropdown notifications-dropdown"
             style={{ width: "340px" }}
           >
-            <DropdownItem>
+            {/* <DropdownItem>
               <img src={basketIcon} alt="Basket Icon" />
               <span>12 new orders have arrived today</span>
-            </DropdownItem>
-            <DropdownItem>
+            </DropdownItem> */}
+            {/* <DropdownItem>
               <div>
                 <div className="d-flex flex-row mb-1">
                   <img src={mariaImage} alt="Maria" className={s.mariaImage} />
@@ -184,7 +184,7 @@ axios({
             <DropdownItem>
               <img src={envelopeIcon} alt="Envelope Icon" />
               <span>you have 2 new messages</span>
-            </DropdownItem>
+            </DropdownItem> */}
           </DropdownMenu>
         </Dropdown>
         <Dropdown
@@ -206,18 +206,18 @@ axios({
             className="navbar-dropdown profile-dropdown"
             style={{ width: "194px" }}
           >
-            <DropdownItem className={s.dropdownProfileItem}>
+            {/* <DropdownItem className={s.dropdownProfileItem}>
               <ProfileIcon />
               <span>Profile</span>
-            </DropdownItem>
-            <DropdownItem className={s.dropdownProfileItem}>
+            </DropdownItem> */}
+            {/* <DropdownItem className={s.dropdownProfileItem}>
               <TasksIcon />
               <span>Tasks</span>
             </DropdownItem>
             <DropdownItem className={s.dropdownProfileItem}>
               <MessagesIcon />
               <span>Messages</span>
-            </DropdownItem>
+            </DropdownItem> */} 
             <NavItem>
               <button
                 className="btn btn-primary rounded-pill mx-auto logout-btn"

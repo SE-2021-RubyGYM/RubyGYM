@@ -3,7 +3,7 @@ import './userForm.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import NewFeed from '../../sub-sections/tung/newfeed';
+import NewFeedForUser from '../../sub-sections/tung/newfeedForUser';
 import { element } from 'prop-types';
 import { useParams } from 'react-router';
 import { BackEndBaseURL } from '../../../app/backend';
@@ -415,16 +415,29 @@ export default function UserDashBoard() {
         </div>
 
         <div className="main-content-ttsk" id="content_ttsk_play">
-          <NewFeed />
+          <NewFeedForUser />
         </div>
 
         <div className="main-content-schedule" id="content_schedule_play">
-          <UserSchedule />
-          <div className="content-user">
-            <div className="box-user">
-              <div className="box-body-user"></div>
+        <div className="content-header-user">
+            <div className="title">
+              <h2> Lịch tập của {userInfo.name} </h2>
             </div>
+
+            <div className="explain-title">
+              <p>Chúc bạn có khoảng thời gian tuyệt vời ở RubyGYM! </p>
+            </div>
+            <hr className="red-line" />
           </div>
+          
+          <div className="content-user">
+            <div className = "box-user1">
+          <UserSchedule />
+          </div>
+          
+          </div>
+          
+          
         </div>
       </div>
       )

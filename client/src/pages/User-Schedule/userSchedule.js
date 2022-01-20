@@ -54,7 +54,11 @@ function UserSchedule() {
         console.log(err.message);
       });
   }, []);
-
+  const workHourData = {
+    highlight: true,
+    start: '05:00',
+    end: '20:00'
+};
   return (
     <>
       <div className="schedule_titlebar">
@@ -65,6 +69,9 @@ function UserSchedule() {
       <div className="schedule_table">
         <ScheduleComponent
           height="100%"
+          startHour='05:00'
+          endHour='20:00'
+          workHours={workHourData}
           eventSettings={{
             dataSource: data,
             fields: {

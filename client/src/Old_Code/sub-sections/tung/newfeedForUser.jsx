@@ -9,7 +9,7 @@ import axios from 'axios';
 import { BackEndBaseURL } from '../../../app/backend';
 import { useParams } from "react-router-dom";
 
-export default function NewFeed(){
+export default function NewFeedForUser(){
 
     const [article,setData]=useState([
         {
@@ -64,7 +64,7 @@ export default function NewFeed(){
             {
                 article.map((element , index)=>{
                     return(
-                        <Link to = {"/user/blog/" + element._id}>
+                        <Link to = {"/user/blogforuser/" + element._id}>
                         <div className="section">
                             
                             <div className="image-wrapper">
