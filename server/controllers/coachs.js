@@ -22,7 +22,7 @@ module.exports = {
     }
   },
 
-  verifyCoachMe: async (req, res, next) => {
+  verifyCoachMe: async (req, res) => {
     if (!req.position || req.position != "Coach") {
       return res
         .status(401)

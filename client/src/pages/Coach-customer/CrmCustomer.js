@@ -172,11 +172,12 @@ const CoachCustomers = function () {
           {/* Filter */}
           <Row className="filter__root">
             <div className="filter__container">
-              {/* <img src={searchIcon} alt="Search" className="icon_search" /> */}
+              <img src={searchIcon} alt="Search" className="icon_search" />
               <input
                 type="text"
-                placeholder=""
+                placeholder="Tên khách hàng, ví dụ: Tùng"
                 value={filter.name}
+                style={{paddingLeft:"30px"}}
                 onChange={(e) => {
                   var newFilter = { ...filter };
                   newFilter.name = e.target.value;
@@ -232,11 +233,7 @@ const CoachCustomers = function () {
                             if (perfectName.length > perfectItem.length) {
                               return;
                             }
-                            // for (var i = 0; i < perfectName.length; i++) {
-                            //   if (perfectName[i] != perfectItem[i]) {
-                            //     return;
-                            //   }
-                            // }
+                            
                             if (perfectItem.search(perfectName) == -1) {
                               return;
                             }

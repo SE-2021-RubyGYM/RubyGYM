@@ -315,9 +315,10 @@ textarea {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
-  width: 60%;
+  width: auto;
   margin-right: 20%;
   margin-left: 20%;
+  box-shadow: #ff512f 0px 0px 1px 1px, #dd2476 0px 1px 1px 0px;
 }
 
 .coach-review .col-25 {
