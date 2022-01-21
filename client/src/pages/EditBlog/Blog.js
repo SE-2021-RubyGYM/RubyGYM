@@ -43,7 +43,7 @@ import { getAdvList, deleteAdvById, createUser, getAdvById } from "./api/api";
 import { useHistory } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
-
+import { BackEndBaseURL } from "../../app/backend";
 const EditBlog = function () {
   let { id } = useParams();
 
@@ -78,7 +78,7 @@ const EditBlog = function () {
 
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/adv",
+      url: BackEndBaseURL + "/api/adv",
       data: {
         creator: "Admin",
         title: titleValue.title,

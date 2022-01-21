@@ -128,8 +128,14 @@ const CrmCustomers = function () {
     // setFirstTable(newFirstTable);
     // changeData(newFirstTable);
   };
+  const [showPopupElment, setShowPopupElment] = useState(false);
+  const handleShowPopup = () => setShowPopupElment(true);
+
+  const [deleteIndex, setDeleteIndex] = useState(-1);
 
   const deleteCustom = async (index) => {
+    if (index < 0) return;
+
     var newTable = [...firstTable];
     var elementDeleted = newTable[index];
 
@@ -211,6 +217,48 @@ const CrmCustomers = function () {
           >
             Ok
           </button>
+        </div>
+      </Modal>
+      <Modal show={showPopupElment} onHide={() => setShowPopupElment(false)}>
+        <div className="modal_export__popup">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Error.svg/1200px-Error.svg.png" />
+          <h4
+            style={{
+              marginTop: "16px",
+            }}
+          >
+            Bạn có thực sự muốn xóa
+          </h4>
+          <div
+            style={{
+              width: "70%",
+              display: "flex",
+              "justify-content": "space-between",
+              marginBottom: "20px",
+              marginTop: "16px",
+            }}
+          >
+            <button
+              type="button"
+              className={"cancelbtn"}
+              onClick={() => setShowPopupElment(false)}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className={"cancelbtn"}
+              style={{
+                backgroundColor: "#e04d61",
+              }}
+              onClick={() => {
+                deleteCustom(deleteIndex);
+                setShowPopupElment(false);
+              }}
+            >
+              Yes
+            </button>
+          </div>
         </div>
       </Modal>
       <Row>
@@ -350,9 +398,10 @@ const CrmCustomers = function () {
                                 <i
                                   className="fa fa-trash hover-button"
                                   onClick={() => {
-                                    deleteCustom(
+                                    setDeleteIndex(
                                       index + firstTableCurrentPage * pageSize
                                     );
+                                    handleShowPopup();
                                   }}
                                 ></i>
                               </td>
