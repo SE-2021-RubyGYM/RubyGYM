@@ -110,10 +110,12 @@ function CoachSchedule() {
     })
       .then((res) => {
         if (res.status == 200) {
-          var newData1= new Date(data.endTime);
-          var newData2= new Date(data.startTime);
-          console.log(newData1.getTime());
-          console.log((newData2.getTime() - newData1.getTime())/1000/60);
+          // var newData1= new Date(data.endTime);
+          // var newData2= new Date(data.startTime);
+          // console.log("hh");
+          // console.log(data.startTime.getTime());
+          // console.log(newData1);
+          // console.log((newData2.getTime() - newData1.getTime())/1000/60);
           // console.log(data.endTime - data.startTime);
           // console.log(data.endHour - data.startHour);
           const notificationTypes = ["success", "error"];
