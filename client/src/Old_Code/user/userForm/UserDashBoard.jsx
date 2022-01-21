@@ -422,6 +422,9 @@ export default function UserDashBoard() {
                 <div className="user-name">
                   Hạn đăng kí: {userInfo.paymentDay}
                 </div>
+                <div className="user-name">
+                  Hạn đăng kí: {userInfo.referralCode}
+                </div>
               </div>
               <div className="box-body-fix">
                 <div className="user-name">Đánh giá: {userInfo.assessment}</div>
