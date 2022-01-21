@@ -201,12 +201,11 @@
 
 .login-panel {
   width: 30%;
-  height: 60%;
-  background-color: rgb(2, 2, 2);
-  background-image: linear-gradient(rgb(151, 10, 17), black);
+  height: 65%;
+  background-image: linear-gradient(#8f090e, black);
 
-  border: 1px solid rgb(160, 118, 118);
-  border-radius: 10px;
+  /* border: 1px solid rgb(160, 118, 118); */
+  border-radius: 5px;
   position: fixed;
   margin-left: 35vw;
   margin-top: 69px;
@@ -216,7 +215,7 @@
 }
 .login-panel h2 {
   display: inline-block;
-  color: rgb(255, 255, 255);
+  color: white;
   font-size: 50px;
   margin-bottom: 35px;
   margin-left: 12%;
@@ -251,22 +250,21 @@
   top: -1px;
 }
 .login-panel .submit-login {
-  width: 79%;
-  height: 18%;
+  width: 75%;
+  height: 14%;
   border: none;
   border-radius: 20px;
-  background-color: #ff3366;
   background-image: linear-gradient(#ff3366, black);
 
-  color: rgb(255, 255, 255);
+  color: white;
   font-size: 18px;
   margin-top: 35px;
   margin-left: 6%;
 }
 
 .login-panel .close-panel {
-  width: 55%;
-  height: 14%;
+  width: 50%;
+  height: 12%;
   border: none;
   border-radius: 20px;
   color: rgb(255, 255, 255);
@@ -274,6 +272,7 @@
   margin-top: 10px;
   margin-left: 18%;
   background-image: linear-gradient(rgb(151, 10, 17), black);
+
 }
 
 #event {

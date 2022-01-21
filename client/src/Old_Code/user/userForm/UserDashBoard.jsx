@@ -15,7 +15,11 @@ import { useHistory } from "react-router";
 
 export default function UserDashBoard() {
     let history= useHistory();
-
+  const [coachInfo, setCoachInfo] = useState(
+    {
+    name:"Đang tải",
+    }
+  );
   const [userInfo, setUserInfo] = useState({
     _id: 'Đang tải',
     name: 'Đang tải',
@@ -33,6 +37,7 @@ export default function UserDashBoard() {
     aim: 'Trống',
     __v: 0,
      createAt: "2020-03-05T04:51:01.000Z",
+    image:"https://wallpapercave.com/wp/wp9414303.jpg"
   });
   useEffect(() => {
     if (localStorage.getItem("accessToken") !== null) {
@@ -56,7 +61,30 @@ export default function UserDashBoard() {
         setUserInfo(res.data.result);
       }
     });
+    axios({
+      method: 'GET',
+      url: BackEndBaseURL + '/api/coachs/' + userInfo.coach,
+      
+    }).then((res) => {
+      if (res.status == 200 || res.status == true) {
+        setCoachInfo(res.data.result);
+      }
+    });
+  
+    
   }, []);
+  const getCoachName=()=>{
+      axios({
+      method: 'GET',
+      url: BackEndBaseURL + '/api/coachs/' + userInfo.coach,
+      
+    }).then((res) => {
+      console.log(res)
+      if (res.status == 200 || res.status == true) {
+        setCoachInfo(res.data.result);
+      }
+    });
+  }
   const handleSubmit = () => {
     var userInfoCopy = { ...userInfo };
 
@@ -197,7 +225,7 @@ export default function UserDashBoard() {
   useEffect(()=>{
     console.log()
   },[])
-
+  getCoachName();
   return (
     <div className="body_user_ui">
       <div className="main-header_user">
@@ -349,6 +377,7 @@ export default function UserDashBoard() {
                     }}
                   />
                 </div>
+                
               </div>
               <div className="box-body-fix">
                 <div className="user-name">
@@ -378,6 +407,7 @@ export default function UserDashBoard() {
                     }}
                   />
                 </div>
+             
               </div>
 
               <div className="box-body-fix">
@@ -397,6 +427,11 @@ export default function UserDashBoard() {
               </div>
               <div className="box-body-fix">
                 <div className="user-name">Đánh giá: {userInfo.assessment}</div>
+              </div>
+              
+              <div className="box-body-fix">
+                
+                <div className="user-name">Huấn luyện viên: {coachInfo.name}</div>
               </div>
 
               <div className="box-body-fix">

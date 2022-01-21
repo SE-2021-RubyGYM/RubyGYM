@@ -48,6 +48,7 @@ const UserProfile = function () {
     paymentDay: "2022/06/06",
     aim: "Trống",
     __v: 0,
+    image:"https://wallpapercave.com/wp/wp9414303.jpg"
   });
   const [coachs, setCoachs] = useState([]);
   useEffect(() => {
@@ -170,7 +171,7 @@ const UserProfile = function () {
               <div className="gnanT_box-body">
                 <div className="gnanT_user_image">
                   <img
-                    src="https://i.insider.com/5ab53db4095b111a068b45b6?width=700"
+                    src="https://wallpapercave.com/wp/wp9414303.jpg"
                     className="gnanT_image-user"
                   />
                 </div>
@@ -261,18 +262,18 @@ const UserProfile = function () {
                     <option value={12}> 12 tháng</option>
                   </select>
                 </div>
-                <div className="gnanT_user-name">
-                  <label> Số lượt chia sẻ mã ID </label>
-                  <input type="text" placeholder="" />
-                </div>
+                
                 <div className="gnanT_user-name">
                   <label> Thời gian gia hạn </label>
-                  <DatePicker
+                  <div style={{display:"inline-block"}}>
+                  <DatePicker 
+                    
                     selected={datePicker}
                     onChange={(e) => {
                       setDatePicker(e);
                     }}
                   />
+                  </div>
                 </div>
               </div>
             </div>

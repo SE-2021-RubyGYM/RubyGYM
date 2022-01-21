@@ -249,8 +249,9 @@ const Blog = function () {
             <div className="filter__container">
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
+                style={{paddingLeft:"30px"}}
                 type="text"
-                placeholder=""
+                placeholder="Tìm kiếm bài viết"
                 value={filter.name}
                 onChange={(e) => {
                   var newFilter = { ...filter };

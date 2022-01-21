@@ -212,15 +212,8 @@ function AddForm(props) {
                   setInvitedBy(e.target.value);
                 }}
               />
-              <label for="lname">Link hình ảnh</label>
-              <input
-                type="text"
-                placeholder="Link hình ảnh"
-                value={image}
-                onChange={(e) => {
-                  setUserImage(e.target.value);
-                }}
-              />
+              
+            
             </form>
           </div>
         </Modal.Body>
