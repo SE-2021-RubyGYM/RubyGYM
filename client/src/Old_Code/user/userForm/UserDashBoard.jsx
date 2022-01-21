@@ -230,9 +230,7 @@ export default function UserDashBoard() {
     <div className="body_user_ui">
       <div className="main-header_user">
         <nav>
-          <a href="">
-            <img src={element.image} className="logo" />
-          </a>
+          
 
           <div className="top-navbar">
             <div className="navbar-custom-menu">

@@ -28,8 +28,8 @@
   float: right;
   height: 100%;
   position: relative;
-  width: 70%;
-  margin-right: 5%;
+  width: 100%;
+  
 }
 .main-header_user .top-navbar .menu-navbar-icon {
   display: none;
@@ -39,8 +39,10 @@
   display: flex;
   float: right;
   height: 100%;
-  width: 100%;
+  width: 30%;
   outline-width: 0px;
+  margin-left: 35%;
+  margin-right: 35%;
 }
 .navbar-custom-menu .navbar-icon {
   box-sizing: border-box;
@@ -335,7 +337,7 @@ hr {
 }
 @media screen and (max-width: 1200px) {
   .main-header_user .top-navbar {
-    width: 600px;
+    width: 100%;
   }
   .navbar-custom-menu .navbar-icon {
     font-size: 15px;
