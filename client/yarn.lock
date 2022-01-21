@@ -7570,10 +7570,10 @@
     "@babel/runtime" "^7.12.1"
     "tiny-warning" "^1.0.3"
 
-"mini-css-extract-plugin@^2.4.5":
-  "integrity" "sha512-hWAswjzsausaaIjk4GiUtoiNnsMc8tLAA2TZ0vbMDZcxKYS/b3UBGNElBjgQ4QYztYR+nsKp5h2Lo1NL3zz2bg=="
-  "resolved" "https://registry.npmjs.org/mini-css-extract-plugin/-/mini-css-extract-plugin-2.5.0.tgz"
-  "version" "2.5.0"
+"mini-css-extract-plugin@^2.4.5", "mini-css-extract-plugin@2.4.7":
+  "integrity" "sha512-euWmddf0sk9Nv1O0gfeeUAvAkoSlWncNLF77C0TP2+WoPvy8mAHKOzMajcCz2dzvyt3CNgxb1obIEVFIRxaipg=="
+  "resolved" "https://registry.npmjs.org/mini-css-extract-plugin/-/mini-css-extract-plugin-2.4.7.tgz"
+  "version" "2.4.7"
   dependencies:
     "schema-utils" "^4.0.0"
 
