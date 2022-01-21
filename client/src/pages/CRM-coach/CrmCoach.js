@@ -167,13 +167,17 @@ const CrmCoachs = function () {
   });
   const [changeIndex, setChangeIndex] = useState(-1);
 
+  const [showPopupElment, setShowPopupElment] = useState(false);
+  const handleShowPopup = () => setShowPopupElment(true);
+
+  const [deleteIndex, setDeleteIndex] = useState(-1);
   return (
     <div>
       {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
       <Modal show={show} onHide={handleClose}>
         <AddForm handleClose={handleClose} submitForm={submitForm} />
       </Modal>
-      
+
       {/* Modal Export */}
       <Modal show={openExport} onHide={() => setOpenExport(false)}>
         <div className="modal_export__container">
@@ -186,6 +190,48 @@ const CrmCoachs = function () {
           >
             Ok
           </button>
+        </div>
+      </Modal>
+      <Modal show={showPopupElment} onHide={() => setShowPopupElment(false)}>
+        <div className="modal_export__popup">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Error.svg/1200px-Error.svg.png" />
+          <h4
+            style={{
+              marginTop: "16px",
+            }}
+          >
+            Bạn có thực sự muốn xóa
+          </h4>
+          <div
+            style={{
+              width: "70%",
+              display: "flex",
+              "justify-content": "space-between",
+              marginBottom: "20px",
+              marginTop: "16px",
+            }}
+          >
+            <button
+              type="button"
+              className={"cancelbtn"}
+              onClick={() => setShowPopupElment(false)}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className={"cancelbtn"}
+              style={{
+                backgroundColor: "#e04d61",
+              }}
+              onClick={() => {
+                deleteCustom(deleteIndex);
+                setShowPopupElment(false);
+              }}
+            >
+              Yes
+            </button>
+          </div>
         </div>
       </Modal>
       <Row>
@@ -214,7 +260,7 @@ const CrmCoachs = function () {
             <div className="filter__container">
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
-                style={{paddingLeft:"30px"}}
+                style={{ paddingLeft: "30px" }}
                 type="text"
                 placeholder="Tìm kiếm huấn luyện viên, ví dụ: Tùng"
                 value={filter.name}
@@ -319,9 +365,10 @@ const CrmCoachs = function () {
                                 <i
                                   className="fa fa-trash hover-button"
                                   onClick={() => {
-                                    deleteCustom(
+                                    setDeleteIndex(
                                       index + firstTableCurrentPage * pageSize
                                     );
+                                    handleShowPopup();
                                   }}
                                 ></i>
                               </td>

@@ -41,7 +41,7 @@ import { element } from "prop-types";
 import EditForm from "./EditForm";
 import { getAdvList, deleteAdvById, createUser } from "./api/api";
 import { useHistory } from "react-router-dom";
-
+import { BackEndBaseURL } from "../../app/backend";
 const AddBlog = function () {
   let history = useHistory();
 
@@ -71,7 +71,7 @@ const AddBlog = function () {
 
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/adv",
+      url: BackEndBaseURL + "/api/adv",
       data: {
         creator: "Admin",
         title: element.title,
@@ -110,11 +110,7 @@ const AddBlog = function () {
             error: "Đăng thất bại",
           };
           toast(
-            <Notification2
-              type={notificationName}
-              withIcon
-              msg={msg.success}
-            />,
+            <Notification2 type={notificationName} withIcon msg={msg.false} />,
             {
               autoClose: 4000,
               closeButton: false,

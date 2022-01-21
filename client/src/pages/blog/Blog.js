@@ -194,6 +194,10 @@ const Blog = function () {
   const handleShowChange = () => setShowChangeElment(true);
   const handleCloseChange = () => setShowChangeElment(false);
 
+  const [showPopupElment, setShowPopupElment] = useState(false);
+  const handleShowPopup = () => setShowPopupElment(true);
+
+  const [deleteIndex, setDeleteIndex] = useState(-1);
   return (
     <div>
       {/* <AddForm open={openAddForm} onClose={() => setOpenAddForm(false)} /> */}
@@ -219,6 +223,48 @@ const Blog = function () {
           >
             Ok
           </button>
+        </div>
+      </Modal>
+      <Modal show={showPopupElment} onHide={() => setShowPopupElment(false)}>
+        <div className="modal_export__popup">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Error.svg/1200px-Error.svg.png" />
+          <h4
+            style={{
+              marginTop: "16px",
+            }}
+          >
+            Bạn có thực sự muốn xóa
+          </h4>
+          <div
+            style={{
+              width: "70%",
+              display: "flex",
+              "justify-content": "space-between",
+              marginBottom: "20px",
+              marginTop: "16px",
+            }}
+          >
+            <button
+              type="button"
+              className={"cancelbtn"}
+              onClick={() => setShowPopupElment(false)}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className={"cancelbtn"}
+              style={{
+                backgroundColor: "#e04d61",
+              }}
+              onClick={() => {
+                deleteCustom(deleteIndex);
+                setShowPopupElment(false);
+              }}
+            >
+              Yes
+            </button>
+          </div>
         </div>
       </Modal>
       <Row>
@@ -249,7 +295,7 @@ const Blog = function () {
             <div className="filter__container">
               <img src={searchIcon} alt="Search" className="icon_search" />
               <input
-                style={{paddingLeft:"30px"}}
+                style={{ paddingLeft: "30px" }}
                 type="text"
                 placeholder="Tìm kiếm bài viết"
                 value={filter.name}
@@ -269,7 +315,6 @@ const Blog = function () {
               <Widget>
                 <div className={s.tableTitle}>
                   <div></div>
-           
                 </div>
                 <div className="widget-table-overflow">
                   <Table
@@ -355,9 +400,10 @@ const Blog = function () {
                                 <i
                                   className="fa fa-trash hover-button"
                                   onClick={() => {
-                                    deleteCustom(
+                                    setDeleteIndex(
                                       index + firstTableCurrentPage * pageSize
                                     );
+                                    handleShowPopup();
                                   }}
                                 ></i>
                               </td>
