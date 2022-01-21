@@ -71,9 +71,18 @@ const UserProfile = function () {
   }, []);
   const handleSubmit = () => {
     var userInfoCopy = { ...userInfo };
-
+    var pay = payment;
+    if (
+      (Date.now() - new Date(userInfo.createAt).getTime()) /
+        (1000 * 60 * 60 * 24 * 365) >
+      1
+    ) {
+      if (pay == 12) {
+        pay = 15;
+      }
+    }
     setDatePicker(
-      new Date(datePicker.getTime() + 1000 * 30 * 24 * 60 * 60 * payment)
+      new Date(datePicker.getTime() + 1000 * 30 * 24 * 60 * 60 * pay)
     );
 
     userInfoCopy.paymentDay = datePicker.toString();

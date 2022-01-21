@@ -54,7 +54,7 @@ const CrmCoachs = function () {
       }
     }
   }, []);
-  let History = useHistory()
+  let History = useHistory();
   const [secondTable] = useState(mock.secondTable);
   const [transactions, setTransactions] = useState(mock.transactionsWidget);
   const [tasks, setTasks] = useState(mock.tasksWidget);
@@ -113,6 +113,11 @@ const CrmCoachs = function () {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [show1, setShow1] = useState(false);
+
+  const handleClose1 = () => setShow1(false);
+  const handleShow1 = () => setShow1(true);
+
   const submitForm = async (info) => {
     var newFirstTable = [...firstTable];
     var success = await createHLV(info);
@@ -168,6 +173,7 @@ const CrmCoachs = function () {
       <Modal show={show} onHide={handleClose}>
         <AddForm handleClose={handleClose} submitForm={submitForm} />
       </Modal>
+      
       {/* Modal Export */}
       <Modal show={openExport} onHide={() => setOpenExport(false)}>
         <div className="modal_export__container">
@@ -227,7 +233,6 @@ const CrmCoachs = function () {
               <Widget>
                 <div className={s.tableTitle}>
                   <div></div>
-                 
                 </div>
                 <div className="widget-table-overflow">
                   <Table
@@ -307,9 +312,7 @@ const CrmCoachs = function () {
                                   className="fa fa-edit"
                                   style={{ marginRight: "10px" }}
                                   onClick={() => {
-                                    History.push(
-                                    "/admin/coachs/"+item._id
-                                    )
+                                    History.push("/admin/coachs/" + item._id);
                                   }}
                                 ></i>
                                 <i
