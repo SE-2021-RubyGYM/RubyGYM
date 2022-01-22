@@ -1,1 +1,1 @@
-export const BackEndBaseURL = "https://ruby-gym-new.herokuapp.com";
+export const BackEndBaseURL = "http://localhost:5000";
